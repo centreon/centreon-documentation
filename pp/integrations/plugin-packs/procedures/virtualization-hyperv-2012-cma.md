@@ -1,7 +1,7 @@
 ---
 id: virtualization-hyperv-2012-cma
 title: Hyper-V 2012 CMA
-description: "Monitor Microsoft Hyper-V 2012 nodes and SCVMM via CMA: VM status, integration services, replication, and snapshots."
+description: "Monitor Microsoft Hyper-V 2012 nodes and SCVMM via the Centreon Monitoring Agent: VM status, integration services, replication, and snapshots."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -575,3 +575,8 @@ All available options for a given mode can be displayed by adding the
     --mode=scvmm-vm-status \
 	--help
 ```
+
+## Changelog
+
+- [25.12](../releases/release-notes.md#2025-12) - Enhancement: All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [25.09](../releases/release-notes.md#2025-09) - New connector: Initial release of Hyper-V 2012 CMA.

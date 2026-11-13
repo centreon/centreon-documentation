@@ -1,7 +1,7 @@
 ---
 id: event-console
 title: Consoles d'évènements
-description: "Interfaces dépréciées pour visualiser le statut des hôtes et services"
+description: "Référence des consoles d'évènements dépréciées de Centreon : colonnes et filtres des vues hôtes, services et groupes, et pages de détails des ressources."
 ---
 
 > Certaines de ces interfaces sont **dépréciées** et remplacées par la page
@@ -44,9 +44,7 @@ les différentes fonctions de ces icônes :
 > évènements](resources-status.md#lister-les-évènements).
 
 Pour visualiser le statut des hôtes, rendez-vous dans le menu
-**Monitoring > Status Details > Hosts**.
-
-![image](../assets/alerts/04unhandledproblems.png)
+**Monitoring > Status Details > Hosts** (menu visible uniquement si l'option **Utiliser les pages dépréciées** est sélectionnée, voir ci-dessus).
 
 ### Description des colonnes
 
@@ -137,7 +135,7 @@ détails de la ressource.
 -   **Host Informations** : Détails sur l'hôte
 -   **Comments** : Commentaires de l'hôte disponibles
 
-![image](../assets/alerts/04hostdetail.png)
+Ces informations sont également disponibles dans le [panneau d'hôte](resources-status.md#panneau-dhôte) de la page **Statut des ressources**.
 
 ### Détails du statut
 
@@ -199,9 +197,7 @@ contacts liés à l'hôte qui recevront notifications.
 > évènements](resources-status.md#lister-les-évènements).
 
 Pour visualiser le statut des services, rendez-vous dans le menu
-**Monitoring > Status Details > Services**.
-
-![image](../assets/alerts/04servicelist.png)
+**Monitoring > Status Details > Services** (page dépréciée).
 
 ### Description des colonnes
 
@@ -265,9 +261,7 @@ Pour voir tous les services (regroupés par hôte) dans n'importe quel
 ![image](../assets/alerts/04servicelistbyhostdetail.png)
 
 Pour afficher le nombre de services (regroupés par hôte et par statut),
-choisissez l'option **Summary** pour le filtre **Display** :
-
-![image](../assets/alerts/04servicelistbyhost.png)
+choisissez l'option **Summary** pour le filtre **Display**.
 
 ## Services by Hostgroup
 
@@ -279,9 +273,7 @@ l'option **Details** pour le filtre **Display** :
 ![image](../assets/alerts/04servicelistbyhostgroupdetail.png)
 
 Pour afficher le nombre de services (regroupés par groupe d'hôtes et par
-statut), choisissez l'option **Summary** pour le filtre **Display** :
-
-![image](../assets/alerts/04servicelistbyhostgroup.png)
+statut), choisissez l'option **Summary** pour le filtre **Display**.
 
 ## Services by Servicegroup
 
@@ -293,9 +285,7 @@ l'option **Details** pour le filtre **Display** :
 ![image](../assets/alerts/04servicelistbyservicegroupdetail.png)
 
 Pour afficher le nombre de services (regroupés par groupe de services),
-choisissez l'option **Summary** pour le filtre **Display** :
-
-![image](../assets/alerts/04servicelistbyservicegroup.png)
+choisissez l'option **Summary** pour le filtre **Display**.
 
 ## Service Details (dépréciée)
 
@@ -303,9 +293,7 @@ choisissez l'option **Summary** pour le filtre **Display** :
 > **Statut des ressources** et la [panneau de
 > service](resources-status.md#panneau-de-service).
 
-Lorsque vous cliquez sur un service, l'écran suivant apparaît:
-
-![image](../assets/alerts/04servicedetail.png)
+Lorsque vous cliquez sur un service, la page de détails du service s'affiche. Ces informations sont également disponibles dans le [panneau de service](resources-status.md#panneau-de-service) de la page **Statut des ressources**.
 
 ### Détails du statut
 

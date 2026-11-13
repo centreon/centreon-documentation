@@ -1,7 +1,7 @@
 ---
 id: sc-hp-bsm
 title: BSM
-description: "Send Centreon state change events to Micro Focus BSM"
+description: "Install and configure the BSM stream connector to send Centreon host and service state changes to Micro Focus BSM through its webservice, and uninstall it."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

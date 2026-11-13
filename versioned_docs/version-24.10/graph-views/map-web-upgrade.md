@@ -1,7 +1,7 @@
 ---
 id: map-web-upgrade
 title: Upgrading MAP
-description: "Upgrade Centreon MAP to a new major version"
+description: "Upgrade Centreon MAP to a new major version: update the RPM signing key, stop the MAP Engine service, then update the web client and engine packages."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-web-appservice
 title: Azure App Service
-description: "Monitor Azure App Service via the Azure API: track CPU time, memory, HTTP requests, response time, and app health."
+description: "Monitor Azure App Service via the Azure API: CPU time, memory, HTTP requests, response time, I/O, file system, and app health, with host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -795,3 +795,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=cpu-time \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [23.08](../releases/release-notes.md#2023-08) - Enhancement: Removed privatebytes threshold from Memory service.
+- [22.06](../releases/release-notes.md#2022-06) - Bug fix: Fixed extra newlines in commands definition causing failures during CLAPI import.

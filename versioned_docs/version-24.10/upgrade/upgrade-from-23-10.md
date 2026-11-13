@@ -1,7 +1,7 @@
 ---
 id: upgrade-from-23-10
 title: Upgrade from Centreon 23.10
-description: "Upgrade a Centreon platform from version 23.10 to 24.10"
+description: "Upgrade Centreon from version 23.10 to 24.10: back up your data, upgrade the central server and its database, then remote servers and pollers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -82,7 +82,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 1. Update your Centreon 23.10 to the latest minor version.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/centreon-23.10-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/archives/repo-files/standard/rpm/23.10/el8/centreon-23.10.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -109,7 +109,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 1. Update your Centreon 23.10 to the latest minor version.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el9/centreon-23.10-el9.repo
+   dnf config-manager --add-repo https://packages.centreon.com/archives/repo-files/standard/rpm/23.10/el9/centreon-23.10.repo
    dnf clean all --enablerepo=*
    dnf update
    ```

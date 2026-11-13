@@ -1,7 +1,7 @@
 ---
 id: applications-quadstor-nrpe
 title: Quadstor NSClient++ NRPE
-description: "Monitor Quadstor VTL backup appliances via NRPE: disk usage, backup job status, and tape usage."
+description: "Monitor Quadstor VTL backup appliances via NSClient++ NRPE: disk usage, backup job status including long and frozen jobs, and tape usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -406,3 +406,7 @@ All available options for a given mode can be displayed by adding the
 	--filter-name="" \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.

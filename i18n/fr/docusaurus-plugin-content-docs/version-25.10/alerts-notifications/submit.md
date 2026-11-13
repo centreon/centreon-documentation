@@ -1,7 +1,7 @@
 ---
 id: submit
 title: Soumettre un résultat
-description: "Soumettre manuellement un résultat pour un service à contrôle passif"
+description: "Soumettez manuellement un résultat pour un service en contrôle passif depuis la page Statut des ressources de Centreon, pour que l'ordonnanceur le traite."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

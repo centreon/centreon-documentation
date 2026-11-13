@@ -1,7 +1,7 @@
 ---
 id: network-dell-sseries-snmp
 title: Dell S-series SNMP
-description: "Supervisez les commutateurs réseau Dell S-series via SNMP : CPU, mémoire, état du matériel et trafic des interfaces."
+description: "Supervisez les commutateurs réseau Dell S-series via SNMP : CPU, mémoire, état du matériel et trafic des interfaces, avec découverte des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -541,3 +541,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.04](../releases/release-notes.md#2024-04) - Enhancement: New filtering option supported for the SNMP IDs of the interfaces.

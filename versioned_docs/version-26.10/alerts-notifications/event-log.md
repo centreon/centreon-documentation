@@ -1,7 +1,7 @@
 ---
 id: event-log
 title: Event Logs
-description: "View status changes and sent notifications in the event log"
+description: "View the Centreon event logs to see host and service status changes and the notifications sent, and filter them by period, resource, or group."
 ---
 
 Use event logs to:
@@ -22,7 +22,5 @@ view logs for. You can also filter by servicegroup or hostgroup.
     - **Log Period**: select predefined time periods
     - **From**/**To**: enter specific dates.
 
-- You can export the result in CSV or XML format using the export
-buttons above the list, to the right:
-
-![image](../assets/alerts/event_logs_export.png)
+- You can export the result in CSV or XML format using the **CSV** and **XML**
+icons above the list, to the right.

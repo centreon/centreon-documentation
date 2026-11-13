@@ -1,7 +1,7 @@
 ---
 id: network-aerohive-snmp
 title: Aerohive SNMP
-description: "Monitor Aerohive wireless access points via SNMP: track connected users and network interface traffic."
+description: "Monitor Aerohive wireless access points via SNMP: connected users in total and per SSID, plus network interface traffic, with host and interface discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

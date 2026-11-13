@@ -1,7 +1,7 @@
 ---
 id: monitor-cisco-router-with-snmp
 title: Monitor your first Cisco router
-description: "Monitor a Cisco router using the SNMP protocol"
+description: "Monitor a Cisco router with Centreon over SNMP: configure SNMP on the device, install the Cisco standard connector, then create and deploy the host."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -33,13 +33,6 @@ The target device must be reachable from the Centreon Poller on the UDP/161 SNMP
 Connect to your poller using SSH and install the Cisco standard plugin (see the [monitoring procedure for the **Cisco standard** Monitoring Connector](/pp/integrations/plugin-packs/procedures/network-cisco-standard-snmp) for more information):
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf install centreon-plugin-Network-Cisco-Standard-Snmp
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
@@ -47,7 +40,14 @@ dnf install centreon-plugin-Network-Cisco-Standard-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf install centreon-plugin-Network-Cisco-Standard-Snmp
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-plugin-network-cisco-standard-snmp
@@ -59,15 +59,11 @@ apt install centreon-plugin-network-cisco-standard-snmp
 
 ### On the central server
 
-In the web interface, go to **Configuration > Connectors > Monitoring Connectors**, search for the **Cisco standard** Monitoring Connector; and install it:
-
-![image](../assets/getting-started/quick_start_cisco_0.gif)
+In the web interface, go to **Configuration > Connectors > Monitoring Connectors**, search for **Cisco Standard SNMP**, then click the **+** icon on the Monitoring Connector's tile to install it.
 
 ## Configure the host and deploy the configuration
 
-1. Go to **Configuration > Hosts > Hosts** and click **Add**:
-
-  ![image](../assets/getting-started/quick_start_cisco_1.gif)
+1. Go to **Configuration > Hosts > Hosts** and click **Add**.
 
 2. Input the following information:
 
@@ -81,25 +77,17 @@ In the web interface, go to **Configuration > Connectors > Monitoring Connectors
 
   ![image](../assets/getting-started/quick_start_cisco_2.png)
 
-4. Click **Save**(8). Your device has been added to the list of hosts:
-
-  ![image](../assets/getting-started/quick_start_cisco_3.png)
+4. Click **Save**(8). Your device has been added to the list of hosts in **Configuration > Hosts > Hosts**.
 
 5. Go to **Configuration > Services > Services by host**. A set of indicators has been created automatically.
 
-  ![image](../assets/getting-started/quick_start_cisco_4a.png)
-
-  You can also use the shortcut beside the host's name to go directly to **Configuration > Services > Services by host**. The list will be filtered by host name:
-
-  ![image](../assets/getting-started/quick_start_cisco_4b.png)
+  You can also click the **Display all Services for this host** icon beside the host's name to go directly to **Configuration > Services > Services by host**. The list will be filtered by host name:
 
   ![image](../assets/getting-started/quick_start_cisco_5.png)
 
 6. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
-7. Go to **Monitoring > Resources Status** and select **All** from the **Resource status** filter. At first, the resources appear with the status **Pending**, which means that no checks have been executed yet:
-
-   ![image](../assets/getting-started/quick_start_cisco_6.png)
+7. Go to **Monitoring > Resources Status** and select **All** from the **Resource status** filter. At first, the resources appear with the status **Pending**, which means that no checks have been executed yet.
 
    After a few minutes, the first results of the monitoring appear:
 

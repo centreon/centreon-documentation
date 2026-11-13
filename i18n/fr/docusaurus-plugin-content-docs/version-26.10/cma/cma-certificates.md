@@ -1,7 +1,7 @@
 ---
 id: cma-certificates
 title: Configurer les certificats
-description: "Configurer les certificats TLS pour la communication agent-collecteur CMA"
+description: "Configurez les certificats TLS qui sécurisent la communication entre Centreon Monitoring Agent (CMA) et le collecteur, ou testez sans chiffrement."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -14,6 +14,16 @@ La connexion TLS (1.3) est négociée par le client (collecteur ou agent selon l
 Selon le sens de connexion, l'agent/le collecteur vérifie que l'IP/DNS utilisée pour atteindre le serveur correspond strictement aux informations du certificat.
 Si ce n'est pas le cas, la connexion est refusée.
 La vérification est faite sur les blocs **subject** et **alt_names** du certificat, qui peuvent contenir plusieurs DNS, IP ou CN.
+
+> **Important** : en mode TLS, le nom d'hôte ou l'IP que vous déclarez comme endpoint (le paramètre **Poller endpoint**/**endpoint** côté agent, ou l'adresse de l'hôte côté collecteur) ne sert pas uniquement à établir la connexion réseau : c'est aussi la valeur vérifiée par rapport aux SAN (SubjectAltNames) ou au CN du certificat lors de la négociation TLS. Un test de connectivité telnet/TCP réussi sur un nom d'hôte donné ne garantit **pas** que la négociation TLS aboutira avec ce même nom d'hôte : si la valeur ne correspond à aucune entrée SAN/CN du certificat, la connexion sera refusée au niveau TLS, même si le chemin réseau est ouvert.
+>
+> Nous recommandons de déclarer l'endpoint avec une valeur (FQDN ou IP) réellement présente dans la liste des SAN du certificat. Consultez [comment générer un certificat autosigné](#comment-générer-un-certificat-autosigné-facultatif) pour savoir comment les noms alternatifs DNS et IP sont déclarés et pris en compte.
+
+> **Certificats automatiques** : le certificat que Centreon génère automatiquement pour un collecteur (voir [Comment sont gérés les certificats ?](cma-setup.md#comment-sont-gérés-les-certificats-)) contient uniquement le **nom d'hôte** du collecteur (par exemple `ip-10-25-10-99.eu-west-1.compute.internal`), et non son adresse IP. Par conséquent :
+>
+> * Utilisez le nom d'hôte du collecteur comme endpoint de l'agent, et assurez-vous que la machine sur laquelle l'agent est installé peut résoudre ce nom (DNS ou fichier `hosts`).
+> * Si l'agent se connecte au collecteur en utilisant son adresse IP, la connexion est refusée. La commande d'installation prête à l'emploi affichée dans Centreon peut proposer l'adresse IP du collecteur comme endpoint : remplacez-la par le nom d'hôte du collecteur avant d'exécuter la commande.
+> * Pour vous connecter avec une adresse IP, utilisez un certificat personnalisé qui contient cette adresse IP dans ses SAN (voir [comment générer un certificat autosigné](#comment-générer-un-certificat-autosigné-facultatif)).
 
 ### Fichiers de certificat
 
@@ -184,6 +194,8 @@ Vous pouvez configurer une connexion non chiffrée **à des fins de test uniquem
 
 > Notez que cette connexion ne durera qu'une heure. N'utilisez pas ce paramètre en production !
 
+> **Avertissement de sécurité** : en mode **No TLS**, tout le trafic entre l'agent et le collecteur circule en clair, y compris le jeton d'authentification. Toute personne capable d'intercepter ce trafic peut lire le jeton et le réutiliser.
+
 Pour configurer ce mode, sélectionnez **No TLS** dans la liste **Niveau de chiffrement** de la fenêtre [**Configuration collecteur/agent**](cma-setup-manual.md#configurez-la-communication-collecteuragent).
 
 L'agent sera configuré de la manière suivante sur l'hôte :
@@ -222,3 +234,13 @@ L'agent sera configuré de la manière suivante sur l'hôte :
 
 </TabItem>
 </Tabs>
+
+### Passer du mode No TLS au mode TLS
+
+Le jeton d'authentification ayant circulé en clair tant que la connexion n'était pas chiffrée, nous vous recommandons de le remplacer lorsque vous passez à un mode chiffré (TLS ou TLS non sécurisé) :
+
+1. [Créez un nouveau jeton d'authentification](cma-setup-manual.md#créez-un-jeton-dauthentification) de type **Centreon Monitoring Agent**.
+2. Dans la fenêtre [**Configuration collecteur/agent**](cma-setup-manual.md#configurez-la-communication-collecteuragent), sélectionnez le nouveau niveau de chiffrement et renseignez les chemins des fichiers de certificat (voir les sections [TLS](#tls) et [TLS non sécurisé](#tls-non-sécurisé)). Si le collecteur se connecte à l'agent, sélectionnez également le nouveau jeton pour chaque hôte.
+3. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+4. Sur chaque hôte, [mettez à jour la configuration de l'agent](cma-setup-manual.md#mettre-à-jour-une-configuration-existante) avec le nouveau jeton et les paramètres de chiffrement.
+5. Une fois que tous les agents utilisent le nouveau jeton, allez à la page **Administration > Jetons d'authentification** et supprimez ou désactivez l'ancien jeton, puis [déployez à nouveau la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).

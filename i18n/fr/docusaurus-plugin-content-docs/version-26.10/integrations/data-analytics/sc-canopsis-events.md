@@ -1,7 +1,7 @@
 ---
 id: sc-canopsis-events
 title: Canopsis Events
-description: "Envoyer les évènements hôtes, services, acquittements et maintenances vers Canopsis"
+description: "Configurez le stream connector Canopsis Events pour envoyer à Canopsis les évènements d'hôtes, de services, d'acquittements et de plages de maintenance."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -39,14 +39,6 @@ client SSH préféré.
 2. Exécutez la commande adaptée à votre système :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-stream-connector-canopsis
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -55,7 +47,15 @@ dnf install centreon-stream-connector-canopsis
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-stream-connector-canopsis
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-stream-connector-canopsis
@@ -440,3 +440,12 @@ curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-
 3. Vérifiez que l'évènement a bien été reçu par Canopsis : les statuts doivent apparaître à la page **Alarmes > En Cours** de Canopsis.
 
 ![image](../../assets/integrations/data-analytics/status.png)
+
+## Historique des modifications
+
+- [26.08](../stream-connectors-rn.md#2026-08) - Bug fix: Fixed crashes on host acknowledgement events.
+- [26.07](../stream-connectors-rn.md#2026-07) - Enhancement: Added bulk events. For more technical information, see [PR 274](https://github.com/centreon/centreon-stream-connector-scripts/pull/274).
+- [26.07](../stream-connectors-rn.md#2026-07) - Bug fix: Fixed downtime names/IDs that weren't unique. Fixed a library that wasn't properly detecting the status of a host/service in a downtime event.
+- [25.02](../stream-connectors-rn.md#2025-02) - Bug fix: Fixed downtimes.
+- [24.05](../stream-connectors-rn.md#2024-05) - Enhancement: Enhanced a lot of functionalities to catch up with the new version of Canopsis (24.04).
+- [23.01](../stream-connectors-rn.md#2023-01) - New stream connector: Initial release of Canopsis Events.

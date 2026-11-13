@@ -1,7 +1,7 @@
 ---
 id: network-ibm-bladecenter-snmp
 title: IBM Bladecenter Switch SNMP
-description: "Monitor IBM BladeCenter switch modules via SNMP: CPU, memory, storage, network traffic, temperature, and uptime."
+description: "Monitor IBM BladeCenter switch modules via SNMP: CPU, memory, storage, interface traffic, temperature, fault LED, NTP time offset, and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -189,3 +189,7 @@ If you get this message, you're probably facing one of theses issues:
 
 This message generally means that SNMP privileges are not wide enough for the
 mode/plugin to work properly.
+
+## Changelog
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Net-IBM-Bladecenter-SNMP-Time** command.

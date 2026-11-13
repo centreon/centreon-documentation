@@ -1,7 +1,7 @@
 ---
 id: submit
 title: Submitting a status
-description: "Manually submit a status result for a passively checked service"
+description: "Manually submit a status result for a passively checked service in Centreon from the Resources Status page, so that the scheduler takes it into account."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

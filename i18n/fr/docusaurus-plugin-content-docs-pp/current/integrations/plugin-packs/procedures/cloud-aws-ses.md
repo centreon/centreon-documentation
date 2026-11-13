@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-ses
 title: Amazon SES
-description: "Supervisez Amazon SES via l'API CloudWatch d'AWS : emails envoyés, délivrés, rejetés et signalés comme spam."
+description: "Supervisez Amazon SES via l'API CloudWatch d'AWS : nombre d'e-mails envoyés et délivrés, taux d'e-mails rejetés et signalés comme spam."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -372,3 +372,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=emails \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.

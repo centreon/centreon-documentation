@@ -1,7 +1,7 @@
 ---
 id: upgrade-from-22-10
 title: Montée de version depuis Centreon 22.10
-description: "Passer une plateforme Centreon de la version 22.10 à la 24.10"
+description: "Mettez à jour Centreon de la 22.10 vers la 24.10 : sauvegardez, mettez à jour le serveur central et sa base, puis les serveurs distants et collecteurs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -84,7 +84,7 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 1. Mettez à jour votre Centreon 22.10 jusqu'à la dernière version mineure.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/22.10/el8/centreon-22.10-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/archives/repo-files/standard/rpm/22.10/el8/centreon-22.10.repo
    dnf clean all --enablerepo=*
    dnf update
    ```

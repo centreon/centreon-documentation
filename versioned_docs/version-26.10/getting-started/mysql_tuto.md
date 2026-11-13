@@ -1,7 +1,7 @@
 ---
 id: monitor-mysql-server
 title: Monitor a MySQL or MariaDB database
-description: "Monitor a MySQL or MariaDB database using Centreon"
+description: "Monitor a MySQL or MariaDB database with Centreon: create a user with the required privileges, install the connector, then create and deploy the host."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,13 +32,6 @@ GRANT SELECT ON *.* TO 'username'@'IP_POLLER';
 Install the following plugin on the poller that will monitor your database:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf install centreon-plugin-Applications-Databases-Mysql
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
@@ -46,7 +39,14 @@ dnf install centreon-plugin-Applications-Databases-Mysql
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf install centreon-plugin-Applications-Databases-Mysql
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-plugin-applications-databases-mysql
@@ -65,9 +65,7 @@ Go to **Configuration > Connectors > Monitoring Connectors** and install the **M
 
 ## Set up the host and deploy the configuration
 
-1. Go to **Configuration > Hosts > Hosts** and click **Add**:
-
-  ![image](../assets/getting-started/quick_start_mysql_1a.gif)
+1. Go to **Configuration > Hosts > Hosts** and click **Add**.
 
 2. Input the following information:
 
@@ -90,9 +88,7 @@ Go to **Configuration > Connectors > Monitoring Connectors** and install the **M
   * **MySQLPASSWORD**: the password associated with this user.
   * **MySQLPORT**: the listening port of the database, by default 3306.
 
-5. Click **Save**. Your device has been added to the list of hosts:
-
-  ![image](../assets/getting-started/quick_start_mysql_2.png)
+5. Click **Save**. Your device has been added to the list of hosts.
 
 6. Go to **Configuration > Services > Services by host**. A set of indicators has been deployed automatically:
 

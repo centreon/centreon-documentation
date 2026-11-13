@@ -1,7 +1,7 @@
 ---
 id: other
 title: Autres actions
-description: "Ajouter des commentaires, gérer les contrôles et reprogrammer les vérifications"
+description: "Ajoutez des commentaires aux hôtes et services dans Centreon, activez ou désactivez leurs contrôles et notifications, et reprogrammez un contrôle immédiat."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -42,9 +42,7 @@ Pour ajouter un commentaire, deux solutions sont possibles :
 </TabItem>
 </Tabs>
 
-La fenêtre suivante s'affiche :
-
-![image](../assets/alerts/comment.png)
+Dans la fenêtre qui s'affiche :
 
 -   Le champ **Host Name** définit l'hôte concerné par le commentaire
 -   Si vous avez choisi d'ajouter un commentaire pour un service, le

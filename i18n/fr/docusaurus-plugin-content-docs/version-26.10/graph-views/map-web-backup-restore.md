@@ -1,7 +1,7 @@
 ---
 id: map-web-backup-restore
 title: Sauvegarder et restaurer votre serveur Centreon MAP
-description: "Sauvegarder et restaurer la configuration et la base de données du serveur MAP"
+description: "Sauvegardez la configuration et la base centreon_map du serveur Centreon MAP via la tâche cron quotidienne, réglez ses paramètres et restaurez vos données."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -15,7 +15,7 @@ Les éléments sauvegardés sont :
 - Les fichiers de configuration (**/etc/centreon-map**)
 - La base de données **centreon\_map**
 
-### Comment ça marche ?
+### Fonctionnement
 
 Le script de sauvegarde est exécuté quotidiennement (2 heures du matin) avec une tâche cron située dans **/etc/cron.d/centreon-map-engine-backup** :
 

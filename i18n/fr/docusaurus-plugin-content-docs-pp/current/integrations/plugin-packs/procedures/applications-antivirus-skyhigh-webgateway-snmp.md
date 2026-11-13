@@ -614,3 +614,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=https-statistics \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.12](../releases/release-notes.md#2024-12) - New connector: Replaced the McAfee Webgateway connector following the McAfee Webgateway OID [end-of-life announcement](https://success.skyhighsecurity.com/Skyhigh_Secure_Web_Gateway_(On_Prem)/Secure_Web_Gateway_Overview/End-of-life_(EOL)_Dates_for_Secure_Web_Gateway).

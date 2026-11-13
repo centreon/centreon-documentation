@@ -1,7 +1,7 @@
 ---
 id: sc-service-now-em-events
 title: ServiceNow Event Manager Events
-description: "Send host and service status events to ServiceNow Event Manager"
+description: "Install and configure the ServiceNow Event Manager Events stream connector to send Centreon host and service status events to ServiceNow using OAuth."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -28,14 +28,6 @@ Perform the installation on the server that will send data to ServiceNow Event M
 2. Run the following command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-stream-connector-servicenow
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -44,7 +36,15 @@ dnf install centreon-stream-connector-servicenow
 
 </TabItem>
 
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-stream-connector-servicenow
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-stream-connector-servicenow
@@ -233,3 +233,10 @@ The *`<access_token>`* is obtained thanks to **[this curl](#get-oauth-tokens)**.
 
 3. Check that the event has been received by ServiceNow Event Manager.
 
+## Changelog
+
+- [25.02](../stream-connectors-rn.md#2025-02) - Bug fix: Fixed oauth refresh token parameters.
+- [22.05](../stream-connectors-rn.md#2022-05) - Enhancement: The ServiceNow stream connector has been split into two stream connectors: ServiceNow Event Manager Events and ServiceNow Incident Events.
+- [21.10](../stream-connectors-rn.md#2021-10) - Enhancement: The stream connector can now use the latest features of the library, such as templating.
+- [21.09](../stream-connectors-rn.md#2021-09) - Enhancement: Added support for the new proxy and connection parameters.
+- [21.06](../stream-connectors-rn.md#2021-06) - Enhancement: New version of the stream connector based on the Centreon stream connectors library.

@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-supermicro-superdoctor-snmp
 title: Supermicro SuperDoctor SNMP
-description: "Monitor Supermicro servers via SNMP using SuperDoctor: hardware status for sensors, memory, disks, and CPU."
+description: "Monitor Supermicro servers via SNMP with SuperDoctor: hardware status of sensors, memory, disks, and CPU, with host discovery via SNMP scan."
 ---
 
 import Tabs from '@theme/Tabs';

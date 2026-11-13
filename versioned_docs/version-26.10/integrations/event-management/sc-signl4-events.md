@@ -1,7 +1,7 @@
 ---
 id: sc-signl4-events
 title: Signl4 Events
-description: "Send host and service status events from Centreon to Signl4"
+description: "Install and configure the Signl4 Events stream connector to send Centreon host and service status events to Signl4, then filter, format and test the data."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -25,14 +25,6 @@ Perform the installation on the server that will send data to Signl4 (central se
 2. Run the following command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-stream-connector-signl4
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -41,7 +33,15 @@ dnf install centreon-stream-connector-signl4
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-stream-connector-signl4
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-stream-connector-signl4
@@ -207,3 +207,7 @@ curl -X POST -H 'content-type: application/json' 'https://connect.signl4.com/web
 ```
 
 You must replace all the *`<xxxx>`* inside the above command with the correct value. `team_secret` may become *x3x[..]2c*.
+
+## Changelog
+
+- [21.12](../stream-connectors-rn.md#2021-12) - New stream connector: Initial release of Signl4 Events.

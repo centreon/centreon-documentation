@@ -1,7 +1,7 @@
 ---
 id: network-vectra-restapi
 title: Vectra Rest API
-description: "Monitor Vectra network detection appliances via REST API: CPU, disk, memory, uptime, interfaces, and sensor status."
+description: "Monitor Vectra network detection appliances via REST API: CPU, disk, memory, uptime, interfaces, and sensor status, with interface and sensor discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -539,3 +539,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=sensors \
 	--help
 ```
+
+## Changelog
+
+- [23.01](../releases/release-notes.md#2023-01) - New connector: Initial release.

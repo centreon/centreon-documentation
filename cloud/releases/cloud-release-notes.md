@@ -1,8 +1,110 @@
 ---
 id: cloud-release-notes
 title: Centreon Cloud release notes
-description: "Release notes for Centreon Cloud, detailing new features, improvements, and fixes for each release"
+description: "Release notes for Centreon Cloud, listing the new features, improvements, and bug fixes delivered in each release, grouped by date and by product area"
 ---
+
+## November 12th, 2026
+
+### Centreon IT Edition
+
+**Pollers**
+
+This release brings container support to Centreon Cloud pollers, along with a simpler way to deploy them:
+
+- Pollers can now be deployed in containers. In addition to the package-based installation on a virtual machine, you can run a poller as a container on your own infrastructure, which makes it faster to deploy, easier to scale and simpler to keep consistent across environments.
+- A **Create new poller** button (Beta) is now available in the top banner, replacing the former **Copy install command** button. It opens a short form where you choose between a virtual machine and a container, and generates the single command line that installs the poller and registers it with your platform.
+- In *Configuration > Pollers*, a copy icon in the **Actions** column of each enabled poller copies its full installation command to the clipboard. The same command also updates an existing poller, so you can retrieve it at any time to install or update that poller.
+
+  > **Note:** this command does not work on pollers running Centreon 25.10 or older on AlmaLinux 8 or an equivalent OS. On these pollers, run `dnf update` instead. See the [documentation](/cloud/installation/poller-update-upgrade).
+
+**Centreon Monitoring Agent (CMA)**
+
+- The default freshness threshold of Centreon Monitoring Agent checks rises from 120 to 500 seconds, which avoids needless re-checks. Custom values you have already set are kept.
+
+**Interface**
+
+The look and feel of the interface has been refreshed this cycle:
+
+- The top banner has been redesigned. Host, service and poller counters are now displayed as status tiles that are easier to read at a glance, and a breadcrumb shows where you are in the interface.
+- Interface colors have been refreshed, with a new primary blue, softer table and section headers, and more readable status chips in both light and dark modes.
+
+**Open Tickets**
+
+- A new provider is available for Matrix42, so you can open tickets in Matrix42 directly from Centreon.
+
+<details>
+<summary>**Bug fixes**</summary>
+
+- [Administration] API tokens now display correctly after the user who created them is deleted.
+- [Agent configuration] Deleting a host no longer stops the poller from collecting data from the other hosts using poller-initiated connections.
+- [Agent configuration] Hosts are now created as expected when **Create hosts automatically** is enabled in an agent configuration.
+- [Agent configuration] Fixed an error that prevented the Centreon Monitoring Agent installation command from being generated on platforms updated to 26.07.
+- [API] API requests containing invalid non-integer values for the page or limit parameters (e.g., ?page=abc) now correctly return an HTTP 400 Bad Request instead of an uncaught HTTP 500 error.
+- [API] Listing services with the configuration API no longer fails with an error when some of them are deployed by host group.
+- [Configuration] Applying a mass change to host templates now correctly removes the services from the old templates instead of only adding the new ones.
+- [Configuration] Changes made in a host's Relations tab are now recorded in the logs like other configuration changes.
+- [Configuration] Exporting the configuration of pollers with many services is now faster, especially when services use many templates.
+- [Configuration] Exporting the configuration no longer hangs at 0% when a resource macro linked to a poller has an empty value.
+- [Custom Views] The Host Monitoring widget's CSV export now includes each host's last comment instead of always showing "-".
+- [Dashboards] Acknowledgment and downtime modals in resource table widgets now use the configured monitoring defaults.
+- [Dashboards] Playlists now play dashboards in the order defined in the playlist, instead of falling back to alphabetical order.
+- [Dashboards] The quick access menu now lists all dashboards, not only search results.
+- [Dashboards] The resource table widget now requires an Open Ticket rule when ticket management is enabled.
+- [Downtimes] Multiple recurring downtimes on the same service template via a service group now all apply.
+- [Downtimes] Recurrent downtimes now apply in their creator's timezone, like simple downtimes, and the form shows which timezone is used.
+- [Logs] Filtering by the "Command" type in Administration > Logs now returns command changes, including previously recorded ones.
+- [Monitoring] Host group and service group listings no longer time out on large platforms.
+- [Open Tickets] Category and group lists now load correctly with the GLPI provider on GLPI 9.5 and later.
+- [Open Tickets] The widget loads faster and no longer overloads the database server on large platforms.
+- [Performance Graphs] Metaservice graphs now display the metaservice name as their title, so they are easier to identify on the page.
+- [Web] Fixed an issue where exporting the configuration caused pollers running Centreon Broker versions prior to 25.10.3 to lose connection to the Central server.
+
+</details>
+
+**Collect**
+
+The improvements below have been released on the collect components since the previous Centreon Cloud update. They do not come with this platform update: update your pollers and your Centreon Monitoring Agents to the latest available version to benefit from them.
+
+*Centreon Engine*
+
+- Centreon Engine no longer hangs, grows in memory or makes services flap because of passive service freshness checks, an issue mostly seen on services monitored by the Centreon Monitoring Agent.
+
+<details>
+<summary>**Bug fixes**</summary>
+
+- [CMA] Removed an irrelevant error message logged by native checks.
+
+</details>
+
+### Centreon Pro Edition
+
+**Service Mapping**
+
+- The Business Activities counter in the top banner now uses the same tile design as the host and service counters, in line with the redesigned top banner.
+
+**MAP**
+
+- Centreon MAP now uses the same icons as the rest of the Centreon interface, following the icon refresh delivered in the previous release.
+- The icon of a standard map or a geographic view can now be changed, or reset to the default one.
+
+<details>
+<summary>**Bug fixes**</summary>
+
+- [BAM] Creating a child Business Activity with the Ratio calculation method from the Business Activity tree no longer fails with a threshold validation error.
+- [BAM] In simulation mode, a Ratio business activity no longer appears in downtime, or propagates it to its parent, when no KPI is in downtime.
+- [BAM] The event handler command now stays visible in the Business Activity configuration form after saving and reopening it.
+- [MAP] Fixed an issue in Centreon MAP where duplicating a multi-selection of different object types caused the map to break upon saving.
+- [MAP] Fixed an issue in Centreon MAP where hovering over a host inside a host group resource caused an error and failed to display host information when the host was not directly added to the map.
+- [MAP] Fixed an issue in Centreon MAP where switching a Gauge or Metric Link widget's resource type from metaservice to service caused a "can't load module" error.
+- [MAP] Fixed an issue in Centreon Map where business activities hosted on an additional poller did not display their real-time status and output on maps.
+- [MAP] Fixed an issue where error messages were displayed when an authentication token expired.
+- [MAP] Fixed an issue where the Geoview widget was not displaying resources when viewed through a public playlist.
+- [MAP] Fixed an issue where updating a container's image failed to save and reverted to the default image.
+- [MAP] Fixed a truncated label.
+- [MAP] Fixed an issue where performance graphs failed to load in service popups and graph widgets.
+
+</details>
 
 ## September 8th, 2026
 
@@ -131,7 +233,7 @@ The Business Activity configuration experience has been thoroughly reworked arou
 **MAP**
 
 - Hover pop-ups in the Viewer are now positioned reliably next to the cursor. They no longer appear far above it at the bottom of the view, no longer overlap the cursor or get clipped by the edges of the container, and they follow the map when it is panned or zoomed. Firefox behavior, in particular, has been fixed.
-- Metric Link widget: meta-services can now be used as a data source. By combining one meta-service aggregating inbound metrics with another one aggregating outbound metrics, you can represent the cumulative traffic of a bidirectional network link and anticipate its saturation.
+- Metric Link widget: metaservices can now be used as a data source. By combining one metaservice aggregating inbound metrics with another one aggregating outbound metrics, you can represent the cumulative traffic of a bidirectional network link and anticipate its saturation.
 
 
 ## June 22nd, 2026

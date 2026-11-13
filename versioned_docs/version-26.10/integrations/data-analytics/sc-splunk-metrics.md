@@ -1,7 +1,7 @@
 ---
 id: sc-splunk-metrics
 title: Splunk Metrics
-description: "Host and service performance metrics delivery to Splunk's Event Collector"
+description: "Install and configure the Splunk Metrics stream connector to send Centreon host and service performance metrics to the Splunk HTTP Event Collector."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -25,14 +25,6 @@ Perform the installation on the server that will send data to Splunk (central se
 2. Run the following command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-stream-connector-splunk
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -41,7 +33,15 @@ dnf install centreon-stream-connector-splunk
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-stream-connector-splunk
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-stream-connector-splunk
@@ -198,3 +198,13 @@ If you want to test that events are sent to Splunk correctly:
    > Replace all the *`<xxxx>`* inside the above command with the correct value. For instance, \<splunk_sourcetype\>* may become *_json*.
 
 3. Check that the event has been received by Splunk.
+
+## Changelog
+
+- [26.08](../stream-connectors-rn.md#2026-08) - Enhancement: Optimized the stream connector to avoid DOS.
+- [26.08](../stream-connectors-rn.md#2026-08) - Bug fix: Fixed cases where the stream connector sometimes did not work with self signed certificates, based on a community contribution [PR 311](https://github.com/centreon/centreon-stream-connector-scripts/pull/311).
+- [24.08](../stream-connectors-rn.md#2024-08) - Bug fix: Fixed an issue with the **max_buffer_size** parameter in the Splunk stream connector.
+- [22.05](../stream-connectors-rn.md#2022-05) - Breaking change: Reworked the metric system to handle the new metric format of the Centreon plugins. You must update this stream connector when you update the library. The stream connector now sends one event per metric instead of one event per service, so more data is sent.
+- [21.09](../stream-connectors-rn.md#2021-09) - Enhancement: Added support for the new proxy and connection parameters.
+- [21.09](../stream-connectors-rn.md#2021-09) - Bug fix: Fixed a typo in a parameter name (accetped instead of accepted).
+- [21.07](../stream-connectors-rn.md#2021-07) - Enhancement: New version of the stream connector based on the Centreon stream connectors library.

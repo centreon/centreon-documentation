@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-network-publicip
 title: Azure Public IP
-description: "Supervisez les adresses IP publiques Azure via l'API REST ou Azure CLI : trafic DDOS et état du provisionnement."
+description: "Supervisez les adresses IP publiques Azure via l'API REST ou Azure CLI : trafic DDoS et état du provisionnement, avec découverte automatique des hôtes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -434,3 +434,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=status \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.

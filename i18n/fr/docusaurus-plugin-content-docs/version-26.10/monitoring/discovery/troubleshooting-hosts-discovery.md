@@ -1,7 +1,7 @@
 ---
 id: troubleshooting-hosts-discovery
 title: Dépanner les incidents sur la découverte des hôtes
-description: "Résoudre les erreurs courantes rencontrées lors de la découverte des hôtes"
+description: "Résolvez les incidents courants de découverte d'hôtes avec Centreon Auto Discovery : tâches non affichées, scans bloqués, fournisseur introuvable."
 ---
 
 ## Les tâches de découverte ne s'affichent plus
@@ -36,7 +36,7 @@ ERROR - [autodiscovery] -class- host discovery - cannot get platform versions - 
 
 ### Solution
 
-Dans le fichier **/etc/centreon-gorgone/config.d/31-centreon-api.yaml**, remplacez la valeur **base_url** par **http://127.0.0.1/centreon/api/latest/**
+Dans le fichier **/etc/centreon-gorgone/config.d/31-centreon-api.yaml**, remplacez la valeur **base_url** par **http://127.0.0.1/centreon/api/latest/**. Si vous avez [personnalisé l'URI de Centreon](../../administration/secure-platform.md#uri-personnalisée), remplacez **/centreon** par votre chemin personnalisé. Redémarrez ensuite Gorgone avec `systemctl restart gorgoned`.
 
 ### Vérifications complémentaires
 

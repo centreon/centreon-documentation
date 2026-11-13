@@ -1,7 +1,7 @@
 ---
 id: network-vectra-restapi
 title: Vectra Rest API
-description: "Supervisez les appliances Vectra via l'API REST : CPU, disque, mémoire, temps de fonctionnement, interfaces et sondes."
+description: "Supervisez les appliances Vectra via l'API REST : CPU, disque, mémoire, temps de fonctionnement, interfaces et sondes, avec découverte automatique."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -539,3 +539,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=sensors \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.01](../releases/release-notes.md#2023-01) - New connector: Initial release.

@@ -1,15 +1,16 @@
 ---
 id: map-web-change-port
 title: Changer le port du serveur Centreon MAP
-description: "Modifier le port par défaut utilisé par le serveur Centreon MAP"
+description: "Modifiez le port par défaut du serveur Centreon MAP (8081) dans map-config.properties, par exemple si un pare-feu bloque ces ports."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 > Des erreurs de modification de fichiers de configuration peuvent entraîner des dysfonctionnements du logiciel. Nous vous recommandons de faire une sauvegarde du fichier avant de le modifier et de ne changer que les paramètres conseillés par Centreon.
 
-Par défaut, le serveur Centreon MAP écoute et envoie des informations via le port 8080.
-Si vous avez configuré le SSL (voir [Configuration HTTPS/TLS](secure-your-map-platform.md#configurer-httpstls-sur-le-serveur-map)), utilisez le port 8443.
+Par défaut, le serveur Centreon MAP écoute et envoie des informations via le port 8081.
+Lorsque le SSL est configuré (voir [Configuration HTTPS/TLS](secure-your-map-platform.md#configurer-httpstls-sur-le-serveur-map)), il est possible de choisir n'importe quel port disponible : le serveur
+utilise alors le port défini lors de cette configuration.
 
 Vous pouvez modifier ce port (par exemple, si un pare-feu sur votre réseau le bloque).
 
@@ -47,14 +48,14 @@ Vérifiez que votre serveur est opérationnel et accessible sur le nouveau port 
 <TabItem value="HTTP" label="HTTP">
 
 ```shell
-http://<MAP_IP>:<8080>/centreon-map/api/latest/actuator/health
+http://<MAP_IP>:<8081>/centreon-map/api/latest/actuator/health
 ```
 
 </TabItem>
 <TabItem value="HTTPS" label="HTTPS">
 
 ```shell
-https://<MAP_IP>:<8443>/centreon-map/api/latest/actuator/health
+https://<MAP_IP>:<XXXX>/centreon-map/api/latest/actuator/health
 ```
 
 </TabItem>

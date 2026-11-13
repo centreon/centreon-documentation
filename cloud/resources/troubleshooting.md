@@ -1,7 +1,7 @@
 ---
 id: troubleshooting
 title: Troubleshooting Centreon Cloud
-description: "List of links to troubleshooting resources in the Centreon Cloud documentation"
+description: "List of troubleshooting topics in the Centreon Cloud documentation, covering CMA, pollers, licenses, and known issues, plus the community knowledge base"
 ---
 
 This page lists the troubleshooting items available in this documentation. Click an item to access more detailed content.

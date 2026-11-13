@@ -1,7 +1,7 @@
 ---
 id: manage-alerts
 title: Manage alerts
-description: "Acknowledge alerts, set downtime, add comments, and manage checks"
+description: "Manage alerts in Centreon: acknowledge problems, add one-off or recurring downtime, add comments, manage checks and notifications, and submit results."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -60,9 +60,7 @@ with the **Acknowledged** field in the **Options** frame
 </TabItem>
 </Tabs>
 
-The following window appears:
-
-![image](../assets/alerts/acknowledged.png)
+In the window that appears:
 
 -   If the **Sticky** box is checked, the acknowledgment will be
     maintained in case of a change of Not-OK status (e.g.: DOWN to
@@ -146,18 +144,17 @@ There are three different possibilities to define downtime:
 </TabItem>
 </Tabs>
 
-The following window appears:
+In the window that appears:
 
-![image](../assets/alerts/downtime.png)
-
--   The **Host Name** field defines the host concerned by downtime
--   The **Service** field defines the service concerned by downtime
+-   The **Downtime type** field defines the type of object concerned by downtime: **Host**, **Services**, **Hostgroup**, **Servicegroup** or **Poller**
+-   The **Hosts** field defines the hosts concerned by downtime
 -   If the **Fixed** box is checked, the downtime period is fixed. Otherwise, it
     is flexible
 -   If the downtime period is flexible, the **Duration** field defines the
     length of the downtime
 -   The **Start Time** and **End Time** fields define the beginning and
     end date of the downtime period. Downtime cannot start or end after December 31, 2099, 11:59 pm.
+-   If the **Set downtime for hosts services** box is checked, the downtime also applies to the services of the selected hosts
 -   The **Comments** field can be used to indicate why downtime is
     defined.
 
@@ -208,8 +205,7 @@ To add a recurrent downtime period, go into the
 -   The **Enable** field is used to enable or disable the downtime
     period.
 -   The **Periods** field is used to define one or more periods of
-    recurrent downtime periods. To add a period, click the symbol
-    ![image](../assets/common/navigate_plus.png).
+    recurrent downtime periods. To add a period, click **Add new period**.
 
 It is possible to choose three types of period:
 
@@ -274,9 +270,7 @@ There are two solutions to add a comment:
 </TabItem>
 </Tabs>
 
-The following window appears:
-
-![image](../assets/alerts/comment.png)
+In the window that appears:
 
 -   The **Host Name** field defines the host concerned by the comment.
 -   If you have chosen to add a comment to a service, the **Service**
@@ -338,9 +332,7 @@ scheduler so that it is taken into account.
 To submit a result, access the details page of the object. In the category
 **Service Commands**, click **Submit result for this service**
 
-The following window appears:
-
-![image](../assets/alerts/submitresult.png)
+In the window that appears:
 
 -   The **Host Name** and **Service** fields define the host and the
     service for which the result will be submitted

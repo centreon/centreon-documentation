@@ -1,7 +1,7 @@
 ---
 id: sc-influxdb2-metrics
 title: InfluxDB 2 Metrics
-description: "Send host and service performance metrics to an InfluxDB 2 bucket"
+description: "Install and configure the InfluxDB 2 Metrics stream connector to send Centreon host and service performance metrics to an InfluxDB 2 bucket, then test it."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -27,14 +27,6 @@ Perform the installation on the server that will send data to InfluxDB 2 (centra
 2. Run the following command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-stream-connector-influxdb
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -43,7 +35,15 @@ dnf install centreon-stream-connector-influxdb
 
 </TabItem>
 
-<TabItem value="Debian 11 & 12" label="Debian_11_&_12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-stream-connector-influxdb
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-stream-connector-influxdb
@@ -180,3 +180,11 @@ If you want to test that events are sent to InfluxDB 2 correctly:
    > Replace all the *`<xxxx>`* inside the above command with the correct value. For instance, \<bucket_id\>* may become something like *65f5f748e28c92f0*.
 
 3. Check that the event has been received by InfluxDB 2.
+
+## Changelog
+
+- [26.07](../stream-connectors-rn.md#2026-07) - Bug fix: Properly escape host names in tags.
+- [25.02](../stream-connectors-rn.md#2025-02) - Bug fix: Fixed subinstances.
+- [24.08](../stream-connectors-rn.md#2024-08) - Bug fix: Added a protection on metric names containing spaces.
+- [24.04](../stream-connectors-rn.md#2024-04) - Enhancement: Added the possibility to send **metric_id**.
+- [23.09](../stream-connectors-rn.md#2023-09) - New stream connector: Initial release of InfluxDB 2 Metrics.

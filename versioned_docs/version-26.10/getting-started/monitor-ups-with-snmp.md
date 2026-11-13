@@ -1,32 +1,26 @@
 ---
 id: monitor-ups-snmp
 title: Monitor UPS devices with SNMP
-description: "Monitor a UPS device using the SNMP protocol"
+description: "Monitor a UPS device with Centreon over SNMP: install the UPS Standard monitoring connector, create the host with its SNMP settings and deploy it."
 ---
 
-Go to the **Configuration \> Monitoring Connectors** menu and install the **UPS Standard** Monitoring Connector:
+Go to the **Configuration > Connectors > Monitoring Connectors** menu, search for **UPS Standard**, then click the **+** icon on the Monitoring Connector's tile to install it.
 
-![image](../assets/getting-started/quick_start_ups_0.gif)
-
-Go to the **Configuration \> Hosts \> Hosts** menu and click **Add**:
-
-![image](../assets/getting-started/quick_start_ups_1.png)
+Go to the **Configuration \> Hosts \> Hosts** menu and click **Add**.
 
 Input the following information:
 
-* The name of the server
-* A description of the server
-* The IP address
-* The SNMP version and community
+* **Name**: the name of the server
+* **Alias**: a description of the server
+* **Address**: the IP address
+* **SNMP Community & Version**: the SNMP version and community
 
 Click on **+ Add a new entry** button in **Templates** field, then select the **HW-UPS-Standard-Rfc1628-SNMP-custom**
 template in the list.
 
 Click **Save**.
 
-Your device has been added to the monitoring configuration:
-
-![image](../assets/getting-started/quick_start_ups_2.png)
+Your device has been added to the list of hosts in **Configuration > Hosts > Hosts**.
 
 Go to the **Configuration \> Services \> Services by host** menu. A set of indicators has been automatically deployed:
 
@@ -34,7 +28,4 @@ Go to the **Configuration \> Services \> Services by host** menu. A set of indic
 
 It is now time to [deploy the configuration](first-supervision.md#deploying-a-configuration).
 
-Then go to the **Monitoring \> Status Details \> Services** menu and select the value **All** for the **Service Status**
-filter. After a few minutes, the first results of the monitoring appear:
-
-![image](../assets/getting-started/quick_start_ups_4.png)
+Then go to **Monitoring > Resources Status** and select **All** from the **Resource status** filter. After a few minutes, the first results of the monitoring appear.

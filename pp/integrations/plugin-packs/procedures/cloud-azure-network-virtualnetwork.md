@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-network-virtualnetwork
 title: Azure Virtual Network
-description: "Monitor Azure Virtual Network peering status via the Azure API with this Centreon monitoring connector."
+description: "Monitor Azure Virtual Network peering status via the Azure API or Azure CLI, with automatic discovery of the virtual networks of a subscription."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -354,3 +354,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=peerings-status \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [22.01](../releases/release-notes.md#2022-01) - Bug fix: Fixed resource macro.

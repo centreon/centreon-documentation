@@ -1,7 +1,7 @@
 ---
 id: monitor-linux-server-with-snmp
 title: Monitor your first Linux host
-description: "Monitor a Linux server using the SNMP protocol"
+description: "Monitor your first Linux server with Centreon over SNMP: configure the snmpd agent, install the Linux SNMP connector, then create the host and deploy it."
 ---
 
 import Tabs from '@theme/Tabs';

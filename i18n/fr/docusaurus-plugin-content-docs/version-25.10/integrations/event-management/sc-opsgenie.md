@@ -1,7 +1,7 @@
 ---
 id: sc-opsgenie-events
 title: Opsgenie Events
-description: "Envoyer les événements d'hôtes et de services de Centreon vers Opsgenie"
+description: "Configurez le stream connector Opsgenie Events pour envoyer les évènements des hôtes et services Centreon vers Opsgenie, en alertes ou en incidents."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -251,3 +251,7 @@ curl -X POST -H 'content-type: application/json' -H 'Authorization: GenieKey <ap
 > Remplacez tous les **\<xxxx\>** dans la commande ci-dessus par la valeur correcte.
 
 3. Vérifiez que les données ont été reçues par Opsgenie.
+
+## Historique des modifications
+
+- [23.02](../stream-connectors-rn.md#2023-02) - New stream connector: New version of the stream connector based on the Centreon stream connectors library.

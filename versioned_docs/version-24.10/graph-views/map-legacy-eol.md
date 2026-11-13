@@ -1,7 +1,7 @@
 ---
 id: map-legacy-eol
 title: MAP Legacy end of life
-description: "Steps to upgrade from and fully uninstall MAP Legacy after switching to MAP"
+description: "MAP Legacy is no longer available in Centreon 24.10: back up your data, upgrade, switch to MAP without losing data, then fully uninstall MAP Legacy."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: upgrade-from-24-04
 title: Montée de version depuis Centreon 24.04
-description: "Passer une plateforme Centreon de la version 24.04 à la 25.10"
+description: "Mettez à jour Centreon de la 24.04 vers la 25.10 : sauvegardez, mettez à jour et finalisez le serveur central, puis les serveurs distants et collecteurs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -89,7 +89,7 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 1. Mettez à jour votre Centreon 24.04 jusqu'à la dernière version mineure.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/24.04/el8/centreon-24.04.repo
+   dnf config-manager --add-repo https://packages.centreon.com/archives/repo-files/standard/rpm/24.04/el8/centreon-24.04.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -116,7 +116,7 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 1. Mettez à jour votre Centreon 24.04 jusqu'à la dernière version mineure.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/24.04/el9/centreon-24.04.repo
+   dnf config-manager --add-repo https://packages.centreon.com/archives/repo-files/standard/rpm/24.04/el9/centreon-24.04.repo
    dnf clean all --enablerepo=*
    dnf update
    ```

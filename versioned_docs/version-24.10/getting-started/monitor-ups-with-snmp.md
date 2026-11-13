@@ -1,7 +1,7 @@
 ---
 id: monitor-ups-snmp
 title: Monitor UPS devices with SNMP
-description: "Monitor a UPS device using the SNMP protocol"
+description: "Monitor a UPS device with Centreon over SNMP: install the UPS Standard monitoring connector, create the host with its SNMP settings and deploy it."
 ---
 
 Go to the **Configuration \> Monitoring Connectors** menu and install the **UPS Standard** Monitoring Connector:

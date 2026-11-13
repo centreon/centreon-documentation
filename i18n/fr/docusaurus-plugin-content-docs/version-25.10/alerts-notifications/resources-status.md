@@ -1,7 +1,7 @@
 ---
 id: resources-status
 title: Page Statut des ressources
-description: "Suivre, filtrer et traiter les évènements des ressources depuis une page unique"
+description: "Utilisez la page Statut des ressources de Centreon pour suivre et filtrer les évènements, acquitter, planifier un temps d'arrêt et voir le détail."
 ---
 
 La vue **Supervision > Statut des ressources** est votre vue principale

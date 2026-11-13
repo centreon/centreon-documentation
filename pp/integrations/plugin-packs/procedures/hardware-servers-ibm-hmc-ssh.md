@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-ibm-hmc-ssh
 title: IBM HMC SSH
-description: "Monitor IBM HMC-managed systems via SSH: hardware errors and LED status for physical and virtual LPARs."
+description: "Monitor systems managed by IBM HMC via SSH: hardware errors and LED status of physical and virtual LPARs, with key or password authentication."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

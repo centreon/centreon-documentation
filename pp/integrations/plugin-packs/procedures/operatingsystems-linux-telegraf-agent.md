@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-linux-telegraf-agent
 title: Linux Telegraf Agent
-description: "Monitor Linux servers with the Telegraf agent over OpenTelemetry: CPU, memory, disk, network, and systemd checks."
+description: "Monitor Linux servers with the Telegraf agent over OpenTelemetry: CPU, load, memory, swap, disks, traffic, NTP, processes, and systemd checks."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -1539,3 +1539,10 @@ sudo -u telegraf /usr/lib/centreon/plugins/centreon_linux_local.pl \
     --mode='cpu' \
     --help
 ```
+
+## Changelog
+
+- [25.09](../releases/release-notes.md#2025-09) - Enhancement: Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
+- [24.11](../releases/release-notes.md#2024-11) - Breaking change: The default inherited templates are now passive.
+- [24.10](../releases/release-notes.md#2024-10) - Bug fix: Added an `--output-fields` option for some OSs in the **systemd-journal** mode, when journalctl is in version 236 or higher.
+- [24.07](../releases/release-notes.md#2024-07) - New connector: Initial release of Linux Telegraf Agent.

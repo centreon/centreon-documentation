@@ -1,7 +1,7 @@
 ---
 id: sc-elastic-events
 title: Elastic Events
-description: "Send host and service status events to Elasticsearch with auto-indexing"
+description: "Install and configure the Elastic Events stream connector to send Centreon host and service events to Elasticsearch, with an automatic index template."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -195,3 +195,7 @@ curl -u elastic:centreon-es-passwd --header 'content-type: application/json'  -X
 > Replace all the *`<xxxx>`* inside the above command with the appropriate value.
 
 3. Check that the data has been received by Elasticsearch.
+
+## Changelog
+
+- [21.12](../stream-connectors-rn.md#2021-12) - Enhancement: New version of the stream connector based on the Centreon stream connectors library.

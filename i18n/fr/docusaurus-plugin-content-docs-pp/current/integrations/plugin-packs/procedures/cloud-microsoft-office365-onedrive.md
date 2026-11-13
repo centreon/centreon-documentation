@@ -1,7 +1,7 @@
 ---
 id: cloud-microsoft-office365-onedrive
 title: Office 365 OneDrive
-description: "Supervisez Microsoft Office 365 OneDrive via les API REST Microsoft Graph et Office 365 Management : utilisation des sites, fichiers et activité des utilisateurs."
+description: "Supervisez OneDrive (Office 365) via les API Microsoft Graph et Office 365 Management : utilisation des sites, fichiers et activité des utilisateurs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -477,3 +477,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=site-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Changed service template aliases to avoid service deployment issues.
+- [25.06](../releases/release-notes.md#2025-06) - Enhancement: Added template for **users-activity** and service discovery rule for **site-usage**.
+- [25.06](../releases/release-notes.md#2025-06) - Bug fix: Fixed service discovery mode for **site-usage**.

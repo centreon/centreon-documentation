@@ -1,7 +1,7 @@
 ---
 id: resources-status
 title: Resources Status page
-description: "Track, filter, and act on resource events from a unified page"
+description: "Use the Centreon Resources Status page to view host and service events, filter them, acknowledge or set downtime, and open the details panel."
 ---
 
 The **Monitoring > Resources Status** page is your main view to track
@@ -26,7 +26,7 @@ You can add or remove columns and sort by the column of your choice.
 Use the **Display view** buttons above the list of resources to define how the list will be displayed. 
 
 - **All**: This view gathers all types of resources in the same list (hosts, services, metaservices, Anomaly Detection services).
-- **View by host**: Displays all hosts. By default, for each host, a summary of the status of all services is displayed in the **Services** column. Click the arrow to the left of the summary to expand the zone and display all the services attached to this host. Meta services are not included in this view.
+- **View by host**: Displays all hosts. By default, for each host, a summary of the status of all services is displayed in the **Services** column. Click the arrow to the left of the summary to expand the zone and display all the services attached to this host. Metaservices are not included in this view.
 - **View by service**: Lists all the services, and shows the host they are attached to in the **Host** column. The list includes metaservices and Anomaly Detection services.
 
 ### Compact or extended view
@@ -226,8 +226,6 @@ The search bar shows all applied criteria as text. Autocomplete helps you enter 
 Example:
     **s.description:ping h.name:linux**: the list displays all services whose name contains "ping", for all hosts whose name contains "linux".
 
-![image](../assets/alerts/resources-status/search_ping_linux.gif)
-
 ### Save your filter
 
 You may create some "complex" filters that set you in a specific
@@ -308,9 +306,7 @@ Use the legend to display or hide metrics:
 
 ![image](../assets/alerts/resources-status/resources-status-graph-select-only-metric.gif)
 
-You can also toggle the selection of individual metrics by Ctrl+Clicking (or Cmd+Clicking for Mac users) on the corresponding tile within the legend:
-
-![image](../assets/alerts/resources-status/resources-status-graph-toggle-legends.gif)
+You can also toggle the selection of individual metrics by **Ctrl+click** (or **Cmd+click** for Mac users) on the corresponding tile within the legend.
 
 Graphs display metric evolution over a given period. This can be defined in the following ways:
 
@@ -331,13 +327,9 @@ It is possible to add a comment directly on the graph by left-clicking anywhere 
 
 To delete a comment, go to **Monitoring > Downtimes > Comments**.
 
-By clicking the **Export** button, you can export a snapshot of the graph, which also includes the timeline events, if the switch is toggled. Note that only the selected metrics will be exported:
+By clicking the **Export** icon (download arrow) in the top right corner of the graph, you can export a snapshot of the graph, which also includes the timeline events, if the switch is toggled. Note that only the selected metrics will be exported.
 
-![image](../assets/alerts/resources-status/resources-status-graph-export-to-png.gif)
-
-To see a bigger version of the graph, click **Go to performance page** in the top right corner of the graph.
-
-![image](../assets/alerts/resources-status/graph-open.png)
+To see a bigger version of the graph, click the **Go to performance page** icon in the top right corner of the graph, to the left of the export icon.
 
 The graph opens on the **Monitoring > Performances > Graphs** page, allowing you to filter the graph more precisely.
 

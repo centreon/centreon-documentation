@@ -1,7 +1,7 @@
 ---
 id: database-diagnostics-reports
 title: Database diagnostics reports
-description: "Diagnostic reports that verify aggregated availability and performance data"
+description: "Centreon MBI diagnostic reports that check whether daily and monthly availability and performance data aggregates are present in the database."
 ---
 
 ### Content-diagnostic

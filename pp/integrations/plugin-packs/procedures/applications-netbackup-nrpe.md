@@ -1,7 +1,7 @@
 ---
 id: applications-netbackup-nrpe
 title: Symantec Netbackup NSClient++ NRPE
-description: "Monitor Symantec NetBackup via NRPE: deduplication status, drive status and cleaning, job status, and tape usage."
+description: "Monitor Symantec NetBackup via NSClient++ NRPE: deduplication status, drive status and cleaning, job status including long and frozen jobs, and tape usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -467,3 +467,7 @@ All available options for a given mode can be displayed by adding the
 	--critical-status="not %\{status\} =~ /up/i" \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.

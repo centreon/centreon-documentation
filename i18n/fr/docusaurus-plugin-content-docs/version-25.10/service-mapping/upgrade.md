@@ -1,7 +1,7 @@
 ---
 id: upgrade
 title: Monter de version l'extension
-description: "Monter de version l'extension Centreon BAM et sa licence"
+description: "Montez de version Centreon BAM : mettez à jour Centreon sur le serveur central, installez le dépôt Business et la clé RPM, puis mettez à jour le paquet."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

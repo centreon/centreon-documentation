@@ -1,7 +1,7 @@
 ---
 id: network-cisco-firepower-snmp
 title: Cisco Firepower SNMP
-description: "Monitor Cisco Firepower appliances via SNMP: CPU, memory, hardware status, faults, and network interfaces."
+description: "Monitor Cisco Firepower appliances via SNMP: CPU, memory, hardware status, faults, and network interfaces, with host and interface discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -652,3 +652,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=memory \
 	--help
 ```
+
+## Changelog
+
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added native SNMP v3 host macro.

@@ -1,7 +1,7 @@
 ---
 id: network-loadbalancers-netscaler-snmp
 title: Citrix Netscaler SNMP
-description: "Monitor Citrix NetScaler load balancers via SNMP: CPU, memory, storage, health, HA status, VServer status, and traffic."
+description: "Monitor Citrix NetScaler load balancers via SNMP: CPU, memory, storage, health, HA state, vserver status, certificate expiration, and traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -708,3 +708,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=vserver-status \
 	--help
 ```
+
+## Changelog
+
+- [24.05](../releases/release-notes.md#2024-05) - Bug fix: Fixed status mapping on Citrix PSU ([Community contribution](https://github.com/centreon/centreon-plugins/pull/4722)).
+- [23.09](../releases/release-notes.md#2023-09) - Bug fix: Fixed the status mapping for power supplies in Health service template.

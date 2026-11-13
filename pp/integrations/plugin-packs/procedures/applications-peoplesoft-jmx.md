@@ -1,7 +1,7 @@
 ---
 id: applications-peoplesoft-jmx
 title: Peoplesoft
-description: "Monitor PeopleSoft applications via JMX and the Jolokia agent, tracking queue length and open session counts."
+description: "Monitor PeopleSoft applications via JMX with the Jolokia agent deployed on the JVM: track queue length and the number of currently open sessions."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -335,3 +335,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=sessions \
 	--help
 ```
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

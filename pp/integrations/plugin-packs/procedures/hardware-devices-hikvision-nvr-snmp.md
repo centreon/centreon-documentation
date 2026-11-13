@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-hikvision-nvr-snmp
 title: Hikvision NVR SNMP
-description: "Monitor Hikvision NVR devices via SNMP: disk usage, memory usage, and system uptime."
+description: "Monitor Hikvision network video recorders (NVR) via SNMP: disk usage, memory usage, and system uptime, with automatic discovery of SNMP hosts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -450,3 +450,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=disks \
 	--help
 ```
+
+## Changelog
+
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

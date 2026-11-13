@@ -1,7 +1,7 @@
 ---
 id: upgrade-from-22-04
 title: Montée de version depuis Centreon 22.04
-description: "Passer une plateforme Centreon de la version 22.04 à la 25.10"
+description: "Mettez à jour Centreon de la 22.04 vers la 25.10 : sauvegardez, mettez à jour le serveur central et sa base, puis les serveurs distants et collecteurs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -88,7 +88,7 @@ Debian 11 n'est plus supporté depuis la version 24.10. Si vous utilisiez Debian
 1. Mettez à jour votre Centreon 22.04 jusqu'à la dernière version mineure.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/22.04/el8/centreon-22.04-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/archives/repo-files/standard/rpm/22.04/el8/centreon-22.04.repo
    dnf clean all --enablerepo=*
    dnf update
    ```

@@ -1,7 +1,7 @@
 ---
 id: sql-proxy
 title: Optimizing database traffic
-description: "Set up ProxySQL to offload read queries from the real-time database"
+description: "Reduce the load on the Centreon real-time database by redirecting read queries to a replicated database with ProxySQL, and avoid Broker retention."
 ---
 
 > This procedure concerns very large production environments with numerous users, that face interface response time issues.

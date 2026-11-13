@@ -1,7 +1,7 @@
 ﻿---
 id: hero-time
 title: Hero Time
-description: Hero Time metric for measuring step interaction duration
+description: "Hero Time is an Experience Monitoring metric that measures how long a step takes, from the probe's action until all success verifications are met."
 ---
 
 ## Concept

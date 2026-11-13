@@ -1,7 +1,7 @@
 ﻿---
 id: glossary
 title: Glossary of Centreon Log Management terms
-description: Definitions of key Centreon Log Management terms
+description: "Definitions of key Centreon Log Management terms, including alert events, alert rules, custom attributes, services, severity levels and telemetry."
 ---
 
 ## Alert event

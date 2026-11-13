@@ -1,7 +1,7 @@
 ---
 id: introduction-tutorials
 title: Introduction
-description: "Overview of Centreon's getting started tutorials"
+description: "Browse Centreon tutorials to get started: create custom and graphical views, model IT services with BAM, and analyze resource availability with MBI."
 ---
 
 Centreon provides tutorials to quickly take advantage of the features of our solution.

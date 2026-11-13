@@ -1,7 +1,7 @@
 ---
 id: user_groups
 title: User groups in Centreon Cloud
-description: "How to create, edit, disable, and use user groups to simplify granting resource access rights in Centreon Cloud"
+description: "How to create, edit, disable, or delete user groups in Centreon Hub, and use them to grant resource access rights more easily in Centreon Cloud"
 ---
 
 In Centreon Cloud, user groups are used to [grant rights on resources](../administration/resource_access.md) more easily.

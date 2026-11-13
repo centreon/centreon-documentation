@@ -1,7 +1,7 @@
 ---
 id: sc-datadog-events
 title: Datadog Events
-description: "How the stream connector sends host and service events to Datadog"
+description: "Install and configure the Datadog Events stream connector to send Centreon host and service status events to Datadog, then filter, format and test them."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -26,14 +26,6 @@ Perform the installation on the server that will send data to Datadog (central s
 2. Run the following command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-stream-connector-datadog
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -42,7 +34,15 @@ dnf install centreon-stream-connector-datadog
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-stream-connector-datadog
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-stream-connector-datadog
@@ -192,3 +192,7 @@ curl -X POST -H "content-type: application/json" -H "DD-API-KEY: <api_key>" <htt
 You must replace all the *`<xxxx>`* inside the above command with the correct value. `http_server_url` may become *https://api.datadoghq.com*.
 
 3. Check that the event has been received by Datadog.
+
+## Changelog
+
+- [22.05](../stream-connectors-rn.md#2022-05) - New stream connector: Initial release of Datadog Events.

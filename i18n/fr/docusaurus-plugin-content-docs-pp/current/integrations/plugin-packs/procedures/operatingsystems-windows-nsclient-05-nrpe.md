@@ -1129,3 +1129,13 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ```bash
 /usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::windows::local::plugin' 'query' --help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed an issue in the **ntp** mode, causing zombie processes of `centreon_plugins.exe`.
+- [25.02](../releases/release-notes.md#2025-02) - Enhancement: Changed pack display name to make it clear that it uses the NRPE protocol.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the certificate check command.
+- [23.06](../releases/release-notes.md#2023-06) - Breaking change: Updated default NRPE client and options.
+- [22.11](../releases/release-notes.md#2022-11) - Bug fix: Fixed erroneous mode name in Updates command.
+- [22.10](../releases/release-notes.md#2022-10) - Enhancement: Added service updates for windows pack.

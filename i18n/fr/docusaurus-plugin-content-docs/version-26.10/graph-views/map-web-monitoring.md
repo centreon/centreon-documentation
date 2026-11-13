@@ -1,7 +1,7 @@
 ---
 id: map-web-monitoring
 title: Superviser votre serveur Centreon MAP
-description: "Superviser votre serveur Centreon MAP à l'aide du connecteur dédié"
+description: "Supervisez votre serveur Centreon MAP avec le connecteur Centreon MAP Engine : configurez modèles d'hôtes et macros JVM, puis vérifiez l'état du serveur."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -32,8 +32,8 @@ Pour superviser la JVM centreon-map, veuillez utiliser les valeurs de macro suiv
 | :---------------------- | :---------------------------------------- |
 | ACTUATORCUSTOMMODE      | ```centreonmap```                         |
 | ACTUATORAPIURLPATH      | ```/centreon-map/api/latest```           |
-| ACTUATORAPIUSERNAME     | Le nom d'utilisateur Api doit être défini |
-| ACTUATORAPIPASSWORD     | Le mot de passe Api doit être défini      |
+| ACTUATORAPIUSERNAME     | Le nom d'utilisateur API doit être défini |
+| ACTUATORAPIPASSWORD     | Le mot de passe API doit être défini      |
 
 > N'oubliez pas de cocher la case "Créer aussi les services liés aux modèles".
 

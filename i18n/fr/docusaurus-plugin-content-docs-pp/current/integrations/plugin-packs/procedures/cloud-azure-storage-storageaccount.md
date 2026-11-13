@@ -1710,3 +1710,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=transactions-latency \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [22.07](../releases/release-notes.md#2022-07) - New connector: Added support for both Azure Storage and Classic Storage and added new metrics.

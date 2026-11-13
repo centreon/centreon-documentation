@@ -1,7 +1,7 @@
 ---
 id: applications-squid-snmp
 title: Squid SNMP
-description: "Monitor Squid proxy servers via SNMP: cache usage, CPU, memory, and HTTP/ICP traffic statistics."
+description: "Monitor Squid proxy servers via SNMP: cache CPU, memory, file descriptors, and objects, plus HTTP hits, errors, HTTP/ICP traffic, and client count."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

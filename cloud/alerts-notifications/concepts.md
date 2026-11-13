@@ -1,7 +1,7 @@
 ---
 id: concepts
 title: Possible statuses of a resource
-description: "Overview of host and service statuses, acknowledged and downtime states, and SOFT/HARD status types in Centreon Cloud"
+description: "Overview of host and service statuses in Centreon Cloud, the acknowledged and downtime states, and how SOFT and HARD status types affect notifications"
 ---
 
 Statuses show the availability of a host, and the availability or performance of a service. Each status has a

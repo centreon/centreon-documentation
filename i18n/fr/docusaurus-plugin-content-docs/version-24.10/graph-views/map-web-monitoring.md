@@ -1,7 +1,7 @@
 ---
 id: map-web-monitoring
 title: Superviser votre serveur Centreon MAP
-description: "Superviser votre serveur Centreon MAP à l'aide du connecteur dédié"
+description: "Supervisez votre serveur Centreon MAP avec le connecteur Centreon MAP Engine : configurez modèles d'hôtes et macros JVM, puis vérifiez l'état du serveur."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: dsm
 title: Dynamic Service Management
-description: "Assign SNMP trap events to slots with Dynamic Service Management"
+description: "Install and configure Centreon Dynamic Service Management (DSM) to assign SNMP trap events to service slots, link traps to slots, and purge the cache."
 ---
 
 import Tabs from '@theme/Tabs';

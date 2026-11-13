@@ -1,7 +1,7 @@
 ---
 id: hardware-sensors-hwgste-snmp
 title: HWg-STE Sensor SNMP
-description: "Monitor HWg-STE sensors via SNMP, tracking temperature and humidity readings and status."
+description: "Monitor HWg-STE sensors via SNMP: temperature and humidity status and sensor counts for all probes of the device, with SNMP host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

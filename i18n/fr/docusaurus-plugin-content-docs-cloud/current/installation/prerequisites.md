@@ -1,14 +1,15 @@
 ---
 id: prerequisites
 title: Prérequis
-description: "Prérequis d'OS, de matériel et de réseau à respecter avant d'installer un collecteur Centreon Cloud"
+description: "Prérequis d'OS, de matériel et de réseau avant d'installer un collecteur Centreon Cloud, dont le dimensionnement selon le volume de services"
 ---
 
 > **IMPORTANT** : Le collecteur est un composant déployé dans l'infrastructure des clients. Son administration (infrastructure matérielle, virtuelle, OS, sécurité, supervision et couches applicatives Centreon etc) est ainsi à l'entière responsabilité des clients, selon les termes des [Conditions Générales d'Utilisation](https://www.centreon.com/legal/en/centreon-cloud-services-terms-row).
 
 ## OS
 
-Le collecteur doit être installé sur un serveur dédié et fraîchement installé, sous Alma Linux/RHEL/Oracle Linux 8 ou 9. Debian 12 est également supporté pour les collecteurs à partir de la version 24.04. Voir nos articles de base de connaissances [How to install Linux to host Centreon software](https://thewatch.centreon.com/product-how-to-21/how-to-install-linux-to-host-centreon-software-3759) et [OS updates & security](https://thewatch.centreon.com/product-how-to-21/os-updates-security-3136).
+* [Sur une VM ou une machine physique](./deploy-poller.md), le collecteur doit être installé sur un serveur dédié et fraîchement installé, sous Alma Linux/RHEL/Oracle Linux 9 ou 10, ou bien Debian 13. Voir nos articles de base de connaissances [How to install Linux to host Centreon software](https://thewatch.centreon.com/product-how-to-21/how-to-install-linux-to-host-centreon-software-3759) et [OS updates & security](https://thewatch.centreon.com/product-how-to-21/os-updates-security-3136).
+* Sur un conteneur, [voir les prérequis pour les conteneurs](using-containers.md#prérequis).
 
 ## Hardware
 

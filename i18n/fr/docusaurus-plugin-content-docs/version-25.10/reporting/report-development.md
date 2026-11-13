@@ -1,7 +1,7 @@
 ---
 id: report-development
 title: Créer des rapports personnalisés
-description: "Développer des modèles de rapports personnalisés pour Centreon MBI avec BIRT"
+description: "Développez des modèles de rapports Centreon MBI avec BIRT : concepts clés, espace de travail, projet, connexion aux bases de données et développement."
 ---
 
 Compatibilité : BIRT 4.20.0+

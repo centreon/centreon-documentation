@@ -1,7 +1,7 @@
 ---
 id: unattended-install-central
 title: Installation silencieuse d'un serveur central
-description: "Installer rapidement un serveur central à l'aide d'un script"
+description: "Installez en une fois un serveur central Centreon via le script d'installation silencieuse, qui exécute toute la procédure, installation web comprise."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -60,7 +60,7 @@ apt update && apt upgrade
 2. Téléchargez le script à l'aide de la commande suivante :
 
 ```shell
-curl -L https://download.centreon.com/25.10/unattended.sh --output /tmp/unattended.sh
+curl -L https://raw.githubusercontent.com/centreon/centreon/25.10-latest/centreon/unattended.sh --output /tmp/unattended.sh
 ```
 
 3. Exécutez la commande suivante en **root** :
@@ -79,7 +79,7 @@ bash /tmp/unattended.sh install -t central -v 25.10 -r stable -s -l DEBUG  2>&1 
 
 Dans les deux cas, vous obtiendrez un fichier de log complet avec toutes les erreurs dans votre répertoire **tmp**, fichier nommé **unattended(date).log**.
 
-> Pour obtenir de l'aide sur le script, utilisez la commande suivante :`bash unattended.sh -h`
+> Pour obtenir de l'aide sur le script, utilisez la commande suivante :`bash /tmp/unattended.sh -h`
 
 4. Configurez Centreon
 

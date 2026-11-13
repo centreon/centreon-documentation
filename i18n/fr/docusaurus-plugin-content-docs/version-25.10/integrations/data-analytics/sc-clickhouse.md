@@ -1,7 +1,7 @@
 ---
 id: sc-clickhouse
 title: Clickhouse
-description: "Insérer les métriques de performance hôtes et services dans une table Clickhouse"
+description: "Installez et configurez le stream connector Clickhouse pour insérer les métriques de performance des hôtes et services Centreon dans une table Clickhouse."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -273,3 +273,9 @@ curl -X POST -H 'X-ClickHouse-User: <user>' -H 'X-ClickHouse-Key: <password>' '<
 > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. Par exemple, *`<clickhouse_database>`* pourra être remplacé par *centreon_stream*.
 
 3. Vérifiez que l'évènement a bien été reçu par Clickhouse.
+
+## Historique des modifications
+
+- [26.07](../stream-connectors-rn.md#2026-07) - Enhancement: Added a way for stream connectors to store data. For more technical information, see [PR 205](https://github.com/centreon/centreon-stream-connector-scripts/pull/205).
+- [24.08](../stream-connectors-rn.md#2024-08) - Bug fix: Added a protection on metric names containing spaces.
+- [24.02](../stream-connectors-rn.md#2024-02) - New stream connector: Initial release of Clickhouse Metrics.

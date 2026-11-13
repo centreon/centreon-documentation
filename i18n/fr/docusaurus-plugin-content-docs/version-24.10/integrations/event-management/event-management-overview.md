@@ -1,7 +1,7 @@
 ---
 id: event-management-overview
 title: Event Management
-description: "Introduction aux stream connectors pour les outils de gestion des événements"
+description: "Envoyez évènements et alertes Centreon vers votre outil de gestion des incidents via les stream connectors pour y externaliser escalades et automatisation."
 ---
 
 Utilisez les Stream Connectors pour envoyer vos alertes vers des outils spécialisés 

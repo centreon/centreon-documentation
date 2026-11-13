@@ -1,7 +1,7 @@
 ---
 id: ticketing-install
 title: Installing Open Tickets
-description: "Install and back up the Centreon Open Tickets module"
+description: "Install the Centreon Open Tickets module from packages and the web interface, and back up your custom Open Tickets provider configurations."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -24,13 +24,6 @@ tickets by giving the ID and creation date of the tickets.
 Execute the following command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf install centreon-open-tickets
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
@@ -38,7 +31,14 @@ dnf install centreon-open-tickets
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf install centreon-open-tickets
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ``` shell
 apt install centreon-open-tickets
@@ -51,13 +51,9 @@ apt install centreon-open-tickets
 
 After installing the rpm, you must complete the installation of the module
 through the web frontend. Go to the **Administration > Extensions > Manager**
-menu and search **Open Tickets**. Click **Install selection**:
-
-![image](../assets/alerts/open_tickets_install_01.png)
+menu and search **Open Tickets**. Click the install icon on the module's card (or **Install all**).
 
 Your Centreon Open Tickets Module is now installed.
-
-![image](../assets/alerts/open_tickets_install_02.png)
 
 ## Creating a backup of your custom Open Ticket provider configurations
 

@@ -1,7 +1,7 @@
 ---
 id: applications-microsoft-dhcp-snmp
 title: Microsoft DHCP SNMP
-description: "Supervisez les serveurs Microsoft DHCP via SNMP : utilisation des sous-réseaux, adresses libres et offres en attente."
+description: "Supervisez les serveurs Microsoft DHCP via SNMP : adresses utilisées et libres par sous-réseau et offres en attente, avec découverte des sous-réseaux."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -373,3 +373,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=subnets \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.

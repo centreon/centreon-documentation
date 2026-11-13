@@ -1,7 +1,7 @@
 ---
 id: anomaly-detection
 title: Anomaly Detection
-description: "Détecter les comportements anormaux des services grâce à des seuils dynamiques"
+description: "Détectez les comportements anormaux de vos services avec Centreon Anomaly Detection : installation, services à seuils dynamiques et suivi des anomalies."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

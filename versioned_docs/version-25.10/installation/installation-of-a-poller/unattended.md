@@ -1,7 +1,7 @@
 ---
 id: unattended-install-poller
 title: Unattended installation of a poller
-description: "Install a poller quickly using an unattended script"
+description: "Install a Centreon poller in one go with the unattended installation script, then attach it to the central server or a remote server to start monitoring."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -60,7 +60,7 @@ apt update && apt upgrade
 2. Download the script using the following command:
 
 ```shell
-curl -L https://download.centreon.com/25.10/unattended.sh --output /tmp/unattended.sh
+curl -L https://raw.githubusercontent.com/centreon/centreon/25.10-latest/centreon/unattended.sh --output /tmp/unattended.sh
 ```
 
 3. Run the following command as **root**:
@@ -78,5 +78,5 @@ bash /tmp/unattended.sh install -t poller -v 25.10 -r stable -l DEBUG  2>&1 |tee
 To get help on the script, use the following command:
 
 ```shell
-bash unattended.sh -h
+bash /tmp/unattended.sh -h
 ```

@@ -172,8 +172,25 @@ module.exports = {
           id: 'installation/prerequisites',
         },
         {
-          type: 'doc',
-          id: 'installation/deploy-poller',
+          type: 'category',
+          label: 'Deploying a poller',
+          link: {
+            type: 'generated-index',
+          },
+          items: [
+            {
+              type: 'doc',
+              id: 'installation/deploy-poller',
+            },
+            {
+              type: 'doc',
+              id: 'installation/using-containers',
+            },
+            {
+              type: 'doc',
+              id: 'installation/using-containers-advanced-configuration',
+            },
+          ],
         },
         {
           type: 'doc',
@@ -448,25 +465,25 @@ module.exports = {
               "link": {
                 "type": "doc",
                 "id": "alerts-notifications/ticketing/ticketing-advanced-body"
-            },
-            "items": [
-              {
-                "type": "doc",
-                "id": "alerts-notifications/ticketing/ticketing-advanced-smarty-variables"
               },
-              {
-                "type": "doc",
-                "id": "alerts-notifications/ticketing/ticketing-advanced-smarty-functions"
-              },
-              {
-                "type": "doc",
-                "id": "alerts-notifications/ticketing/ticketing-advanced-mapping"
-              },
-              {
-                "type": "doc",
-                "id": "alerts-notifications/ticketing/glossary"
-              },
-            ]
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/ticketing-advanced-smarty-variables"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/ticketing-advanced-smarty-functions"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/ticketing-advanced-mapping"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/glossary"
+                }
+              ]
             },
             {
               "type": "doc",
@@ -575,13 +592,17 @@ module.exports = {
         },
         {
           "type": "category",
-          "label": "Guide",
+          "label": "Using MAP",
           "key": "graph-views-guide",
           "link": {
             "type": "generated-index",
             "slug": "graph-views-guide"
           },
           "items": [
+            {
+              "type": "doc",
+              "id": "graph-views/map-best-practices"
+            },
             {
               "type": "doc",
               "id": "graph-views/map-web-access"
@@ -597,13 +618,24 @@ module.exports = {
             {
               "type": "doc",
               "id": "graph-views/map-web-create-geoview"
-            },
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Fixing MAP issues",
+          "key": "graph-views-fixing-issues",
+          "link": {
+            "type": "generated-index",
+            "slug": "graph-views-fixing-issues"
+          },
+          "items": [
             {
               "type": "doc",
               "id": "graph-views/map-web-known-issues"
             }
           ]
-          }
+        }
         ]
       },
     {
@@ -705,7 +737,11 @@ module.exports = {
           "items": [
             {
               "type": "doc",
-              "id": "integrations/itsm/ot-bmc-footprints"
+              "id": "integrations/itsm/ot-bmc-footprints-11"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-bmc-remedy"
             },
             {
               "type": "doc",
@@ -729,7 +765,19 @@ module.exports = {
             },
             {
               "type": "doc",
+              "id": "integrations/itsm/ot-ivanti"
+            },
+            {
+              "type": "doc",
               "id": "integrations/itsm/ot-jira"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-mail"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-matrix42"
             },
             {
               "type": "doc",
@@ -737,11 +785,19 @@ module.exports = {
             },
             {
               "type": "doc",
-              "id": "integrations/itsm/ot-request-tracker-restapi"
+              "id": "integrations/itsm/ot-request-tracker-2"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-serena-itsm"
             },
             {
               "type": "doc",
               "id": "integrations/itsm/ot-servicenow"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-simple"
             }
           ]
         },
