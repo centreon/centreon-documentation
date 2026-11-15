@@ -263,7 +263,7 @@ Enfin, vérifiez le domaine SELinux des processus Centreon :
 ps -eZ | grep -E 'centengine|cbd|gorgone|php-fpm'
 ```
 
-`centengine`, `cbd` et `gorgoned` doivent s'exécuter dans `centreon_engine_t`, `centreon_broker_t` et `centreon_gorgoned_t` (`php-fpm` s'exécute dans `httpd_t`).
+`centengine` et `cbd` doivent s'exécuter dans `centreon_engine_t` et `centreon_broker_t` (`php-fpm` s'exécute dans `httpd_t`).
 S'ils s'exécutent dans `unconfined_service_t`, les contextes de fichiers Centreon n'ont pas été appliqués : restaurez-les avec
 `restorecon -RF` sur les chemins listés par `semanage fcontext -l | grep centreon`, puis redémarrez les services.
 

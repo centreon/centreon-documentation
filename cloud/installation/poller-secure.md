@@ -176,7 +176,7 @@ Finally, check the SELinux domain of the Centreon processes:
 ps -eZ | grep -E 'centengine|cbd|gorgone'
 ```
 
-`centengine`, `cbd` and `gorgoned` must run in `centreon_engine_t`, `centreon_broker_t` and `centreon_gorgoned_t`.
+`centengine` and `cbd` must run in `centreon_engine_t` and `centreon_broker_t`.
 If they run in `unconfined_service_t`, the Centreon file contexts were not applied: restore them with
 `restorecon -RF` on the paths listed by `semanage fcontext -l | grep centreon`, then restart the services.
 
