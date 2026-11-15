@@ -116,9 +116,20 @@ For more information about SELinux, please see [Red Hat documentation](https://a
 
 By default, SELinux is disabled during the Centreon installation process and must be reenabled after it for security reasons.
 
-To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
-- ``SELINUX=enforcing`` to make SELinux security policy enforced.
-- ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
+> Enable SELinux in **permissive** mode first. Do not use **enforcing** mode before the Centreon SELinux packages
+> are installed: services such as php-fpm, Centreon Broker or Centreon Engine would be denied at boot.
+
+Edit the **/etc/selinux/config** file and set:
+
+```shell
+SELINUX=permissive
+```
+
+If SELinux was **disabled**, request a relabel of the file systems at the next boot:
+
+```shell
+touch /.autorelabel
+```
 
 Then reboot your server:
 
@@ -269,8 +280,12 @@ ausearch --start week-ago --message AVC,USER_AVC | audit2allow -M <modulename>
 semodule -i <modulename>.pp
 ```
 
-If after a while, no error is present, you can activate SELinux in full mode by
-following this [procedure](#activate-selinux) using **enforcing** mode.
+If after a while, no error is present, you can activate SELinux in **enforcing** mode. Edit the
+**/etc/selinux/config** file to set ``SELINUX=enforcing``, then apply it without rebooting:
+
+```shell
+setenforce 1
+```
 
 > Do not hesitate to give us your feedback on [Github](https://github.com/centreon/centreon).
 
