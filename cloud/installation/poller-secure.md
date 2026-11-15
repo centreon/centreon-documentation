@@ -33,7 +33,7 @@ components by the operating system.
 
 > These rules are currently in **beta mode** and can be activated.
 > You can activate them by following this procedure. If you detect a problem,
-> you can disable SELinux globally and send us your feedback in
+> you can make only the affected domain permissive (see [Audit logs and enable SELinux](#audit-logs-and-enable-selinux)) and send us your feedback in
 > order to improve our rules on [Github](https://github.com/centreon/centreon).
 
 ### SELinux Overview
@@ -142,22 +142,75 @@ centreon-gorgoned	0.0.3
 centreon-plugins	0.0.2
 ```
 
+### Check your SELinux setup
+
+After installing the packages, make sure that the Centreon policy modules are loaded:
+
+```shell
+semodule -l | grep centreon
+```
+
+Each installed `centreon-*` module must be listed (see the previous section).
+
+The Centreon packages switch on the following SELinux booleans (persistently, with `setsebool -P`):
+
+- `centreon-common-selinux`: `daemons_enable_cluster_mode`, `cluster_can_network_connect` and `cluster_manage_all_files`.
+
+Check them with:
+
+```shell
+getsebool daemons_enable_cluster_mode cluster_can_network_connect cluster_manage_all_files
+```
+
+Expected result (the booleans of the packages installed on your server must be `on`):
+
+```shell
+daemons_enable_cluster_mode --> on
+cluster_can_network_connect --> on
+cluster_manage_all_files --> on
+```
+
+Finally, check that the Centreon processes run in their own SELinux domain and not in `unconfined_t`:
+
+```shell
+ps -eZ | grep -E 'centengine|cbd|gorgone'
+```
+
+Each process must appear with a dedicated domain, for example `centreon_engine_t` for `centengine`.
+
 ### Audit logs and enable SELinux
 
 Before enabling SELinux in **enforcing** mode, you need to be sure that no errors appear using the following command:
 
 ```shell
-cat /var/log/audit/audit.log | grep -i denied
+ausearch --start week-ago --message AVC,USER_AVC
 ```
 
-If errors appear, you must analyze them and decide if these errors are regular and should be added to
-the Centreon default SELinux rules. To do this, use the following command to transform errors into SELinux rules:
+If errors appear, analyze them:
 
 ```shell
-audit2allow -a
+ausearch --start week-ago --message AVC,USER_AVC | audit2why
 ```
 
-Then execute the proposed rules.
+Report the denials to Centreon, with the output of the command above, on [Github](https://github.com/centreon/centreon)
+or on [The Watch](https://thewatch.centreon.com/), so that we can fix the policy for everybody.
+
+> We discourage building local modules with `audit2allow -M`: they widen the policy blindly and hide bugs from us,
+> so they are never fixed in the Centreon packages.
+
+If a Centreon domain blocks production while you wait for a fix, make only this domain permissive instead of switching the whole system
+to permissive mode. For example, for the Engine domain:
+
+```shell
+semanage permissive -a centreon_engine_t
+```
+
+The denials of this domain are then logged but no longer enforced, while all the other domains stay protected.
+Once the fix is installed, revert the change:
+
+```shell
+semanage permissive -d centreon_engine_t
+```
 
 If after a while, no error is present, you can activate SELinux in **enforcing** mode. Edit the
 **/etc/selinux/config** file to set ``SELINUX=enforcing``, then apply it without rebooting:

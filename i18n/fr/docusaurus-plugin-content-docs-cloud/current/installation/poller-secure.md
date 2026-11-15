@@ -46,7 +46,7 @@ des composants par le système d'exploitation.
 
 > Ces règles sont actuellement en **mode bêta** et peuvent être activées. Vous
 > pouvez les activer en suivant cette procédure. Lors de la détection d'un
-> problème, il est possible de désactiver SELinux globalement et de nous envoyer
+> problème, il est possible de passer uniquement le domaine concerné en mode permissif (voir [Auditer les journaux et activer SELinux](#auditer-les-journaux-et-activer-selinux)) et de nous envoyer
 > vos commentaires afin d'améliorer nos règles sur
 > [Github](https://github.com/centreon/centreon).
 
@@ -156,24 +156,76 @@ centreon-plugins	0.0.2
 centreon-web	0.0.8
 ```
 
+### Vérifier votre configuration SELinux
+
+Après l'installation des paquets, assurez-vous que les modules de politique Centreon sont chargés :
+
+```shell
+semodule -l | grep centreon
+```
+
+Chaque module `centreon-*` installé doit être listé (voir la section précédente).
+
+Les paquets Centreon activent les booléens SELinux suivants (de façon persistante, avec `setsebool -P`) :
+
+- `centreon-common-selinux` : `daemons_enable_cluster_mode`, `cluster_can_network_connect` et `cluster_manage_all_files`.
+
+Vérifiez-les avec :
+
+```shell
+getsebool daemons_enable_cluster_mode cluster_can_network_connect cluster_manage_all_files
+```
+
+Résultat attendu (les booléens des paquets installés sur votre serveur doivent être à `on`) :
+
+```shell
+daemons_enable_cluster_mode --> on
+cluster_can_network_connect --> on
+cluster_manage_all_files --> on
+```
+
+Enfin, vérifiez que les processus Centreon s'exécutent dans leur propre domaine SELinux et non dans `unconfined_t` :
+
+```shell
+ps -eZ | grep -E 'centengine|cbd|gorgone'
+```
+
+Chaque processus doit apparaître avec un domaine dédié, par exemple `centreon_engine_t` pour `centengine`.
+
 ### Auditer les journaux et activer SELinux
 
 Avant d'activer SELinux en **mode renforcé**, vous devez vous assurer qu'aucune erreur n'apparaît à l'aide de la
 commande suivante :
 
 ```shell
-cat /var/log/audit/audit.log | grep -i denied
+ausearch --start week-ago --message AVC,USER_AVC
 ```
 
-Si des erreurs apparaissent, vous devez les analyser et décider si ces erreurs sont régulières et doivent être ajoutées
-en plus des règles SELinux par défaut de Centreon. Pour ce faire, utilisez la commande suivante pour transformer
-l'erreur en règles SELinux :
+Si des erreurs apparaissent, analysez-les :
 
 ```shell
-audit2allow -a
+ausearch --start week-ago --message AVC,USER_AVC | audit2why
 ```
 
-Exécutez ensuite les règles proposées.
+Signalez les refus à Centreon, avec le résultat de la commande ci-dessus, sur [Github](https://github.com/centreon/centreon)
+ou sur [The Watch](https://thewatch.centreon.com/), afin que nous puissions corriger la politique pour tous.
+
+> Nous déconseillons de construire des modules locaux avec `audit2allow -M` : ils élargissent la politique à l'aveugle et nous
+> masquent les anomalies, qui ne sont alors jamais corrigées dans les paquets Centreon.
+
+Si un domaine Centreon bloque la production en attendant un correctif, passez uniquement ce domaine en mode permissif plutôt que
+l'ensemble du système. Par exemple, pour le domaine d'Engine :
+
+```shell
+semanage permissive -a centreon_engine_t
+```
+
+Les refus de ce domaine sont alors journalisés mais plus appliqués, tandis que tous les autres domaines restent protégés.
+Une fois le correctif installé, annulez la modification :
+
+```shell
+semanage permissive -d centreon_engine_t
+```
 
 Si après un certain temps, aucune erreur n'est présente, vous pouvez activer SELinux en mode **enforcing**. Éditez le
 fichier **/etc/selinux/config** pour positionner ``SELINUX=enforcing``, puis appliquez-le sans redémarrer :
