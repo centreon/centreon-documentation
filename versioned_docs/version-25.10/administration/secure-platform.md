@@ -257,13 +257,15 @@ centreon_php_fpm_port_t        tcp      9042
 
 > This applies from the next release that ships the fix.
 
-Finally, check that the Centreon processes run in their own SELinux domain and not in `unconfined_t`:
+Finally, check the SELinux domain of the Centreon processes:
 
 ```shell
 ps -eZ | grep -E 'centengine|cbd|gorgone|php-fpm'
 ```
 
-Each process must appear with a dedicated domain, for example `centreon_engine_t` for `centengine`.
+`centengine`, `cbd` and `gorgoned` must run in `centreon_engine_t`, `centreon_broker_t` and `centreon_gorgoned_t` (`php-fpm` runs in `httpd_t`).
+If they run in `unconfined_service_t`, the Centreon file contexts were not applied: restore them with
+`restorecon -RF` on the paths listed by `semanage fcontext -l | grep centreon`, then restart the services.
 
 ### Audit logs and enable SELinux
 
