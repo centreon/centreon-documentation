@@ -8,6 +8,12 @@
  * lists and table cells keep their lists and code on their row, joined with
  * <br>.
  *
+ * Docusaurus markup is only found through markers meant to survive upgrades:
+ * the stable theme class names (ThemeClassNames of @docusaurus/theme-common,
+ * also set on the swizzled src/theme/DocCard), ARIA roles and Prism's
+ * token-line class. Hashed CSS module class names (admonitionHeading_x...)
+ * and element nesting are never relied on.
+ *
  * Site URLs are not hardcoded: callers pass pageUrl and rewriteUrl to
  * convert(), see createMarkdownConverter().
  */
@@ -18,7 +24,15 @@ import rehypeRemark from 'rehype-remark';
 import remarkGfm from 'remark-gfm';
 import remarkStringify from 'remark-stringify';
 
+// Stable theme class names (ThemeClassNames of @docusaurus/theme-common).
 const DOC_BODY_CLASS = 'theme-doc-markdown';
+const TABS_CLASS = 'theme-tabs-container';
+const CODE_BLOCK_CLASS = 'theme-code-block';
+const ADMONITION_CLASS = 'theme-admonition';
+const ADMONITION_TYPE_PREFIX = 'theme-admonition-';
+const DOC_CARD_CLASS = 'theme-doc-card-container';
+const DOC_CARD_TITLE_CLASS = 'theme-doc-card-title';
+const DOC_CARD_DESCRIPTION_CLASS = 'theme-doc-card-description';
 const DROPPED_TAGS = new Set(['svg', 'button', 'script', 'style', 'noscript']);
 const BLOCK_TAGS = new Set([
   'article', 'blockquote', 'dd', 'details', 'div', 'dl', 'dt', 'figure', 'h1', 'h2', 'h3', 'h4', 'h5',
@@ -36,8 +50,7 @@ const isElement = (node, tagName) =>
   node.type === 'element' && (tagName === undefined || node.tagName === tagName);
 const classesOf = (node) => node.properties?.className ?? [];
 const hasClass = (node, name) => classesOf(node).includes(name);
-const hasClassPrefix = (node, prefix) =>
-  classesOf(node).some((name) => String(name).startsWith(prefix));
+const hasRole = (node, role) => isElement(node) && node.properties.role === role;
 
 function textOf(node, lineBreak = '') {
   if (node.type === 'text') {
@@ -93,38 +106,46 @@ function rewriteChildren(node, context) {
   return node;
 }
 
-/** Tabs: each panel, in order, under a bold paragraph holding its tab label. */
-function rewriteTabs(container, tabList, context) {
-  const labels = tabList.children.filter((child) => isElement(child, 'li')).map((li) => textOf(li).trim());
-  const panels = findAll(container, (node) => isElement(node) && node.properties.role === 'tabpanel');
+/**
+ * Tabs: each panel, in order, under a bold paragraph holding its tab label.
+ * The first tab list of the container is its own: nested tabs sit in panels.
+ */
+function rewriteTabs(container, context) {
+  const tabList = findFirst(container, (node) => hasRole(node, 'tablist'));
+  const labels = tabList ? findAll(tabList, (node) => hasRole(node, 'tab')).map((tab) => textOf(tab).trim()) : [];
+  const panels = findAll(container, (node) => hasRole(node, 'tabpanel'));
   return panels.flatMap((panel, index) => [
     titleParagraph(labels[index] ?? `Tab ${index + 1}`),
     ...rewriteChildren(panel, context).children,
   ]);
 }
 
-/** Prism code block: plain text code with its language, one line per token line. */
-function rewriteCodeBlock(pre) {
-  const language = classesOf(pre)
+/** Code block: plain text code with its language, one line per Prism token line. */
+function rewriteCodeBlock(container) {
+  const pre = findFirst(container, (node) => isElement(node, 'pre')) ?? container;
+  // The <pre> holds the lowercased language; the container keeps the author's case.
+  const language = [...classesOf(pre), ...classesOf(container)]
     .map(String)
     .find((name) => name.startsWith('language-'));
   const lines = findAll(pre, (node) => isElement(node) && hasClass(node, 'token-line'));
-  const code = lines.length > 0 ? lines.map((line) => textOf(line)).join('\n') : textOf(pre);
+  const code = lines.length > 0 ? lines.map((line) => textOf(line)).join('\n') : textOf(pre, '\n');
   return element('pre', [element('code', [text(code.replace(/\n+$/, ''))], { className: language ? [language] : [] })]);
 }
 
-/** Admonition: a blockquote starting with its title in bold. */
+/**
+ * Admonition: a blockquote starting with its title in bold. The heading is
+ * the first child element, the content the others; an empty heading (or a
+ * lone child) gives the title of the admonition type (theme-admonition-warning).
+ */
 function rewriteAdmonition(node, context) {
-  const heading = findFirst(node, (child) => isElement(child) && hasClassPrefix(child, 'admonitionHeading'));
-  const content = findFirst(node, (child) => isElement(child) && hasClassPrefix(child, 'admonitionContent'));
-  // The type class (theme-admonition-warning) is stable, unlike the hashed heading class.
+  const [heading, ...content] = node.children.filter((child) => isElement(child));
   const type = classesOf(node)
     .map(String)
-    .find((name) => name.startsWith('theme-admonition-'))
-    ?.slice('theme-admonition-'.length);
-  const title = capitalize((heading ? textOf(heading).trim() : '') || type || 'note');
-  // Without the content wrapper (renamed class), keep everything but the heading.
-  const body = content ?? element('div', node.children.filter((child) => child !== heading));
+    .find((name) => name.startsWith(ADMONITION_TYPE_PREFIX))
+    ?.slice(ADMONITION_TYPE_PREFIX.length);
+  const headingText = content.length > 0 ? textOf(heading).trim() : '';
+  const title = capitalize(headingText || type || 'note');
+  const body = content.length > 0 ? element('div', content) : element('div', heading ? [heading] : []);
   return element('blockquote', [titleParagraph(`${title}:`), ...rewriteChildren(body, context).children]);
 }
 
@@ -197,18 +218,21 @@ function markCellBreaks(node) {
   }
 }
 
-/** Doc card list: a list of title links, each followed by its description. */
+const isDocCard = (node) => isElement(node) && hasClass(node, DOC_CARD_CLASS);
+
+/** Doc card: its title as a link, followed by its description. */
+function cardContent(card, context) {
+  const title = findFirst(card, (node) => isElement(node) && hasClass(node, DOC_CARD_TITLE_CLASS));
+  const description = findFirst(card, (node) => isElement(node) && hasClass(node, DOC_CARD_DESCRIPTION_CLASS));
+  const link = rewriteNode(element('a', [text(textOf(title ?? card).trim())], { href: card.properties.href }), context);
+  return [...link, ...(description ? [text(`: ${textOf(description).trim()}`)] : [])];
+}
+
+/** Doc card list (a <section> of doc cards): a list of card links. */
 function rewriteCardList(section, context) {
-  const cards = findAll(section, (node) => isElement(node, 'a') && hasClass(node, 'card'));
   return element(
     'ul',
-    cards.map((card) => {
-      const title = findFirst(card, (node) => isElement(node, 'h2'));
-      const description = findFirst(card, (node) => isElement(node, 'p'));
-      const link = rewriteNode(element('a', [text(textOf(title ?? card).trim())], { href: card.properties.href }), context);
-      const suffix = description ? [text(`: ${textOf(description).trim()}`)] : [];
-      return element('li', [...link, ...suffix]);
-    }),
+    findAll(section, isDocCard).map((card) => element('li', cardContent(card, context))),
   );
 }
 
@@ -224,18 +248,21 @@ function rewriteNode(node, context) {
     return [];
   }
 
-  const tabList = (node.children ?? []).find((child) => isElement(child, 'ul') && child.properties.role === 'tablist');
-  if (tabList) {
-    return rewriteTabs(node, tabList, context);
+  if (hasClass(node, TABS_CLASS)) {
+    return rewriteTabs(node, context);
   }
-  if (node.tagName === 'pre' && hasClass(node, 'prism-code')) {
+  if (hasClass(node, CODE_BLOCK_CLASS)) {
     return [rewriteCodeBlock(node)];
   }
-  if (hasClass(node, 'theme-admonition')) {
+  if (hasClass(node, ADMONITION_CLASS)) {
     return [rewriteAdmonition(node, context)];
   }
-  if (node.tagName === 'section' && findFirst(node, (child) => isElement(child) && hasClassPrefix(child, 'docCardListItem'))) {
+  if (node.tagName === 'section' && findFirst(node, isDocCard)) {
     return [rewriteCardList(node, context)];
+  }
+  if (isDocCard(node)) {
+    // A card outside a card list.
+    return [element('p', cardContent(node, context))];
   }
   if (node.tagName === 'details') {
     const summary = node.children.find((child) => isElement(child, 'summary'));

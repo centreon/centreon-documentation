@@ -21,12 +21,13 @@ const page = (body) =>
 const convert = (body, options = {}) => converter.convert(page(body), { pageUrl: PAGE_URL, ...options });
 
 const codeBlock = (language, lines) =>
-  `<div class=codeBlockContainer><pre tabindex=0 class="prism-code ${language ? `language-${language}` : ''}">` +
-  `<code class=codeBlockLines>${lines.map((line) => `<div class=token-line><span class="token plain">${line}</span><br/></div>`).join('')}</code>` +
-  '</pre><button type=button aria-label="Copy code">Copy</button></div>';
+  `<div class="${language ? `language-${language} ` : ''}codeBlockContainer_x theme-code-block"><div class=codeBlockContent_x>` +
+  `<pre tabindex=0 class="prism-code ${language ? `language-${language}` : ''} codeBlock_x">` +
+  `<code class=codeBlockLines_x>${lines.map((line) => `<div class=token-line><span class="token plain">${line}</span><br/></div>`).join('')}</code>` +
+  '</pre><div class=buttonGroup_x><button type=button aria-label="Copy code">Copy</button></div></div></div>';
 
 const tabs = (items) =>
-  '<div class="tabs-container tabList"><ul role=tablist aria-orientation=horizontal class=tabs>' +
+  '<div class="theme-tabs-container tabs-container tabList_x"><ul role=tablist aria-orientation=horizontal class=tabs>' +
   items.map(([label]) => `<li role=tab class=tabs__item>${label}`).join('') +
   '</ul><div class=margin-top--md>' +
   items.map(([, content], index) => `<div role=tabpanel class=tabItem${index ? ' hidden' : ''}>${content}</div>`).join('') +
@@ -123,8 +124,9 @@ describe('admonitions and details', () => {
 describe('doc card lists', () => {
   it('outputs a list of links with their description', async () => {
     const card = (href, title, description) =>
-      `<article class="docCardListItem_x col"><a class="card padding--lg" href=${href}><h2 class=cardTitle title="${title}">${title}</h2>` +
-      (description ? `<p class=cardDescription>${description}</p>` : '') +
+      `<article class="docCardListItem_x col"><a class="card padding--lg cardContainer_x theme-doc-card-container" href=${href}>` +
+      `<h2 class="text--truncate cardTitle_x theme-doc-card-title" title="${title}">${title}</h2>` +
+      (description ? `<p class="text--truncate cardDescription_x theme-doc-card-description">${description}</p>` : '') +
       '</a></article>';
     const markdown = await convert(
       `<section class=row>${card('/docs/a/', 'First', 'About A')}${card('/docs/b/', 'Second')}</section><p>After the cards.</p>`,
@@ -237,5 +239,32 @@ describe('frontMatter', () => {
 
   it('escapes quotes and line breaks', () => {
     assert.equal(frontMatter({ title: 'Say "hi"\nnow' }), '---\ntitle: "Say \\"hi\\"\\nnow"\n---\n');
+  });
+});
+
+describe('stable markers only', () => {
+  it('finds tab labels when the tab list is nested deeper in the container', async () => {
+    const html = tabs([['A', '<p>a</p>'], ['B', '<p>b</p>']])
+      .replace('<ul role=tablist', '<div class=wrapper><ul role=tablist')
+      .replace('</ul>', '</ul></div>');
+    assert.equal(await convert(html), '**A**\n\na\n\n**B**\n\nb\n');
+  });
+
+  it('keeps the lines of a code block without Prism token lines', async () => {
+    const html = '<div class="language-yaml theme-code-block"><pre><code>a: 1<br>b: 2</code></pre></div>';
+    assert.equal(await convert(html), '```yaml\na: 1\nb: 2\n```\n');
+  });
+
+  it('recognizes a card list by its doc cards, whatever its hashed classes', async () => {
+    const html =
+      '<section class=renamed_y><article class=item_y><a class="card theme-doc-card-container" href=/docs/a/>' +
+      '<h2 class="x theme-doc-card-title">A</h2><p class="x theme-doc-card-description">About A</p></a></article></section>';
+    assert.equal(await convert(html), '- [A](https://docs.centreon.com/docs/a/): About A\n');
+  });
+
+  it('turns a card outside a card list into a paragraph', async () => {
+    const html =
+      '<div><a class="card theme-doc-card-container" href=/docs/a/><h2 class=theme-doc-card-title>A</h2></a></div><p>After.</p>';
+    assert.equal(await convert(html), '[A](https://docs.centreon.com/docs/a/)\n\nAfter.\n');
   });
 });
