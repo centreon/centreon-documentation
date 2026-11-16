@@ -79,15 +79,16 @@ Pour plus d'informations à propos de SELinux, visitez la [documentation Red Hat
 Par défaut, SELinux est désactivé lors du processus d'installation de Centreon et doit être réactivé par la suite pour des raisons de sécurité.
 
 > Activez d'abord SELinux en mode **permissive**. N'utilisez pas le mode **enforcing** avant d'avoir installé les
-> paquets Centreon SELinux : des services comme php-fpm, Centreon Broker ou Centreon Engine seraient bloqués au démarrage.
+> paquets SELinux Centreon : des services comme php-fpm, Centreon Broker ou Centreon Engine seraient bloqués au démarrage.
+> Si SELinux est déjà en mode **enforcing**, repassez-le d'abord en mode permissive avec `setenforce 0`.
 
-Éditez le fichier **/etc/selinux/config** et positionnez :
+Éditez le fichier **/etc/selinux/config** et définissez :
 
 ```shell
 SELINUX=permissive
 ```
 
-Si SELinux était **désactivé**, demandez le réétiquetage des systèmes de fichiers au prochain démarrage :
+Si SELinux était **désactivé**, demandez le réétiquetage des systèmes de fichiers au prochain démarrage. Le réétiquetage peut prendre plusieurs minutes sur de gros systèmes de fichiers :
 
 ```shell
 touch /.autorelabel

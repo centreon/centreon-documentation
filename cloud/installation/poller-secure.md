@@ -65,6 +65,7 @@ By default, SELinux is disabled during the Centreon installation process and mus
 
 > Enable SELinux in **permissive** mode first. Do not use **enforcing** mode before the Centreon SELinux packages
 > are installed: services such as php-fpm, Centreon Broker or Centreon Engine would be denied at boot.
+> If SELinux is already in **enforcing** mode, switch it to permissive first with `setenforce 0`.
 
 Edit the **/etc/selinux/config** file and set:
 
@@ -72,7 +73,7 @@ Edit the **/etc/selinux/config** file and set:
 SELINUX=permissive
 ```
 
-If SELinux was **disabled**, request a relabel of the file systems at the next boot:
+If SELinux was **disabled**, request a relabel of the file systems at the next boot. The relabel can take several minutes on large file systems:
 
 ```shell
 touch /.autorelabel
