@@ -33,13 +33,11 @@ Minor versions, with bug fixes and minor improvements will be released on a mont
 
 The lifecycle of a version is divided into three phases:
 
-1.  First phase: Bugs of all severity levels (minor, major, critical, blocker)
-    and security issues are fixed according to their priority. Functional enhancements are added.
-2.  Second phase: Major, critical bugs and blockers, and security issues are
-    fixed according to their priority.
-3.  Third phase: Blockers and security issues are fixed according to their priority. A vulnerability whose remediation deadline falls after the version's end of support is not fixed on that version: upgrade to a supported version to get the fix.
+1.  **First phase**: Bugs of all severity levels (Minor, Major, Blocker) and vulnerabilities of all CVSS severities (Critical, High, Medium, Low) are fixed according to their priority. Functional enhancements are added.
+2.  **Second phase**: Major and Blocker bugs, and vulnerabilities of all CVSS severities (Critical, High, Medium, Low), are fixed according to their priority.
+3.  **Third phase**: Blocker bugs, and Critical and High vulnerabilities, are fixed according to their priority. Medium and Low vulnerabilities are not fixed on that version. A vulnerability whose remediation deadline falls after the version's end of support is not fixed on that version: upgrade to a supported version to get the fix.
 
-> Vulnerabilities follow a [CVSS v3 remediation plan](../security/security.md#vulnerability-scoring). Bugs are prioritized by Centreon's product team.
+> Vulnerability severity follows the CVSS v3 score and its [remediation plan](../security/security.md#vulnerability-scoring). Bug severity (Minor, Major, Blocker) is assessed by Centreon's product team.
 
 The first phase of the lifecycle begins on the day of a version release.
 
