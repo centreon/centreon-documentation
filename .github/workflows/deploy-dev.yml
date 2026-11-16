@@ -146,6 +146,12 @@ jobs:
             --config.minimumReleaseAge=2880 \
             --config.blockExoticSubdeps=true
 
+      # Tests of the local plugins: a few seconds, before the long build.
+      - name: Test site plugins
+        if: steps.want.outputs.build == 'true'
+        shell: bash
+        run: pnpm test
+
       - name: Build documentation
         if: steps.want.outputs.build == 'true'
         run: pnpm build --locale ${{ matrix.locale }}
