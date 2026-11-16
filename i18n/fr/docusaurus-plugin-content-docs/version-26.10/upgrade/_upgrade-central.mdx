@@ -17,8 +17,8 @@ import Link from '@docusaurus/Link';
 1. Mettez à jour votre Centreon {props.oldCentreonVersion} jusqu'à la dernière version mineure.
 
    <CodeBlock language="shell">
-   {`dnf config-manager --add-repo https://packages.centreon.com/archives/repo-files/standard/rpm/${props.oldCentreonVersion}/el9/centreon-${props.oldCentreonVersion}.repo` }
-   {`dnf clean all --enablerepo=*`}
+   {`dnf config-manager --add-repo https://packages.centreon.com/archives/repo-files/standard/rpm/${props.oldCentreonVersion}/el9/centreon-${props.oldCentreonVersion}.repo` }{'\n'}
+   {`dnf clean all --enablerepo=*`}{'\n'}
    {`dnf update`}
    </CodeBlock>
 
