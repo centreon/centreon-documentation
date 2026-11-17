@@ -214,6 +214,10 @@ In Centreon Cloud, when you create a business activity, you must always add it t
     access from this BA to the corresponding view to help users to drill
     down when a problem occurs on that BA.
 
+#### Reporting
+
+This feature is not yet operational in Centreon Cloud.
+
 #### Event handler
 
 Activate or not the auto-remediation command that you may execute when the BA

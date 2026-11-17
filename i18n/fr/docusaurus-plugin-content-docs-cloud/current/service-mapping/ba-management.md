@@ -207,6 +207,10 @@ Dans Centreon Cloud, lorsque vous crééz une activité métier, vous devez syst
     clic l'accès à la vue d'infrastructure supportant l'activité
     métier.
 
+#### Reporting
+
+Cette fonctionnalité n'est pas encore opérationnelle dans Centreon Cloud.
+
 #### Gestionnaire d'évènements
 
 Pour activer et associer des mécanisme d'auto-remédiation en fonction
