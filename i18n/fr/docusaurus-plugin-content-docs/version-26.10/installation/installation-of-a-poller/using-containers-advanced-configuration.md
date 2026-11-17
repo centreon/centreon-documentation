@@ -308,7 +308,6 @@ redémarrent automatiquement après un redémarrage de l'hôte, exécutez :
   systemctl --user enable podman-restart.service
   ```
 
-> Podman n'est pas pris en charge dans Centreon 26.10.0.
 
 <!--
 Fichier écrit : _translation/versioned_docs/version-26.10/installation/installation-of-a-poller/using-containers-advanced-configuration.md
