@@ -92,7 +92,6 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
 - Fixed an issue where Centreon Broker generated irrelevant RRD update error logs when losing connection to pollers, which could saturate the disk partition.
 - Fixed an issue where Centreon Engine crashed unexpectedly during configuration application when deleting hosts associated with active service downtimes.
-- [Broker] Fixed an issue causing broker to hang on stop with certain database and output configurations.
 - [Broker] Fixed remaining false error messages in broker logs that were not fully removed by the previous backport.
 - [Engine] Fixed an issue where centengine did not restart automatically after a package update, requiring a manual service restart.
 - [Engine] Fixed passive service freshness issues causing engine hangs, memory growth and flapping with CMA checks.
