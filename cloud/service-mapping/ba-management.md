@@ -193,8 +193,6 @@ you will be able to configure the following properties:
     to give access to this BA to non-admin users
 -   Display: All parameters concerning the way the BA will be accessible
     outside the BA monitoring page
--   Reporting: What SLA and time period you want to use to calculate the BA
-    availability statistics
 -   Event handler: parameters to auto-remediate the BA when state
     becomes non-ok
 
@@ -215,27 +213,6 @@ In Centreon Cloud, when you create a business activity, you must always add it t
     infrastructure was designed in Centreon Map, you can ease
     access from this BA to the corresponding view to help users to drill
     down when a problem occurs on that BA.
-
-#### Reporting
-
--   Default reporting time period: Availability statistics for widgets and
-    reports will be automatically calculated using this time period
--   Service Level Agreement in % (SLA): whenever the availability is
-    compared to a SLA in %, this will be the value that it will be
-    compared to
--   Service Level Agreement in minutes (SLA): whenever the availability
-    is compared to an SLA in minutes, this will be the value that it will
-    be compared to
--   Service Level Objective in % (SLO): additional threshold in % to
-    compare the availability. It can be seen as an “SLA warning”
-    threshold.
--   Service Level Objective in minutes (SLO): additional threshold in
-    minutes to compare the availability. It can be seen as an “SLA
-    warning” threshold.
--   Extra reporting time periods: Additional time period you may want
-    to use in widget and reports
-
-> In the **Default reporting time period** and **Extra reporting time periods** fields, do not use time periods that include [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab), as the exceptions will not not be taken into account.
 
 #### Event handler
 
