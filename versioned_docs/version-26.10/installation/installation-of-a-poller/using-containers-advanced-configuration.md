@@ -270,6 +270,8 @@ variable before running the command (for example
 
 ## Using Podman
 
+> Podman is supported from Centreon version 26.10.1.
+
 The install script also supports Podman, rootful or rootless (run as a
 regular user). It uses `podman compose` or `podman-compose` when Docker is not
 available, and checks the following before generating the files:
