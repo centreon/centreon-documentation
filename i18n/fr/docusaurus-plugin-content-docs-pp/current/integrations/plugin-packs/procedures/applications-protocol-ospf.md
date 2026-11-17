@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-ospf
 title: OSPF Protocol
-description: "Supervisez l'état des voisins du protocole OSPF via SNMP, avec suivi du nombre de voisins et détection des changements."
+description: "Supervisez les voisins OSPF via SNMP : nombre total de voisins, détection des changements de ce nombre et état de chaque voisin du protocole OSPF."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

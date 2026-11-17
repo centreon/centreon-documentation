@@ -1,7 +1,7 @@
 ---
 id: licenses
 title: Licenses
-description: "Obtain, add, and troubleshoot online or offline Centreon licenses"
+description: "Obtain and add online or offline Centreon licenses, see which modules require a license, and troubleshoot invalid, expired, or exceeded licenses."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

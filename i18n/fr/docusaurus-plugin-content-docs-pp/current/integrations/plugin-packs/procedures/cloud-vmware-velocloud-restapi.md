@@ -612,3 +612,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=link-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.08](../releases/release-notes.md#2024-08) - Bug fix: Fixed the listing (for discovery) and monitoring of Edges.

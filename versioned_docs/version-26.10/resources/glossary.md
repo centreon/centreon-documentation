@@ -1,7 +1,7 @@
 ---
 id: glossary
 title: Glossary of Centreon concepts
-description: "Definitions of key Centreon monitoring concepts and terms"
+description: "Definitions of key Centreon monitoring concepts and terms, such as ACLs, acknowledgements, Broker, Engine, Gorgone, hosts, checks, and downtimes."
 ---
 
 ## ACL
@@ -139,6 +139,12 @@ When a service has several metrics, the status of the service is the status of t
 You can see all metrics attached to a service in the details panel of the service.
 
 **See also**: [Understanding metrics](../monitoring/metrics.md).
+
+## Mode
+
+Modes are used in [plugins](#plugin). In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector. In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template. However, you will need to specify the correct mode for the template if you want to test the execution command for the connector in your terminal, or to create a custom command.
+
+The documentation of the Monitoring Connectors provides a list of available modes for each connector, with all the corresponding options.
 
 ## Monitoring action
 

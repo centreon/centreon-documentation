@@ -1,7 +1,7 @@
 ---
 id: services-discovery
 title: Discovering services automatically
-description: "How to run manual scans and configure discovery rules to create services automatically"
+description: "How to run manual scans and configure discovery rules to create services automatically, with discovery commands, plugins, and rule testing"
 ---
 
 ## Launch a manual scan

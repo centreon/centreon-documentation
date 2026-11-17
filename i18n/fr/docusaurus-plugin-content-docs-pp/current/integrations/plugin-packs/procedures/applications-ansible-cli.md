@@ -1,7 +1,7 @@
 ---
 id: applications-ansible-cli
 title: Ansible CLI
-description: "Découvrez automatiquement les hôtes Ansible via la ligne de commande grâce au connecteur Ansible CLI."
+description: "Découvrez automatiquement vos hôtes avec le connecteur Ansible CLI, qui interroge Ansible en ligne de commande (module setup). Aucune métrique collectée."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -235,3 +235,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=discovery \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default templates.
+- [22.11](../releases/release-notes.md#2022-11) - Breaking change: Migrate and secure the underlying modes.

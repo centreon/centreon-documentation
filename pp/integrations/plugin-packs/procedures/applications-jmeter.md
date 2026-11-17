@@ -1,7 +1,7 @@
 ---
 id: applications-jmeter
 title: JMeter
-description: "Monitor Apache JMeter scenarios via the CLI plugin: execution time, steps count, and availability percentage."
+description: "Monitor Apache JMeter scenarios by running them from the command line: scenario execution time, number of steps, and availability percentage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -335,3 +335,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=scenario \
 	--help
 ```
+
+## Changelog
+
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added `--command-path` option as macro in host template.
+- [24.12](../releases/release-notes.md#2024-12) - New connector: Initial release of JMeter.

@@ -1,7 +1,7 @@
 ---
 id: applications-apache-cxf-jmx
 title: Apache CXF
-description: "Monitor Apache CXF via JMX/Jolokia: track service invocations, in-flight requests, and application or runtime faults."
+description: "Monitor Apache CXF via JMX/Jolokia: service discovery, invocations, in-flight requests, and checked, unchecked, logical, and runtime faults per service."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -367,3 +367,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=services \
 	--help
 ```
+
+## Changelog
+
+- [26.01](../releases/release-notes.md#2026-01) - New connector: Initial release.

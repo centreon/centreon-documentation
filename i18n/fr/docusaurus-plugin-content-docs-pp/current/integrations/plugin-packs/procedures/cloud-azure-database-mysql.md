@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-database-mysql
 title: Azure Database for MySQL
-description: "Supervisez Azure Database for MySQL via l'API Azure : connexions, CPU, mémoire, stockage, réplication et trafic réseau."
+description: "Supervisez Azure Database for MySQL via l'API Azure : connexions, CPU, mémoire, E/S, requêtes, stockage, réplication et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -722,3 +722,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode='azcli' \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Changed host status checks output.
+- [22.07](../releases/release-notes.md#2022-07) - Bug fix: Fixed typo in `serverlog-usage` option label.

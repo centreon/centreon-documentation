@@ -158,5 +158,17 @@
   "sidebar.cloud.category.Troubleshooting Centreon Cloud": {
     "message": "Dépanner Centreon Cloud",
     "description": "The label for category Troubleshooting Centreon Cloud in sidebar cloud"
+  },
+  "sidebar.cloud.category.Graphical views (maps)": {
+    "message": "Vues graphiques (cartes)",
+    "description": "The label for category Graphical views (maps) in sidebar cloud"
+  },
+  "sidebar.cloud.category.graph-views-guide": {
+    "message": "Utiliser MAP",
+    "description": "The label for category Using MAP in sidebar cloud"
+  },
+  "sidebar.cloud.category.graph-views-fixing-issues": {
+    "message": "Résoudre les problèmes MAP",
+    "description": "The label for category Fixing MAP issues in sidebar cloud"
   }
 }

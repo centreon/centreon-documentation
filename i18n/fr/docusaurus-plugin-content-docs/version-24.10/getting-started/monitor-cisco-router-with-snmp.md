@@ -1,7 +1,7 @@
 ---
 id: monitor-cisco-router-with-snmp
 title: Superviser votre premier routeur Cisco
-description: "Superviser un routeur Cisco à l'aide du protocole SNMP"
+description: "Supervisez un routeur Cisco en SNMP avec Centreon : activez SNMP sur l'équipement, installez le connecteur Cisco standard, puis créez l'hôte."
 ---
 
 import Tabs from '@theme/Tabs';

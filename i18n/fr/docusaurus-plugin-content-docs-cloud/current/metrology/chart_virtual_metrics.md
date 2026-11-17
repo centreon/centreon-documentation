@@ -1,10 +1,10 @@
 ---
 id: chart-virtual-metrics
 title: Métriques virtuelles
-description: "Comment créer des métriques virtuelles avec la notation RPN pour agréger les données de plusieurs courbes Centreon"
+description: "Comment créer des métriques virtuelles avec la notation RPN pour agréger les données de plusieurs courbes Centreon, avec les types CDEF et VDEF"
 ---
 
-## Definition
+## Définition
 
 Les métriques virtuelles sont l'affichage de courbes résultant du traitement / agrégation de données issues d'un jeu de
 données. Le jeu de données correspond aux différentes valeurs des courbes sur la période de présentation du graphique.

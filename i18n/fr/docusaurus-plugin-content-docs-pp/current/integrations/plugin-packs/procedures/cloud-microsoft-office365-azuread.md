@@ -1,7 +1,7 @@
 ---
 id: cloud-microsoft-office365-azuread
 title: Office 365 Azure AD
-description: "Supervisez Office 365 Azure AD via l'API Graph avec Centreon : suivi du quota d'utilisation de l'annuaire."
+description: "Supervisez Office 365 Azure AD via l'API Microsoft Graph : suivi de l'utilisation du quota de l'annuaire pour anticiper l'atteinte de sa limite."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -330,3 +330,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=directory-size-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.10](../releases/release-notes.md#2022-10) - Bug fix: Fixed typo in check command.
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Added AzureAD Pack (graphapi).

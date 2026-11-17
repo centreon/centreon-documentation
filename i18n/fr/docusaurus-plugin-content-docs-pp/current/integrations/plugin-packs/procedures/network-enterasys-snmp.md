@@ -1,7 +1,7 @@
 ---
 id: network-enterasys-snmp
 title: Enterasys SNMP
-description: "Supervisez les équipements réseau Enterasys via SNMP (CPU, mémoire, stockage, uptime et trafic des interfaces)."
+description: "Supervisez les équipements réseau Enterasys via SNMP : CPU, mémoire, stockage, uptime et trafic des interfaces, avec découverte d'hôtes et de services."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -583,3 +583,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=storage \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.11](../releases/release-notes.md#2022-11) - New connector: New monitoring pack.

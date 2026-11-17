@@ -1,7 +1,7 @@
 ---
 id: map-web-known-issues
 title: MAP known issues
-description: "Known issues currently being addressed by the MAP team"
+description: "Known issues in Centreon MAP that the team is working on, such as anomaly detection services, font properties, migrated Geo Maps, and line chart colors."
 ---
 
 This topic lists known issues the MAP team is currently working on:

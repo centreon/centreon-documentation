@@ -1,7 +1,7 @@
 ---
 id: backup-poller
 title: Sauvegarder et restaurer vos collecteurs
-description: "Sauvegarder les données des collecteurs et préparer un collecteur de secours"
+description: "Sauvegardez et restaurez vos collecteurs Centreon : fichiers à conserver pour reconstruire un collecteur, collecteur de secours ou snapshots de VM."
 ---
 
 ## Cas n°1 : Faire des sauvegardes pour pouvoir installer un nouveau collecteur à partir de zéro

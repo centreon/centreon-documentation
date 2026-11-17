@@ -1,7 +1,7 @@
 ---
 id: services-create-disco
 title: Créer des services automatiquement
-description: "Créer automatiquement des services grâce aux modèles ou à la découverte"
+description: "Créez des services automatiquement dans Centreon lors de la création d'hôtes à partir de modèles liés à des services, ou grâce à la découverte de services."
 ---
 
 Les services peuvent être créés automatiquement de plusieurs façons :

@@ -1,7 +1,7 @@
 ---
 id: sc-elastic-metrics
 title: Elastic Metrics
-description: "Envoi de métriques Centreon vers Elasticsearch avec dimensions personnalisées"
+description: "Configurez le stream connector Elastic Metrics pour envoyer les métriques Centreon vers Elasticsearch, avec dimensions personnalisées et modèle d'index."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -22,14 +22,6 @@ Réalisez l'installation en `root` sur le serveur qui enverra les données vers 
 1. Installez les dépendances :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install luarocks make gcc lua-curl lua-devel wget
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -38,7 +30,15 @@ dnf install luarocks make gcc lua-curl lua-devel wget
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install luarocks make gcc lua-curl lua-devel wget
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install luarocks make gcc lua-curl lua-devel wget
@@ -50,14 +50,6 @@ apt install luarocks make gcc lua-curl lua-devel wget
 2. Installez les bibliothèques Centreon Lua pour les stream connectors :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-luarocks install centreon-stream-connectors-lib
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -66,7 +58,15 @@ luarocks install centreon-stream-connectors-lib
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+luarocks install centreon-stream-connectors-lib
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 luarocks install centreon-stream-connectors-lib
@@ -78,18 +78,6 @@ luarocks install centreon-stream-connectors-lib
 3. Installez le stream connector :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-wget -O /usr/share/centreon-broker/lua/elastic-metrics-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connectorscripts/develop/centreon-certified/elasticsearch/elastic-metrics-apiv2.lua
-```
-
-```shell
-chmod 644 /usr/share/centreon-broker/lua/elastic-events-apiv2.lua
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -102,7 +90,19 @@ chmod 644 /usr/share/centreon-broker/lua/elastic-events-apiv2.lua
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+wget -O /usr/share/centreon-broker/lua/elastic-metrics-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connectorscripts/develop/centreon-certified/elasticsearch/elastic-metrics-apiv2.lua
+```
+
+```shell
+chmod 644 /usr/share/centreon-broker/lua/elastic-events-apiv2.lua
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 wget -O /usr/share/centreon-broker/lua/elastic-metrics-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connectorscripts/develop/centreon-certified/elasticsearch/elastic-metrics-apiv2.lua
@@ -322,3 +322,9 @@ metrics"},"template":{"mappings":{"properties":{"service.groups":
 {"index.mode":"time_series","index.routing_path":
 ["host.name","service.description","metric.name","metric.instance","poller"]}}}'
 ```
+
+## Historique des modifications
+
+- [24.01](../stream-connectors-rn.md#2024-01) - Enhancement: Made elastic username and password optional.
+- [24.01](../stream-connectors-rn.md#2024-01) - Enhancement: Added min/max property with thresholds (warning/critical) in the template.
+- [23.07](../stream-connectors-rn.md#2023-07) - New stream connector: Initial release of Elastic Metrics.

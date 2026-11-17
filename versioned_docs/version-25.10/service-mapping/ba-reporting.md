@@ -1,7 +1,7 @@
 ---
 id: ba-reporting
 title: Report Business Activities
-description: "View BA availability reports and rebuild reporting statistics"
+description: "View Business Activity availability history in Centreon BAM reporting, log screens, and performance graphs, and force the calculation of statistics."
 ---
 
 You can view history data at any time on the 

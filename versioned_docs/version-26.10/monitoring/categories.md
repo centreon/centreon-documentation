@@ -1,7 +1,7 @@
 ---
 id: categories
 title: Categories and severities
-description: "Organize hosts and services using categories and severity levels"
+description: "Organize hosts and services into categories to filter views and set ACL rights, and create severity levels to prioritize resources in Centreon."
 ---
 
 Categories allow you to:

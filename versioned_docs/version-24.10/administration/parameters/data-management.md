@@ -1,7 +1,7 @@
 ---
 id: data-management
 title: Data management
-description: "Set retention durations for logs, performance data, and reports"
+description: "Define where Centreon stores performance data and set retention durations for logs, performance data, and reporting data on your platform."
 ---
 
 By accessing the **Administration > Parameters > Options** menu, you can define

@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-exagrid-snmp
 title: Exagrid SNMP
-description: "Monitor ExaGrid storage appliances via SNMP, tracking server status, landing usage, and retention usage."
+description: "Monitor ExaGrid storage appliances via SNMP: server status and landing space and retention space usage, with host discovery via SNMP scan."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -339,3 +339,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=server-usage \
 	--help
 ```
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed landing_used calculation to prevent negative values in **server-usage** mode, from community contribution (PR [#5863](https://github.com/centreon/centreon-plugins/pull/5863)).

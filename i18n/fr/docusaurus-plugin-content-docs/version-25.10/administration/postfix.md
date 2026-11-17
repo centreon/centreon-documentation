@@ -1,7 +1,7 @@
 ---
 id: postfix
 title: Configurer l'envoi d'emails
-description: "Configurer Postfix pour permettre à Centreon d'envoyer des notifications"
+description: "Configurez Postfix comme relais SMTP local pour que Centreon envoie des notifications par e-mail : compte expéditeur, tests, dépannage et Gmail."
 ---
 
 import Tabs from '@theme/Tabs';

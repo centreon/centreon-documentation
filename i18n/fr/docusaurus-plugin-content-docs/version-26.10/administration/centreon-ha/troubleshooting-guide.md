@@ -1,10 +1,12 @@
 ---
 id: troubleshooting-guide
 title: Dépanner la HA
-description: "Diagnostiquer et résoudre les problèmes courants du cluster Centreon HA"
+description: "Dépannez un cluster Centreon HA : supprimez les actions en échec affichées dans crm_mon et relancez les ressources qui ne démarrent sur aucun nœud."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+> Notez que certaines commandes, options ou sorties peuvent varier selon votre version de Pacemaker/Corosync. Reportez-vous à la documentation officielle correspondant à votre version.
 
 ## Une "Failed action" est affichée dans `crm_mon` mais la ressource semble fonctionner correctement
 

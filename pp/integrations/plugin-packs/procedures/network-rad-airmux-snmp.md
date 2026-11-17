@@ -1,7 +1,7 @@
 ---
 id: network-rad-airmux-snmp
 title: Rad Airmux SNMP
-description: "Monitor RAD Airmux radio links via SNMP, tracking alarms, radio signal power, bad frames, interfaces, and uptime."
+description: "Monitor RAD Airmux radio links via SNMP, tracking alarms, radio signal power, bad frames, interfaces, and uptime, with SNMP host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -528,3 +528,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=radio-status \
 	--help
 ```
+
+## Changelog
+
+- [23.09](../releases/release-notes.md#2023-09) - Bug fix: Fixed interfaces service template.

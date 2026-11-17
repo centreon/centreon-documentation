@@ -1,7 +1,7 @@
 ---
 id: widgets
 title: MBI Widgets
-description: "Overview of the MBI widgets available for dashboards and custom views"
+description: "Add Centreon MBI widgets to custom views to display reporting statistics on availability, events, capacity, performance, and business activities."
 ---
 
 > The following Centreon MBI widgets are available in [Dashboards](../alerts-notifications/dashboards.md):

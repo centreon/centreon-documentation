@@ -471,3 +471,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=node-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.09](../releases/release-notes.md#2025-09) - Bug fix: Fixed `daemonset-status` incorrect key causing skips in **daemonset-status** mode.

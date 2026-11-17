@@ -1,7 +1,7 @@
 ---
 id: ha-prerequisites
 title: Prerequisites for an HA architecture
-description: "Sizing and network flow prerequisites for a Centreon HA architecture"
+description: "Check the prerequisites for a Centreon HA architecture: server sizing, free disk space for MariaDB data, and network flows between cluster nodes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

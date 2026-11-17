@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-fsx
 title: Amazon FSx
-description: "Monitor Amazon FSx file systems via the AWS API: data usage (I/O) and free storage space metrics."
+description: "Monitor Amazon FSx file systems via the AWS CloudWatch API: data read/write throughput and operations, metadata operations, and free storage space."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -478,3 +478,15 @@ All available options for a given mode can be displayed by adding the
 	--mode=freespace \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [26.05](../releases/release-notes.md#2026-05) - Bug fix: Changed `FILESYSTEM` host macro to `AWSFILESYSTEM`.
+- [26.02](../releases/release-notes.md#2026-02) - Bug fix: Fixed a mix-up between `data-write-ops` and `data-write-bytes` for the **Fsx-DataUsage** service (issue [#5944](https://github.com/centreon/centreon-plugins/issues/5944)).
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [23.10](../releases/release-notes.md#2023-10) - Bug fix: Linked the freespace template to the right check command.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
+- [22.10](../releases/release-notes.md#2022-10) - Bug fix: Fixed bug with assume-role option.
+- [22.05](../releases/release-notes.md#2022-05) - Bug fix: Fixed inverted mapper logic leading to erroneous exclusions.
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Added Amazon FSx discovery and monitoring.

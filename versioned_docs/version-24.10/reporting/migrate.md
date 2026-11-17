@@ -1,7 +1,7 @@
 ---
 id: migrate
 title: Migrate the extension
-description: "Migrate your Centreon MBI reporting server to a new host"
+description: "Migrate the Centreon MBI reporting server to a new host: install the new server, synchronize files and data, move generated reports, and recreate views."
 ---
 
 This chapter explains:

@@ -1,7 +1,7 @@
 ---
 id: cloud-openshift-api
 title: OpenShift API
-description: "Supervisez les clusters OpenShift via l'API REST : opérateurs, version du cluster, projets et routes."
+description: "Supervisez les clusters OpenShift via l'API REST : statut des opérateurs, version du cluster, projets et routes, avec découverte des hôtes et services."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -610,3 +610,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=routes \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - New connector: Initial release.

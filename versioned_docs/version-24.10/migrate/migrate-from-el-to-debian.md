@@ -1,7 +1,7 @@
 ---
 id: migrate-from-el-to-debian
 title: Migrate from an EL-type OS to Debian
-description: "Migrate a Centreon platform from an EL-type OS to Debian"
+description: "Migrate a Centreon 18.10 or newer platform from an EL-type OS such as CentOS 7 to Debian on a new server, synchronize data and databases, then upgrade."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -222,6 +222,8 @@ chapter for more information.
          username: "@GORGONE_USER@"
          password: "@GORGONE_PASSWORD@"
    ```
+
+      > If you have [customized the Centreon URI](../administration/secure-platform.md#custom-uri), replace **/centreon** with your custom path in the **base_url** value.
 
 7. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for all your monitoring servers (including the central).
 

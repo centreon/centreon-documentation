@@ -1,7 +1,7 @@
 ---
 id: map-api
 title: API MAP
-description: "Automatiser la création et la maintenance des cartes standard via l'API"
+description: "Automatisez la création et la maintenance des cartes standard avec l'API Centreon MAP : droits nécessaires, authentification et exemples."
 ---
 
 import Tabs from '@theme/Tabs';

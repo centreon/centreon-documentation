@@ -1,6 +1,7 @@
 ---
 id: applications-dynamics-ax-cma
 title: Dynamics AX CMA
+description: "Monitor Microsoft Dynamics AX with Centreon Monitoring Agent (CMA): RIS files to import, import errors, and Recurring Integrations Scheduler state."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -449,3 +450,7 @@ CRITICAL= 0
 
 Please find the troubleshooting documentation for the API-based plugins in
 this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks) if you cannot find the solution to your issue below.
+
+## Changelog
+
+- [26.08](../releases/release-notes.md#2026-08) - New connector: Initial release.

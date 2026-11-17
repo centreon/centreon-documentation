@@ -1,7 +1,7 @@
 ---
 id: ticketing-advanced-architecture
 title: Architecture and debugging of Open Tickets
-description: "Diagram and log file reference for debugging the Open Tickets workflow across Centreon components"
+description: "Diagram of the Open Tickets workflow across Centreon components, with the processes and log files to check at each step when debugging ticket creation"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -20,4 +20,4 @@ import TabItem from '@theme/TabItem';
 | The Gorgone of the central server sends the external commands to the relevant poller | gorgoned (central server and poller) | /var/log/centreon-gorgone/gorgoned.log (central server and poller) |
 | The Gorgone of the poller sends the external commands to the centengine daemon | gorgoned, centengine | /var/log/centreon-gorgone/gorgoned.log, /var/log/centreon-engine/centengine.log |
 | The centengine daemon of the poller sends the results of the external commands to the cbd daemon of the central server | centengine (poller), cbd (central server) | /var/log/centreon-engine/centengine.log (poller), /var/log/centreon-broker/central-broker.log (central server) |
-| The cbd daemon saves the resultst of the externa commands to the database | cbd | /var/log/centreon-broker/central-broker.log |
+| The cbd daemon saves the results of the external commands to the database | cbd | /var/log/centreon-broker/central-broker.log |

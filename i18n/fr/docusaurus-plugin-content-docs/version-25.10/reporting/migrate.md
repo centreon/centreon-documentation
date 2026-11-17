@@ -1,7 +1,7 @@
 ---
 id: migrate
 title: Migrer l'extension
-description: "Migrer votre serveur de reporting Centreon MBI vers un nouveau serveur"
+description: "Migrez le serveur de reporting Centreon MBI : installez le nouveau serveur, synchronisez fichiers et données, déplacez les rapports et recréez les vues."
 ---
 
 Cette section explique que faire :

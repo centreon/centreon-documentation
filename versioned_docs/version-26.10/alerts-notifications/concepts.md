@@ -1,7 +1,7 @@
 ---
 id: concepts
 title: Possible statuses of a resource
-description: "Understand host and service statuses, states, and status types"
+description: "Understand the possible statuses of hosts and services in Centreon, the states a resource can be in, and the difference between soft and hard status types."
 ---
 
 Statuses show the availability of a host, and the availability or performance of a service. Each status has a

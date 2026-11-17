@@ -1,7 +1,7 @@
 ---
 id: hosts-templates
 title: Utiliser des modèles d'hôtes
-description: "Utiliser les modèles d'hôtes et l'héritage pour accélérer la configuration des hôtes"
+description: "Utilisez des modèles d'hôtes dans Centreon pour définir des valeurs par défaut et configurer plus vite grâce à l'héritage parent-enfant ou associatif."
 ---
 
 Un modèle est une pré-configuration de paramètres d’un objet qui pourra être

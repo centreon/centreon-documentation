@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-masterclock-ntp100gps-snmp
 title: Masterclock NTP100GP SNMP
-description: "Supervisez les serveurs de temps Masterclock NTP100GPS via SNMP : statut GPS, performances NTP et disponibilité."
+description: "Supervisez les serveurs de temps Masterclock NTP100GPS via SNMP : statut du récepteur GPS, performances NTP et disponibilité, avec découverte des hôtes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: applications-voip-asterisk-ami
 title: Asterisk VoIP AMI
-description: "Supervisez les serveurs Asterisk VoIP via AMI : canaux et appels actifs, statut des pairs SIP et des lignes Dahdi."
+description: "Supervisez les serveurs VoIP Asterisk via AMI : canaux actifs, appels actifs, externes et traités, statut des pairs SIP et des lignes Dahdi."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

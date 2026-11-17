@@ -1,7 +1,7 @@
 ---
 id: applications-proxmox-mg-api
 title: Proxmox Mail Gateway
-description: "Supervisez Proxmox Mail Gateway via l'API REST : trafic des mails, spams, virus et version du logiciel."
+description: "Supervisez Proxmox Mail Gateway via l'API REST : nombre et trafic des mails entrants et sortants, spams, virus détectés et version du logiciel."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -404,3 +404,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=mail \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.02](../releases/release-notes.md#2025-02) - Bug fix: Fixed host macros typo.

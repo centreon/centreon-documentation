@@ -1,7 +1,7 @@
 ﻿---
 id: business-view
 title: Business Data
-description: Introduction to the Business Data module for revenue impact analysis
+description: "Business Data links Google Analytics 4 or Matomo metrics to site performance to measure revenue lost to incidents and rank pages worth optimizing."
 ---
 
 The **Business Data** module facilitates the analysis of the site's business-related metrics.

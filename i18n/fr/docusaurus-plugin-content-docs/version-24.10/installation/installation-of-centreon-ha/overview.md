@@ -1,7 +1,7 @@
 ---
 id: overview
 title: Fonctionnement de Centreon HA
-description: "Comment un cluster Centreon HA bascule et se rétablit"
+description: "Fonctionnement d'un cluster Centreon HA avec Pacemaker et Corosync : bascule vers le nœud passif en cas de panne du nœud actif, puis rétablissement."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: network-fortinet-fortiauthenticator-snmp
 title: Fortinet FortiAuthenticator SNMP
-description: "Monitor Fortinet FortiAuthenticator via SNMP: authentication stats, CPU, memory, disk usage, HA status, and interfaces."
+description: "Monitor Fortinet FortiAuthenticator via SNMP: authentication stats, CPU, memory, log disk usage, HA status, and interfaces, with discovery rules."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -593,3 +593,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=memory \
 	--help
 ```
+
+## Changelog
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Net-Fortinet-Fortiauthenticator-SNMP-Ha** command.

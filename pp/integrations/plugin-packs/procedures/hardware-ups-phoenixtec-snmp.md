@@ -1,7 +1,7 @@
 ---
 id: hardware-ups-phoenixtec-snmp
 title: Phoenixtec UPS SNMP
-description: "Monitor Phoenixtec UPS devices via SNMP: battery status, input/output line voltage, frequency, and load."
+description: "Monitor Phoenixtec UPS devices via SNMP: battery charge and status, plus input and output line voltage, frequency, and load, with SNMP host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -408,3 +408,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=input-lines \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Bug fix: Removed thresholds for non-existent counters in `--help` section.

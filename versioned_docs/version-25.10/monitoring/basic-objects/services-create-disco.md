@@ -1,7 +1,7 @@
 ---
 id: services-create-disco
 title: Creating services automatically
-description: "Automatically create services through templates or discovery"
+description: "Create services automatically in Centreon when creating hosts from templates linked to services, or with the Auto Discovery service discovery feature."
 ---
 
 Services can be created automatically in several ways:

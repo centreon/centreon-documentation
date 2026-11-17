@@ -1,7 +1,7 @@
 ---
 id: network-firewalls-checkpoint-snmp
 title: CheckPoint firewall
-description: "Monitor CheckPoint firewalls via SNMP: CPU, memory, disk, HA state, hardware health, VPN tunnels, VRRP, and traffic."
+description: "Monitor CheckPoint firewalls via SNMP: CPU, memory, disk, connections, HA state, hardware health, VPN tunnels, VRRP, and interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -683,3 +683,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=vrrp-status \
 	--help
 ```
+
+## Changelog
+
+- [23.03](../releases/release-notes.md#2023-03) - Enhancement: Added disk service.

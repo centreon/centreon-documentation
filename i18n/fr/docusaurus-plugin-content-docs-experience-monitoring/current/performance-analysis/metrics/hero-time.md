@@ -1,6 +1,6 @@
 ﻿---
 id: hero-time
-description: Métrique Hero Time pour mesurer la durée d'interaction d'une étape
+description: "Le Hero Time, métrique propre à Experience Monitoring, mesure la durée d'une étape, de l'action de la sonde jusqu'à la réussite des vérifications."
 title: Hero Time
 --- 
 

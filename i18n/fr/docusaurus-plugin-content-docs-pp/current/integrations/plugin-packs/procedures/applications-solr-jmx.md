@@ -1,7 +1,7 @@
 ---
 id: applications-solr-jmx
 title: Solr
-description: "Supervisez Apache Solr via JMX (agent Jolokia) : utilisation du cache et performance des request handlers."
+description: "Supervisez Apache Solr via JMX avec l'agent Jolokia : évictions, recherches, insertions et hits du cache, débit et temps de réponse des request handlers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -378,3 +378,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=request-handler-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

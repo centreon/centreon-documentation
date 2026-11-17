@@ -1,7 +1,7 @@
 ---
 id: sc-pagerduty-events
 title: PagerDuty Events
-description: "Envoyer les événements d'hôtes et de services de Centreon vers PagerDuty"
+description: "Configurez le stream connector PagerDuty Events pour envoyer les évènements d'état des hôtes et services Centreon vers PagerDuty, puis testez l'envoi."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -28,14 +28,6 @@ Faites l'installation sur le serveur qui enverra les données à PagerDuty (serv
 2. Exécutez la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-stream-connector-pagerduty
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -44,7 +36,15 @@ dnf install centreon-stream-connector-pagerduty
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-stream-connector-pagerduty
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-stream-connector-pagerduty
@@ -231,3 +231,8 @@ curl -X POST -H 'content-type: application/json' 'https://events.pagerduty.com/v
 Vous devez remplacer tous les *`<xxxx>`* à l'intérieur de la commande ci-dessus par leur valeur appropriée. \<my_host\>* peut devenir *linuxServerA*.
 
 3. Vérifiez que l'évènement a bien été reçu par PagerDuty.
+
+## Historique des modifications
+
+- [21.10](../stream-connectors-rn.md#2021-10) - Enhancement: New version of the stream connector based on the Centreon stream connectors library.
+- [21.10](../stream-connectors-rn.md#2021-10) - Bug fix: Fixed an incorrect mapping and removed event bulking (not supported by the PagerDuty API).

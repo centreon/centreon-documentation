@@ -1,7 +1,7 @@
 ---
 id: timeperiods
 title: Time periods
-description: "Define time periods for scheduling checks and notifications"
+description: "Define time periods in Centreon to schedule checks and notifications, using time range syntax, templates, exceptions, and check periods for CMA."
 ---
 
 ## Definition

@@ -1,7 +1,7 @@
 ---
 id: upgrading-map-legacy
 title: Monter MAP Legacy en 24.10
-description: "Monter de version le serveur, l'interface web et la base de données de MAP Legacy vers 24.10"
+description: "Avant de migrer vers MAP, montez MAP Legacy en 24.10 : sauvegardez la base centreon_studio, puis mettez à jour le serveur, l'interface web et MariaDB."
 ---
 
 import Tabs from '@theme/Tabs';

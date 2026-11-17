@@ -1,7 +1,7 @@
 ---
 id: deploying-a-configuration
 title: Déployer une configuration
-description: "Exporter et déployer les changements de configuration vers les collecteurs et serveurs distants"
+description: "Exportez et déployez vos modifications de configuration Centreon vers le serveur central, les serveurs distants et les collecteurs, ou en export rapide."
 ---
 
 Lorsque vous créez, supprimez ou modifiez des objets via le menu

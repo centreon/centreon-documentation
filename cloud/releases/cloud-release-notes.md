@@ -1,8 +1,198 @@
 ---
 id: cloud-release-notes
 title: Centreon Cloud release notes
-description: "Release notes for Centreon Cloud, detailing new features, improvements, and fixes for each release"
+description: "Release notes for Centreon Cloud, listing the new features, improvements, and bug fixes delivered in each release, grouped by date and by product area"
 ---
+
+## November 12th, 2026
+
+### Centreon IT Edition
+
+**Pollers**
+
+This release brings container support to Centreon Cloud pollers, along with a simpler way to deploy them:
+
+- Pollers can now be deployed in containers. In addition to the package-based installation on a virtual machine, you can run a poller as a container on your own infrastructure, which makes it faster to deploy, easier to scale and simpler to keep consistent across environments.
+- A **Create new poller** button (Beta) is now available in the top banner, replacing the former **Copy install command** button. It opens a short form where you choose between a virtual machine and a container, and generates the single command line that installs the poller and registers it with your platform.
+- In *Configuration > Pollers*, a copy icon in the **Actions** column of each enabled poller copies its full installation command to the clipboard. The same command also updates an existing poller, so you can retrieve it at any time to install or update that poller.
+
+  > **Note:** this command does not work on pollers running Centreon 25.10 or older on AlmaLinux 8 or an equivalent OS. On these pollers, run `dnf update` instead. See the [documentation](/cloud/installation/poller-update-upgrade).
+
+**Centreon Monitoring Agent (CMA)**
+
+- The default freshness threshold of Centreon Monitoring Agent checks rises from 120 to 500 seconds, which avoids needless re-checks. Custom values you have already set are kept.
+
+**Interface**
+
+The look and feel of the interface has been refreshed this cycle:
+
+- The top banner has been redesigned. Host, service and poller counters are now displayed as status tiles that are easier to read at a glance, and a breadcrumb shows where you are in the interface.
+- Interface colors have been refreshed, with a new primary blue, softer table and section headers, and more readable status chips in both light and dark modes.
+
+**Open Tickets**
+
+- A new provider is available for Matrix42, so you can open tickets in Matrix42 directly from Centreon.
+
+<details>
+<summary>**Bug fixes**</summary>
+
+- [Administration] API tokens now display correctly after the user who created them is deleted.
+- [Agent configuration] Deleting a host no longer stops the poller from collecting data from the other hosts using poller-initiated connections.
+- [Agent configuration] Hosts are now created as expected when **Create hosts automatically** is enabled in an agent configuration.
+- [Agent configuration] Fixed an error that prevented the Centreon Monitoring Agent installation command from being generated on platforms updated to 26.07.
+- [API] API requests containing invalid non-integer values for the page or limit parameters (e.g., ?page=abc) now correctly return an HTTP 400 Bad Request instead of an uncaught HTTP 500 error.
+- [API] Listing services with the configuration API no longer fails with an error when some of them are deployed by host group.
+- [Configuration] Applying a mass change to host templates now correctly removes the services from the old templates instead of only adding the new ones.
+- [Configuration] Changes made in a host's Relations tab are now recorded in the logs like other configuration changes.
+- [Configuration] Exporting the configuration of pollers with many services is now faster, especially when services use many templates.
+- [Configuration] Exporting the configuration no longer hangs at 0% when a resource macro linked to a poller has an empty value.
+- [Custom Views] The Host Monitoring widget's CSV export now includes each host's last comment instead of always showing "-".
+- [Dashboards] Acknowledgment and downtime modals in resource table widgets now use the configured monitoring defaults.
+- [Dashboards] Playlists now play dashboards in the order defined in the playlist, instead of falling back to alphabetical order.
+- [Dashboards] The quick access menu now lists all dashboards, not only search results.
+- [Dashboards] The resource table widget now requires an Open Ticket rule when ticket management is enabled.
+- [Downtimes] Multiple recurring downtimes on the same service template via a service group now all apply.
+- [Downtimes] Recurrent downtimes now apply in their creator's timezone, like simple downtimes, and the form shows which timezone is used.
+- [Logs] Filtering by the "Command" type in Administration > Logs now returns command changes, including previously recorded ones.
+- [Monitoring] Host group and service group listings no longer time out on large platforms.
+- [Open Tickets] Category and group lists now load correctly with the GLPI provider on GLPI 9.5 and later.
+- [Open Tickets] The widget loads faster and no longer overloads the database server on large platforms.
+- [Performance Graphs] Metaservice graphs now display the metaservice name as their title, so they are easier to identify on the page.
+- [Web] Fixed an issue where exporting the configuration caused pollers running Centreon Broker versions prior to 25.10.3 to lose connection to the Central server.
+
+</details>
+
+**Collect**
+
+The improvements below have been released on the collect components since the previous Centreon Cloud update. They do not come with this platform update: update your pollers and your Centreon Monitoring Agents to the latest available version to benefit from them.
+
+*Centreon Engine*
+
+- Centreon Engine no longer hangs, grows in memory or makes services flap because of passive service freshness checks, an issue mostly seen on services monitored by the Centreon Monitoring Agent.
+
+<details>
+<summary>**Bug fixes**</summary>
+
+- [CMA] Removed an irrelevant error message logged by native checks.
+
+</details>
+
+### Centreon Pro Edition
+
+**Service Mapping**
+
+- The Business Activities counter in the top banner now uses the same tile design as the host and service counters, in line with the redesigned top banner.
+
+**MAP**
+
+- Centreon MAP now uses the same icons as the rest of the Centreon interface, following the icon refresh delivered in the previous release.
+- The icon of a standard map or a geographic view can now be changed, or reset to the default one.
+
+<details>
+<summary>**Bug fixes**</summary>
+
+- [BAM] Creating a child Business Activity with the Ratio calculation method from the Business Activity tree no longer fails with a threshold validation error.
+- [BAM] In simulation mode, a Ratio business activity no longer appears in downtime, or propagates it to its parent, when no KPI is in downtime.
+- [BAM] The event handler command now stays visible in the Business Activity configuration form after saving and reopening it.
+- [MAP] Fixed an issue in Centreon MAP where duplicating a multi-selection of different object types caused the map to break upon saving.
+- [MAP] Fixed an issue in Centreon MAP where hovering over a host inside a host group resource caused an error and failed to display host information when the host was not directly added to the map.
+- [MAP] Fixed an issue in Centreon MAP where switching a Gauge or Metric Link widget's resource type from metaservice to service caused a "can't load module" error.
+- [MAP] Fixed an issue in Centreon Map where business activities hosted on an additional poller did not display their real-time status and output on maps.
+- [MAP] Fixed an issue where error messages were displayed when an authentication token expired.
+- [MAP] Fixed an issue where the Geoview widget was not displaying resources when viewed through a public playlist.
+- [MAP] Fixed an issue where updating a container's image failed to save and reverted to the default image.
+- [MAP] Fixed a truncated label.
+- [MAP] Fixed an issue where performance graphs failed to load in service popups and graph widgets.
+
+</details>
+
+## September 8th, 2026
+
+### Centreon IT Edition
+
+**Configuration**
+ 
+- Host forms now include relationship fields to define dependencies between resources and reduce alert fatigue.
+- Freshness control for CMA checks (check freshness and threshold) can now be configured directly from host, service, host template, and service template forms.
+ 
+**Resource Status**
+ 
+- The CSV export from **Resource Status** now includes host and service IDs, making it easier to correlate exported data with the API and other external tools.
+ 
+**Centreon Dashboards**
+ 
+- The Resource table widget now supports **Notes** and **Action** columns, surfacing operational context directly inside dashboards.
+ 
+**Interface**
+ 
+- Resources across the interface now use new, consistent icons for easier identification.
+- The user menu in the top counter now shows a circular avatar with the user's initials.
+
+ 
+<details>
+<summary>**Bug fixes**</summary>
+ 
+- [API] Internal API calls now follow the configured base URL scheme, fixing failures when Centreon runs behind a TLS-terminating proxy.
+- [Autodiscovery] Fixed an error preventing service discovery rules from being enabled or disabled from the list.
+- [Autodiscovery] Fixed discovery jobs failing after activating Vault when existing job credentials had not yet been migrated.
+- [CMA] Filtering agent configurations by name or poller now returns the matching results instead of a blank page or wrong entries.
+- [Configuration] Editing a host or host template no longer triggers a 404 error when loading the check command default values.
+- [Configuration] The severity "Level" field now enforces the valid 1–127 range instead of showing a blank page.
+- [Configuration] Fixed an issue where mass change allowed moving a service to a host that already had a service with the same name.
+- [Dashboard] Fixed an issue where host and service severity levels appeared as duplicates in dashboard Resource table widgets.
+- [Dashboards] Interacting with a widget (pagination, page size, display view, map navigation) no longer switches the dashboard to edit mode.
+- [Monitoring] Clicking a resource in Custom Views or legacy pages now opens its details panel instead of showing an error.
+- [Open Tickets] Fixed an "Insufficient privileges" error that occurred when a user without access to notification rules tried to open a ticket from a Custom View.
+- [Open Tickets] ACL-restricted accounts can now view logs again, which previously failed with an SQL error.
+- [Performance Graphs] Curve thickness set in the curve settings now applies to the on-screen graph, matching the PNG export.
+- [Poller] Fixed newly added pollers not starting or supervising any resource, caused by a failed plugin installation step during configuration export.
+- [Poller] Fixed poller configuration generation failing with an "Unknown database centreon_storage" error on platforms where the database is not named `centreon`/`centreon_storage` — always the case on Centreon Cloud — a regression introduced in 26.07.
+- [Pollers] Fixed the Pollers menu "Database updates are not active" indicator staying red after an upgrade to 26.07, which was caused by stale legacy poller rows left in the real-time database.
+- [Resource Access Management] Fixed an issue in Centreon Cloud where filtering by host name while creating an ACL resource access rule returned a 500 error.
+- [Resource Status] Selected resources are now deselected after a check action.
+ 
+</details>
+ 
+### Centreon Pro Edition
+ 
+**BAM**
+ 
+The Business Activity configuration experience keeps expanding this cycle, with a new simulation mode and finer control over how Business Activities are organized and displayed.
+ 
+- Business Activities now support a simulation mode, so you can preview how your changes will affect results before saving them - making it easier to catch mistakes and fine-tune configurations with confidence.
+- Custom icons can now be defined for Business Activities, making nodes and indicators easier to identify in the Business Activity tree.
+- The Business Activity configuration listing now includes a "Show only top level" filter.
+- The impact-weight selector now shows each word's percentage (e.g. Major (50%)) directly in the dropdown.
+ 
+**MAP**
+ 
+- Resources on maps now support a flapping state icon, aligning them with flapping indicators shown elsewhere in the interface.
+ 
+ 
+<details>
+<summary>**Bug fixes**</summary>
+ 
+- [BAM] Fixed incorrect impact percentages displayed for word-type indicators in the BAM real-time monitoring view.
+- [BAM] Obsolete "Notifications" section has been removed from Business Activity configuration.
+- [Configuration] Fixed missing access-rights checks on Business Activity API actions.
+- [MAP] Improved the performance of map-engine during startup on platforms with a large number of host groups, service groups, or BA groups.
+- [MAP] Fixed a foreign key constraint error that prevented saving a map after replicating and deleting multiple containers.
+- [BAM] Fixed an issue with KPIs under downtime being counted for a Business Activity's status after editing the BA's KPI list.
+- [MAP] Fixed two MAP server errors (HTTP 500) affecting the import and save of standard-map views.
+- [MAP] Fixed an issue in the MAP viewer where clicking on a container's pop-up title redirected to an incorrect URL, resulting in errors.
+- [MAP] Fixed an issue where the MAP widget in dashboards and custom views could intermittently display the MAP homepage instead of the selected map, caused by a rare condition in the view loading order.
+- [MAP] Removed the line height option that caused the label to break and exposed raw HTML tags in the resource name.
+- [MAP] MAP server JWTs are now invalidated when the originating Centreon Web session ends, preventing stale or cross-user authorization on map-engine after logout.
+- [MAP] Fixed an issue in the MAP editor where custom border or text colors applied to an object were incorrectly carried over as defaults to newly created objects, instead of each new object starting with default color values.
+- [MAP] Fixed an issue in MAP where changing a resource (e.g., host) in the editor did not update the icon data, causing the editor and viewer to retain the previously selected resource's information instead of reflecting the new selection.
+- [MAP] Fixed a pie chart widget's inner radius being ignored when set to 0%, and capped the maximum value at 95% to prevent the chart from becoming invisible.
+- [MAP] Fixed map-engine failing to start when a poller identifier (UID) exceeds the 32-bit integer range.
+- [MAP] Restored map-engine listening on port 9443 by default when TLS is enabled.
+- [MAP] Improved outline visibility for resources and shapes in the map editor, complementing the earlier fix for link outlines.
+- [MAP] Fixed a memory leak causing browser slowdowns when dashboard playlists containing MAP widgets rotate over an extended period.
+ 
+</details>
+
 
 ## August 11th, 2026
 
@@ -43,7 +233,7 @@ The Business Activity configuration experience has been thoroughly reworked arou
 **MAP**
 
 - Hover pop-ups in the Viewer are now positioned reliably next to the cursor. They no longer appear far above it at the bottom of the view, no longer overlap the cursor or get clipped by the edges of the container, and they follow the map when it is panned or zoomed. Firefox behavior, in particular, has been fixed.
-- Metric Link widget: meta-services can now be used as a data source. By combining one meta-service aggregating inbound metrics with another one aggregating outbound metrics, you can represent the cumulative traffic of a bidirectional network link and anticipate its saturation.
+- Metric Link widget: metaservices can now be used as a data source. By combining one metaservice aggregating inbound metrics with another one aggregating outbound metrics, you can represent the cumulative traffic of a bidirectional network link and anticipate its saturation.
 
 
 ## June 22nd, 2026

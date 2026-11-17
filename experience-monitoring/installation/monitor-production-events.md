@@ -1,7 +1,7 @@
 ---
 id: monitor-production-events
 title: Adding event markers to charts
-description: Mark deployments and config changes on performance graphs via API
+description: "Push deployment and configuration change events to the Experience Monitoring API to display markers on graphs, with token setup and cURL examples."
 ---
 
 When something changes in production — a new deployment, a configuration update, a scheduled task — it can directly affect your monitoring data. Correlating these events with performance metrics helps you understand whether a spike in errors or a drop in availability is linked to a recent change.
@@ -26,7 +26,7 @@ Our API is triggered with a simple HTTP call to the URL `https://app.quanta.io/a
 
 ## Authentication and token generation
 
-You must also provide an API token to authenticate the request. This token can be generated from the "Integrations" section of your site settings in Experience Monitoring. You can also add a custom icon.
+You must also provide an [access token](tokens.md) to authenticate the request. You can also add a custom icon.
 
 This token should be provided:
 

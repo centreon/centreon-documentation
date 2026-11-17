@@ -1,7 +1,7 @@
 ---
 id: upgrade-from-20-10
 title: Montée de version depuis Centreon 20.10
-description: "Passer une plateforme Centreon de la version 20.10 à la 24.10"
+description: "Mettez à jour Centreon de la 20.10 vers la 24.10 : sauvegardez, mettez à jour le serveur central et sa base, puis les serveurs distants et collecteurs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -97,7 +97,7 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 
 ### Installer les nouveaux dépôts
 
-1. Sur votre plateforme 20.10, remplacez `https://packages.centreon.com/rpm-standard` ou `https://yum.centreon.com/standard/` par `https://archives.centreon.com/standard/` dans votre configuration YUM (par défaut, `/etc/yum.repos.d/centreon.repo`).
+1. Les paquets de Centreon 20.10 ne sont plus disponibles dans les dépôts Centreon. Pour obtenir la dernière version mineure de Centreon 20.10, [contactez l'équipe support Centreon](https://support.centreon.com).
 
 2. Mettez à jour votre Centreon 20.10 jusqu'à la dernière version mineure.
 

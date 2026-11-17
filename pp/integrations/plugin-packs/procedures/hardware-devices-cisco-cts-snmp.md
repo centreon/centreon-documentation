@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-cisco-cts-snmp
 title: Cisco Telepresence System SNMP
-description: "Monitor Cisco Telepresence System (CTS) devices via SNMP, tracking active calls, media streams, and peripheral status."
+description: "Monitor Cisco Telepresence System (CTS) devices via SNMP: active calls, media stream jitter and traffic, and peripheral status, with host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -439,3 +439,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=peripherals \
 	--help
 ```
+
+## Changelog
+
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added native SNMP v3 host macro.

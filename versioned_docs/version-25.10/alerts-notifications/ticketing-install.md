@@ -1,7 +1,7 @@
 ---
 id: ticketing-install
 title: Installing Open Tickets
-description: "Install and back up the Centreon Open Tickets module"
+description: "Install the Centreon Open Tickets module from packages and the web interface, and back up your custom Open Tickets provider configurations."
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,7 +1,7 @@
 ---
 id: map-web-update
 title: Mettre à jour MAP
-description: "Mettre à jour votre installation Centreon MAP vers une nouvelle version"
+description: "Mettez à jour Centreon MAP : arrêtez MAP Engine, mettez à jour les paquets du client web et du moteur, finalisez dans l'interface, puis redémarrez."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

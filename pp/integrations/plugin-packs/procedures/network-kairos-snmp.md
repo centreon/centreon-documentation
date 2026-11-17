@@ -1,7 +1,7 @@
 ---
 id: network-kairos-snmp
 title: Kairos SNMP
-description: "Monitor Kairos devices via SNMP: CPU, memory, load, hardware, uptime, alarms, and network interfaces."
+description: "Monitor Kairos devices via SNMP: CPU, memory, load, hardware, uptime, alarms, and network interfaces, with discovery of alarms and interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -807,3 +807,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
+- [26.03](../releases/release-notes.md#2026-03) - New connector: Initial release.

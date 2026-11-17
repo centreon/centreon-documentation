@@ -1,7 +1,7 @@
 ---
 id: hardware-ups-riello-snmp
 title: Riello UPS SNMP
-description: "Supervisez les onduleurs Riello via SNMP : alarmes, état de la batterie et métriques des lignes d'entrée/sortie."
+description: "Supervisez les onduleurs Riello via SNMP : alarmes, charge et état de la batterie, tension, courant et charge des lignes d'entrée et de sortie."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -430,3 +430,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=output-lines \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.03](../releases/release-notes.md#2023-03) - New connector: Initial release.

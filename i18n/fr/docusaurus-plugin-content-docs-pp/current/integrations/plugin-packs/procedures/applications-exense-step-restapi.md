@@ -1,7 +1,7 @@
 ---
 id: applications-exense-step-restapi
 title: Exense Step REST API
-description: "Supervisez Exense Step via l'API REST pour suivre l'exécution des plans, détecter les échecs et contrôler leur durée."
+description: "Supervisez Exense Step via l'API REST : exécutions des plans, taux d'échec, dernière exécution, durée et statut, avec découverte des plans et des tenants."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -417,3 +417,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode=api \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.04](../releases/release-notes.md#2025-04) - New connector: Initial release of Exense Step REST API.

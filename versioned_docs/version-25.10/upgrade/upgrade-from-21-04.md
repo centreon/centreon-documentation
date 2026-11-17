@@ -1,7 +1,7 @@
 ---
 id: upgrade-from-21-04
 title: Upgrade from Centreon 21.04
-description: "Upgrade a Centreon platform from version 21.04 to 25.10"
+description: "Upgrade Centreon from version 21.04 to 25.10: back up your data, upgrade the central server and its database, then remote servers and pollers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -82,7 +82,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 
 ### Install the new repositories
 
-1. On your 21.04 platform, replace `https://packages.centreon.com/rpm-standard` or `https://yum.centreon.com/standard` by `https://archives.centreon.com/standard/` in your current YUM configuration (by default, `/etc/yum.repos.d/centreon.repo`).
+1. Packages for Centreon 21.04 are no longer available in the Centreon repositories. To retrieve the latest minor version of Centreon 21.04, [contact the Centreon support team](https://support.centreon.com).
 
 2. Update your Centreon 21.04 to the latest minor version.
 
@@ -190,7 +190,7 @@ dnf module install php:8.2
 </TabItem>
 </Tabs>
 
-Then, Ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually. 
+Then, Ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` is set to at least 256M. If it isn't, insert it manually. 
 
 Then, finish upgrading the Centreon solution.
 

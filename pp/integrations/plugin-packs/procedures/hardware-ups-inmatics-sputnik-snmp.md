@@ -536,3 +536,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=output-lines \
 	--help
 ```
+
+## Changelog
+
+- [24.02](../releases/release-notes.md#2024-02) - New connector: First release of Inmatics PSU Sputnik monitoring connector.

@@ -1,7 +1,7 @@
 ---
 id: sc-hp-bsm
 title: BSM
-description: "Envoyer les changements d'état de Centreon vers Micro Focus BSM"
+description: "Installez et configurez le stream connector BSM pour envoyer les changements d'état des hôtes et services Centreon vers Micro Focus BSM via son webservice."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

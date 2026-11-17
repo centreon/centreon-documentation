@@ -1,7 +1,7 @@
 ---
 id: network-backbox-restapi
 title: Backbox Rest API
-description: "Supervisez les appareils Backbox via l'API REST : statut des sauvegardes, des configurations et des intellichecks."
+description: "Supervisez Backbox via l'API REST : sauvegardes (succès, suspectes, échecs), changements de configuration, intellichecks et statut des équipements."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -458,3 +458,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode=api \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.01](../releases/release-notes.md#2025-01) - Enhancement: Added **device-backup** mode and its service discovery.
+- [24.09](../releases/release-notes.md#2024-09) - New connector: Initial release of Backbox REST API.

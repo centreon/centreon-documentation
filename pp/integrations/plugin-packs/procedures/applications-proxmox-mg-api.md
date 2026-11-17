@@ -1,7 +1,7 @@
 ---
 id: applications-proxmox-mg-api
 title: Proxmox Mail Gateway
-description: "Monitor Proxmox Mail Gateway via REST API: mail traffic, spam, virus counts, and software version."
+description: "Monitor Proxmox Mail Gateway via REST API: incoming and outgoing mail counts and traffic, spam and virus counts, and software version."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -405,3 +405,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=mail \
 	--help
 ```
+
+## Changelog
+
+- [25.02](../releases/release-notes.md#2025-02) - Bug fix: Fixed host macros typo.

@@ -1,7 +1,7 @@
 ---
 id: centreon-ui
 title: Centreon UI
-description: "Configurer les options générales de l'interface web et du proxy"
+description: "Configurez les options générales de l'interface web Centreon, comme l'affichage et l'héritage des notifications, ainsi qu'un proxy."
 ---
 
 ### Options générales

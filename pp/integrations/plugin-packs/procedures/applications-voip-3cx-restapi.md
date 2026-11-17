@@ -1,7 +1,7 @@
 ---
 id: applications-voip-3cx-restapi
 title: 3CX Rest API
-description: "Monitor 3CX phone systems via REST API: track active calls, extension registrations, and system health."
+description: "Monitor 3CX phone systems via REST API: active call usage, registered extensions, and the status of 3CX services to assess system health."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -400,3 +400,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=system \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added support for versions 20 and above and added **license** mode, based on a [community idea](https://thewatch.centreon.com/ideas/request-to-upgrade-connector-3cx-4418) and community contribution.
+- [24.08](../releases/release-notes.md#2024-08) - Enhancement: Added support for authentication on versions higher than 18.0.5 and made the default values more explicit.

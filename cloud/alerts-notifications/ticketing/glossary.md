@@ -1,7 +1,7 @@
 ---
 id: glossary
 title: Open tickets glossary
-description: "Definitions of Open Tickets terms - custom lists, lists, mapping arguments, provider, and rule"
+description: "Definitions of the Open Tickets terms used when configuring ticket creation in Centreon Cloud: custom lists, lists, mapping arguments, provider, and rule"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

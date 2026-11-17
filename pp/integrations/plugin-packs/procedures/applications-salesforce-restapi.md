@@ -1,7 +1,7 @@
 ---
 id: applications-salesforce-restapi
 title: Salesforce
-description: "Monitor Salesforce cloud instance status and incident count via the Salesforce status REST API."
+description: "Monitor your Salesforce cloud instance via the Salesforce status REST API: track the instance status and the number of ongoing incidents affecting it."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

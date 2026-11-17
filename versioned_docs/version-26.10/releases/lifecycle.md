@@ -1,7 +1,7 @@
 ---
 id: lifecycle
 title: Product lifecycle policy
-description: "Centreon's version numbering, release frequency, and support policy"
+description: "Learn how Centreon versions are numbered, how often they are released and how long each version receives maintenance and security updates."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -10,9 +10,6 @@ Centreon has been publishing new releases of the
 Centreon solution at regular intervals since version 18.10, enabling the community, businesses and
 developers to plan their roadmaps with the guarantee of upstream visibility on the
 latest open source capabilities.
-
-<Tabs groupId="sync">
-<TabItem value="From version 24.10" label="From version 24.10">
 
 ## Version numbers
 
@@ -36,13 +33,11 @@ Minor versions, with bug fixes and minor improvements will be released on a mont
 
 The lifecycle of a version is divided into three phases:
 
-1.  First phase: Bugs of all severity levels (minor, major, critical, blocker)
-    and security issues are fixed according to their priority. Functional enhancements are added.
-2.  Second phase: Major, critical bugs and blockers, or security issues are
-    fixed according to their priority.
-3.  Third phase: Blockers or security issues are fixed according to their priority.
+1.  **First phase**: Bugs of all severity levels (Minor, Major, Blocker) and vulnerabilities of all CVSS severities (Critical, High, Medium, Low) are fixed according to their priority. Functional enhancements are added.
+2.  **Second phase**: Major and Blocker bugs, and vulnerabilities of all CVSS severities (Critical, High, Medium, Low), are fixed according to their priority.
+3.  **Third phase**: Blocker bugs, and Critical and High vulnerabilities, are fixed according to their priority. Medium and Low vulnerabilities are not fixed on that version. A vulnerability whose remediation deadline falls after the version's end of support is not fixed on that version: upgrade to a supported version to get the fix.
 
-> The prioritization is determined by Centreon’s Product team.
+> Vulnerability severity follows the CVSS v3 score and its [remediation plan](../security/security.md#vulnerability-scoring). Bug severity (Minor, Major, Blocker) is assessed by Centreon's product team.
 
 The first phase of the lifecycle begins on the day of a version release.
 
@@ -56,63 +51,22 @@ This diagram outlines the Centreon version lifecycle policy from version 24.10:
 
 ![image](../assets/releases/lifecycle-from-24.10.png)
 
-</TabItem>
-<TabItem value="Until version 24.04" label="Until version 24.04">
+## Third-party dependencies
 
-## Version numbers
+Centreon does not manage the lifecycle of third-party dependencies such as MariaDB or MySQL, PHP and Java.
+Centreon relies on the packages provided by the operating system through its official repositories.
 
-Releases of Centreon are named according to the year and period of delivery: 
-XX.04 for the spring release, and XX.10 for the fall release.
-For example, Centreon 21.04 was released in spring 2021. All modules and
-components of the Centreon software suite use the same version numbers.
+If the end of life of one of these dependencies is reached before the end of life of your version of Centreon Infra Monitoring, Centreon will update its software base to use a more recent version, if possible through the official OS repositories. Centreon will notify users through a security bulletin on [The Watch](https://thewatch.centreon.com/) so that system administrators can update their Centreon software base and the associated dependencies.
 
-## Release frequency
+The following table shows the status of the main dependencies of Centreon 26.10 on each supported operating system:
 
-Centreon delivers two releases per year. The first will occur in the spring and will be major (including new products or features as well as larger architecture changes), while the second will be in the fall and will be minor (including primarily enhancements and fixes to existing features). Between these two, Centreon will regularly deliver minor updates (versioned YY.MM.NN), including security/vulnerability fixes, bug fixes and enhancements to the software.
-
-## Maintenance and security updates
-
-### Until version 21.04
-
-Version 21.04 and prior versions were supported for 18 months. The lifecycle of a version is divided into three phases:
-
-1.  First phase: Bugs of all severity levels (minor, major, critical, blocker)
-    and security issues are fixed according to their priority.
-2.  Second phase: Major, critical bugs and blockers, or security issues are
-    fixed according to their priority.
-3.  Third phase: Blockers or security issues are fixed according to their priority.
-
-> The prioritization is determined by Centreon’s Product team.
-
-The first phase of the lifecycle begins on the day of a version release.
-
-The second phase of a version begins when the next major version is available.
-For example, the release of Centreon 21.04 triggers the second phase of Centreon
-20.10.
-
-The third phase of a version begins when the second next major version is
-available. For example, the release of Centreon 21.04 triggers the third phase of
-Centreon 20.04 and the second phase of Centreon 20.10.
-
-### From version 21.10
-
-Since version 21.10, versions are supported for two years. The lifecycle of a version is divided into two phases of 12 months each.
-
-1.  First phase: Bugs of all severity levels (minor, major, critical, blocker)
-    and security issues are fixed according to their priority.
-2.  Second phase: Major, critical bugs and blockers, or security issues are
-    fixed according to their priority.
-
-> The prioritization is determined by Centreon’s Product team.
-
-### Version lifecycle diagram
-
-This diagram outlines the Centreon version lifecycle policy until version 24.04:
-
-![image](../assets/releases/lifecycle.png)
-
-</TabItem>
-</Tabs>
+| Dependency (upstream end of support) | EL 9 (RHEL/OL/Alma) | EL 10 (RHEL/OL/Alma) | Debian 13 |
+|--------------------------------------|---------------------|----------------------|-----------|
+| **OS** | ✅ 2032 | ✅ 2035 | ✅ Debian security updates until August 2028, then Debian LTS only |
+| **PHP 8.4** (security updates until 12/31/2028) | ⚠️ Upgrade planned to PHP 8.5 or 8.6, depending on what the OS provides as standard | ⚠️ Upgrade planned to PHP 8.5 or 8.6, depending on what the OS provides as standard | ✅ This is the PHP version provided by Debian, so it receives Debian fixes, then LTS until 2030 |
+| **MySQL 8.4 LTS** (Premier support until 04/30/2029, Extended support until 04/30/2032) | ⚠️ Upgrade planned to 9.7 LTS or later, depending on what the OS provides as standard | ⚠️ Upgrade planned to 9.7 LTS or later, depending on what the OS provides as standard | ⚠️ Upgrade planned to 9.7 LTS or later, depending on what the OS provides as standard |
+| **MariaDB 11.8 LTS** (community support until 06/04/2028) | ⚠️ Upgrade planned to a later LTS version, depending on what the OS provides as standard | ⚠️ Upgrade planned to a later LTS version, depending on what the OS provides as standard | ✅ This is the version provided by Debian, so it is covered by Debian, then LTS |
+| **Java 25 LTS** (Temurin until September 2031, Red Hat until December 2030) | ✅ | ✅ | ✅ |
 
 ## Maintenance table for Centreon versions
 
@@ -121,6 +75,7 @@ This diagram outlines the Centreon version lifecycle policy until version 24.04:
 
 | Product        | Release      | End of support| State               |
 |----------------|--------------|---------------|---------------------|
+| Centreon 26.10 | 10/2026      | 04/2029       | Supported           |
 | Centreon 25.10 | 10/2025      | 04/2027       | Supported           |
 | Centreon 24.10 | 10/2024      | 10/2027       | Supported           |
 | Centreon 24.04 | 04/2024      | 04/2026       | No longer supported |

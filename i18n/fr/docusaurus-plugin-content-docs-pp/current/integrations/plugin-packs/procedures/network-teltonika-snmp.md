@@ -443,3 +443,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=modem \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Renamed System service to Modem.

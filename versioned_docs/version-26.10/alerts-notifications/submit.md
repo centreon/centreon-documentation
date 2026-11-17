@@ -1,7 +1,7 @@
 ---
 id: submit
 title: Submitting a status
-description: "Manually submit a status result for a passively checked service"
+description: "Manually submit a status result for a passively checked service in Centreon from the Resources Status page, so that the scheduler takes it into account."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -23,9 +23,7 @@ scheduler so that it is taken into account.
 
 3. On the **More actions** menu, click **Submit a status**.
 
-    The following window appears:
-    
-    ![image](../assets/alerts/resources-status/submit-popup.png)
+    In the window that appears:
 
     - The **Status** field defines the status the service will have once the result is submitted
     - The **Output** field defines the message to be displayed for the service in the **Information** column
@@ -37,9 +35,7 @@ scheduler so that it is taken into account.
 To submit a result, access the details page of the object. In the category
 **Service Commands**, click **Submit result for this service**
 
-The following window appears:
-
-![image](../assets/alerts/submitresult.png)
+In the window that appears:
 
 -   The **Host Name** and **Service** fields define the host and the
     service for which the result will be submitted

@@ -1,7 +1,7 @@
 ---
 id: developer-stream-connector  
 title: Comment écrire un Stream Connector
-description: "Tutoriel pour écrire des Stream Connectors Lua, avec un exemple InfluxDB"
+description: "Écrivez des Stream Connectors Lua pour exporter évènements et métriques Centreon vers des outils externes, avec un export de log et un exemple InfluxDB."
 ---
 
 ## Vue d'ensemble

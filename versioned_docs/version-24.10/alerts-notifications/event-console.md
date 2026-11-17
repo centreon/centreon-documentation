@@ -1,7 +1,7 @@
 ---
 id: event-console
 title: Event consoles
-description: "Deprecated interfaces for viewing host and service status details"
+description: "Reference for the deprecated Centreon event consoles: columns and filters for hosts, services, and groups, plus the host and service details pages."
 ---
 
 > Some of these interfaces are **deprecated** and replaced by the

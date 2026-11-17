@@ -1,7 +1,7 @@
 ---
 id: hardware-telephony-avaya-aes-snmp
 title: Avaya AES SNMP
-description: "Monitor Avaya AES servers via SNMP: CPU, memory, load, storage, interfaces, and service status."
+description: "Monitor Avaya AES servers via SNMP: CPU, memory, load, storage, network interfaces, and AES service status (TSAPI, DMCC), with SNMP host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -641,3 +641,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=storage \
 	--help
 ```
+
+## Changelog
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **HW-Telephony-Avaya-Aes-SNMP-Services** command.

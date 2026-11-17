@@ -1,7 +1,7 @@
 ---
 id: developer-gorgone-client-server-communication
 title : Gérer la communication client/serveur
-description: "Configurer la communication chiffrée par clés entre client et serveur Gorgone"
+description: "Configurez la communication chiffrée par clés entre clients et serveurs Centreon Gorgone : génération des clés, empreinte JWK et configuration."
 ---
 
 Centreon Gorgone est le composant logiciel qui permet la communication du serveur central vers les collecteurs et les serveurs distants. Gorgone déploie notamment la configuration des moteurs de supervision.

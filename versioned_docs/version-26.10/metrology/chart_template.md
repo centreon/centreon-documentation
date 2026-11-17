@@ -1,7 +1,7 @@
 ---
 id: chart-template
 title: Graph template
-description: "Configure graph templates to shape the layout of your graphs"
+description: "Use graph templates in Centreon to shape graph layouts (y-axis, width and height, colors, and more), then apply them to services or service templates."
 ---
 
 ## Definition

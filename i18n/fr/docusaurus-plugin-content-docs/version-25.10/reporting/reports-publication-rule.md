@@ -1,7 +1,7 @@
 ---
 id: reports-publication-rule
 title: Publier vos rapports
-description: "Configurer des règles de publication pour partager automatiquement les rapports MBI générés"
+description: "Partagez vos rapports Centreon MBI via des règles de publication : envoi par e-mail ou copie sur un serveur à chaque exécution, et règle Default."
 ---
 
 import Tabs from '@theme/Tabs';

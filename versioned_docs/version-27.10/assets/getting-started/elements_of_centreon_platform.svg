@@ -1,0 +1,94 @@
+<svg width="100%" viewBox="0 0 680 510" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+  <style>
+    text { font-family: Arial, Helvetica, sans-serif; }
+    .lbl-dark  { font-size: 14px; font-weight: 600; fill: #0d1b2e; }
+    .lbl-light { font-size: 14px; font-weight: 600; fill: #e0f0ff; }
+    .lbl-cma   { font-size: 11px; font-weight: 600; fill: #c4b5fd; }
+    .lbl-cma-star { font-size: 13px; font-weight: 700; fill: #c4b5fd; }
+    .lbl-label { font-size: 12px; fill: #7ab8e8; }
+  </style>
+</defs>
+
+<rect width="680" height="510" fill="#0d1b2e" rx="12"/>
+
+<!-- Encadré pointillés "Centreon platform" -->
+<rect x="20" y="18" width="640" height="322" rx="14" fill="none" stroke="#4a7ab8" stroke-width="1.2" stroke-dasharray="8 5"/>
+<text x="36" y="34" class="lbl-label">Centreon platform</text>
+
+<!-- CENTRAL SERVER -->
+<rect x="215" y="44" width="250" height="44" rx="10" fill="#2ecfa0" stroke="#1aa880" stroke-width="0.5"/>
+<text x="340" y="66" text-anchor="middle" dominant-baseline="central" class="lbl-dark">Central server</text>
+
+<!-- Arrows central → remotes + central poller -->
+<line x1="260" y1="88" x2="155" y2="178" stroke="#2ecfa0" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="420" y1="88" x2="525" y2="178" stroke="#2ecfa0" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="340" y1="88" x2="340" y2="288" stroke="#2ecfa0" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- REMOTE SERVER left -->
+<rect x="40" y="178" width="200" height="44" rx="10" fill="#2ecfa0" stroke="#1aa880" stroke-width="0.5"/>
+<text x="140" y="200" text-anchor="middle" dominant-baseline="central" class="lbl-dark">Remote server</text>
+
+<!-- REMOTE SERVER right -->
+<rect x="440" y="178" width="200" height="44" rx="10" fill="#2ecfa0" stroke="#1aa880" stroke-width="0.5"/>
+<text x="540" y="200" text-anchor="middle" dominant-baseline="central" class="lbl-dark">Remote server</text>
+
+<!-- Arrows remotes → pollers -->
+<line x1="140" y1="222" x2="140" y2="288" stroke="#2ecfa0" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="540" y1="222" x2="540" y2="288" stroke="#2ecfa0" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- POLLERS -->
+<rect x="60"  y="288" width="160" height="44" rx="8" fill="#1e3a5f" stroke="#2a5a9f" stroke-width="0.5"/>
+<text x="140" y="310" text-anchor="middle" dominant-baseline="central" class="lbl-light">Poller</text>
+
+<rect x="260" y="288" width="160" height="44" rx="8" fill="#1e3a5f" stroke="#2a5a9f" stroke-width="0.5"/>
+<text x="340" y="310" text-anchor="middle" dominant-baseline="central" class="lbl-light">Poller</text>
+
+<rect x="460" y="288" width="160" height="44" rx="8" fill="#1e3a5f" stroke="#2a5a9f" stroke-width="0.5"/>
+<text x="540" y="310" text-anchor="middle" dominant-baseline="central" class="lbl-light">Poller</text>
+
+<!-- Arrows pollers → hosts -->
+<line x1="110" y1="332" x2="80"  y2="412" stroke="#7ab8e8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="165" y1="332" x2="190" y2="402" stroke="#7ab8e8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="310" y1="332" x2="286" y2="412" stroke="#7ab8e8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="370" y1="332" x2="396" y2="402" stroke="#7ab8e8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="508" y1="332" x2="490" y2="402" stroke="#7ab8e8" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="572" y1="332" x2="586" y2="412" stroke="#7ab8e8" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- HOST standard 1 -->
+<rect x="42"  y="412" width="76" height="44" rx="8" fill="#2a3a50" stroke="#3a5070" stroke-width="0.5"/>
+<text x="80"  y="434" text-anchor="middle" dominant-baseline="central" class="lbl-light">Host</text>
+
+<!-- HOST with CMA 1 -->
+<rect x="148" y="402" width="84" height="64" rx="8" fill="#2a3a50" stroke="#3a5070" stroke-width="0.5"/>
+<text x="190" y="420" text-anchor="middle" dominant-baseline="central" class="lbl-light">Host</text>
+<rect x="158" y="432" width="64" height="22" rx="4" fill="#7c3aed" stroke="#9f6af0" stroke-width="0.5"/>
+<text x="190" y="443" text-anchor="middle" dominant-baseline="central"><tspan class="lbl-cma">CMA </tspan><tspan class="lbl-cma-star">*</tspan></text>
+
+<!-- HOST standard 2 -->
+<rect x="248" y="412" width="76" height="44" rx="8" fill="#2a3a50" stroke="#3a5070" stroke-width="0.5"/>
+<text x="286" y="434" text-anchor="middle" dominant-baseline="central" class="lbl-light">Host</text>
+
+<!-- HOST with CMA 2 -->
+<rect x="354" y="402" width="84" height="64" rx="8" fill="#2a3a50" stroke="#3a5070" stroke-width="0.5"/>
+<text x="396" y="420" text-anchor="middle" dominant-baseline="central" class="lbl-light">Host</text>
+<rect x="364" y="432" width="64" height="22" rx="4" fill="#7c3aed" stroke="#9f6af0" stroke-width="0.5"/>
+<text x="396" y="443" text-anchor="middle" dominant-baseline="central"><tspan class="lbl-cma">CMA </tspan><tspan class="lbl-cma-star">*</tspan></text>
+
+<!-- HOST with CMA 3 -->
+<rect x="448" y="402" width="84" height="64" rx="8" fill="#2a3a50" stroke="#3a5070" stroke-width="0.5"/>
+<text x="490" y="420" text-anchor="middle" dominant-baseline="central" class="lbl-light">Host</text>
+<rect x="458" y="432" width="64" height="22" rx="4" fill="#7c3aed" stroke="#9f6af0" stroke-width="0.5"/>
+<text x="490" y="443" text-anchor="middle" dominant-baseline="central"><tspan class="lbl-cma">CMA </tspan><tspan class="lbl-cma-star">*</tspan></text>
+
+<!-- HOST standard 3 -->
+<rect x="548" y="412" width="76" height="44" rx="8" fill="#2a3a50" stroke="#3a5070" stroke-width="0.5"/>
+<text x="586" y="434" text-anchor="middle" dominant-baseline="central" class="lbl-light">Host</text>
+
+<!-- Footnote -->
+<text x="36" y="490" class="lbl-label">* optional</text>
+
+</svg>

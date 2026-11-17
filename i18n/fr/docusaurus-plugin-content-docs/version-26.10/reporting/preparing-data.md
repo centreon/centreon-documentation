@@ -1,7 +1,7 @@
 ---
 id: preparing-data
 title: Préparer les données pour pouvoir générer des rapports
-description: "Préparer hôtes, catégories et périodes temporelles avant de générer des rapports MBI"
+description: "Préparez vos données pour Centreon MBI : organisez les ressources en groupes et catégories, créez les périodes temporelles et définissez le périmètre."
 ---
 
 ## Mettre vos ressources à la disposition de MBI

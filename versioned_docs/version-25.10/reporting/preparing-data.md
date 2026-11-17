@@ -1,7 +1,7 @@
 ---
 id: preparing-data
 title: Preparing data for report generation
-description: "Prepare hosts, categories, and time periods before generating MBI reports"
+description: "Prepare your data for Centreon MBI reports: organize resources into groups and categories, create time periods, define the data scope, and enable sharing."
 ---
 
 ## Making your resources available to MBI

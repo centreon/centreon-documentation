@@ -1,7 +1,7 @@
 ---
 id: applications-thales-mistral-vs9-restapi
 title: Thales Mistral VS9 Rest API
-description: "Supervisez les chiffreurs Thales Mistral VS9 via l'API REST : certificats, interfaces, système, cluster et tunnels VPN."
+description: "Supervisez les chiffreurs Thales Mistral VS9 via l'API REST : certificats, interfaces, système, connexion, clusters et tunnels VPN, avec découverte."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -964,3 +964,10 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=mmc-certificates \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added support for API version 9.2.4.18.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
+- [22.12](../releases/release-notes.md#2022-12) - Enhancement: Added service clusters.
+- [22.11](../releases/release-notes.md#2022-11) - New connector: New monitoring pack.

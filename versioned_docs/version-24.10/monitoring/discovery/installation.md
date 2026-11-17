@@ -1,7 +1,7 @@
 ---
 id: installation
 title: Installation
-description: "Install the Auto Discovery module on the Central server"
+description: "Install the Centreon Auto Discovery module on the central server: install the packages, then complete the installation from the web interface."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

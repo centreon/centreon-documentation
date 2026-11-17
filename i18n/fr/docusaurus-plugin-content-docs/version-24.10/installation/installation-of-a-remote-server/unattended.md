@@ -1,7 +1,7 @@
 ---
 id: unattended-install-remote
 title: Installation silencieuse d'un serveur distant
-description: "Installer rapidement un serveur distant à l'aide d'un script"
+description: "Installez rapidement un serveur distant Centreon à l'aide du script d'installation silencieuse, puis enregistrez-le et rattachez-le au serveur central."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -60,7 +60,7 @@ apt update && apt upgrade
 2. Téléchargez le script à l'aide de la commande suivante :
 
 ```shell
-curl -L https://download.centreon.com/24.10/unattended.sh --output /tmp/unattended.sh
+curl -L https://raw.githubusercontent.com/centreon/centreon/24.10-latest/centreon/unattended.sh --output /tmp/unattended.sh
 ```
 
 3. Exécutez la commande suivante en **root** :
@@ -86,5 +86,5 @@ Dans les deux cas, vous obtiendrez un fichier de log complet avec toutes les err
 Pour obtenir de l'aide sur le script, utilisez la commande suivante :
 
 ```shell
-bash unattended.sh -h
+bash /tmp/unattended.sh -h
 ```

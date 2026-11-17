@@ -1,7 +1,7 @@
 ---
 id: compatibility
 title: Compatibilité
-description: "Navigateurs, systèmes d'exploitation et SGBD compatibles avec Centreon"
+description: "Vérifiez les navigateurs, résolutions d'écran, systèmes d'exploitation et versions de SGBD compatibles avec Centreon avant d'installer votre plateforme."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

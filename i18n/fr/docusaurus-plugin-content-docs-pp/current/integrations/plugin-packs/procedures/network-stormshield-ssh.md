@@ -1,7 +1,7 @@
 ---
 id: network-stormshield-ssh
 title: Stormshield SSH
-description: "Supervisez les pare-feu Stormshield via SSH pour suivre l'utilisation QoS, le trafic et les pics de bande passante."
+description: "Supervisez les pare-feu Stormshield via SSH : utilisation de la QoS, avec trafic entrant et sortant et pics de bande passante pour chaque QoS."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -346,3 +346,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=qos-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.11](../releases/release-notes.md#2022-11) - Breaking change: Migrate and secure the underlying modes.

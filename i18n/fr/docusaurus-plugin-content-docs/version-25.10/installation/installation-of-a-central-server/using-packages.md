@@ -1,7 +1,7 @@
 ---
 id: using-packages
 title: À partir des paquets
-description: "Installer un serveur central Centreon à partir des paquets RPM ou DEB"
+description: "Installez un serveur central Centreon et sa base de données locale ou distante à partir des paquets RPM ou DEB, puis lancez l'installation web."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

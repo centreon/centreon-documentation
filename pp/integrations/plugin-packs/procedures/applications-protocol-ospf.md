@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-ospf
 title: OSPF Protocol
-description: "Monitor OSPF protocol neighbor status via SNMP, including neighbor count and state change detection."
+description: "Monitor OSPF protocol neighbor status via SNMP: total neighbor count, detection of neighbor count changes, and individual neighbor states."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

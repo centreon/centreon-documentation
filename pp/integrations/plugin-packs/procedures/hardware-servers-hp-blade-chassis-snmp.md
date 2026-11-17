@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-hp-blade-chassis-snmp
 title: HP Blade Chassis SNMP
-description: "Monitor HP Blade Chassis hardware via SNMP: enclosure, blades, fans, power supplies, temperature, and manager status."
+description: "Monitor HP Blade Chassis via SNMP: enclosure, blades, fans, fuses, power supplies, temperature, network, and manager status, with host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: applications-kafka-jmx
 title: Kafka
-description: "Superviser Apache Kafka via JMX/Jolokia : nombre de leaders, partitions, réplication et statistiques de trafic."
+description: "Supervisez Apache Kafka via JMX/Jolokia : leaders, contrôleurs actifs, partitions hors ligne ou sous-répliquées, trafic entrant/sortant et requêtes fetch."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -343,3 +343,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=global-stats \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

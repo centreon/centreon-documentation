@@ -1,7 +1,7 @@
 ---
 id: dem-overview
 title: Digital Experience Monitoring
-description: "Combiner les mesures de performance web et applicative avec la supervision Centreon"
+description: "Intégrez des outils de supervision de l'expérience numérique à Centreon pour combiner les mesures de performance web et applicative avec vos données."
 ---
 
 Récupérez des données de mesure de la performance et du ressenti utilisateur 

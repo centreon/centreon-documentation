@@ -1,7 +1,7 @@
 ﻿---
 id: concepts
 title: Bases de Centreon Log Management
-description: Concepts clés et terminologie de Centreon Log Management
+description: "Ce que sont les logs, comment Centreon Log Management les collecte, les analyse et les stocke, et à quoi ressemble un log au format OpenTelemetry."
 ---
 
 ## Que sont les logs ?

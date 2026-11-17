@@ -1,7 +1,7 @@
 ---
 id: analyze-resources-availability
 title: Analyser la disponibilité des ressources
-description: "Comment générer votre premier rapport de disponibilité avec Centreon MBI"
+description: "Générez votre premier rapport de disponibilité avec Centreon MBI : définissez votre besoin, choisissez un modèle de rapport et configurez une tâche."
 ---
 
 Vous débutez avec Centreon MBI et souhaitez extraire vos premières
@@ -44,15 +44,8 @@ sont nos routeurs.
 ## Configuration du rapport via l'ajout d'une "tâche planifiée"
 
 Dans Centreon MBI, la configuration d'un rapport correspond à la
-création d'une tâche planifiée. Allez dans le menu *Reporting →
-Monitoring Business Intelligence → Configuration \| Tâches planifiées*
-et cliquez sur "Ajouter" :
-
-![image](../assets/getting-started/1_FR_createJob.png)
-
-Le formulaire de création d'une nouvelle tâche planifiée s'ouvre :
-
-![image](../assets/getting-started/2_FR_createJob_FirstTab.png)
+création d'une tâche planifiée. Allez dans le menu **Reporting > Monitoring Business Intelligence > Tâches planifiées**
+et cliquez sur **Ajouter**. Le formulaire de création d'une nouvelle tâche planifiée s'ouvre.
 
 Dans ce premier onglet, partie *Configuration de la tâche planifiée*,
 donnez un nom à votre tâche. Ce nom correspond au nom du rapport qui
@@ -65,11 +58,9 @@ de nommage.
 Choisissez ensuite :
 
 -   le modèle de rapport sur lequel vous vous basez, dans notre exemple
-    *Hostgroup-Host-Availability-List*
+    **Hostgroup-Host-Availability-List**
 -   la langue : Français
 -   le format de sortie souhaité : PDF
-
-![image](../assets/getting-started/createJob_ListReport.png)
 
 Puis rattachez le rapport à un groupe. C'est une obligation liée aux
 droits et profils utilisateurs.
@@ -111,11 +102,8 @@ choisi, dans notre cas, immédiatement. Sa génération va démarrer.
 
 ![image](../assets/getting-started/5_FR_generateJob.png)
 
-Si vous ne voyez pas la tâche planifiée dans la liste, contrôlez les
-filtres s'appliquant à la page. Sélectionnez "Tous" si vous voulez être
-sûr de voir toutes vos tâches planifiées.
-
-![image](../assets/getting-started/6_FR_generateJob_Filter.png)
+Si vous ne voyez pas la tâche planifiée dans la liste, sélectionnez **Tous** dans le filtre
+d'état des tâches, puis appliquez le filtre.
 
 ## Récupération du rapport généré
 

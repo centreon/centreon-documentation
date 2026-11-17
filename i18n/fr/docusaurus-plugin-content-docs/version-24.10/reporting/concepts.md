@@ -1,7 +1,7 @@
 ---
 id: concepts
 title: Concepts MBI
-description: "Vocabulaire et concepts clés utilisés dans toute la documentation de Centreon MBI"
+description: "Concepts clés de Centreon MBI : rétention des données, ETL, dimensions, ACL, métriques, évènements, tâches, rapports et règles de publication."
 ---
 
 MBI est une extension de Centreon avec son propre vocabulaire et ses propres concepts. Cette section présente les concepts clés pour comprendre Centreon MBI. Notez que cette section suppose que vous connaissiez déjà le [vocabulaire standard de Centreon](../resources/glossary.md).

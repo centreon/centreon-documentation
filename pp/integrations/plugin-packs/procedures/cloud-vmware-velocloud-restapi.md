@@ -613,3 +613,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=link-usage \
 	--help
 ```
+
+## Changelog
+
+- [24.08](../releases/release-notes.md#2024-08) - Bug fix: Fixed the listing (for discovery) and monitoring of Edges.

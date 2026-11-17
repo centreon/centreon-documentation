@@ -1,7 +1,7 @@
 ---
 id: applications-iis-wsman
 title: Microsoft IIS Server WSMAN
-description: "Monitor Microsoft IIS Server application pools via WSMAN, tracking pool status and detected pool count."
+description: "Monitor Microsoft IIS Server application pools via WSMAN: number of detected pools and status of each pool, with automatic application pool discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -326,3 +326,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=application-pools \
 	--help
 ```
+
+## Changelog
+
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Fixed typo in `App-Iis-WSMAN-Application-Pools` command.
+- [22.06](../releases/release-notes.md#2022-06) - New connector: Initial release.

@@ -1,7 +1,7 @@
 ---
 id: loginpwd
 title: Configurer une authentification locale
-description: "Configurer l'authentification locale et la politique de mot de passe"
+description: "Autorisez les utilisateurs à accéder à l'interface Centreon avec l'authentification locale et définissez la politique de sécurité des mots de passe."
 ---
 
 ## Autoriser les utilisateurs à accéder à Centreon

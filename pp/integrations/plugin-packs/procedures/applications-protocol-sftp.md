@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-sftp
 title: Protocol SFTP
-description: "Monitor SFTP servers via SSH: connection status, file counts, file modification times, and scenario execution."
+description: "Monitor SFTP servers via SSH: connection status and time, file counts, file modification times, and execution of scenarios of SFTP commands."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -428,3 +428,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=scenario \
 	--help
 ```
+
+## Changelog
+
+- [24.05](../releases/release-notes.md#2024-05) - Bug fix: Fixed file processing when both `--filter-file` and `--max-depth` options were used.
+- [22.05](../releases/release-notes.md#2022-05) - New connector: Initial release.

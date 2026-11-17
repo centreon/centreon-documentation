@@ -687,3 +687,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--hostname='10.0.0.1' \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - New connector: Initial release.

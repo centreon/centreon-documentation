@@ -1,7 +1,7 @@
 ---
 id: alert-events
 title: Defining alert rules
-description: Create alert rules to detect abnormal log patterns and trigger alert events
+description: "Create alert rules in Centreon Log Management to detect abnormal log patterns, generate alert events with a status, and view the latest event per rule."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-windows-telegraf-agent
 title: Windows Telegraf Agent
-description: "Supervisez des serveurs Windows via l'agent Telegraf (protocole OpenTelemetry) : synchronisation NTP, redémarrages en attente, sessions, mises à jour et certificats."
+description: "Supervisez des serveurs Windows via l'agent Telegraf (OpenTelemetry) : synchronisation NTP, redémarrages en attente, sessions, mises à jour, certificats."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -498,3 +498,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ```bash
 "\Program Files\InfluxData\telegraf\telegraf-1.30.3\centreon_plugins.exe" --plugin=os::windows::local::plugin --mode=certificates --help
 ```
+
+## Historique des modifications
+
+- [26.09](../releases/release-notes.md#2026-09) - Enhancement: `centreon_plugins.exe` now supports the curl HTTP backend.
+- [26.09](../releases/release-notes.md#2026-09) - Bug fix: Fixed qwinsta parsing failures with specific languages in **sessions** mode.
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed an issue in the **ntp** mode, causing zombie processes of `centreon_plugins.exe`.
+- [24.11](../releases/release-notes.md#2024-11) - Breaking change: The default inherited templates are now passive.
+- [24.06](../releases/release-notes.md#2024-06) - New connector: Initial release of Windows Telegraf Agent.

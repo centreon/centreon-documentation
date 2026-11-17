@@ -1389,3 +1389,12 @@ All available options for a given mode can be displayed by adding the
 	--mode=processcount \
 	--help
 ```
+
+## Changelog
+
+- [26.05](../releases/release-notes.md#2026-05) - Enhancement: Added centreonvault support to **metaservice** mode.
+- [25.05](../releases/release-notes.md#2025-05) - Enhancement: Added the detection of systemd-timesyncd into `SERVICEPROCESSNAME` macro default value in proc-ntpd service.
+- [24.03](../releases/release-notes.md#2024-03) - Enhancement: Updated host template logo.
+- [23.12](../releases/release-notes.md#2023-12) - Enhancement: Replaced the old logo with the current one.
+- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Broker-Stats: added support for yes/no values in the queue file status.
+- [22.06](../releases/release-notes.md#2022-06) - Bug fix: Proc-Centengine: fixed process matching to avoid false positives.

@@ -1,7 +1,7 @@
 ---
 id: cma-troubleshooting
 title: Troubleshooting CMA
-description: "Troubleshoot CMA connection, logging, and status refresh issues"
+description: "Troubleshoot Centreon Monitoring Agent (CMA): refresh statuses, check the agent service, logs, and poller connection, and set the OpenTelemetry log level."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

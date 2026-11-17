@@ -1,7 +1,7 @@
 ---
 id: chart-virtual-metrics
 title: Métriques virtuelles
-description: "Créer des métriques virtuelles avec l'agrégation CDEF et VDEF"
+description: "Créez des métriques virtuelles dans Centreon en combinant des métriques existantes par expressions RPN (fonctions CDEF ou VDEF) pour vos graphiques."
 ---
 
 ## Definition

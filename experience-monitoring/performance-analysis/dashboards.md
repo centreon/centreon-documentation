@@ -1,7 +1,7 @@
 ﻿---
 id: dashboards
 title: Using dashboards
-description: Build customizable widget dashboards across sites and organizations
+description: "Create customizable dashboards with widgets to view data from several sites and organizations in one place, then configure, duplicate, or share them."
 ---
 
 **Dashboards** are a space customizable with widgets to gather the information you need from Experience Monitoring in one place.

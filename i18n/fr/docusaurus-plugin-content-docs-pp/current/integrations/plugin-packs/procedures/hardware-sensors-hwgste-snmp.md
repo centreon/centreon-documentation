@@ -1,7 +1,7 @@
 ---
 id: hardware-sensors-hwgste-snmp
 title: HWg-STE Sensor SNMP
-description: "Supervisez les sondes HWg-STE via SNMP en surveillant la température et l'humidité."
+description: "Supervisez les sondes HWg-STE via SNMP : statut et nombre de capteurs de température et d'humidité de l'équipement, avec découverte des hôtes SNMP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

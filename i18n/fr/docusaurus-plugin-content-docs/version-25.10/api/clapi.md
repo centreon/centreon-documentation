@@ -1,7 +1,7 @@
 ---
 id: clapi
 title: Command Line API (v1) - CLAPI
-description: "Gérer la configuration Centreon avec l'API en ligne de commande"
+description: "Gérez la configuration de Centreon en ligne de commande avec CLAPI : authentifiez-vous, puis ajoutez, modifiez et supprimez des objets."
 ---
 
 > Cette documentation n'est disponible qu'en anglais.

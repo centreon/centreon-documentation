@@ -1,7 +1,7 @@
 ---
 id: sc-splunk-events
 title: Splunk Events
-description: "Envoyer les évènements d'état hôtes et services vers le collecteur de services Splunk"
+description: "Installez et configurez le stream connector Splunk Events pour envoyer les évènements des hôtes et services Centreon vers le collecteur HTTP de Splunk."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -25,14 +25,6 @@ Faites l'installation sur le serveur qui enverra les données à Splunk (serveur
 2. Exécutez la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-stream-connector-splunk
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -41,7 +33,15 @@ dnf install centreon-stream-connector-splunk
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-stream-connector-splunk
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-stream-connector-splunk
@@ -200,3 +200,8 @@ curl -X POST -H "content-type: application/json" -H "authorization: Splunk <splu
   > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. Par exemple, *\<splunk_sourcetype\>* pourra être remplacé par *_json*.
 
 3. Vérifiez que l'évènement a bien été reçu par Splunk.
+
+## Historique des modifications
+
+- [21.09](../stream-connectors-rn.md#2021-09) - Enhancement: Added support for the new proxy and connection parameters.
+- [21.07](../stream-connectors-rn.md#2021-07) - Enhancement: New version of the stream connector based on the Centreon stream connectors library.

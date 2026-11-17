@@ -1,7 +1,7 @@
 ---
 id: cloud-talend-tmc-api
 title: Talend TMC API
-description: "Supervisez Talend TMC via son API REST : remote engines, plans et tâches, statut d'exécution, cache et taux d'échec."
+description: "Supervisez Talend TMC via son API REST : remote engines, plans et tâches (statut d'exécution, taux d'échec), avec mise en cache et découverte de services."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -492,3 +492,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=remote-engines \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.01](../releases/release-notes.md#2023-01) - New connector: Initial release.

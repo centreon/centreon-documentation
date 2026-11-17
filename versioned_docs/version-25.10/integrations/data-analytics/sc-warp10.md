@@ -1,7 +1,7 @@
 ---
 id: sc-warp10
 title: Warp10
-description: "Send Centreon host and service events to a Warp10 time series database"
+description: "Install and configure the Warp10 stream connector on the Centreon central server to send host and service events to a Warp10 time series database."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

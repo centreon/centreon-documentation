@@ -1,7 +1,7 @@
 ---
 id: backup-poller
 title: Back up and restore your pollers
-description: "Back up poller data and set up a standby poller for disaster recovery"
+description: "Back up and restore your Centreon pollers: save the files needed to rebuild a poller from scratch, synchronize a standby poller, or use VM snapshots."
 ---
 
 ## Case n°1: Making backups to be able to install a new poller from scratch

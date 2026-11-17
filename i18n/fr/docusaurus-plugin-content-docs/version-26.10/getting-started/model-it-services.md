@@ -1,7 +1,7 @@
 ---
 id: model-it-services
 title: Modéliser un service IT
-description: "Comment modéliser des services IT avec Centreon BAM"
+description: "Modélisez vos services IT avec Centreon BAM : agrégez des indicateurs en activités métier, suivez leur statut en temps réel et mesurez vos SLA."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -143,8 +143,6 @@ passera en Critique lorsque plus de 80% des serveurs frontaux seront non-ok.
 Pour rajouter de la pro-activité dans notre gestion et éviter que le cluster comptent 80% de frontaux non fonctionnels,
 nous pouvons également ajouter la règle suivant: à partir de 50% de serveurs frontaux non disponibles, nous voulons être
 avertis
-
-![image](../assets/service-mapping/conf-ratio-with-warn.png)
 
 Au final nous obtenons cette activité métier "Frontend Cluster" nous permettant de suivre l'état de fonctionnement
 général des serveurs frontaux. Il est également possible de ré-utiliser cette BA dans une autre, notamment une BA représentant le fonctionnement d'une application reposant sur ces serveurs.

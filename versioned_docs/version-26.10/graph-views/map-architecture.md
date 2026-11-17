@@ -1,7 +1,7 @@
 ---
 id: map-architecture
 title: MAP architecture
-description: "Overview of the Centreon MAP architecture"
+description: "Centreon MAP architecture for central and remote server setups, with the network flows and ports used between the MAP server, Broker, database, and users."
 ---
 
 This topic describes the architecture of Centreon MAP.

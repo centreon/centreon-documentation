@@ -1132,3 +1132,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=volumeoptions \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
+- [26.01](../releases/release-notes.md#2026-01) - Enhancement: Added the **snapmirrorlag** service template.
+- [25.01](../releases/release-notes.md#2025-01) - Enhancement: Added **uptime** mode and service template.
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Disk-Failed** command.
+- [23.08](../releases/release-notes.md#2023-08) - Bug fix: Fixed the $_HOSTSNMPEXTRAOPTIONS$ macros.

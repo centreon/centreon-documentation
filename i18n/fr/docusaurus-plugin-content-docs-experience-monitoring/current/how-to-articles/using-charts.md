@@ -1,7 +1,7 @@
 ﻿---
 id: using-charts
 title: Utiliser les graphiques
-description: Zoomer, filtrer, annoter et exporter les graphiques Experience Monitoring
+description: "Zoomez, filtrez, annotez, commentez et exportez les graphiques d'Experience Monitoring, et comprenez la signification des zones rouges et grises."
 ---
 
 Une grande partie des informations collectées par Experience Monitoring est convertie en graphiques pour en faciliter la lecture.

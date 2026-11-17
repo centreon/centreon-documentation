@@ -1,7 +1,7 @@
 ---
 id: network-symbol-wing-snmp
 title: Symbol WiNG SNMP
-description: "Monitor Symbol WiNG devices via SNMP: interface traffic, packet errors, and system CPU and memory usage."
+description: "Monitor Symbol WiNG devices via SNMP: per-device CPU and memory usage, interface status and traffic, and packet errors and discards, with discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -556,3 +556,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fixed Systems command.
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

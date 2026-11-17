@@ -709,3 +709,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=vserver-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.05](../releases/release-notes.md#2024-05) - Bug fix: Fixed status mapping on Citrix PSU ([Community contribution](https://github.com/centreon/centreon-plugins/pull/4722)).
+- [23.09](../releases/release-notes.md#2023-09) - Bug fix: Fixed the status mapping for power supplies in Health service template.

@@ -1,7 +1,7 @@
 ---
 id: network-perle-ids-snmp
 title: Perle IDS SNMP
-description: "Monitor Perle IDS devices via SNMP: alarms, hardware status, interfaces, CPU, memory, and flash disk usage."
+description: "Monitor Perle IDS devices via SNMP: alarms, hardware status, interfaces, CPU, memory, and flash disk usage, with an SNMP host discovery rule."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -552,3 +552,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=system-usage \
 	--help
 ```
+
+## Changelog
+
+- [23.09](../releases/release-notes.md#2023-09) - Bug fix: Fixed interfaces service template.

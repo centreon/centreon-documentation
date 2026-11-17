@@ -1,7 +1,7 @@
 ---
 id: chart-template
 title: Modèles de graphiques
-description: "Configurer des modèles pour mettre en forme vos graphiques"
+description: "Créez des modèles de graphiques Centreon (axe des ordonnées, taille, couleurs…) et appliquez-les aux services ou modèles de services."
 ---
 
 ## Définition

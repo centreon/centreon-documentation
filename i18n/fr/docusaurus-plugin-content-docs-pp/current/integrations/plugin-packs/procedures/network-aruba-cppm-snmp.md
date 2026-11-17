@@ -1,7 +1,7 @@
 ---
 id: network-aruba-cppm-snmp
 title: Aruba CPPM SNMP
-description: "Supervisez Aruba ClearPass Policy Manager (CPPM) en SNMP : CPU, mémoire, disques, swap, interfaces, RADIUS et TACACS."
+description: "Supervisez Aruba ClearPass Policy Manager (CPPM) en SNMP : CPU, mémoire, disques, swap, interfaces, RADIUS, TACACS et référentiels d'authentification."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -643,3 +643,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=memory \
     --help
 ```
+
+## Historique des modifications
+
+- [24.08](../releases/release-notes.md#2024-08) - Bug fix: Fixed the plugin's packaging.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancement: Added swap monitoring.
+- [23.04](../releases/release-notes.md#2023-04) - New connector: Initial release.

@@ -1,7 +1,7 @@
 ---
 id: cloud-openshift-api
 title: OpenShift API
-description: "Monitor OpenShift clusters via REST API: cluster operators, cluster version, projects, and routes."
+description: "Monitor OpenShift clusters via REST API: cluster operators status, cluster version, projects, and routes, with automatic host and service discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -609,3 +609,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=routes \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - New connector: Initial release.

@@ -252,3 +252,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=discovery \
 	--help
 ```
+
+## Changelog
+
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Added the missing **Azure Tenant Discovery** host discovery provider.
+- [23.03](../releases/release-notes.md#2023-03) - Enhancement: Added missing packs for discovery.
+- [22.09](../releases/release-notes.md#2022-09) - Breaking change: Upgraded Packs Azure VM, Expressroute, VPN Gateway to use latest guidelines.
+- [22.06](../releases/release-notes.md#2022-06) - Enhancement: New provider scanning all subscriptions for a given tenant and support for Azure KS & VMSS resources discovery.

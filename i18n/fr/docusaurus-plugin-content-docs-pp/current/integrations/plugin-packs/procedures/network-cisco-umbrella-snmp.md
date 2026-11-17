@@ -578,3 +578,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=storage \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added native SNMP v3 host macro.
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Added Cisco Umbrella Pack.

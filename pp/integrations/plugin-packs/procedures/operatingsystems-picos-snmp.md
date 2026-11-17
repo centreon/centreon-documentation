@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-picos-snmp
 title: PICOS SNMP
-description: "Monitor Pica8 PICOS switches via SNMP: CPU, memory, temperature, hardware, and network interfaces."
+description: "Monitor Pica8 PICOS switches via SNMP: CPU, memory, switch and chip temperature, hardware, and network interfaces, with automatic interface discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -579,3 +579,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=temperature \
 	--help
 ```
+
+## Changelog
+
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added native SNMP v3 host macro.
+- [26.03](../releases/release-notes.md#2026-03) - Bug fix: Replaced obsolete '\C' pattern in regular expressions in Cpu, Psu and Temperature.
+- [22.11](../releases/release-notes.md#2022-11) - New connector: Added Pica8 PICOS Monitoring Connector.

@@ -1,7 +1,7 @@
 ---
 id: applications-jenkins
 title: Jenkins API
-description: "Supervisez les jobs Jenkins via l'API REST : statut des jobs, pourcentage de score et nombre de violations."
+description: "Supervisez les jobs Jenkins via l'API REST : statut, pourcentage de score et nombre de violations de chaque job, avec découverte automatique des jobs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -332,3 +332,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=jobs \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.02](../releases/release-notes.md#2023-02) - Breaking change: Changed service name and options.

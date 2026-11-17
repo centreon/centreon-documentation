@@ -1,7 +1,7 @@
 ---
 id: glossary
 title: Glossaire des concepts Centreon
-description: "Définitions des principaux concepts de supervision Centreon"
+description: "Définitions des principaux concepts et termes de supervision Centreon, comme les ACL, l'acquittement, Broker, Engine, Gorgone ou les temps d'arrêt."
 ---
 
 ## ACL

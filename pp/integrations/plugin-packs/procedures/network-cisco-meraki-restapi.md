@@ -943,3 +943,19 @@ All available options for a given mode can be displayed by adding the
 	--mode=networks \
 	--help
 ```
+
+## Changelog
+
+- [26.08](../releases/release-notes.md#2026-08) - Bug fix: Fixed typo in **api** custom mode.
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added MRxx devices handling.
+- [26.07](../releases/release-notes.md#2026-07) - Bug fix: Fixed the `devices.total.online.count` counter.
+- [25.10](../releases/release-notes.md#2025-10) - Enhancement: Enhanced help information about `hostname` (see [here](https://developer.cisco.com/meraki/api-v1/getting-started/#base-uri) for more information about URI).
+- [25.01](../releases/release-notes.md#2025-01) - Enhancement: Added `--filter-model` option to host discovery, from community contribution [PR 5228](https://github.com/centreon/centreon-plugins/pull/5228).
+- [25.01](../releases/release-notes.md#2025-01) - Breaking change: Fixed the attributes for VPN statuses.
+- [24.10](../releases/release-notes.md#2024-10) - Enhancement: Added Centreon user-agent key to Meraki API calls.
+- [24.07](../releases/release-notes.md#2024-07) - Enhancement: Added new mode to monitor VPN tunnels and its associated discovery rule using their network name.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancement: Added thresholds for devices monitoring.
+- [23.01](../releases/release-notes.md#2023-01) - Bug fix: Unlocked host discovery parameters.
+- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fixed host discovery attributes.
+- [22.02](../releases/release-notes.md#2022-02) - Enhancement: Added new cache system.
+- [22.02](../releases/release-notes.md#2022-02) - Enhancement: Added a variable to autodiscovery attributes.

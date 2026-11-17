@@ -1,7 +1,7 @@
 ---
 id: network-firewalls-paloalto-standard-snmp
 title: Palo Alto firewall SNMP
-description: "Monitor Palo Alto firewalls via SNMP: CPU, memory, sessions, interfaces, cluster status, and GlobalProtect tunnels."
+description: "Monitor Palo Alto firewalls via SNMP: CPU, memory, hardware, sensors, sessions, interfaces, cluster status, GlobalProtect tunnels, and signatures."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -800,3 +800,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=panorama \
 	--help
 ```
+
+## Changelog
+
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added new **sensors** mode, from a community contribution ([PR 6293](https://github.com/centreon/centreon-plugins/pull/6293)).
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
+- [26.01](../releases/release-notes.md#2026-01) - Bug fix: Fixed "uninitialized values" warnings in **interfaces** mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed percentage calculation in **interfaces** mode.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancement: Added interfaces monitoring.

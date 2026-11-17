@@ -1,7 +1,7 @@
 ---
 id: sc-kafka-events
 title: Kafka Events
-description: "Publish host, service, and business activity events to a Kafka topic"
+description: "Install and configure the Kafka Events stream connector to publish Centreon host, service and business activity status events to a Kafka topic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -208,3 +208,10 @@ It is strongly advised to have access to Kafka to check if a message is sent fro
 ```shell
 %3|1622459610.760|FAIL|rdkafka#producer-1| [thrd:sasl_plaintext://cps-kafkan:9093/bootstrap]: sasl_plaintext://cps-kafkan:9093/bootstrap: Failed to resolve 'cps-kafkan:9093': Name or service not known
 ```
+
+## Changelog
+
+- [21.09](../stream-connectors-rn.md#2021-09) - Enhancement: Changed the default log level from debug to error.
+- [21.09](../stream-connectors-rn.md#2021-09) - Bug fix: Fixed the dependencies of the Kafka modules.
+- [21.06](../stream-connectors-rn.md#2021-06) - New stream connector: Initial release of Kafka Events.
+- [21.06](../stream-connectors-rn.md#2021-06) - Bug fix: Fixed the installation on EL8.

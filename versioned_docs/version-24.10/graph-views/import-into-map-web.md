@@ -1,7 +1,7 @@
 ---
 id: import-into-map-web
 title: Switching from MAP (Legacy) to MAP
-description: "Migrate your maps from MAP Legacy to MAP by importing them into the new module"
+description: "Switch from MAP Legacy to Centreon MAP: install MAP, update MAP Legacy, then import your legacy maps and custom images into the new MAP module."
 ---
 
 This topic describes how to move from Centreon MAP (Legacy) to Centreon MAP by importing your legacy maps into your MAP module.

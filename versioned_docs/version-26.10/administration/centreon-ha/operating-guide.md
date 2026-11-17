@@ -1,10 +1,12 @@
 ---
 id: operating-guide
 title: Operating guide
-description: "Check cluster status, perform failovers, and manage Centreon HA"
+description: "Operate a Centreon HA cluster: check cluster and database replication status, perform manual failovers, test node loss, and view cluster logs."
 ---
 
 > Unless otherwise stated, all commands in this page must be run as `root`.
+
+> Note that some commands, options or outputs may differ with your version of Pacemaker/Corosync. Refer to the official documentation of your version.
 
 ## Logging in to Centreon on the active node
 

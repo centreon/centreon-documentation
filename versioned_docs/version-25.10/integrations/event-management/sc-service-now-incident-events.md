@@ -1,7 +1,7 @@
 ---
 id: sc-service-now-incident-events
 title: ServiceNow Incident Events
-description: "Create ServiceNow incidents from Centreon host and service events"
+description: "Install and configure the ServiceNow Incident Events stream connector to create ServiceNow incidents from Centreon host and service status events."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -220,3 +220,8 @@ curl -X POST -H 'content-type: application/json' -H 'Accept: application/json' -
 > The *`<refresh_token>`* is obtained thanks to **[this curl](#get-oauth-tokens)**
 
 3. Check that the event has been received by ServiceNow Incident.
+
+## Changelog
+
+- [25.02](../stream-connectors-rn.md#2025-02) - Bug fix: Fixed oauth refresh token parameters.
+- [22.05](../stream-connectors-rn.md#2022-05) - New stream connector: Initial release of ServiceNow Incident Events.

@@ -1,7 +1,7 @@
 ---
 id: knowledge-base
 title: Base de connaissance
-description: "Lier les hôtes et services Centreon à des procédures via un wiki"
+description: "Associez hôtes, services et modèles Centreon à des procédures wiki avec le module Base de connaissance, configurez l'accès au wiki et synchronisez."
 ---
 
 ## Introduction

@@ -1,7 +1,7 @@
 ---
 id: virtualization-proxmox-ve-restapi
 title: Proxmox VE Rest API
-description: "Supervisez Proxmox VE via l'API REST : utilisation des nœuds, du stockage et des VMs avec le connecteur Centreon."
+description: "Supervisez Proxmox VE via l'API REST : CPU, mémoire, swap et stockage des nœuds et des VM, trafic et IOPS des VM, avec découverte automatique."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -502,3 +502,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=vm-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added tags to host discovery, from a [community idea](https://thewatch.centreon.com/ideas/proxmox-ve-tags-support-5602).
+- [26.07](../releases/release-notes.md#2026-07) - Bug fix: Fixed authentication failures and caching issues.
+- [25.09](../releases/release-notes.md#2025-09) - Enhancement: Added option `include-node-name` in **vm-usage** mode, from community contribution [Issue 5642](https://github.com/centreon/centreon-plugins/issues/5642).
+- [25.08](../releases/release-notes.md#2025-08) - Enhancement: Added OS and IP info retrieval to **host discovery**.
+- [23.01](../releases/release-notes.md#2023-01) - Bug fix: Unlocked host discovery parameters.
+- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Added a host discovery rule for virtual machines.

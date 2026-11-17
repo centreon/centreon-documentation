@@ -1,7 +1,7 @@
 ---
 id: network-citrix-appacceleration-snmp
 title: Citrix Acceleration SNMP
-description: "Monitor Citrix Acceleration appliances via SNMP, tracking CPU utilization and service class usage."
+description: "Monitor Citrix Acceleration appliances via SNMP: CPU utilization and load, accelerated connections, and traffic per service class, with discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -422,3 +422,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=serviceclass-usage \
 	--help
 ```
+
+## Changelog
+
+- [23.12](../releases/release-notes.md#2023-12) - Bug fix: Fixed incorrect carriage return in Service Discovery commands.

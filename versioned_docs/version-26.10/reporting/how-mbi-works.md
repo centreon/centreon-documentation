@@ -1,7 +1,7 @@
 ---
 id: how-mbi-works
 title: How does MBI work?
-description: "How Centreon MBI prepares, aggregates, and generates reports each day"
+description: "Understand the daily Centreon MBI workflow: the central server prepares data, the ETL aggregates it, CBIS generates reports, and reports are sent to users."
 ---
 
 Each day, MBI follows 3 independent main phases:

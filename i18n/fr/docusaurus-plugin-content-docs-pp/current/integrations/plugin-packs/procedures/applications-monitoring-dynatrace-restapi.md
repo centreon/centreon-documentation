@@ -449,3 +449,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=apdex \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.07](../releases/release-notes.md#2022-07) - Enhancement: Enhanced Dynatrace Restapi Packs with new services and new metrics.

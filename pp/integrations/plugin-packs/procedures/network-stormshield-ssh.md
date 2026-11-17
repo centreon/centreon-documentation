@@ -1,7 +1,7 @@
 ---
 id: network-stormshield-ssh
 title: Stormshield SSH
-description: "Monitor Stormshield firewalls via SSH to track QoS usage, traffic, and peak bandwidth metrics."
+description: "Monitor Stormshield firewalls via SSH: QoS usage, with inbound and outbound traffic and peak bandwidth per QoS, using SSH key or password login."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -342,3 +342,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=qos-usage \
 	--help
 ```
+
+## Changelog
+
+- [22.11](../releases/release-notes.md#2022-11) - Breaking change: Migrate and secure the underlying modes.

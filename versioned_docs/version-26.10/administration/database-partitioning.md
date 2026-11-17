@@ -1,7 +1,7 @@
 ---
 id: database-partitioning
 title: Database partitioning
-description: "Configure and monitor MariaDB table partitioning for Centreon databases"
+description: "Configure partitioning of the Centreon storage database tables in MariaDB, migrate unpartitioned tables, and monitor the partitioning operation."
 ---
 
 ## Overview

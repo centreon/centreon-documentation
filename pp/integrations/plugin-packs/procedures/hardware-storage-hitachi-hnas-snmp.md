@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-hitachi-hnas-snmp
 title: Hitachi NAS SNMP
-description: "Monitor Hitachi NAS storage via SNMP: hardware health, cluster status, interfaces, and volume usage."
+description: "Monitor Hitachi NAS storage via SNMP: hardware health, cluster node status, network interfaces, volume usage, and virtual volume quotas."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -672,3 +672,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
     --help
 ```
+
+## Changelog
+
+- [23.06](../releases/release-notes.md#2023-06) - Bug fix: Fixed option in **virtual-volumes-quotas** mode.
+- [22.12](../releases/release-notes.md#2022-12) - Enhancement: Added service virtual-volumes-quotas.

@@ -1,7 +1,7 @@
 ---
 id: sc-influxdb2-metrics
 title: InfluxDB 2 Metrics
-description: "Envoyer les métriques de performance hôtes et services vers un bucket InfluxDB 2"
+description: "Installez et configurez le stream connector InfluxDB 2 Metrics pour envoyer les métriques des hôtes et services Centreon vers un bucket InfluxDB 2."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -27,14 +27,6 @@ Faites l'installation sur le serveur qui enverra les données à InfluxDB 2 (ser
 2. Exécutez la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-stream-connector-influxdb
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -43,7 +35,15 @@ dnf install centreon-stream-connector-influxdb
 
 </TabItem>
 
-<TabItem value="Debian 11 & 12" label="Debian_11_&_12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-stream-connector-influxdb
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-stream-connector-influxdb
@@ -179,3 +179,11 @@ Si vous voulez tester que les évènements sont envoyés correctement à InfluxD
    > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. Par exemple, *\<bucket_id\>* pourra être remplacé par *65f5f748e28c92f0*.
 
 3. Vérifiez que l'évènement a bien été reçu par InfluxDB 2.
+
+## Historique des modifications
+
+- [26.07](../stream-connectors-rn.md#2026-07) - Bug fix: Properly escape host names in tags.
+- [25.02](../stream-connectors-rn.md#2025-02) - Bug fix: Fixed subinstances.
+- [24.08](../stream-connectors-rn.md#2024-08) - Bug fix: Added a protection on metric names containing spaces.
+- [24.04](../stream-connectors-rn.md#2024-04) - Enhancement: Added the possibility to send **metric_id**.
+- [23.09](../stream-connectors-rn.md#2023-09) - New stream connector: Initial release of InfluxDB 2 Metrics.

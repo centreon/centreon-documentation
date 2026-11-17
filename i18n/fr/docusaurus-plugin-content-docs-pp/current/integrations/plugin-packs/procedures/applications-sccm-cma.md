@@ -1,7 +1,7 @@
 ---
 id: applications-sccm-cma
 title: Microsoft SCCM CMA
-description: "Supervisez Microsoft SCCM via CMA en suivant l'état de la réplication des bases de données et l'état des sites."
+description: "Supervisez Microsoft SCCM avec Centreon Monitoring Agent (CMA) : suivez l'état des liens de réplication des bases de données et l'état des sites SCCM."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -302,3 +302,7 @@ C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
 	--mode=site-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.01](../releases/release-notes.md#2026-01) - New connector: Initial release.

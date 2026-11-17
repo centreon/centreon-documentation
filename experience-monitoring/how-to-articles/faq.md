@@ -1,7 +1,7 @@
 ---
 id: faq
 title: Agent FAQ
-description: Firewall ports and IP addresses required for the monitoring agent
+description: "Answers to common agent questions: firewall ports and IP addresses, multiple Redis or Varnish instances, shared servers, remote services, and security."
 ---
 
 ## Which firewall ports should be opened for the Experience Monitoring agent?

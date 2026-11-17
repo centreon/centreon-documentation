@@ -1,7 +1,7 @@
 ---
 id: api-tokens
 title: Jetons d'API
-description: "Générer et gérer les jetons d'API pour les applications tierces"
+description: "Générez des jetons d'API pour qu'une application tierce appelle l'API Centreon : qui peut les créer, comment les générer, les désactiver ou les supprimer."
 ---
 
 Avec un jeton d'application, une application tierce peut faire des appels à l'API Centreon afin de réaliser des actions dans Centreon (webhooks).

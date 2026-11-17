@@ -1,7 +1,7 @@
 ---
 id: nagios-to-centreon
 title: Nagios Reader to Centreon CLAPI
-description: "Convert Nagios configuration files into Centreon CLAPI import commands"
+description: "Use the Nagios Reader to Centreon CLAPI script to convert Nagios CFG configuration files into CLAPI commands and import them into Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

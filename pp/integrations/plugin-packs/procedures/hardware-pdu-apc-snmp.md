@@ -1,7 +1,7 @@
 ---
 id: hardware-pdu-apc-snmp
 title: APC PDU SNMP
-description: "Monitor APC PDUs via SNMP: hardware status, load per outlet/bank/phase, NTP synchronization, and uptime."
+description: "Monitor APC PDUs via SNMP: hardware status, load per outlet/bank/phase, NTP synchronization, and uptime, with automatic discovery of SNMP hosts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -517,3 +517,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=outlet \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Added **NTP** and **uptime** service templates.

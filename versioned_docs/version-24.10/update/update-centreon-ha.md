@@ -1,7 +1,7 @@
 ---
 id: update-centreon-ha
 title: Updating a Centreon HA platform
-description: "Perform minor updates on a Centreon HA platform"
+description: "Perform a minor update of a Centreon HA platform: suspend cluster resource management, update the central nodes and extensions, then the pollers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

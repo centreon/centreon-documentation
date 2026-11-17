@@ -1,7 +1,7 @@
 ---
 id: applications-pacemaker-ssh
 title: Pacemaker
-description: "Monitor Pacemaker clusters via SSH: node and resource status, quorum, connection state, and failed actions."
+description: "Monitor Pacemaker clusters via SSH: node and resource status, quorum, connection state, failed actions and migrations, and resource constraints."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -453,3 +453,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=crm \
 	--help
 ```
+
+## Changelog
+
+- [24.07](../releases/release-notes.md#2024-07) - Enhancement: Added an `SSHPRIVKEY` host macro allowing you to define the path to the private key file for user authentication.
+- [24.07](../releases/release-notes.md#2024-07) - Breaking change: The Clustat service template and its associated command are deprecated and have been removed.

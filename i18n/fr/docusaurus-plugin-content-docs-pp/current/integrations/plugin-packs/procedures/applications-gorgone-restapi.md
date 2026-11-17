@@ -1,7 +1,7 @@
 ---
 id: applications-gorgone-restapi
 title: Gorgone Restapi
-description: "Supervisez le démon Gorgone de Centreon via son API REST : suivez le nombre d'événements et le statut des noeuds."
+description: "Supervisez le démon Gorgone de Centreon via son API REST : nombre d'événements par chemin, nombre de nœuds et délai depuis le dernier ping de chaque nœud."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -371,3 +371,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=nodes \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.12](../releases/release-notes.md#2023-12) - Enhancement: Replaced the old logo with the current one.

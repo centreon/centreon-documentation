@@ -1,7 +1,7 @@
 ---
 id: installation-checklist
 title: Experience Monitoring installation checklist
-description: Requirements and IP whitelisting needed before enabling features
+description: "Requirements for each Experience Monitoring feature on your site, from IP addresses to allow for STM probes to RUM tags, system agents, and business data."
 ---
 
 This list shows the requirements needed for Centreon Experience Monitoring's features to run properly on a given site. (Bear in mind that some features may not be included in your license.)

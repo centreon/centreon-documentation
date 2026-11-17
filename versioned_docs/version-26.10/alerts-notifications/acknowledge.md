@@ -1,7 +1,7 @@
 ---
 id: acknowledge
 title: Acknowledging an alert
-description: "Acknowledge an alert to pause notifications until the issue is resolved"
+description: "Acknowledge a host or service alert in Centreon to stop notifications while you fix the issue, learn how it works for Business Activities, and undo it."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -39,7 +39,7 @@ of disk.
 > If you are using the **Business Activity Monitoring** module, acknowledgments apply only to the specific object (BA or KPI).
 
 Acknowledgements apply to Business Activities (BAs) as follows:
-- Acknowledging a BA does not acknowledge its underlying KPIs (whether these KPIs are BAs, services, or meta-services).
+- Acknowledging a BA does not acknowledge its underlying KPIs (whether these KPIs are BAs, services, or metaservices).
 - Acknowledging a KPI does not acknowledge the BA that depends on it.
 
 ### Practice
@@ -82,9 +82,7 @@ To acknowledge an alert, there are several solutions:
 3.  In the **More actions** menu, click **Hosts: Acknowledge** or 
     **Services: Acknowledge**.
 
-    The following window appears:
-
-![image](../assets/alerts/acknowledged.png)
+    In the window that appears:
 
 -   If the **Sticky** box is checked, the acknowledgment will be
     maintained in case of a change of Not-OK status (e.g.: DOWN to
@@ -112,9 +110,7 @@ To acknowledge an alert, there are several solutions:
 From of the detail page of an object, click the icon |enabled| associated
 with the **Acknowledged** field in the **Options** frame.
 
-The following window appears:
-
-![image](../assets/alerts/acknowledged.png)
+In the window that appears:
 
 -   If the **Sticky** box is checked, the acknowledgment will be
     maintained in case of a change of Not-OK status (e.g.: DOWN to

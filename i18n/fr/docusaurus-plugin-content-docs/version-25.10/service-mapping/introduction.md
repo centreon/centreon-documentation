@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction à Centreon BAM
-description: "Introduction à Centreon Business Activity Monitoring et sa documentation"
+description: "Centreon BAM regroupe vos données de supervision en activités et vues métier fondées sur des KPI, pour aligner l'IT sur les besoins métier."
 ---
 
 La fonctionnalité de **Service Mapping** de Centreon se base sur

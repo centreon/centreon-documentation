@@ -1,7 +1,7 @@
 ---
 id: map-web-update
 title: Updating MAP
-description: "Update your Centreon MAP installation to a new version"
+description: "Update Centreon MAP: stop the MAP Engine service, update the web client and engine packages, finalize the module update in the interface, and restart."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

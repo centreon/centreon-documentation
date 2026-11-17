@@ -1,7 +1,7 @@
 ﻿---
 id: receive-and-configure-alerts
 title: Receive and configure alerts
-description: Configure email, SMS, Slack, or webhook alert channels
+description: "Configure Experience Monitoring alerts by email, SMS, Slack or webhook: set up contact channels, alert schedules and thresholds, and check alert quotas."
 ---
 
 Alerts are available **by email with all licenses**.

@@ -461,3 +461,8 @@ cd "C:/Program Files/Centreon/Plugins/"
 	--mode=updates-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.12](../releases/release-notes.md#2025-12) - Enhancement: All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [25.10](../releases/release-notes.md#2025-10) - New connector: Initial release of WSUS Microsoft CMA.

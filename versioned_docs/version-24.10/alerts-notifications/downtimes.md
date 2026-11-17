@@ -1,7 +1,7 @@
 ---
 id: downtimes
 title: Planning downtime
-description: "Schedule fixed or recurring downtime to suppress false-positive alerts"
+description: "Schedule fixed or recurring downtime in Centreon to disable notifications for hosts and services during planned maintenance and avoid false positives."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

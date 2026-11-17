@@ -1,7 +1,7 @@
 ---
 id: applications-docker-ssh
 title: Docker SSH
-description: "Monitor Docker containers via SSH: container status and CPU, memory, disk, and network usage metrics."
+description: "Monitor Docker containers via SSH: container status, CPU, memory, disk throughput, and network traffic, with automatic discovery of containers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -407,3 +407,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=container-usage \
 	--help
 ```
+
+## Changelog
+
+- [23.10](../releases/release-notes.md#2023-10) - New connector: Initial release.

@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-qnap-snmp
 title: Qnap SNMP
-description: "Monitor Qnap NAS devices via SNMP, covering CPU, memory, hardware health, disks, volumes, pools, and network traffic."
+description: "Monitor Qnap NAS devices via SNMP: CPU, memory, hardware health, disks, volumes, pools, and network traffic, with host and network interface discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -765,3 +765,10 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [26.09](../releases/release-notes.md#2026-09) - Enhancement: Enhanced the error message displayed when OIDs return `undef` in **hardware** mode.
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
+- [25.06](../releases/release-notes.md#2025-06) - Enhancement: Added QuTS Operating System handling for **hardware**, **pools** and **volumes** modes, from community contribution [PR 5564](https://github.com/centreon/centreon-plugins/pull/5564).

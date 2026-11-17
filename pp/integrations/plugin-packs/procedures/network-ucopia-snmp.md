@@ -1,7 +1,7 @@
 ---
 id: network-ucopia-snmp
 title: Ucopia SNMP
-description: "Monitor Ucopia wireless LAN controllers via SNMP, tracking service status, temperature, connected users, and HA status."
+description: "Monitor Ucopia wireless LAN controllers via SNMP: status of services, temperature, number of connected users, and high availability (HA) status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: network-routers-juniper-mseries-netconf
 title: Juniper M-Series Netconf
-description: "Monitor Juniper M-Series routers via Netconf: CPU, memory, hardware, interfaces, BGP, OSPF, LDP, LSP, and RSVP status."
+description: "Monitor Juniper M-Series routers via Netconf: CPU, memory, hardware, disks, interfaces, BGP, OSPF, LDP, LSP, RSVP, and RPM services."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -1046,3 +1046,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=rsvp \
 	--help
 ```
+
+## Changelog
+
+- [25.06](../releases/release-notes.md#2025-06) - New connector: Initial release of Juniper M-series with Netconf.

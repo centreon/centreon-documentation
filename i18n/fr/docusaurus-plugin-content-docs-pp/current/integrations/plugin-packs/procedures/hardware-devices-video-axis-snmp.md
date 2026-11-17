@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-video-axis-snmp
 title: Axis Video SNMP
-description: "Supervisez les caméras réseau Axis Video via SNMP : composants d'environnement (vidéo, audio, alimentation, ventilateur, température, stockage) et disponibilité."
+description: "Supervisez les caméras réseau Axis via SNMP : composants (vidéo, audio, alimentation, ventilateur, température, stockage) et disponibilité."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -409,3 +409,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=uptime \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed wrong fan status mapping leading to false positives, from community contribution [PR 5356](https://github.com/centreon/centreon-plugins/pull/5356).

@@ -1,7 +1,7 @@
 ---
 id: network-cisco-standard-ssh
 title: Cisco Standard SSH
-description: "Supervisez des équipements Cisco en SSH : suivez l'utilisation du CPU et le statut des voice dial peers."
+description: "Supervisez des équipements Cisco en SSH : utilisation du CPU sur 5 secondes, 1 minute et 5 minutes, et statut opérationnel des voice dial peers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -372,3 +372,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=cpu \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.11](../releases/release-notes.md#2022-11) - Breaking change: Migrate and secure the underlying modes.

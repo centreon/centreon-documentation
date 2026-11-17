@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-bgp-snmp
 title: BGP Protocol SNMP
-description: "Monitor BGP peer states via SNMP, tracking peer status and time since last update with the Centreon connector."
+description: "Monitor BGP peer states via SNMP with the Centreon connector: peer status and time since last update, with SNMP agent host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

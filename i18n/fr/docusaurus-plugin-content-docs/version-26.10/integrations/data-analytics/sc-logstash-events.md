@@ -1,7 +1,7 @@
 ---
 id: sc-logstash-events
 title: Logstash Events
-description: "Transmettre les évènements d'état hôtes et services vers le plugin HTTP Logstash"
+description: "Installez et configurez le stream connector Logstash Events pour transmettre les évènements des hôtes et services Centreon à l'entrée HTTP de Logstash."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -26,14 +26,6 @@ Faites l'installation sur le serveur qui enverra les données à Logstash (serve
 2. Exécutez la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-stream-connector-logstash
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -42,7 +34,15 @@ dnf install centreon-stream-connector-logstash
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-stream-connector-logstash
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-stream-connector-logstash
@@ -189,3 +189,7 @@ curl -X PUT -H "accept: application/json" curl -X PUT 'http://<logstash_address>
   > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. Par exemple, \<logstash_port\>* pourra être remplacé par *8080*.
 
 3. Vérifiez que l'évènement a bien été reçu par Logstash.
+
+## Historique des modifications
+
+- [22.06](../stream-connectors-rn.md#2022-06) - New stream connector: Initial release of Logstash Events.

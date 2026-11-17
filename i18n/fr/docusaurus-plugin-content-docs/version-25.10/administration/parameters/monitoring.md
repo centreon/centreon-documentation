@@ -1,7 +1,7 @@
 ---
 id: monitoring
 title: Supervision
-description: "Configurer les options générales de l'interface de supervision temps réel"
+description: "Configurez les options générales de l'interface de supervision temps réel de Centreon, dont les réglages par défaut des acquittements."
 ---
 
 Cette partie traite des options générales de l'interface de supervision temps
@@ -9,12 +9,8 @@ réel.
 
 Rendez-vous dans le menu **Administration > Paramètres > Supervision**
 
-![image](../../assets/administration/parameters-monitoring.png)
-
 - Le champ **Unité de temps de référence** indique l'intervalle de temps en
 seconde utilisé pour planifier les contrôles et les notifications
-- Le champ **Répertoire des images** définit le répertoire d'image dans lequel
-sont stockés les médias
 - Le champ **Répertoire des sondes** définit le répertoire où se situent les
 sondes de supervision
 - Le champ **Script de démarrage du broker** contient le chemin vers le script

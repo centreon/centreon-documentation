@@ -472,3 +472,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=backup-jobs-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added command option to filter on period for Azure backup job status.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added site replication service.

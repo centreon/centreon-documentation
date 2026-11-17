@@ -1,7 +1,7 @@
 ---
 id: commands
 title: Commands
-description: "How to create custom check commands, manage the command whitelist, and use SSH and Perl optimization connectors"
+description: "How to create and use custom check commands in Centreon, manage the command whitelist, and use SSH and Perl connectors to optimize check execution"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

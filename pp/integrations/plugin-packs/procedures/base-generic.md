@@ -204,3 +204,9 @@ All available options for each service template are listed below:
 
 </TabItem>
 </Tabs>
+
+## Changelog
+
+- [26.02](../releases/release-notes.md#2026-02) - Enhancement: Reduced the ICMP packet size to ensure it can pass through firewalls protecting SaaS software.
+- [25.12](../releases/release-notes.md#2025-12) - Enhancement: New **Generic-Passive-CMA-Service** service template with `is_volatile` set to 0 to avoid multiple notifications.
+- [22.10](../releases/release-notes.md#2022-10) - Enhancement: Added macro service EXTRAOPTIONS.

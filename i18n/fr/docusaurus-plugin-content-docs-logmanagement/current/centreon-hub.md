@@ -1,7 +1,7 @@
 ---
 id: centreon-hub
 title: Portail utilisateur (Centreon Hub)
-description: Gérer les organisations, les comptes utilisateurs et l'accès via Centreon Hub
+description: "Avec Centreon Hub, créez votre compte, invitez des utilisateurs dans votre organisation, acceptez une invitation et accédez à Centreon Log Management."
 ---
 
 Centreon Hub est un module qui :

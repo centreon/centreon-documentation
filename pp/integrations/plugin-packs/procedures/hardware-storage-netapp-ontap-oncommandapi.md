@@ -1012,3 +1012,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=snapmirror-usage \
 	--help
 ```
+
+## Changelog
+
+- [22.04](../releases/release-notes.md#2022-04) - Breaking change: The volume services have been refactored.

@@ -1,7 +1,7 @@
 ---
 id: rest-api-v1
 title: Rest API (v1)
-description: "Utiliser l'API REST v1 pour la configuration et les données temps réel"
+description: "Utilisez l'API REST v1 de Centreon pour gérer la configuration et récupérer les données temps réel : droits, authentification, codes d'erreur."
 ---
 
 > Cette documentation n'est disponible qu'en anglais.

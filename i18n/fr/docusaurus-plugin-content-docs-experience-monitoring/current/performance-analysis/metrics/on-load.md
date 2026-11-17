@@ -1,6 +1,6 @@
 ---
 id: on-load
-description: Métrique OnLoad pour le temps de chargement complet de la page et des ressources
+description: "L'OnLoad mesure le moment où la page et ses ressources dépendantes (CSS, images) sont chargées, hors chargements différés. Seuils de notation inclus."
 title: OnLoad
 --- 
 

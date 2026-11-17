@@ -1,7 +1,7 @@
 ---
 id: licenses-faq
 title: Licenses FAQ
-description: "Common issues with Centreon Cloud licenses - invalid licence, or maximum number of hosts reached"
+description: "How to identify and resolve Centreon Cloud license issues when a license has expired or the host limit is exceeded, and how each module behaves"
 ---
 
 ## License expired or host limit exceeded?

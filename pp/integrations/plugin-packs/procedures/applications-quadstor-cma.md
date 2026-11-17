@@ -1,6 +1,7 @@
 ---
 id: applications-quadstor-cma
 title: Quadstor CMA
+description: "Monitor Quadstor VTL backup appliances via the Centreon Monitoring Agent (CMA): disk usage, backup job status, and tape usage and count."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -371,3 +372,7 @@ All available options for a given mode can be displayed by adding the
     --mode=vtl-tape-usage  \
 	--help
 ```
+
+## Changelog
+
+- [26.08](../releases/release-notes.md#2026-08) - New connector: Initial release.

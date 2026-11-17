@@ -430,3 +430,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=get-logs \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [26.05](../releases/release-notes.md#2026-05) - Bug fix: Fixed issues with perl paws custom mode.

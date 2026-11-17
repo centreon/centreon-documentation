@@ -1,7 +1,7 @@
 ---
 id: rrdtool
 title: RRDTool
-description: "Define the path to the RRDTool binary used by Centreon"
+description: "Define the path to the RRDTool binary that Centreon uses to generate performance graphs, from the Administration > Parameters > RRDTool menu."
 ---
 
 This procedure lets you define the path to the RRDTool binary.

@@ -1,7 +1,7 @@
 ---
 id: installation
 title: Installation
-description: "Install the Auto Discovery module on the Central server"
+description: "Install the Centreon Auto Discovery module on the central server: install the packages, then complete the installation from the web interface."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -11,13 +11,6 @@ import TabItem from '@theme/TabItem';
 1. To install packages, execute the following command on the Central server:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf install -y centreon-auto-discovery-server
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
@@ -25,7 +18,14 @@ dnf install -y centreon-auto-discovery-server
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf install -y centreon-auto-discovery-server
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ``` shell
 apt update && apt install centreon-auto-discovery-server

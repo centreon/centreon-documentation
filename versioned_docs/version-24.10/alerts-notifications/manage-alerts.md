@@ -1,7 +1,7 @@
 ---
 id: manage-alerts
 title: Manage alerts
-description: "Acknowledge alerts, set downtime, add comments, and manage checks"
+description: "Manage alerts in Centreon: acknowledge problems, add one-off or recurring downtime, add comments, manage checks and notifications, and submit results."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

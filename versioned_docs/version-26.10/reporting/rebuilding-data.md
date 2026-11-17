@@ -1,7 +1,7 @@
 ---
 id: rebuilding-data
 title: Rebuilding MBI data
-description: "Rebuild MBI data after configuration changes or to repair gaps"
+description: "Rebuild Centreon MBI data by running the ETL, either as a complete rebuild that overwrites all data or as a partial rebuild that keeps your history."
 ---
 
 ## What does rebuilding data mean?

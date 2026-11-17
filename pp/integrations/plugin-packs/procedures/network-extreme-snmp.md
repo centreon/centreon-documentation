@@ -1,7 +1,7 @@
 ---
 id: network-extreme-snmp
 title: Extreme Networks SNMP
-description: "Monitor Extreme Networks switches via SNMP: CPU, memory, hardware components, stack status, and interface traffic."
+description: "Monitor Extreme Networks switches via SNMP: CPU, memory, hardware components, stack status, and interface traffic, with discovery rules."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -577,3 +577,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [25.10](../releases/release-notes.md#2025-10) - Enhancement: Added supported models in documentation.

@@ -1,0 +1,27 @@
+## Upgrade the Remote Servers
+
+This procedure is the same as for upgrading a Centreon Central server with the addition of needing to retrieve the decryption key at the end.
+
+### Retrieving the decryption key
+
+Run the following script with the central server IP address to enable the remote server to receive and process encrypted data: 
+
+```shell
+/usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
+```
+
+Example:
+
+``` shell
+/usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
+```
+
+> You must use **admin** as the **\<API_ACCOUNT\>**.
+
+Restart **centengine**:
+
+```shell
+systemctl restart centengine
+```
+
+> At the end of the update, the configuration should be deployed from the Central server.

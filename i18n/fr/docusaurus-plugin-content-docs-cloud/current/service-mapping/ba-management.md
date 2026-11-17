@@ -1,7 +1,7 @@
 ---
 id: ba-management
 title: Gestion
-description: "Configurer les activités métier, les indicateurs (KPI), les règles booléennes et les vues métier pour modéliser vos services informatiques dans Centreon BAM"
+description: "Configurer les activités métier, les indicateurs (KPI), les règles booléennes et les vues métier pour modéliser vos services dans Centreon BAM"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -145,7 +145,7 @@ Vous pouvez lier ces types d'indicateurs à une activité métier:
 
 -   Services
 -   D'autres activités métier
--   Meta-services
+-   Métaservices
 -   Règles booléennes
 
 **Méthode de calcul**
@@ -188,9 +188,6 @@ sections:
 
 -   Vue métier: Pour lier l'activité métier à une vue métier
 -   Affichage: Paramètrer les options d'affichage de l'activité métier
--   Rapport: paramètres gérant les SLA cibles et période de reporting à
-    utiliser dans les widgets et rapports (lié à l'extension Centreon
-    MBI)
 -   Gestionnaire d'évènements: paramètres permettant l'exécution de
     script d'auto-correction
 
@@ -210,28 +207,9 @@ Dans Centreon Cloud, lorsque vous crééz une activité métier, vous devez syst
     clic l'accès à la vue d'infrastructure supportant l'activité
     métier.
 
-#### Notification
-
-Cet écran n'est pas actif actuellement. Dans Centreon Cloud, les BA utilisent [le même mécanisme de notification que les hôtes et les services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).
-
 #### Rapport
 
--   Période de rapport par défaut: la disponibilité calculées et
-    affichées dans les widgets & rapports sera calculée sur cette
-    période
--   Service Level Agreement en %(SLA): seuil en pourcentage visible dans
-    les widgets & rapports auquel la disponibilité et l'activité est
-    comparée
--   Service Level Agreement en min(SLA): seuil en minute visible auquel
-    le temps indisponible est comparée
--   Service Level Objective en %(SLO): seuil additionnel en pourcentage
-    qui peut être utilisé comme un seuil de SLA "warning".
--   Service Level Objective en min(SLO): seuil additionnel en minute qui
-    peut être utilisé comme un seuil de SLA "warning".
--   Plages de reporting additionnelles: permet de calculer les
-    statistiques de l'activité métier sur d'autres plages horaire
-
-> Dans les champs **Période de rapport par défaut** et **Plages de reporting additionnelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
+Cette fonctionnalité n'est pas encore opérationnelle dans Centreon Cloud.
 
 #### Gestionnaire d'évènements
 
@@ -250,6 +228,9 @@ lignes
 > La suppression d'une activité métier la supprime définitivement avec
 > l'ensemble des données et indicateurs qui lui sont rattachés.
 
+La liste des BA propose un filtre pour se concentrer uniquement sur les activités métier de premier niveau au lieu d'afficher également leurs activités métier enfants.
+- Basculez entre les boutons de la fonctionnalité **Afficher la vue** pour afficher soit **Toutes les Activités Métiers** ou **Uniquement les Activités Métiers de premier niveau**.
+
 ## Indicateurs (KPI)
 
 > Lorsque vous créez/modifiez un indicateur, il faut générer et
@@ -263,7 +244,7 @@ et ces indicateurs peuvent être de quatre types :
 
 -   Indicateur "Service" (les services déployés par groupes **ne sont
     pas** disponibles)
--   Indicateur "Meta Service"
+-   Indicateur "Métaservice"
 -   Indicateur "Booléen"
 -   Indicateur "Activité métier"
 
@@ -295,7 +276,7 @@ La gestion des indicateurs peut être réalisée de deux manières:
 | Colonne                   | Description                                                                         |
 |---------------------------|-------------------------------------------------------------------------------------|
 | Key Performance indicator | Nom de l'indicateur (basé sur l'objet utilisé)                                      |
-| Type                      | type de resource associée (Service, Meta Service, BA)                               |
+| Type                      | type de resource associée (Service, Métaservice, BA)                               |
 | Impact dégradé            | Poids d'impact en cas d'état "Warning" ou dégradé, dans la supervision temps réel   |
 | Impact critique           | Poids d'impact en cas d'état "Critical" ou critique, dans la supervision temps réel |
 | Impact inconnu            | Poids d'impact en cas d'état "Unknown" ou inconnu, dans la supervision temps réel   |
@@ -342,7 +323,7 @@ Il permet de saisir la valeur des impacts manuellement.
 | Paramètre                             | Description                                                                         |
 |---------------------------------------|-------------------------------------------------------------------------------------|
 | Mode de configuration                 | Mode de configuration standard ou avancé                                            |
-| Type de KPI                           | Type de KPI (Service, Meta service, booléen ou une BA)                              |
+| Type de KPI                           | Type de KPI (Service, Métaservice, booléen ou une BA)                              |
 | Key Performance Indicator             | Choix du KPI sur la base des objets présents dans **Centreon**                      |
 | Impact métier pour le statut warning  | Poids d'impact en cas d'état "Warning" ou dégradé, dans la supervision temps réel   |
 | Impact métier pour le statut critique | Poids d'impact en cas d'état "Critical" ou critique, dans la supervision temps réel |
@@ -414,7 +395,7 @@ Expression booléenne :
 > Les acquittements d'une alerte s'appliquent uniquement à l'objet concerné (activité métier ou KPI).
 
 Les acquittements s'appliquent aux activités métier (BA) comme suit :
-- L'acquittement d'une activité métier n'entraîne pas l'acquittement de ses KPIs sous-jacents (que ces KPIs soient une activité métier, un service ou un méta-service).
+- L'acquittement d'une activité métier n'entraîne pas l'acquittement de ses KPIs sous-jacents (que ces KPIs soient une activité métier, un service ou un métaservice).
 - L'acquittement d'un KPI n'entraîne pas l'acquittement de l'activité métier qui en dépend.
 
 ## Les vues métier

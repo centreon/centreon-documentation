@@ -1,7 +1,7 @@
 ---
 id: remote-server
 title: Installer sur un Remote Server
-description: "Configurer Centreon BAM et Broker sur un Remote Server"
+description: "Installez Centreon BAM sur un Remote Server, puis configurez depuis le central les sorties de supervision et de reporting du Centreon Broker distant."
 ---
 
 L'installation du module **Centreon BAM** sur un *Centreon Remote

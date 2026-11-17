@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-abb-cms700-snmp
 title: ABB CMS-700 SNMP
-description: "Monitor ABB CMS-700 power meters via SNMP, tracking mains power, voltage, current, energy, and sensor measurements."
+description: "Monitor ABB CMS-700 power meters via SNMP: mains power, voltage, current, and energy, plus branch sensor measurements, with sensor discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

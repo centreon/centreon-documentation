@@ -31,6 +31,8 @@ Définitions :
 
 ## Configuration d'une activité métier
 
+> Vous pouvez [simuler](/cloud/service-mapping/ba-simulation) le comportement d'un arbre de dépendances d'activités métier avant d'enregistrer vos modifications et de déployer la configuration en production. Cela vous permet de décider par la suite si vous souhaitez conserver ou rejeter les modifications que vous avez apportées.
+
 L'interface de configuration de Centreon BAM vous permet de gérer une
 activité métier entière depuis un seul écran :
 

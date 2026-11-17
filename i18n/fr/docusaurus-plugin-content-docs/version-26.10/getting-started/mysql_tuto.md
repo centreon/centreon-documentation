@@ -1,7 +1,7 @@
 ---
 id: monitor-mysql-server
 title: Superviser une base de données MySQL ou MariaDB
-description: "Superviser une base de données MySQL ou MariaDB avec Centreon"
+description: "Supervisez une base MySQL ou MariaDB avec Centreon : créez un utilisateur doté des droits nécessaires, installez le connecteur, puis créez l'hôte."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -32,13 +32,6 @@ GRANT SELECT ON *.* TO 'username'@'IP_POLLER';
 Installez le plugin suivant sur le collecteur qui supervisera votre base de données :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf install centreon-plugin-Applications-Databases-Mysql
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
@@ -46,14 +39,20 @@ dnf install centreon-plugin-Applications-Databases-Mysql
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf install centreon-plugin-Applications-Databases-Mysql
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-plugin-applications-databases-mysql
 ```
 
 </TabItem>
-
 </Tabs>
 
 ### Sur le serveur central
@@ -65,9 +64,7 @@ Rendez-vous dans le menu **Configuration > Connecteurs > Connecteurs de supervis
 
 ## Configurer l'hôte et déployer la configuration
 
-1. Allez à la page **Configuration > Hôtes > Hôtes** et cliquez sur le bouton **Ajouter** :
-
-  ![image](../assets/getting-started/quick_start_mysql_1a.gif)
+1. Allez à la page **Configuration > Hôtes > Hôtes** et cliquez sur le bouton **Ajouter**.
 
 2. Renseignez les informations suivantes :
 
@@ -91,9 +88,7 @@ Rendez-vous dans le menu **Configuration > Connecteurs > Connecteurs de supervis
   * **MYSQLPASSWORD** : le mot de passe associé à cet utilisateur.
   * **MYSQLPORT** : le port d'écoute de la base de données, par défaut 3306.
 
-5. Cliquez sur le bouton **Sauvegarder**. Votre équipement a été ajouté à la liste des hôtes :
-
-  ![image](../assets/getting-started/quick_start_mysql_2.png)
+5. Cliquez sur le bouton **Sauvegarder**. Votre équipement a été ajouté à la liste des hôtes.
 
 6. Allez dans **Configuration > Services > Services par hôte**. Un ensemble d'indicateurs a été créé automatiquement.
 

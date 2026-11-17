@@ -1,7 +1,7 @@
 ---
 id: web-import-export
 title: Import/Export
-description: "Export and import Centreon configuration objects between platforms using AWIE"
+description: "Export and import Centreon configuration objects such as pollers, hosts, services, and contacts between platforms with the Web Import/Export module."
 ---
 
 import Tabs from '@theme/Tabs';

@@ -346,3 +346,10 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=compliance \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [23.05](../releases/release-notes.md#2023-05) - Bug fix: Added policy-name macro.
+- [23.05](../releases/release-notes.md#2023-05) - Bug fix: Changed command name.
+- [23.03](../releases/release-notes.md#2023-03) - New connector: Initial release.

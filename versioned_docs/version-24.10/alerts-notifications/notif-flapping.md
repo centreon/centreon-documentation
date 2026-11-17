@@ -1,7 +1,7 @@
 ---
 id: notif-flapping
 title: Flapping
-description: "Detect and configure flapping to reduce repeated alert notifications"
+description: "Configure flapping detection in Centreon Engine for hosts and services, so that resources changing status too often send one notification instead of many."
 ---
 
 ## Introduction

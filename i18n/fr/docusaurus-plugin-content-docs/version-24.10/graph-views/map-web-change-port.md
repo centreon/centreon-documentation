@@ -1,7 +1,7 @@
 ---
 id: map-web-change-port
 title: Changer le port du serveur Centreon MAP
-description: "Modifier le port par défaut utilisé par le serveur Centreon MAP"
+description: "Modifiez le port par défaut du serveur Centreon MAP (8080, ou 8443 avec TLS) dans map-config.properties, par exemple si un pare-feu bloque ces ports."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

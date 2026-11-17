@@ -1,7 +1,7 @@
 ---
 id: interface
 title: Discover the Centreon web interface
-description: "Overview of the Centreon web interface, menus, and customization"
+description: "Log in to the Centreon web interface for the first time, then find your way around the menus, the top banner and its counters, and customization."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -10,9 +10,7 @@ import TabItem from '@theme/TabItem';
 
 To connect to your Centreon web interface, go to URL: `http://IP_ADDRESS/centreon`. (Replace **IP_ADDRESS** with the IP address or FQDN of your Centreon web server.)
 
-Enter your user name and password, and click the **Connect** button:
-
-![image](../assets/getting-started/aconnection.png)
+Enter your user name and password, and click the **Connect** button.
 
 >If you have installed Centreon from a [VM](../installation/installation-of-a-central-server/using-virtual-machines.md), the default credentials are **admin/Centreon!123**.
 Otherwise, the default login is **admin** and the password is the one you defined in [step 5 of the web installation wizard](../installation/web-and-post-installation.md#step-5-admin-information).
@@ -23,9 +21,7 @@ You are now connected to the Centreon web interface.
 
 ![image](../assets/getting-started/menus.png)
 
-The Centreon web interface contains several menus, each with a specific function (click the Centreon logo at the top left of the screen to expand the menus):
-
-![image](../assets/getting-started/expand_menu.png)
+The Centreon web interface contains several menus, each with a specific function (click the Centreon logo at the top left of the screen to expand the menus).
 
 * **Home** shows [custom views](create-custom-view.md).
   Your workspace may be blank for now. Once you configure customizable widgets, you will see data and charts according
@@ -50,8 +46,6 @@ The left part of the top banner shows the health of your platform in real time:
 Click the **pollers** icon to expand the menu. On the menu, click **Configure pollers** to access page **Configuration > Pollers > Pollers**.
 
 ### Hosts and services section (top counters)
-
-![image](../assets/getting-started/top_counters.png)
 
 Beside the pollers section, statistics show the number of resources being monitored that have a specific status:
 

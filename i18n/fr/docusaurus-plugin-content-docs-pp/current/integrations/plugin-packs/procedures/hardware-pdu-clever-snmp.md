@@ -1,7 +1,7 @@
 ---
 id: hardware-pdu-clever-snmp
 title: Clever PDU SNMP
-description: "Supervisez les PDU Clever via SNMP : suivez la puissance, le courant et la tension des sources d'alimentation."
+description: "Supervisez les PDU Clever via SNMP : puissance, courant et tension des sources d'alimentation, avec découverte automatique des hôtes SNMP du réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

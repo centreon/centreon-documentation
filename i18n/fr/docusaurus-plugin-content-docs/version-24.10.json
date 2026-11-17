@@ -91,6 +91,10 @@
     "message": "Gérer des tickets",
     "description": "The label for category Managing tickets in sidebar docs"
   },
+  "sidebar.docs.category.Customizing tickets": {
+    "message": "Personnaliser les tickets",
+    "description": "The label for category Customizing tickets in sidebar docs"
+  },
   "sidebar.docs.category.Performance graphs": {
     "message": "Graphiques de performance",
     "description": "The label for category Performance graphs in sidebar docs"

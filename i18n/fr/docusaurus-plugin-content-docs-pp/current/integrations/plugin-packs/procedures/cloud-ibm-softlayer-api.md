@@ -1,7 +1,7 @@
 ---
 id: cloud-ibm-softlayer-api
 title: IBM Softlayer API
-description: "Supervisez IBM SoftLayer via l'API REST : suivez le statut des événements et les tickets d'assistance ouverts."
+description: "Supervisez IBM SoftLayer via l'API REST : événements actifs, terminés et publiés, ressources impactées et tickets d'assistance ouverts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -365,3 +365,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=events \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fixed commands options.

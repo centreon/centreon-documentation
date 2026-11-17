@@ -1,7 +1,7 @@
 ---
 id: notif-concept
 title: How notifications work
-description: "Understand the step-by-step notification process in Centreon"
+description: "Understand how Centreon decides to notify a contact, step by step, from the scheduled check and status type to notification periods and contact settings."
 ---
 
 Before a contact can be notified in Centreon, it is necessary to go

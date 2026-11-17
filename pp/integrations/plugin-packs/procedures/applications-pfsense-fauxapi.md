@@ -1,7 +1,7 @@
 ---
 id: applications-pfsense-fauxapi
 title: Pfsense Fauxapi
-description: "Monitor pfSense firewalls via the FauxAPI: backup files, gateways, firewall rules, and system status."
+description: "Monitor pfSense firewalls via the FauxAPI: backup files, gateway status, delay, and packet loss, firewall rule traffic, and system status and temperature."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

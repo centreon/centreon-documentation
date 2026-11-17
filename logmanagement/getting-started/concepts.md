@@ -1,7 +1,7 @@
 ﻿---
 id: concepts
 title: Centreon Log Management basics
-description: Key concepts and terminology behind Centreon Log Management
+description: "Learn what logs are, how Centreon Log Management collects, analyzes and stores them, and how log entries are structured in the OpenTelemetry format."
 ---
 
 ## What are logs?

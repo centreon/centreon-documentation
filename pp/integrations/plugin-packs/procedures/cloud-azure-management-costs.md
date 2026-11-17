@@ -558,3 +558,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=tags-compliance \
 	--help
 ```
+
+## Changelog
+
+- [25.07](../releases/release-notes.md#2025-07) - Enhancement: Added an option to choose `cost-metric`, from community contribution [PR 4756](https://github.com/centreon/centreon-plugins/pull/4756).
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Cloud-Azure-Management-Costs-Api-Tags-Compliance** command.
+- [23.08](../releases/release-notes.md#2023-08) - Enhancement: Moved to correct pack category.
+- [22.11](../releases/release-notes.md#2022-11) - Enhancement: added new modes **costs-explorer**, **orphan-resources**, **hybrid-benefits** and **tags-compliance**.
+- [22.09](../releases/release-notes.md#2022-09) - New connector: New Pack to monitor Azure budgets consumptions.

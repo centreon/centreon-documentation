@@ -593,3 +593,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=memory \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Net-Fortinet-Fortiauthenticator-SNMP-Ha** command.

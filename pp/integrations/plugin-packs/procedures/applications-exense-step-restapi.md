@@ -1,7 +1,7 @@
 ---
 id: applications-exense-step-restapi
 title: Exense Step REST API
-description: "Monitor Exense Step via REST API to track plan executions, detect failures, and check running duration."
+description: "Monitor Exense Step via REST API: plan executions, failure rate, last execution, running duration, and status, with plan and tenant discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -416,3 +416,7 @@ All available options for a given mode can be displayed by adding the
 	--custommode=api \
 	--help
 ```
+
+## Changelog
+
+- [25.04](../releases/release-notes.md#2025-04) - New connector: Initial release of Exense Step REST API.

@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-hp-snmp
 title: HP Proliant SNMP
-description: "Monitor HP Proliant servers via SNMP: CPU, fan, power supply, storage, temperature, and network hardware status."
+description: "Monitor HP ProLiant servers via SNMP: CPU, fans, power supplies, power converters, storage, temperature, and network hardware status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -463,3 +463,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=hardware \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.

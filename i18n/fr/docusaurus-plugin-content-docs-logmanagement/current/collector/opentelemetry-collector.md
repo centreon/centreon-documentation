@@ -1,7 +1,7 @@
 ---
 id: opentelemetry-collector
 title: Fonctionnement d'un collecteur OpenTelemetry
-description: Comment les collecteurs OpenTelemetry reçoivent, traitent et exportent les logs
+description: "Comment un collecteur OpenTelemetry reçoit, traite et exporte les logs vers Centreon Log Management, son pipeline et l'intérêt du mode gateway."
 ---
 
 import Tabs from '@theme/Tabs';

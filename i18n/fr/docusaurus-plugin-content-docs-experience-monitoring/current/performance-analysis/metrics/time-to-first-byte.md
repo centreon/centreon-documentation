@@ -1,6 +1,6 @@
 ﻿---
 id: time-to-first-byte
-description: Métrique TTFB pour la vitesse de réponse et de livraison du serveur
+description: "Le TTFB mesure le délai entre la requête HTTP initiale et la réception du premier octet de réponse. Pourquoi il retarde tout le chargement, et sa notation."
 title: TTFB - Time To First Byte
 --- 
 

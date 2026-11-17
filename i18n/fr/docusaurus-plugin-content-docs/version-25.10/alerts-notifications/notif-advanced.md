@@ -1,7 +1,7 @@
 ---
 id: notif-advanced
 title: Pour aller plus loin
-description: "Personnaliser les commandes de notification et transférer les évènements"
+description: "Personnalisez les commandes de notification de Centreon et transférez les évènements de supervision vers d'autres outils grâce aux stream connectors."
 ---
 
 ## Commandes

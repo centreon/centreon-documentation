@@ -1,7 +1,7 @@
 ﻿---
 id: synthetic-monitoring
 title: User Journeys
-description: Introduction to the User Journeys synthetic monitoring module
+description: "User Journeys is the synthetic monitoring module: a probe browses a set path on your site to check availability, measure load times and send alerts."
 ---
 
 **User Journeys** is the synthetic monitoring module of Experience Monitoring.

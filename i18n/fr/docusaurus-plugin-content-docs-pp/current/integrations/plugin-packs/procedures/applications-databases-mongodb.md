@@ -561,3 +561,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=replication-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.03](../releases/release-notes.md#2025-03) - Bug fix: Fixed an unsafe eval for unknown status option in **collection** mode, based on community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
+- [25.02](../releases/release-notes.md#2025-02) - Bug fix: Added missing dependencies to the plugin for Debian.
+- [23.10](../releases/release-notes.md#2023-10) - Enhancement: Added the ability to collect shards statistics in Collection-Statistics and Database-Statistics.

@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-dns
 title: DNS Service
-description: "Supervisez la résolution DNS et le temps de réponse d'un nom de domaine avec le connecteur DNS Service de Centreon."
+description: "Supervisez la résolution DNS d'un nom de domaine et son temps de réponse, en interrogeant un serveur DNS ou via la configuration DNS locale du collecteur."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

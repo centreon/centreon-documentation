@@ -1,7 +1,7 @@
 ---
 id: notif-dependencies
 title: Dependencies
-description: "Reduce alert fatigue with physical and logical object dependencies"
+description: "Configure physical and logical dependencies between hosts, services, groups, and metaservices in Centreon to avoid unnecessary checks and notifications."
 ---
 
 ## Principle
@@ -27,8 +27,6 @@ between devices. This link can only be defined for **Host**.
 The configuration of a physical dependency takes place in the
 **Relations** tab of a configuration sheet of a host through the
 `Configuration > Hosts > Hosts` menu.
-
-![image](../assets/alerts/dep_host_config.png)
 
 It is possible to define two settings:
 
@@ -63,8 +61,6 @@ To configure a logical dependency, go into the
 `Configuration > Notifications > Dependencies > Hosts` menu and click
 **Add**.
 
-![image](../assets/alerts/03hostdependance.png)
-
 In this case, we have two types of host that come into play: one or more
 hosts (called master hosts) of which the status controls the execution
 and notification of other hosts (called dependent hosts).
@@ -87,8 +83,6 @@ and notification of other hosts (called dependent hosts).
 To configure a logical dependency, go into the
 `Configuration> Notifications > Dependencies > Services` menu and click
 **Add**.
-
-![image](../assets/alerts/03servicedependance.png)
 
 In this case, we have two entities that come into play: the (“master”)
 services, which control the execution, and the notification of other
@@ -113,8 +107,6 @@ To configure a logical dependency, go into the
 `Configuration> Notifications > Dependencies > Host Groups` menu and
 click **Add**.
 
-![image](../assets/alerts/03hostgroupdependance.png)
-
 Two types of host group: a host group is called a master if it controls
 the execution and the notification of other (“dependent”) host groups.
 
@@ -137,8 +129,6 @@ To configure a logical dependency, go into the
 `Configuration> Notifications > Dependencies > Service Groups` menu and
 click **Add**.
 
-![image](../assets/alerts/03servicegroupdependance.png)
-
 Two types of service group: a service group is called a “master” if it
 controls the execution and the notification of other (“dependent”)
 service groups.
@@ -151,23 +141,21 @@ service groups.
 -   The **Notification Failure Criteria** field indicates the statuses
     of the master host(s) preventing the sending of notifications to the
     dependent service groups
--   The **Service group names** list defines the group(s) of master
+-   The **Servicegroups** list defines the group(s) of master
     services
--   The **Dependent service group names** list defines the group(s) of
+-   The **Dependent Servicegroups** list defines the group(s) of
     dependent services
 -   The **Comments** field can be used to comment on the dependencies
 
-### Meta-services
+### Metaservices
 
 To configure a logical dependency, go into the
-`Configuration> Notifications > Dependencies > Meta Services` menu and
+`Configuration> Notifications > Dependencies > Metaservices` menu and
 click **Add**.
 
-![image](../assets/alerts/03metaservicedependance.png)
-
-Two types of meta-service: a meta-service is called a “master” if it
+Two types of metaservice: a metaservice is called a “master” if it
 controls the execution and the notification of other (“dependent”)
-meta-services.
+metaservices.
 
 -   The **Name** and **Description** fields indicate the name and
     description of the dependencies
@@ -175,11 +163,11 @@ meta-services.
     statuses of the meta-master service(s) that will prevent the check
     of the meta-dependent services
 -   The **Notification Failure Criteria** field indicates the statuses
-    of the meta-service(s) preventing the sending of notifications to
+    of the metaservice(s) preventing the sending of notifications to
     meta-dependent services
--   The **Meta-service name** list defines the master meta-service(s)
--   The **Dependent meta-service** names list defines the dependent
-    meta-service(s)
+-   The **Metaservice name** list defines the master metaservice(s)
+-   The **Dependent metaservice** names list defines the dependent
+    metaservice(s)
 -   The **Comments** field can be used to comment on the dependencies
 
 ## Examples

@@ -1,7 +1,7 @@
 ---
 id: virtualization-reports
 title: Rapports de virtualisation
-description: "Rapports sur la performance des clusters VMware, hôtes ESX et machines virtuelles"
+description: "Rapports de virtualisation Centreon MBI : performance CPU et mémoire des clusters VMware ESX, des machines virtuelles hébergées et des datastores."
 ---
 
 ### VMWare-Cluster-Performances-1

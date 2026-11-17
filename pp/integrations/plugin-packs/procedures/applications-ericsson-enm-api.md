@@ -378,3 +378,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=nodes \
 	--help
 ```
+
+## Changelog
+
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.

@@ -1,7 +1,7 @@
 ---
 id: applications-peoplesoft-jmx
 title: Peoplesoft
-description: "Supervisez PeopleSoft via JMX et l'agent Jolokia en suivant la longueur de la file d'attente et les sessions ouvertes."
+description: "Supervisez les applications PeopleSoft en JMX grâce à l'agent Jolokia déployé sur la JVM : longueur de la file d'attente et nombre de sessions ouvertes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -337,3 +337,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=sessions \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

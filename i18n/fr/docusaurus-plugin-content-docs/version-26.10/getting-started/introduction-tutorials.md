@@ -1,7 +1,7 @@
 ---
 id: introduction-tutorials
 title: Introduction
-description: "Présentation des tutoriels de prise en main de Centreon"
+description: "Tutoriels pour bien démarrer avec Centreon : vues personnalisées et graphiques, modélisation des services IT avec BAM et analyse de disponibilité avec MBI."
 ---
 
 Centreon propose des tutoriels pour profiter rapidement des fonctionnalités de notre solution.

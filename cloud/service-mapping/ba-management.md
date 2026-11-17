@@ -150,7 +150,7 @@ The types of indicator you can use are:
 -   Other business activities: it is really important to understand
     that you can create “infinite” multi-level BAs to model simple to
     highly complex IT services or apps.
--   Meta services
+-   Metaservices
 -   Boolean rules: a combination of services with AND/OR/XOR rules
 
 **Calculation methods**
@@ -193,8 +193,6 @@ you will be able to configure the following properties:
     to give access to this BA to non-admin users
 -   Display: All parameters concerning the way the BA will be accessible
     outside the BA monitoring page
--   Reporting: What SLA and time period you want to use to calculate the BA
-    availability statistics
 -   Event handler: parameters to auto-remediate the BA when state
     becomes non-ok
 
@@ -216,30 +214,9 @@ In Centreon Cloud, when you create a business activity, you must always add it t
     access from this BA to the corresponding view to help users to drill
     down when a problem occurs on that BA.
 
-#### Notification
-
-This screen is not currently active. In Centreon Cloud, BAs use [the same notification mechanism as hosts and services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).
-
 #### Reporting
 
--   Default reporting time period: Availability statistics for widgets and
-    reports will be automatically calculated using this time period
--   Service Level Agreement in % (SLA): whenever the availability is
-    compared to a SLA in %, this will be the value that it will be
-    compared to
--   Service Level Agreement in minutes (SLA): whenever the availability
-    is compared to an SLA in minutes, this will be the value that it will
-    be compared to
--   Service Level Objective in % (SLO): additional threshold in % to
-    compare the availability. It can be seen as an “SLA warning”
-    threshold.
--   Service Level Objective in minutes (SLO): additional threshold in
-    minutes to compare the availability. It can be seen as an “SLA
-    warning” threshold.
--   Extra reporting time periods: Additional time period you may want
-    to use in widget and reports
-
-> In the **Default reporting time period** and **Extra reporting time periods** fields, do not use time periods that include [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab), as the exceptions will not not be taken into account.
+This feature is not yet operational in Centreon Cloud.
 
 #### Event handler
 
@@ -261,6 +238,9 @@ enable/disable the BA and massively change thresholds.
 > Deleting a business activity is permanent; only past data will be
 > available through reports/widgets
 
+The BA listing includes a filter that allows you to focus only on top-levels BAs instead of displaying also their child BAs.
+- Switch between the buttons within the **Display view** feature to display either **All Business Activities** or **Only top-level Business Activities**.
+
 ## Indicators (KPI)
 
 > To update the indicator configuration, you need to push and reload the
@@ -273,7 +253,7 @@ BA. A BA may have multiple indicators and sub-indicators. There are four
 types of indicator:
 
 -   *Service* (Service by hostgroups are **NOT** usable as indicators)
--   *Meta service*
+-   *Metaservice*
 -   *Boolean*
 -   *Another business activity*
 
@@ -302,7 +282,7 @@ Indicators can be configured in two different ways:
 | Column          | Description                                                                                                          |
 | --------------- | -------------------------------------------------------------------------------------------------------------------- |
 | Indicator (KPI) | Indicator or Key Performance Indicator: Name of the indicator based on the object used                               |
-| Type            | Indicator type (service, meta service, BA, boolean rule)                                                           |
+| Type            | Indicator type (service, metaservice, BA, boolean rule)                                                           |
 | Warning Impact  | Impact weight in the event of a *Warning* condition, in real-time monitoring. Ignored if indicator is a boolean rule |
 | Critical Impact | Impact weight in the event of a *Critical* condition, in real-time monitoring                                        |
 | Unknown Impact  | Impact weight in the event of an *Unknown* condition, in real-time monitoring. Ignored if indicator is a boolean rule |
@@ -343,7 +323,7 @@ To be able to manually define an impact.
 | Column          | Description                                                                                                          |
 | ------------------------- | ----------------------------------------------------------------------------- |
 | Configuration Mode        | Configuration mode: regular or advanced                                       |
-| KPI Type                  | KPI type (service, meta service, boolean rule or a BA)                        |
+| KPI Type                  | KPI type (service, metaservice, boolean rule or a BA)                        |
 | Key Performance Indicator | Choice of KPI based on the objects in Centreon                                |
 | Warning Business Impact   | Impact weight in the event of a *Warning* condition, in real-time monitoring  |
 | Critical Business Impact  | Impact weight in the event of a *Critical* condition, in real-time monitoring |
@@ -409,7 +389,7 @@ Logical expression:
 > Acknowledgments apply only to the specific object (BA or KPI).
 
 Acknowledgements apply to Business Activities (BAs) as follows:
-- Acknowledging a BA does not acknowledge its underlying KPIs (whether these KPIs are BAs, services, or meta-services).
+- Acknowledging a BA does not acknowledge its underlying KPIs (whether these KPIs are BAs, services, or metaservices).
 - Acknowledging a KPI does not acknowledge the BA that depends on it.
 
 ## Business View (BV)

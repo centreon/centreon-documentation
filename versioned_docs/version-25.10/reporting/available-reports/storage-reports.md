@@ -1,7 +1,7 @@
 ---
 id: storage-reports
 title: Storage reports
-description: "Reports on allocated and used disk storage capacity across host groups"
+description: "Centreon MBI storage reports: view allocated and used disk storage capacity across one or more host groups, in summary charts or as a detailed list."
 ---
 
 ### Hostgroups-Storage-Capacity-1

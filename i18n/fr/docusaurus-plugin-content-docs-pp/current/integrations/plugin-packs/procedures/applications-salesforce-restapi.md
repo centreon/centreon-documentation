@@ -1,7 +1,7 @@
 ---
 id: applications-salesforce-restapi
 title: Salesforce
-description: "Supervisez le statut et le nombre d'incidents de votre instance Salesforce via l'API REST de statut Salesforce."
+description: "Supervisez votre instance cloud Salesforce via l'API REST de statut Salesforce : suivez le statut de l'instance et le nombre d'incidents en cours."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

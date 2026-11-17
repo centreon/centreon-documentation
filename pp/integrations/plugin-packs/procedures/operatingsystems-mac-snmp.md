@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-mac-snmp
 title: Mac SNMP
-description: "Monitor macOS systems via SNMP: CPU, memory, swap, disk usage, disk I/O, network traffic, load, and uptime."
+description: "Monitor macOS systems via SNMP: CPU, memory, swap, disk usage, disk I/O, inodes, network traffic, load, processes, and uptime, with discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -926,3 +926,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).

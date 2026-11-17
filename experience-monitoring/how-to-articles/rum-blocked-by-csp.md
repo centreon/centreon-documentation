@@ -1,7 +1,7 @@
 ---
 id: rum-blocked-by-csp
 title: Troubleshooting RUM
-description: Fix a Content Security Policy blocking RUM data collection
+description: "Fix missing RUM data when a strict Content Security Policy blocks the tag, by adding the Experience Monitoring domains to your CSP directives."
 ---
 
 ## A strict Content Security Policy (CSP) blocks the RUM data collection

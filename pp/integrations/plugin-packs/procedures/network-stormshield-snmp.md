@@ -1,7 +1,7 @@
 ---
 id: network-stormshield-snmp
 title: Stormshield SNMP
-description: "Monitor Stormshield firewalls via SNMP: CPU, memory, disk, load, hardware, QoS, VPN status, and interface traffic."
+description: "Monitor Stormshield firewalls via SNMP: CPU, memory, disk, load, hardware, HA cluster, licenses, QoS, VPN status, connections, and interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -1178,3 +1178,10 @@ All available options for a given mode can be displayed by adding the
 	--mode=vpn-status \
 	--help
 ```
+
+## Changelog
+
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added new **uptime**, **licenses**, **ha-cluster** and **auto-update** modes. Enhanced **connections** mode, based on community contributions: [PR 6113](https://github.com/centreon/centreon-plugins/pull/6113), [PR 6179](https://github.com/centreon/centreon-plugins/pull/6179) and [PR 6258](https://github.com/centreon/centreon-plugins/pull/6258).
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.
+- [24.10](../releases/release-notes.md#2024-10) - Bug fix: The temperature value is now correctly used in the **hardware** mode.
+- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Added VPN-Status check for latest firmware and add several thresholds.

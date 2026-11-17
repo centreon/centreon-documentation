@@ -1,7 +1,7 @@
 ---
 id: query-syntax
 title: Syntaxe des requêtes
-description: Référence de syntaxe pour interroger les attributs des logs et filtrer les données
+description: "Écrivez des requêtes pour filtrer les logs par attribut OpenTelemetry dans Centreon Log Management : exemples, attributs imbriqués, opérateurs et jokers."
 ---
 
 Utilisez les requêtes dans la page [**Log explorer**](explore-analyze.md), dans les [règles d'alerte](alerts.md) ou dans les [tableaux de bord](dashboards.md) pour filtrer vos données et interroger les attributs OpenTelemetry. Les attributs que vous pourrez interroger seront ceux [récupérés par votre collecteur OpenTelemetry, tel que vous l'avez configuré](./collector/collector.md). Consultez [À quoi ressemble une entrée de journal au format OpenTelemetry ?](./getting-started/concepts.md#à-quoi-ressemble-une-entrée-de-log-au-format-opentelemetry-) pour obtenir un aperçu des principaux attributs.

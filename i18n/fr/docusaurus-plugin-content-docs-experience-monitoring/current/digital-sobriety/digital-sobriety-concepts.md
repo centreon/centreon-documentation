@@ -1,7 +1,7 @@
 ---
 id: digital-sobriety-concepts
 title: Introduction à la sobriété numérique
-description: Comment le Score de Sobriété Numérique mesure l'impact environnemental
+description: "Le Score de Sobriété Numérique note de A à E l'efficacité environnementale de votre site en combinant empreinte carbone par clic et éco-conception."
 ---
 
 Bien que les sites web soient immatériels, ils reposent sur une infrastructure physique : serveurs, réseaux et appareils des utilisateurs finaux, qui consomment tous de l'énergie.

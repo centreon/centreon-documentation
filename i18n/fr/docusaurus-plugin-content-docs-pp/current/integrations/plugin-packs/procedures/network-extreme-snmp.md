@@ -577,3 +577,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.10](../releases/release-notes.md#2025-10) - Enhancement: Added supported models in documentation.

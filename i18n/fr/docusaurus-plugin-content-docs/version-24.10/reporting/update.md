@@ -1,7 +1,7 @@
 ---
 id: update
 title: Mise à jour de l'extension
-description: "Mettre à jour l'interface et le serveur de reporting de Centreon MBI"
+description: "Mettez à jour Centreon MBI vers une version mineure en deux étapes : l'interface de l'extension sur le serveur central, puis le serveur de reporting."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

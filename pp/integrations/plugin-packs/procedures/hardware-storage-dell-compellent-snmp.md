@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-dell-compellent-snmp
 title: Dell Compellent SNMP
-description: "Monitor Dell Compellent storage arrays via SNMP: hardware status, controller health, and network interface traffic."
+description: "Monitor Dell Compellent storage arrays via SNMP: hardware and controller health and network interface traffic, with host and service discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -492,3 +492,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Added SNMP in title to be more explicit.

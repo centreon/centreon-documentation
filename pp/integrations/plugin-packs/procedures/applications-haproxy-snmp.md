@@ -1,7 +1,7 @@
 ---
 id: applications-haproxy-snmp
 title: Haproxy SNMP
-description: "Monitor HAProxy via SNMP: track backend and frontend usage, sessions, traffic, and queue status."
+description: "Monitor HAProxy via SNMP: backend and frontend status, current and total sessions, inbound and outbound traffic, and backend queue size."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -412,3 +412,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=frontend-usage \
 	--help
 ```
+
+## Changelog
+
+- [26.03](../releases/release-notes.md#2026-03) - Enhancement: Allow compatibility with version 17 OIDs.

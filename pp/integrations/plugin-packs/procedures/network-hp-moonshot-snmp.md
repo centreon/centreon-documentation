@@ -1,7 +1,7 @@
 ---
 id: network-hp-moonshot-snmp
 title: HP Moonshot SNMP
-description: "Monitor HP Moonshot chassis via SNMP: CPU, memory, and network interfaces."
+description: "Monitor HP Moonshot chassis via SNMP: CPU and memory usage and network interface status and traffic, with host and service discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -488,3 +488,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Initial release.

@@ -1,0 +1,92 @@
+---
+id: lifecycle
+title: Product lifecycle policy
+description: "Learn how Centreon versions are numbered, how often they are released and how long each version receives maintenance and security updates."
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Centreon has been publishing new releases of the
+Centreon solution at regular intervals since version 18.10, enabling the community, businesses and
+developers to plan their roadmaps with the guarantee of upstream visibility on the
+latest open source capabilities.
+
+## Version numbers
+
+Releases of Centreon are named according to the year and period of delivery.
+For example, Centreon 22.10 was released in October 2022. All modules and
+components of the Centreon software suite use the same version numbers.
+
+## Release frequency
+
+Starting with Centreon 24.10, Centreon will release **one major version per year**.
+
+Minor versions, with bug fixes and minor improvements will be released on a monthly basis. A Service Pack version, cumulating all minor versions changes, will typically be delivered after six months.
+
+## Maintenance and security updates
+
+- All Open Source major versions are supported for 18 months.
+- Commercial major versions released in 2024, 2026 and any even years are LTS versions (supported for 3 years).
+- Commercial major versions released in 2025, 2027 and any odd years are supported for 18 months.
+
+## Lifecycle
+
+The lifecycle of a version is divided into three phases:
+
+1.  **First phase**: Bugs of all severity levels (Minor, Major, Blocker) and vulnerabilities of all CVSS severities (Critical, High, Medium, Low) are fixed according to their priority. Functional enhancements are added.
+2.  **Second phase**: Major and Blocker bugs, and vulnerabilities of all CVSS severities (Critical, High, Medium, Low), are fixed according to their priority.
+3.  **Third phase**: Blocker bugs, and Critical and High vulnerabilities, are fixed according to their priority. Medium and Low vulnerabilities are not fixed on that version. A vulnerability whose remediation deadline falls after the version's end of support is not fixed on that version: upgrade to a supported version to get the fix.
+
+> Vulnerability severity follows the CVSS v3 score and its [remediation plan](../security/security.md#vulnerability-scoring). Bug severity (Minor, Major, Blocker) is assessed by Centreon's product team.
+
+The first phase of the lifecycle begins on the day of a version release.
+
+The second phase of a version begins when the next major version is available. For example, the release of Centreon 25.10 triggers the second phase of Centreon 24.10.
+
+The third phase of a version begins when the second next major version is available. For example, the release of Centreon 26.10 triggers the third phase of Centreon 24.10 and of Centreon 25.10.
+
+### Version lifecycle diagram
+
+This diagram outlines the Centreon version lifecycle policy from version 24.10:
+
+![image](../assets/releases/lifecycle-from-24.10.png)
+
+## Third-party dependencies
+
+Centreon does not manage the lifecycle of third-party dependencies such as MariaDB or MySQL, PHP and Java.
+Centreon relies on the packages provided by the operating system through its official repositories.
+
+If the end of life of one of these dependencies is reached before the end of life of your version of Centreon Infra Monitoring, Centreon will update its software base to use a more recent version, if possible through the official OS repositories. Centreon will notify users through a security bulletin on [The Watch](https://thewatch.centreon.com/) so that system administrators can update their Centreon software base and the associated dependencies.
+
+The following table shows the status of the main dependencies of Centreon 27.10 on each supported operating system:
+
+| Dependency (upstream end of support) | EL 9 (RHEL/OL/Alma) | EL 10 (RHEL/OL/Alma) | Debian 13 |
+|--------------------------------------|---------------------|----------------------|-----------|
+| **OS** | ✅ 2032 | ✅ 2035 | ✅ Debian security updates until August 2028, then Debian LTS only |
+| **PHP 8.4** (security updates until 12/31/2028) | ⚠️ Upgrade planned to PHP 8.5 or 8.6, depending on what the OS provides as standard | ⚠️ Upgrade planned to PHP 8.5 or 8.6, depending on what the OS provides as standard | ✅ This is the PHP version provided by Debian, so it receives Debian fixes, then LTS until 2030 |
+| **MySQL 8.4 LTS** (Premier support until 04/30/2029, Extended support until 04/30/2032) | ⚠️ Upgrade planned to 9.7 LTS or later, depending on what the OS provides as standard | ⚠️ Upgrade planned to 9.7 LTS or later, depending on what the OS provides as standard | ⚠️ Upgrade planned to 9.7 LTS or later, depending on what the OS provides as standard |
+| **MariaDB 11.8 LTS** (community support until 06/04/2028) | ⚠️ Upgrade planned to a later LTS version, depending on what the OS provides as standard | ⚠️ Upgrade planned to a later LTS version, depending on what the OS provides as standard | ✅ This is the version provided by Debian, so it is covered by Debian, then LTS |
+| **Java 25 LTS** (Temurin until September 2031, Red Hat until December 2030) | ✅ | ✅ | ✅ |
+
+## Maintenance table for Centreon versions
+
+> Any other products not described in the following tables are no longer supported
+> by Centreon.
+
+| Product        | Release      | End of support| State               |
+|----------------|--------------|---------------|---------------------|
+| Centreon 26.10 | 10/2026      | 04/2029       | Supported           |
+| Centreon 25.10 | 10/2025      | 04/2027       | Supported           |
+| Centreon 24.10 | 10/2024      | 10/2027       | Supported           |
+| Centreon 24.04 | 04/2024      | 04/2026       | No longer supported |
+| Centreon 23.10 | 10/2023      | 10/2025       | No longer supported |
+| Centreon 23.04 | 04/2023      | 04/2025       | No longer supported |
+| Centreon 22.10 | 10/2022      | 10/2024       | No longer supported |
+| Centreon 22.04 | 05/2022      | 05/2024       | No longer supported |
+| Centreon 21.10 | 11/2021      | 11/2023       | No longer supported |
+| Centreon 21.04 | 04/2021      | 10/2022       | No longer supported |
+| Centreon 20.10 | 10/2020      | 05/2022       | No longer supported |
+| Centreon 20.04 | 04/2020      | 10/2021       | No longer supported |
+| Centreon 19.10 | 10/2019      | 04/2021       | No longer supported |
+| Centreon 19.04 | 04/2019      | 10/2020       | No longer supported |
+| Centreon 18.10 | 10/2018      | 04/2020       | No longer supported |

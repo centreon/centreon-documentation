@@ -1,7 +1,7 @@
 ---
 id: submit
 title: Soumettre un résultat
-description: "Soumettre manuellement un résultat pour un service à contrôle passif"
+description: "Soumettez manuellement un résultat pour un service en contrôle passif depuis la page Statut des ressources de Centreon, pour que l'ordonnanceur le traite."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -26,9 +26,7 @@ soit pris en compte par l'ordonnanceur.
 
 3. Dans le menu **Plus d'actions**, cliquez sur **Soumettre un statut**.
 
-    La fenêtre suivante s'ouvre :
-    
-    ![image](../assets/alerts/resources-status/submit-popup.png)
+    Dans la fenêtre qui s'ouvre :
 
     -   Le champ **Statut** définit le statut qu'aura le service une fois le résultat soumis.
     -   Le champ **Output** définit le message à afficher pour le
@@ -43,9 +41,7 @@ Accédez à la page de détails de l'objet.
 Dans la catégorie **Service Commands** cliquez sur **Submit result for
 this service**.
 
-La fenêtre suivante s'affiche :
-
-![image](../assets/alerts/submitresult.png)
+Dans la fenêtre qui s'affiche :
 
 -   Les champs **Host Name** et **Service** définissent l'hôte et le
     service pour lequel le résultat sera soumis

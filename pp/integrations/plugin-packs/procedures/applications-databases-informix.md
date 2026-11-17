@@ -1,7 +1,7 @@
 ---
 id: applications-databases-informix
 title: Informix DB
-description: "Monitor IBM Informix databases via SQL queries: checkpoints, dbspace usage, sessions, and table locks."
+description: "Monitor IBM Informix databases via SQL queries: archives, checkpoints, down chunks, dbspace and log usage, cache, locks, long transactions, and sessions."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -819,3 +819,7 @@ All available options for a given mode can be displayed by adding the
 	--host=10.0.0.1 \
 	--help
 ```
+
+## Changelog
+
+- [22.12](../releases/release-notes.md#2022-12) - Breaking change: Changed `sql-statement` option protection.

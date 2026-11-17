@@ -1,7 +1,7 @@
 ---
 id: monitor-linux-server-with-snmp
 title: Superviser votre premier serveur Linux
-description: "Superviser un serveur Linux à l'aide du protocole SNMP"
+description: "Supervisez un serveur Linux en SNMP avec Centreon : configurez l'agent snmpd, installez le connecteur Linux SNMP, puis créez l'hôte et déployez-le."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -63,13 +63,6 @@ systemctl enable snmpd
 Connectez-vous à votre collecteur en SSH et installez le plugin SNMP Linux (voir la [procédure de surveillance pour le connecteur de supervision **Linux SNMP**](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp) pour plus d'informations) :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf install centreon-plugin-Operatingsystems-Linux-Snmp
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
@@ -77,7 +70,14 @@ dnf install centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf install centreon-plugin-Operatingsystems-Linux-Snmp
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-plugin-operatingsystems-linux-snmp
@@ -89,15 +89,11 @@ apt install centreon-plugin-operatingsystems-linux-snmp
 
 ### Sur le serveur central
 
-Dans l'interface web, allez à la page **Configuration > Connecteurs > Connecteurs de supervision** et installez le connecteur de supervision **Linux SNMP** :
-
-![image](../assets/getting-started/quick_start_linux_0.gif)
+Dans l'interface web, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**, recherchez **Linux SNMP** puis cliquez sur l'icône **+** de la tuile du connecteur de supervision pour l'installer.
 
 ## Configurer l'hôte et déployer la configuration
 
-1. Allez à la page **Configuration > Hôtes > Hôtes** et cliquez sur **Ajouter** :
-
-   ![image](../assets/getting-started/quick_start_linux_1.gif)
+1. Allez à la page **Configuration > Hôtes > Hôtes** et cliquez sur **Ajouter**.
 
 2. Remplissez les informations suivantes :
 
@@ -111,25 +107,17 @@ Dans l'interface web, allez à la page **Configuration > Connecteurs > Connecteu
 
    ![image](../assets/getting-started/quick_start_linux_2.png)
 
-4. Cliquez sur **Sauvegarder** (8). Votre équipement a été ajouté à la liste des hôtes :
-
-   ![image](../assets/getting-started/quick_start_linux_3.png)
+4. Cliquez sur **Sauvegarder** (8). Votre équipement a été ajouté à la liste des hôtes dans **Configuration > Hôtes > Hôtes**.
 
 5. Allez à la page **Configuration > Services > Services par hôte**. Un ensemble d'indicateurs a été créé automatiquement.
 
-   ![image](../assets/getting-started/quick_start_linux_4a.png)
-
-   Vous pouvez également utiliser le raccourci situé à côté du nom de l'hôte pour accéder directement à la page **Configuration > Services > Services par hôte**. La liste sera filtrée par le nom de l'hôte :
-
-   ![image](../assets/getting-started/quick_start_linux_4b.png)
+   Vous pouvez également cliquer sur l'icône **Afficher tous les services de cet hôte** située à côté du nom de l'hôte pour accéder directement à la page **Configuration > Services > Services par hôte**. La liste sera filtrée par le nom de l'hôte :
 
    ![image](../assets/getting-started/quick_start_linux_5.png)
 
 6. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
-7. Allez à la page **Surveillance > Statut des ressources** et sélectionnez **Toutes** dans le filtre **Statut des ressources**. Dans un premier temps, les ressources apparaissent avec le statut **En attente**, ce qui signifie qu'aucun contrôle n'a encore été exécuté :
-
-   ![image](../assets/getting-started/quick_start_linux_6.png)
+7. Allez à la page **Surveillance > Statut des ressources** et sélectionnez **Toutes** dans le filtre **Statut des ressources**. Dans un premier temps, les ressources apparaissent avec le statut **En attente**, ce qui signifie qu'aucun contrôle n'a encore été exécuté.
 
    Après quelques minutes, les premiers résultats du contrôle apparaissent :
 

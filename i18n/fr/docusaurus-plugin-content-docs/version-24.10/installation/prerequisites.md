@@ -1,7 +1,7 @@
 ---
 id: prerequisites
 title: Prérequis
-description: "Recommandations de dimensionnement pour votre plateforme Centreon"
+description: "Dimensionnez votre plateforme Centreon : estimez le CPU, la RAM et le stockage des serveurs central, de base de données et collecteurs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

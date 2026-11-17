@@ -1,7 +1,7 @@
 ---
 id: widgets
 title: Widgets
-description: "Display live Business Activity status widgets on dashboards"
+description: "Use the Live Business Activity Status widget on your Centreon home page to list business activities with their current status and level."
 ---
 
 ## Live Business Activity Status

@@ -1,7 +1,7 @@
 ---
 id: applications-squid-snmp
 title: Squid SNMP
-description: "Supervisez les serveurs proxy Squid via SNMP : utilisation du cache, CPU, mémoire et statistiques de trafic HTTP/ICP."
+description: "Supervisez les proxys Squid via SNMP : CPU, mémoire, descripteurs de fichiers et objets du cache, hits, erreurs et trafic HTTP/ICP, nombre de clients."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

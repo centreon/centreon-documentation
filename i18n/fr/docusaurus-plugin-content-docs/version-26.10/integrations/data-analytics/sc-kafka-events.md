@@ -1,7 +1,7 @@
 ---
 id: sc-kafka-events
 title: Kafka Events
-description: "Publier les évènements hôtes, services et BA vers un topic Kafka"
+description: "Installez et configurez le stream connector Kafka Events pour publier dans un topic Kafka les évènements des hôtes, services et activités métier Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -29,14 +29,6 @@ Faites l'installation sur le serveur qui enverra les données à Kafka (serveur 
 2. Exécutez la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-stream-connector-kafka
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -45,7 +37,15 @@ dnf install centreon-stream-connector-kafka
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-stream-connector-kafka
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-stream-connector-kafka
@@ -212,3 +212,10 @@ Il est fortement conseillé d'avoir accès à Kafka pour vérifier si un message
 ```shell
 %3|1622459610.760|FAIL|rdkafka#producer-1| [thrd:sasl_plaintext://cps-kafkan:9093/bootstrap]: sasl_plaintext://cps-kafkan:9093/bootstrap: Failed to resolve 'cps-kafkan:9093': Name or service not known
 ```
+
+## Historique des modifications
+
+- [21.09](../stream-connectors-rn.md#2021-09) - Enhancement: Changed the default log level from debug to error.
+- [21.09](../stream-connectors-rn.md#2021-09) - Bug fix: Fixed the dependencies of the Kafka modules.
+- [21.06](../stream-connectors-rn.md#2021-06) - New stream connector: Initial release of Kafka Events.
+- [21.06](../stream-connectors-rn.md#2021-06) - Bug fix: Fixed the installation on EL8.

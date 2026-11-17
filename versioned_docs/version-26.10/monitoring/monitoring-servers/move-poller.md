@@ -1,7 +1,7 @@
 ---
 id: move-poller
 title: Attach a poller to a different remote server
-description: "Reattach a poller from one remote server to another"
+description: "Attach a poller to a different remote server, or from the central server to a remote server, by updating its Gorgone and Broker configuration."
 ---
 
 Here is the procedure for attaching a poller from the Centreon Central server to a Remote Server, or from one Remote Server

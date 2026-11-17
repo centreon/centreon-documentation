@@ -1,7 +1,7 @@
 ---
 id: network-enterasys-snmp
 title: Enterasys SNMP
-description: "Monitor Enterasys network devices via SNMP: CPU, memory, storage, uptime, and interface traffic."
+description: "Monitor Enterasys network devices via SNMP: CPU, memory, storage, uptime, and interface traffic, with host and service discovery rules."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -583,3 +583,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=storage \
 	--help
 ```
+
+## Changelog
+
+- [22.11](../releases/release-notes.md#2022-11) - New connector: New monitoring pack.

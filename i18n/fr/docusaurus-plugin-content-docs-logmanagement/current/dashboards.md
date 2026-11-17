@@ -1,7 +1,7 @@
 ---
 id: dashboards
 title: Créer des tableaux de bord
-description: Créer des tableaux de bord avec des widgets pour visualiser les logs et leurs tendances
+description: "Créez et modifiez des tableaux de bord dans Centreon Log Management avec des widgets texte, Log viewer ou Metrics graph pour suivre l'évolution des logs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

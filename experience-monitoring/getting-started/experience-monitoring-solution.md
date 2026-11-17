@@ -1,7 +1,7 @@
 ---
 id: experience-monitoring-solution
 title: What can I do with Experience Monitoring?
-description: Overview of what Experience Monitoring measures and monitors
+description: "Experience Monitoring measures website loading times and carbon footprint. See where to start with user journeys and Real User Monitoring (RUM)."
 ---
 
 Centreon Experience Monitoring (formerly Quanta) is a platform designed to monitor both web performance and digital sustainability.

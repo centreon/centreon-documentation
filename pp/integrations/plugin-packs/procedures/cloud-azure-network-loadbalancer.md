@@ -488,3 +488,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=throughput \
 	--help
 ```
+
+## Changelog
+
+- [26.09](../releases/release-notes.md#2026-09) - Enhancement: Added `tags` attribute to **host discovery**.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.

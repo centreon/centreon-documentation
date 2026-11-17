@@ -1,7 +1,7 @@
 ---
 id: acknowledge
 title: Acquitter une alerte
-description: "Acquitter une alerte pour suspendre les notifications jusqu'à résolution"
+description: "Acquittez une alerte sur un hôte ou un service dans Centreon pour suspendre les notifications le temps de résoudre l'incident, puis annulez l'acquittement."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -40,7 +40,7 @@ nominal après changement du disque.
 > Si vous utilisez le module **Business Activity Monitoring**, les acquittements d'une alerte s'appliquent uniquement à l'objet concerné (activité métier ou KPI).
 
 Les acquittements s'appliquent aux activités métier (BA) comme suit :
-- L'acquittement d'une activité métier n'entraîne pas l'acquittement de ses KPIs sous-jacents (que ces KPIs soient une activité métier, un service ou un méta-service).
+- L'acquittement d'une activité métier n'entraîne pas l'acquittement de ses KPIs sous-jacents (que ces KPIs soient une activité métier, un service ou un métaservice).
 - L'acquittement d'un KPI n'entraîne pas l'acquittement de l'activité métier qui en dépend.
 
 ### En pratique
@@ -77,9 +77,7 @@ Pour acquitter une alerte, plusieurs solutions sont possibles :
 3.  Dans le menu **More actions** cliquez sur **Hosts: Acknowledge** ou sur
     **Services: Acknowledge**
 
-La fenêtre suivante s'affiche :
-
-![image](../assets/alerts/acknowledged.png)
+Dans la fenêtre qui s'affiche :
 
 -   Si la case **Sticky** est cochée, alors l'acquittement sera conservé
     en cas de changement de statut non-OK (Exemple DOWN à UNREACHABLE ou
@@ -107,9 +105,7 @@ La fenêtre suivante s'affiche :
 A partir de la page de détail d'un objet, cliquez sur l'icône activé
 associé au champ **Acknowledged** dans le cadre **Options**.
 
-La fenêtre suivante s'affiche :
-
-![image](../assets/alerts/acknowledged.png)
+Dans la fenêtre qui s'affiche :
 
 -   Si la case **Sticky** est cochée, alors l'acquittement sera conservé
     en cas de changement de statut non-OK (Exemple DOWN à UNREACHABLE ou

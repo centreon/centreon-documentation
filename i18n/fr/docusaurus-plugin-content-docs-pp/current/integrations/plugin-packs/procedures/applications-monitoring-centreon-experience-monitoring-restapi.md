@@ -116,7 +116,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Afin de superviser Centreon Experience Monitoring, vous devez disposer [d'un jeton d'API valide](https://docs.centreon.com/experience-monitoring/installation/monitor-production-events/#authentification-et-génération-de-token), et [avoir des parcours utilisateur configurés dans Centreon DEM](/experience-monitoring/configuration/user-journey/create-a-scenario).
+Afin de superviser Centreon Experience Monitoring, vous devez disposer [d'un jeton d'accès de type API, valide](/experience-monitoring/installation/tokens), et [avoir des parcours utilisateur configurés dans Centreon Experience Monitoring](/experience-monitoring/configuration/user-journey/create-a-scenario).
 
 Les données issues du Real User Monitoring ne seront accessibles que si vous avez réalisé [l'intégration du tag RUM de Centreon Experience Monitoring](/experience-monitoring/installation/real-user-monitoring-installation).
 
@@ -260,7 +260,7 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-DEM-Restapi
 
 | Macro                        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| TIMEFRAME                    | Set timeframe in seconds                                                                                                                         | 3600              |             |
+| TIMEFRAME                    | Set timeframe in seconds                                                                                                                         | 86400             |             |
 | WARNINGCARBONFOOTPRINT       | Warning threshold for carbon footprint                                                                                                           |                   |             |
 | CRITICALCARBONFOOTPRINT      | Critical threshold for carbon footprint                                                                                                          |                   |             |
 | WARNINGDIGITALSOBRIETYSCORE  | Warning threshold for digital sobriety score                                                                                                     |                   |             |
@@ -493,7 +493,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                            | Description                                    |
 |:----------------------------------|:-----------------------------------------------|
 | --site-id                         | Set ID of the site (mandatory option).         |
-| --timeframe                       | Set timeframe in seconds (default: 3600).      |
+| --timeframe                       | Set timeframe in seconds (default: 86400).     |
 | --warning-performance-score       | Warning threshold for performance score.       |
 | --critical-performance-score      | Critical threshold for performance score.      |
 | --warning-digital-sobriety-score  | Warning threshold for digital sobriety score.  |
@@ -559,3 +559,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=user-journey-statistics  \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.10](../releases/release-notes.md#2026-10) - Enhancement: Changed the default value of the `timeframe` option (from 3600 to 86400 seconds).
+- [26.02](../releases/release-notes.md#2026-02) - Bug fix: The connector now returns an OK status when no incidents are found (instead of UNKNOWN).
+- [26.01](../releases/release-notes.md#2026-01) - New connector: Initial release.

@@ -1,6 +1,6 @@
 ﻿---
 id: largest-contentful-paint
-description: Métrique Web Vitals LCP pour la vitesse de chargement perçue
+description: "Le LCP mesure le temps de rendu du plus grand texte ou de la plus grande image visible. Score à viser, éléments pris en compte et calcul de leur taille."
 title: LCP - Largest Contentful Paint (Web Vital)
 --- 
 

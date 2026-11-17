@@ -1,7 +1,7 @@
 ---
 id: ba-monitoring-reports
 title: Business Activity Monitoring reports
-description: "Reports on the availability and performance of Business Activities and views"
+description: "Centreon MBI reports on Business Activities and Business Views: availability, events, current health versus past, and availability calendars."
 ---
 
 ### BV-BA-Availabilities-1

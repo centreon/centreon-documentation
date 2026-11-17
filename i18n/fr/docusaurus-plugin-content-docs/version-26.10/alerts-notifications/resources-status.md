@@ -1,7 +1,7 @@
 ---
 id: resources-status
 title: Page Statut des ressources
-description: "Suivre, filtrer et traiter les évènements des ressources depuis une page unique"
+description: "Utilisez la page Statut des ressources de Centreon pour suivre et filtrer les évènements, acquitter, planifier un temps d'arrêt et voir le détail."
 ---
 
 La vue **Supervision > Statut des ressources** est votre vue principale
@@ -224,7 +224,7 @@ pour ce critère (par exemple, pour le critère **Type**, les valeurs peuvent
 être **Hôte**, **Service** ou **Métaservice**). Sélectionnez la valeur désirée 
 avec les flèches haut et bas, puis appuyez sur **Tab** ou **Entrée** pour valider la sélection.
 Un même critère peut avoir plusieurs valeurs possibles. Les valeurs doivent être séparées par des virgules.
-La recherche ramènera toutes les valeurs selon un critère OU, par exemple, **type:service,metaservice** ramènera 
+La recherche ramènera toutes les valeurs selon un critère OU, par exemple, **type:service,métaservice** ramènera 
 toutes les ressources de type services et métaservices.
 
   ![image](../assets/alerts/resources-status/search_tab.gif)
@@ -239,8 +239,6 @@ selon un critère "ET" : les résultats correspondront à tous les critères sai
 
 Exemple :
     **s.description:ping h.name:linux** : la liste affiche tous les services dont le nom contient "ping", pour tous les hôtes dont le nom contient "linux".
-
-![image](../assets/alerts/resources-status/search_ping_linux.gif)
 
 ### Sauvegarder un filtre
 
@@ -321,9 +319,7 @@ Utilisez la légende pour afficher ou masquer des métriques.
 
 ![image](../assets/alerts/resources-status/resources-status-graph-select-only-metric.gif)
 
-Vous pouvez également afficher plusieurs métriques en faisant Ctrl+clic (ou bien Cmd+clic pour les utilisateurs Mac) sur la légende correspondante :
-
-![image](../assets/alerts/resources-status/resources-status-graph-toggle-legends.gif)
+Vous pouvez également afficher plusieurs métriques en faisant **Ctrl+clic** (ou bien **Cmd+clic** pour les utilisateurs Mac) sur la légende correspondante.
 
 Les graphiques affichent l'évolution des métriques sur une période donnée. La période affichée peut être définie de différentes façons :
 
@@ -347,13 +343,9 @@ Il est possible d'ajouter un commentaire directement sur le graphique, en cliqua
 
 Pour supprimer un commentaire, allez à la page **Supervision > Planifier des plages de maintenance > Commentaires**.
 
-En cliquant sur le bouton **Exporter**, vous pouvez exporter une capture du graphique sous forme d'image PNG, qui va aussi inclure les évènements de la chronologie, si l'option correspondante est activée. Notez que seules les métriques sélectionnées seront exportées :
+En cliquant sur l'icône **Exporter** (flèche de téléchargement) en haut à droite du graphique, vous pouvez exporter une capture du graphique sous forme d'image PNG, qui va aussi inclure les évènements de la chronologie, si l'option correspondante est activée. Notez que seules les métriques sélectionnées seront exportées.
 
-![image](../assets/alerts/resources-status/resources-status-graph-export-to-png.gif)
-
-Pour voir une version plus grande du graphique, cliquez sur **Go to performance page** en haut à droite du graphique.
-
-![image](../assets/alerts/resources-status/graph-open.png)
+Pour voir une version plus grande du graphique, cliquez sur l'icône **Go to performance page** en haut à droite du graphique, à gauche de l'icône d'export.
 
 Le graphique s'ouvre dans la page **Supervision > Informations de performance > Graphiques**, vous permettant de filtrer celui-ci plus précisément.
 

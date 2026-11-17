@@ -1,7 +1,7 @@
 ---
 id: network-cisco-waas-snmp
 title: Cisco WaaS SNMP
-description: "Supervisez les équipements Cisco WaaS via SNMP en suivant le nombre de connexions TCP en mode passthrough et optimisé."
+description: "Supervisez les équipements Cisco WaaS via SNMP : nombre de connexions TCP en mode passthrough et optimisé (TFO), avec découverte des hôtes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -337,3 +337,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=sessions \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added native SNMP v3 host macro.
+- [25.12](../releases/release-notes.md#2025-12) - Breaking change: Fixed errors related to thresholds.

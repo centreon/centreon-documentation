@@ -1,7 +1,7 @@
 ---
 id: applications-microsoft-dhcp-snmp
 title: Microsoft DHCP SNMP
-description: "Monitor Microsoft DHCP servers via SNMP, tracking subnet address usage, free addresses, and pending offers."
+description: "Monitor Microsoft DHCP servers via SNMP: subnet address usage, free addresses, and pending offers, with host and subnet discovery rules."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -372,3 +372,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=subnets \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.

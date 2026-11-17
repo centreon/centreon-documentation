@@ -1,7 +1,7 @@
 ---
 id: notif-escalation
 title: Escalation
-description: "Escalate notifications to different contact groups over time"
+description: "Configure notification escalations in Centreon to contact different contact groups as an alert persists, and choose the hosts and services they apply to."
 ---
 
 ## Definition
@@ -14,7 +14,7 @@ An escalation of notifications is used to contact various groups of
 contacts during the notifications process or to change the means of
 notification (replace mails by an SMS). The definition of a notification
 escalation to a host, a host group, a service, a service group or a
-meta-service overwrites the normal configuration of notifications for
+metaservice overwrites the normal configuration of notifications for
 this object.
 
 Example: a service A is set to send notifications to a group of contacts
@@ -70,8 +70,6 @@ the following operations:
 To add a notification escalation, go into the menu:
 `Configuration > Notifications > Escalations` and click **Add**
 
-![image](../assets/alerts/04notificationsescalation.png)
-
 -   The **Escalation Name** and **Alias** fields are used to define a name
     and an alias for the notification escalation.
 -   The **First Notification** field allows us to choose the
@@ -95,6 +93,6 @@ To add a notification escalation, go into the menu:
 
 To select the various objects that will be concerned by this escalation,
 the **Hosts Escalation**, **Services Escalation**, **Hostgroups
-Escalation**, **Meta Service Escalation** and **Servicegroups
+Escalation**, **Metaservice Escalation** and **Servicegroups
 Escalation** tabs are used to choose the objects to which the escalations
 are applied.

@@ -1,7 +1,7 @@
 ---
 id: map-web-troubleshooting
 title: Dépanner MAP
-description: "Dépanner les incidents courants d'installation et de configuration de MAP"
+description: "Résolvez les problèmes de Centreon MAP : installation, authentification, HTTPS, vérification des RPM, niveau de logs et outil de diagnostic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

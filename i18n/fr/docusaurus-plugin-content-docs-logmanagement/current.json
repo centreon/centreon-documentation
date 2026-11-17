@@ -23,6 +23,10 @@
     "message": "Gérer alertes et notifications",
     "description": "The label for category Managing alerts and notifications in sidebar logmanagement"
   },
+    "sidebar.logmanagement.category.Integrations": {
+    "message": "Intégrations",
+    "description": "The label for category Integrations in sidebar logmanagement"
+  },
     "sidebar.logmanagement.category.Administration": {
     "message": "Administration",
     "description": "The label for category Administration in sidebar logmanagement"

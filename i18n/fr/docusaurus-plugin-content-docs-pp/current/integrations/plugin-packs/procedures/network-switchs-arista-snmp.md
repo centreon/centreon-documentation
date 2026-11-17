@@ -811,3 +811,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.01](../releases/release-notes.md#2026-01) - Enhancement: Added **bgp** service template.
+- [22.04](../releases/release-notes.md#2022-04) - Enhancement: Changed threshold options for Memory service.

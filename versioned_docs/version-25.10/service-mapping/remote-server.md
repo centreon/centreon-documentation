@@ -1,7 +1,7 @@
 ---
 id: remote-server
 title: Install on a Remote Server
-description: "Configure Centreon BAM and Broker on a Remote Server"
+description: "Install Centreon BAM on a Remote Server, then configure the remote poller's Centreon Broker monitoring and reporting outputs from the central server."
 ---
 
 The procedure for installing the Centreon BAM module on a Centreon Remote Server

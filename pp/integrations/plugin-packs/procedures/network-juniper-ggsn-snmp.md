@@ -1,7 +1,7 @@
 ---
 id: network-juniper-ggsn-snmp
 title: Juniper GGSN SNMP
-description: "Monitor Juniper GGSN network nodes via SNMP: traffic, packet drops, and PDP context statistics per APN or globally."
+description: "Monitor Juniper GGSN network nodes via SNMP: traffic, packet drops, and PDP context statistics, either globally or per APN, with host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -447,3 +447,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=global-stats \
 	--help
 ```
+
+## Changelog
+
+- [25.06](../releases/release-notes.md#2025-06) - Enhancement: Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.

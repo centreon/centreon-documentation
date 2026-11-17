@@ -1,7 +1,7 @@
 ---
 id: sso
 title: Configurer une authentification par SSO
-description: "Configurer l'authentification Web SSO via le serveur Apache"
+description: "Configurez l'authentification Web SSO dans Centreon, où Apache authentifie les utilisateurs via OIDC, SAMLv2, Kerberos ou d'autres protocoles."
 ---
 
 L'authentification Web SSO repose sur le serveur Web Apache. C'est Apache qui, selon sa configuration, se charge

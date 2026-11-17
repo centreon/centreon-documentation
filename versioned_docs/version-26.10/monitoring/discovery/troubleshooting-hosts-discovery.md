@@ -1,7 +1,7 @@
 ---
 id: troubleshooting-hosts-discovery
 title: Troubleshooting host discovery issues
-description: "Fix common errors encountered during host discovery jobs"
+description: "Fix common host discovery issues in Centreon Auto Discovery: jobs missing from the Discovery page, scans stuck in a scheduled state, and no provider found."
 ---
 
 ## No more host discovery jobs appear in the Discovery page
@@ -36,7 +36,7 @@ ERROR - [autodiscovery] -class- host discovery - cannot get platform versions - 
 
 ### Solution
 
-In the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file, replace the **base_url** value with **http://127.0.0.1/centreon/api/latest/**
+In the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file, replace the **base_url** value with **http://127.0.0.1/centreon/api/latest/**. If you have [customized the Centreon URI](../../administration/secure-platform.md#custom-uri), replace **/centreon** with your custom path. Then restart Gorgone with `systemctl restart gorgoned`.
 
 ### Additional checks
 

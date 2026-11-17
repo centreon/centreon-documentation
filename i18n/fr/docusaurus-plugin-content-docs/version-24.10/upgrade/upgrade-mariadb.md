@@ -1,7 +1,7 @@
 ---
 id: upgrade-mariadb
 title: Mettre à jour MariaDB
-description: "Mettre à jour MariaDB vers la version requise par votre Centreon"
+description: "Mettez à jour MariaDB vers la version requise par Centreon, sur le serveur central, les serveurs distants et les bases MBI et MAP, pas à pas."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

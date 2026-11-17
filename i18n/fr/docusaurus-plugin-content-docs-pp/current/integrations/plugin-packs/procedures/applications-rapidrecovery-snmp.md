@@ -387,3 +387,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=repository \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.10](../releases/release-notes.md#2024-10) - Bug fix: Fixed typo in commands for the **repository** and **agent** modes.

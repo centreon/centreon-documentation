@@ -1,7 +1,7 @@
 ---
 id: user_groups
 title: Les groupes d'utilisateurs dans Centreon Cloud
-description: "Comment créer, modifier, désactiver et utiliser des groupes d'utilisateurs pour simplifier l'attribution des droits d'accès aux ressources dans Centreon Cloud"
+description: "Comment créer, modifier, désactiver ou supprimer des groupes d'utilisateurs dans Centreon Hub pour attribuer plus facilement des droits sur les ressources"
 ---
 
 Dans Centreon Cloud, vous pouvez utiliser les groupes d'utilisateurs afin d'[attribuer des droits sur les ressources](../administration/resource_access.md) plus facilement.
@@ -20,7 +20,7 @@ Un utilisateur peut appartenir à plusieurs groupes.
 
 * Pour éditer un groupe d'utilisateurs, cliquez sur l'icône rouage dans la colonne **Action**.
 * Pour supprimer un groupe d'utilisateurs, cliquez sur le bouton **More actions** dans la colonne **Action**, puis cliquez sur **Delete**. Cela supprimera le groupe, mais pas les utilisateurs qui en font partie.
-* Vous pouvez désactiver temporairemnt un groupe d'utilisateurs au lieu de le supprimer (si vous pensez vous en resservir ultérieurement). Utilisez le switch dans la colonne **Enabled/Disabled**.
+* Vous pouvez désactiver temporairement un groupe d'utilisateurs au lieu de le supprimer (si vous pensez vous en resservir ultérieurement). Utilisez le switch dans la colonne **Enabled/Disabled**.
 
 ## Utiliser un groupe d'utilisateurs
 

@@ -1,7 +1,7 @@
 ---
 id: applications-databases-firebird
 title: Firebird
-description: "Monitor Firebird databases via SQL: connection time, memory, page and query statistics, and connected users."
+description: "Monitor Firebird databases via SQL: connection time, memory usage, page and query rates, connected users, plus optional long query and custom SQL checks."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

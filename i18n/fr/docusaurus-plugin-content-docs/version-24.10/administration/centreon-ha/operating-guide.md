@@ -1,7 +1,7 @@
 ---
 id: operating-guide
 title: Guide d'utilisation
-description: "Vérifier l'état du cluster, exécuter des bascules et gérer la HA"
+description: "Exploitez un cluster Centreon HA : vérifiez l'état du cluster et de la réplication, faites une bascule manuelle, testez la perte d'un nœud."
 ---
 
 > Sauf indication contraire, toutes les commandes de cette page doivent être exécutées en tant que « root ».

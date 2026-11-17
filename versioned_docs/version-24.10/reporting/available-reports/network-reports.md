@@ -1,7 +1,7 @@
 ---
 id: network-reports
 title: Network reports
-description: "Reports on network interface bandwidth usage and traffic distribution"
+description: "Centreon MBI network reports: average inbound and outbound bandwidth per interface, traffic by bandwidth range, and monthly percentiles per host group."
 ---
 
 ### Hostgroup-Traffic-By-Interface-And-Bandwith-Ranges

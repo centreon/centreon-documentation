@@ -1,7 +1,7 @@
 ---
 id: sso
 title: Configuring a Web SSO connection
-description: "Configure Web SSO authentication through the Apache web server"
+description: "Configure Web SSO authentication in Centreon, where the Apache web server authenticates users via OIDC, SAMLv2, Kerberos or other protocols before access."
 ---
 
 Web SSO authentication relies on the Apache web server. According to its configuration, Apache is

@@ -1,7 +1,7 @@
 ---
 id: network-ruckus-icx-snmp
 title: Ruckus ICX SNMP
-description: "Monitor Ruckus ICX switches via SNMP: CPU, memory, hardware status, and interface traffic."
+description: "Monitor Ruckus ICX switches via SNMP: CPU, memory, hardware status, and interface traffic, with host and service discovery rules."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -540,3 +540,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [22.07](../releases/release-notes.md#2022-07) - Bug fix: Fixed macro in Ruckus ICX Memory service template.
+- [22.04](../releases/release-notes.md#2022-04) - Enhancement: Added new thresholds to Memory service.

@@ -1,7 +1,7 @@
 ---
 id: applications-veeam-vone-restapi
 title: Veeam ONE Rest API
-description: "Monitor Veeam ONE backup infrastructure via REST API: jobs, proxies, repositories, and license usage."
+description: "Monitor Veeam ONE backup infrastructure via REST API: job status and duration, proxy status, repository status and space, and license unit usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -516,3 +516,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=proxies \
 	--help
 ```
+
+## Changelog
+
+- [26.03](../releases/release-notes.md#2026-03) - New connector: Initial release.

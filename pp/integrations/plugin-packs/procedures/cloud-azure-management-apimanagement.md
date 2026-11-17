@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-management-apimanagement
 title: Azure API Management
-description: "Monitor Azure API Management via the Azure API: capacity, EventHub events, request duration, and total requests."
+description: "Monitor Azure API Management via the Azure API: capacity, EventHub events, gateway request duration, and total requests, with automatic host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -499,3 +499,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=requests \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.

@@ -1,7 +1,7 @@
 ---
 id: resources-status
 title: Resources Status page
-description: "Track, filter, and act on resource events from a unified page"
+description: "Use the Centreon Resources Status page to view host and service events, filter them, acknowledge or set downtime, and open the details panel."
 ---
 
 The **Monitoring > Resources Status** page is your main view to track

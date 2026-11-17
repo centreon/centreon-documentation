@@ -1,7 +1,7 @@
 ---
 id: data-management
 title: Gestion des données
-description: "Définir les durées de rétention des journaux, données et rapports"
+description: "Définissez où Centreon stocke les données de performance et réglez les durées de rétention des journaux, des données de performance et des rapports."
 ---
 
 En accédant au menu **Administration > Paramètres > Options**, il est possible

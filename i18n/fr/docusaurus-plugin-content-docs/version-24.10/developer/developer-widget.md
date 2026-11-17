@@ -1,7 +1,7 @@
 ---
 id: developer-widget  
 title: Comment écrire un widget
-description: "Développer un widget personnalisé pour les vues Centreon"
+description: "Développez un widget pour les vues personnalisées Centreon : choix entre widget et module, arborescence des fichiers et fichier de configuration."
 ---
 
 Centreon offre un système d’affichage personnalisé qui permet à l’utilisateur d’afficher un ou plusieurs widgets sur la même page : **Accueil > Vues personnalisées**.

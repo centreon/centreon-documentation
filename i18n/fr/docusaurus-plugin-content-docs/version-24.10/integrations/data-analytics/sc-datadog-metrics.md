@@ -1,7 +1,7 @@
 ---
 id: sc-datadog-metrics
 title: Datadog Metrics
-description: "Transmettre les métriques de performance hôtes et services vers Datadog"
+description: "Installez et configurez le stream connector Datadog Metrics pour transmettre à Datadog les métriques de performance des hôtes et services Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -190,3 +190,7 @@ curl -X POST -H "content-type: application/json" -H "DD-API-KEY: <api_key>" '<ht
 Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. `http_server_url` pourra être remplacé par *https://api.datadoghq.com*.
 
 3. Vérifiez que l'évènement a bien été reçu par Datadog.
+
+## Historique des modifications
+
+- [22.05](../stream-connectors-rn.md#2022-05) - New stream connector: Initial release of Datadog Metrics.

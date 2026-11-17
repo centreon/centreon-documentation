@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-transitgateway
 title: AWS Transit Gateway
-description: "Supervisez le trafic, les paquets et les paquets perdus d'AWS Transit Gateway via l'API CloudWatch."
+description: "Supervisez AWS Transit Gateway via l'API CloudWatch : trafic et paquets entrants/sortants, paquets perdus (blackhole, sans route), avec découverte."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -411,3 +411,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=traffic \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [24.12](../releases/release-notes.md#2024-12) - Enhancement: Added default value `awscli` for host template custom mode.

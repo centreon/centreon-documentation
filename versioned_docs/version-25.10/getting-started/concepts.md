@@ -1,7 +1,7 @@
 ---
 id: concepts
 title: Monitoring basics
-description: "Introduction to hosts, services, and how Centreon monitoring works"
+description: "Learn the basics of monitoring with Centreon: hosts, services and metrics, how plugins and Centreon Engine collect data, and where to view resources."
 ---
 
 ## What does Centreon monitor?

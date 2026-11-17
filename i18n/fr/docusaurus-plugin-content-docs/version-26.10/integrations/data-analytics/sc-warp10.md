@@ -1,7 +1,7 @@
 ---
 id: sc-warp10
 title: Warp10
-description: "Envoyer les évènements hôtes et services Centreon vers Warp10"
+description: "Installez et configurez le stream connector Warp10 pour envoyer les évènements des hôtes et services Centreon vers une base de séries temporelles Warp10."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -22,14 +22,6 @@ Connectez vous en tant que `root` sur le serveur Centreon central en utilisant v
 Lancer la commande adaptée à votre système :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-stream-connector-warp10
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -38,7 +30,15 @@ dnf install centreon-stream-connector-warp10
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-stream-connector-warp10
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-stream-connector-warp10

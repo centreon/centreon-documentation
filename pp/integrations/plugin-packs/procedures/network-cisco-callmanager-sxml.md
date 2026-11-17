@@ -1,7 +1,7 @@
 ---
 id: network-cisco-callmanager-sxml
 title: Cisco Callmanager SXML
-description: "Monitor Cisco Unified Communications Manager alerts via the SXML API, tracking counts by severity level."
+description: "Monitor Cisco Unified Communications Manager alerts via the SXML API: total number of alerts and alert counts by severity level, filterable by alert name."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: network-firewalls-juniper-ssg-snmp
 title: Juniper SSG SNMP
-description: "Monitor Juniper SSG firewalls via SNMP: CPU, memory, hardware, sessions, interface traffic, and VPN tunnels."
+description: "Monitor Juniper SSG firewalls via SNMP: CPU, memory, hardware, sessions, interface traffic, and VPN tunnel status and usage, with discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -631,3 +631,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=vpn-usage \
 	--help
 ```
+
+## Changelog
+
+- [25.06](../releases/release-notes.md#2025-06) - Enhancement: Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: The **hardware** mode no longer returns an UNKNOWN state for fans in a failed state.

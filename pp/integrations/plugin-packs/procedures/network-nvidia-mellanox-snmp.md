@@ -648,3 +648,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=spanning-tree \
 	--help
 ```
+
+## Changelog
+
+- [25.12](../releases/release-notes.md#2025-12) - New connector: Initial release [PR 5753](https://github.com/centreon/centreon-plugins/pull/5753).

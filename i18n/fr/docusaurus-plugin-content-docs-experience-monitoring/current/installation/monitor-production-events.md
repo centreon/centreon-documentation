@@ -1,6 +1,6 @@
 ﻿---
 id: monitor-production-events
-description: Marquer les déploiements et changements de configuration sur les graphes via API
+description: "Ajoutez via l'API des marqueurs de déploiement ou de changement de configuration sur les graphiques d'Experience Monitoring, exemples cURL inclus."
 title: Ajouter des marqueurs d'évènements aux graphes
 --- 
 
@@ -26,12 +26,12 @@ Notre API s’enclenche via un simple appel HTTP sur l'URL `https://app.quanta.i
 
 ## Authentification et génération de token
 
-Vous devrez également spécifier un token API pour authentifier la requête. Ce token peut être généré dans la section "Intégrations" des paramètres de votre site dans Experience Monitoring. Vous avez également la possibilité d'ajouter une icône personnalisée.
+Vous devrez également spécifier un [jeton d'accès](tokens.md) pour authentifier la requête.
 
 Ce token devra être au choix:
 
 - Inséré dans le header HTTP "Authorization" sous la forme *Authorization: Token `<`votre_token`>`*
-- Passé directement dans la requête en ajoutant un paramètre ?*auth_token=`<`votre_token`>`* à la fin de l'URL
+- Passé directement dans la requête en ajoutant un paramètre ?*auth_token=`<`votre_token`>`* à la fin de l'URL.
 
 ## Exemples d’utilisation
 

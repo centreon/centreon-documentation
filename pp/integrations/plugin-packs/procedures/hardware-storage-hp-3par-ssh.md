@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-hp-3par-ssh
 title: HP 3PAR SSH
-description: "Monitor HP 3PAR storage arrays over SSH: track capacity, disk and volume usage, node status, PSUs, and cages."
+description: "Monitor HP 3PAR storage arrays via SSH: capacity, disk and volume usage, node status, uptime and time offset, power supplies, cages, and flash cache."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -750,3 +750,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=volume-usage \
 	--help
 ```
+
+## Changelog
+
+- [22.10](../releases/release-notes.md#2022-10) - Bug fix: Fixed macros for service cages.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added services afc, cages, capacity, nodes to HP 3par SSH Pack.

@@ -1,0 +1,48 @@
+---
+id: create-custom-view
+title: Créer une vue personnalisée
+description: "Créez votre première vue personnalisée depuis le menu Accueil > Vues personnalisées de Centreon, choisissez le nombre de colonnes et ajoutez des widgets."
+---
+
+## Qu'est-ce qu'une vue personnalisée?
+
+Les [vues personnalisées](../alerts-notifications/custom-views.md) sont des tableaux de bord, créés à l'aide de widgets.
+
+## Créez votre première vue personnalisée
+
+Rendez-vous au menu **Accueil > Vues personnalisées** et cliquez sur l'icône crayon situé tout à droite de l'interface pour activer
+le mode d'édition.
+
+Cliquez sur le bouton **+ Ajouter une vue** pour créer votre première vue personnalisée, puis saisissez **Ma vue** dans le champ **Nom**
+et sélectionnez **2 colonnes** dans le champ **Disposition**. Cliquez enfin sur le bouton **Soumettre**.
+
+Ajoutez votre premier widget, en cliquant sur le bouton **+ Ajouter widget**, puis saisissez le titre **TOP 10 CPU** et
+sélectionnez le widget **Live Top 10 CPU Usage**. Cliquez ensuite sur le bouton **Soumettre**.
+
+Cliquez de nouveau sur le bouton **+ Ajouter widget**, saisissez le titre **TOP 10 Memory** et sélectionnez le widget
+**Live Top 10 Memory Usage**. Cliquez ensuite sur le bouton **Soumettre**.
+
+Le deuxième widget se place automatiquement sur la deuxième colonne.
+
+Cliquez de nouveau sur le bouton **+ Ajouter widget**, saisissez le titre **Alertes non traitées** et sélectionnez le
+widget **Services Monitoring**. Cliquez ensuite sur le bouton **Soumettre**.
+
+Éditez ce widget en cliquant sur l'icône clé à molette dans l'en-tête du widget.
+
+Dans la fenêtre qui s'ouvre, décochez les cases :
+
+* **Display Pending**
+* **Display Duration**
+* **Display Tries**
+
+Puis cliquez sur le bouton **Apply**.
+
+Cliquez de nouveau sur le bouton **+ Ajouter widget**, saisissez le titre **Global Health** et sélectionnez le widget
+**Global Health**. Cliquez ensuite sur le bouton **Soumettre**.
+
+Éditez ce widget en cliquant sur l'icône clé à molette et sélectionnez **Show services** pour le champ **Services/Hosts**.
+Cliquez sur le bouton **Apply**.
+
+Votre première vue personnalisée est créée :
+
+![image](../assets/getting-started/cv_8.png)

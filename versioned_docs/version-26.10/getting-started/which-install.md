@@ -1,7 +1,7 @@
 ---
 id: which-install
 title: Which installation should I choose?
-description: "Choose the right Centreon installation method for your needs"
+description: "Choose how to install Centreon: a ready-to-use virtual machine to test it or use IT-100, or the unattended script or RPM and DEB packages for production."
 ---
 
 There are several ways to install Centreon. Which one suits your needs best?
@@ -12,8 +12,12 @@ There are several ways to install Centreon. Which one suits your needs best?
 
 ## To install Centreon in production
 
-- Use [RPM or DEB packages](../installation/installation-of-a-central-server/using-packages.md): if you already have the
-  OS and you only want to install Centreon. See the list of [supported operating systems](../installation/compatibility.md#operating-systems).
+If you already have the OS and you only want to install Centreon, use either of these:
+
+* [Unattended installation](../installation/installation-of-a-central-server/unattended.md), done by running a script.
+* [RPM or DEB packages](../installation/installation-of-a-central-server/using-packages.md).
+
+See the list of [supported operating systems](../installation/compatibility.md#operating-systems).
 
 ## See also
 

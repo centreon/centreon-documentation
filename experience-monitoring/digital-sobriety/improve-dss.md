@@ -1,12 +1,12 @@
 ---
 id: improve-dss
 title: Improving your Digital Sobriety Score
-description: Use per-step recommendations to raise your Digital Sobriety Score
+description: "Improve your Digital Sobriety Score using the recommendations for each user journey step or RUM page, then compare audits to measure the impact."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Digital Sobriety Score (DSS) is a calculation of your site's carbon emissions [taking diverse factors into account](https://docs.centreon.com/experience-monitoring/experience-monitoring/digital-sobriety/digital-sobriety-score/). In addition to calculating it, Centreon Experience Monitoring can offer advice on how to improve it.
+The Digital Sobriety Score (DSS) is a calculation of your site's carbon emissions [taking diverse factors into account](./digital-sobriety-score.md). In addition to calculating it, Centreon Experience Monitoring can offer advice on how to improve it.
 
 Details on your DSS and how to improve it are accessed from the corresponding widget located in the **Global View** page. 
 

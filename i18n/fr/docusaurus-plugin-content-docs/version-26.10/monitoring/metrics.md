@@ -1,7 +1,7 @@
 ---
 id: metrics
 title: Comprendre les métriques
-description: "Comment fonctionnent les métriques, seuils et données de performance dans Centreon"
+description: "Comprenez les métriques (données de performance) dans Centreon : format, syntaxe des seuils, définition d'un seuil par métrique et exemples de commandes."
 ---
 
 ## Qu'est-ce qu'une métrique ?

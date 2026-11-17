@@ -1,7 +1,7 @@
 ---
 id: ha-prerequisites
 title: Prérequis pour une architecture HA
-description: "Prérequis de dimensionnement et de flux réseau pour une architecture HA"
+description: "Vérifiez les prérequis d'une architecture Centreon HA : dimensionnement des serveurs, espace disque pour les données MariaDB et flux réseau à ouvrir."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

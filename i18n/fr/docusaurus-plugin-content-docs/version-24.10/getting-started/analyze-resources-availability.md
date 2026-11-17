@@ -1,7 +1,7 @@
 ---
 id: analyze-resources-availability
 title: Analyser la disponibilité des ressources
-description: "Comment générer votre premier rapport de disponibilité avec Centreon MBI"
+description: "Générez votre premier rapport de disponibilité avec Centreon MBI : définissez votre besoin, choisissez un modèle de rapport et configurez une tâche."
 ---
 
 Vous débutez avec Centreon MBI et souhaitez extraire vos premières

@@ -1,7 +1,7 @@
 ---
 id: cma
 title: Introduction à l'agent CMA
-description: "Introduction à l'agent de supervision Centreon et ses cas d'usage"
+description: "Présentation de Centreon Monitoring Agent (CMA) : usages d'un agent, OS et applications supervisés, période de contrôle, échanges entre hôte et collecteur."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -36,7 +36,6 @@ L'agent peut être installé sur et superviser les OS suivants :
 * RHEL/Oracle Linux/Alma Linux 8
 * RHEL/Oracle Linux/Alma Linux 9
 * RHEL/Oracle Linux/Alma Linux 10
-* Debian 11
 * Debian 12
 * Debian 13
 * Ubuntu 22.04/24.04 LTS

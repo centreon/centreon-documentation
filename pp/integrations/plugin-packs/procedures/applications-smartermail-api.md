@@ -1,7 +1,7 @@
 ---
 id: applications-smartermail-api
 title: Smartermail Server
-description: "Monitor SmarterMail Server via its REST API: license status, service health, and message spool queues."
+description: "Monitor SmarterMail Server via its REST API: license upgrade protection status and expiration, service status, and number of messages in spools."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -398,3 +398,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=spools \
 	--help
 ```
+
+## Changelog
+
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the App-Smartermail-Api-Spools command.

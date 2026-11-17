@@ -1,7 +1,7 @@
 ---
 id: network-opengear-snmp
 title: Opengear SNMP
-description: "Monitor Opengear devices via SNMP: CPU, memory, load, uptime, network interfaces, and serial ports."
+description: "Monitor Opengear devices via SNMP: CPU, memory, load, uptime, network interfaces, and serial ports, with host and service discovery rules."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -672,3 +672,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=serial-ports \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added CM8100 series compatibility.
+- [23.04](../releases/release-notes.md#2023-04) - New connector: Initial release.

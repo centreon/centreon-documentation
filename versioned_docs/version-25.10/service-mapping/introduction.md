@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction to Centreon BAM
-description: "Introduction to Centreon Business Activity Monitoring and its documentation"
+description: "Centreon BAM aggregates monitoring data into Business Activities and Business Views based on KPIs, to align IT with business and track service levels."
 ---
 
 The service mapping capabilities in Centreon rely on the **Centreon Business

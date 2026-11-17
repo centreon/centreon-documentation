@@ -1,7 +1,7 @@
 ---
 id: timeperiods
 title: Les périodes temporelles
-description: "Définir des périodes temporelles pour planifier les contrôles et les notifications"
+description: "Définissez des périodes temporelles dans Centreon pour planifier contrôles et notifications : syntaxe des plages horaires, modèles et périodes d'exception."
 ---
 
 ## Définition

@@ -1,7 +1,7 @@
 ---
 id: services-templates
 title: Using service templates
-description: "Use service templates to standardize and simplify service creation"
+description: "Use service templates in Centreon to define default values, manage inheritance, and follow best practices to standardize and simplify service creation."
 ---
 
 ## Definition

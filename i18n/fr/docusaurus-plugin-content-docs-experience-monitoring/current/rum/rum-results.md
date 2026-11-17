@@ -1,6 +1,6 @@
 ---
 id: rum-results
-description: Lire les onglets RUM pour les données en direct, par page et géographiques
+description: "Exploitez les onglets RUM (live, pages les plus visitées, données géographiques, navigateurs, sobriété numérique) et filtrez les résultats par percentile."
 title: Comprendre les résultats RUM
 ---
 

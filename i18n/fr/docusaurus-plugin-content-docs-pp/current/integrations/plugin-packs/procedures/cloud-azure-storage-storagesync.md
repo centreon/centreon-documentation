@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-storage-storagesync
 title: Azure Storage Sync
-description: "Supervisez Azure Storage Sync via l'API REST : synchronisation des fichiers, rappels et statut du serveur."
+description: "Supervisez Azure Storage Sync via l'API REST : fichiers synchronisés, rappels et statut du serveur, avec découverte automatique des hôtes de l'abonnement."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -460,3 +460,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=server-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.05](../releases/release-notes.md#2025-05) - Bug fix: Removed deprecated `StorageSyncRecallIOTotalSizeBytes` metric in **recalls** mode.

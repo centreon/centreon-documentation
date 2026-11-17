@@ -1,7 +1,7 @@
 ---
 id: custom-views
 title: Custom views (legacy)
-description: "Create, edit, and share legacy dashboard views built with widgets"
+description: "Create, edit, and share legacy custom views built with widgets in Centreon, rearrange widgets, set a default view, and configure the rotation of views."
 ---
 
 Custom views are dashboards created with widgets. You can share views with other users. See also our [tutorial](../getting-started/create-custom-view.md) on custom views.
@@ -12,9 +12,7 @@ Custom views are dashboards created with widgets. You can share views with other
 
 2. Click the **Show/Hide edit mode** icon in the top right corner of the page: ![image](../assets/alerts/edit_mode.png)
     
-    The control bar appears:
-
-    ![image](../assets/alerts/bar.png)
+    The control bar appears, with the **Add view**, **Edit view**, **Delete view**, **Set default**, **Share view**, **Add widget** and **Rotation** buttons.
 
 3. Click **Add view**: a pop-up window is displayed.
 
@@ -38,7 +36,7 @@ Custom views are dashboards created with widgets. You can share views with other
 
 ## Editing a custom view
 
-On the control bar, click **Edit view**. ![image](../assets/alerts/view_edit.png)
+On the control bar, click **Edit view**. The window contains the same fields as when you create a view (**Name**, **Layout**, **Public**).
 
 You can rename the view, change the layout of the columns, and [share the view](#sharing-custom-views) in read-only mode with other users. You can also edit or move widgets.
 
@@ -74,9 +72,7 @@ To share a view with "locked"/"unlocked users" :
 
 1. On the **Home > Custom Views** page, click the **Show/Hide edit mode** icon in the top right corner of the page: ![image](../assets/alerts/edit_mode.png#thumbnail1)
 
-    The control bar appears:
-
-    ![image](../assets/alerts/bar.png)
+    The control bar appears, with the **Add view**, **Edit view**, **Delete view**, **Set default**, **Share view**, **Add widget** and **Rotation** buttons.
 
 2. Click **Add view**, then select **Load from existing view**. A dropdown list shows all the views that other users have shared with you. 
 

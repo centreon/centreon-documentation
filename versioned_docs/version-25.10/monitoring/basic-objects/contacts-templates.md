@@ -1,7 +1,7 @@
 ---
 id: contacts-templates
 title: Using contact templates
-description: "Create contact templates to standardize user configuration and LDAP imports"
+description: "Create contact templates in Centreon to standardize user settings such as notifications, and apply them to contacts or LDAP imports by inheritance."
 ---
 
 ## Contact Templates

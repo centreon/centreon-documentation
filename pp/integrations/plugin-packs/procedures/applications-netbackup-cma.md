@@ -442,3 +442,7 @@ C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
 	--mode=drive-status \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - New connector: Initial release.

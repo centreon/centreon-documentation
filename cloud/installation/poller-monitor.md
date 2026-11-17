@@ -1,7 +1,7 @@
 ---
 id: poller-monitor
 title: Monitoring your pollers
-description: "How to configure one poller to monitor another poller using the Centreon Poller monitoring connector"
+description: "How to configure one poller to monitor another poller using the Centreon Poller monitoring connector, so that no poller in your platform monitors itself"
 ---
 
 import Tabs from '@theme/Tabs';

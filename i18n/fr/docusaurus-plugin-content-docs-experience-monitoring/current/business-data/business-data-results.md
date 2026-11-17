@@ -1,7 +1,7 @@
 ---
 id: business-data-results
 title: Comprendre les résultats des données business
-description: Comparer le trafic des données business au RUM et les utiliser dans les tableaux de bord
+description: "Comprenez en quoi le trafic des données business (Google Analytics ou Matomo) diffère du RUM et croisez-le avec les performances dans vos tableaux de bord."
 ---
 
 Le module **Données business** affiche les indicateurs de trafic et de conversion issus de votre outil d’analyse (Google Analytics ou Matomo). Établissez une corrélation entre les performances techniques de votre site et vos ventes. Il est essentiel de [reporter les évènements sur vos graphiques](../installation/monitor-production-events.md) afin d’expliquer les variations observées.

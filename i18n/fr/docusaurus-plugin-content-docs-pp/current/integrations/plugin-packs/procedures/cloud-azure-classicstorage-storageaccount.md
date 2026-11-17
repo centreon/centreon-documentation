@@ -1699,3 +1699,10 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=transactions-latency \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Cloud-Azure-ClassicStorage-StorageAccount-Api-File-Share-Quota** command.
+- [22.07](../releases/release-notes.md#2022-07) - New connector: Added support for both Azure Storage and Classic Storage and added new metrics.

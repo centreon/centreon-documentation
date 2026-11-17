@@ -1,7 +1,7 @@
 ---
 id: network-backbox-restapi
 title: Backbox Rest API
-description: "Monitor Backbox devices via REST API: track backup status, configuration status, and intellichecks."
+description: "Monitor Backbox via REST API: backup results (success, suspect, failure), configuration changes, intellichecks, and per-device backup status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -458,3 +458,8 @@ All available options for a given mode can be displayed by adding the
 	--custommode=api \
 	--help
 ```
+
+## Changelog
+
+- [25.01](../releases/release-notes.md#2025-01) - Enhancement: Added **device-backup** mode and its service discovery.
+- [24.09](../releases/release-notes.md#2024-09) - New connector: Initial release of Backbox REST API.

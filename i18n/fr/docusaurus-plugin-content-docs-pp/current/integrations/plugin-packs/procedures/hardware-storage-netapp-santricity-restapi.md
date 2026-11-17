@@ -539,3 +539,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=storage-volumes \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Fixed `cmd` component count in **hardware** mode.

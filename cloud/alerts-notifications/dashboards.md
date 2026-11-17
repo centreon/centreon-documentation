@@ -1,7 +1,7 @@
 ---
 id: dashboards
 title: Dashboards
-description: "How to create, edit, share, and manage dashboards, widgets, and playlists in Centreon Cloud"
+description: "How to create, edit, share, and manage dashboards and their widgets in Centreon Cloud, set access rights, and display them in playlists"
 ---
 
 Get started with creating dashboards and adding widgets specially designed to optimize your user experience. Then benefit from data visualization options to display and monitor your resources in real time.
@@ -91,11 +91,18 @@ You are using the Dashboards feature with a **viewer** or an **editor** profile:
 ### Manage access rights
 
 1. Click the **share** button at the bottom right of the dashboard.
-2. In the **Add contact** dropdown list, select the user to add.
-3. Select either **Viewer** or **Editor** profile.
-4. Click the **+** button to add it.
-5. Repeat the action for each user you want to add.
-6. Click the **Update** button to save your changes.
+2. Choose whether to share the dashboard with individual contacts or contact groups.
+3. In the **Add a contact** or **Add a contact group** dropdown list, select the user or contact group to add.
+  > If you are not a dashboard administrator (a user with the **Administrator** role on dashboards, or a member of the **customer_admin_acl** access group), the list only displays:
+  >
+  > - contacts that belong to one of your contact groups,
+  > - contact groups you belong to.
+  >
+  > Contacts must have access to the **Dashboards** menu (Viewer, Creator or Administrator role). Contacts with the Viewer role can only be given the **Viewer** profile.
+4. Select either the **Viewer** or **Editor** profile.
+5. Click the **+** button to add it.
+6. Repeat the action for each user you want to add.
+7. Click the **Update** button to save your changes.
 
 The users you have just added now have access to your dashboard sharing, according to the profile you have set for them.
 
@@ -144,7 +151,12 @@ The control banner allows you to:
 
 ### Share the playlist with users of your platform
 
-You can share your playlist with contacts who have access to your Centreon platform and are authorized Dashboards viewers.
+You can share your playlist with contacts and contact groups that have access to the **Dashboards** menu. If you are not a dashboard administrator (a user with the **Administrator** role on dashboards, or a member of the **customer_admin_acl** access group), you can only share it with:
+
+- contacts that belong to one of your access groups or one of your contact groups,
+- contact groups you belong to.
+
+Contacts with the Viewer role can only be given the **Viewer** profile.
 
 - Click the **Share with contacts** button from the line of your playlist.
 The **Playlist access rights** window is displayed.

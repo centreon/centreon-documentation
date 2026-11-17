@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-solaris-snmp
 title: Solaris SNMP
-description: "Monitor Solaris servers via SNMP: CPU load, disk space, network traffic, packet errors, processes, and uptime."
+description: "Monitor Solaris servers via SNMP: detailed CPU, load, disk space, network traffic, packet errors, processes, and uptime, with disk and interface discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -949,3 +949,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added native SNMP v3 host macro.
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **OS-Solaris-SNMP-Load** command.

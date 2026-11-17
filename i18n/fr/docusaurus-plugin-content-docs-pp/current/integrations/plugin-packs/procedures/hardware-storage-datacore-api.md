@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-datacore-api
 title: Datacore RestApi
-description: "Supervisez le stockage DataCore SANsymphony via l'API REST : alertes, statut des monitors et utilisation des pools."
+description: "Supervisez le stockage DataCore SANsymphony via l'API REST : alertes par sévérité, statut des objets monitors et utilisation des pools, avec découverte."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -411,3 +411,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=pool-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.06](../releases/release-notes.md#2024-06) - Bug fix: Fixed API path in pools check and added verbosity in monitoring Datacore “monitors” objects.
+- [24.03](../releases/release-notes.md#2024-03) - New connector: First release of Datacore.

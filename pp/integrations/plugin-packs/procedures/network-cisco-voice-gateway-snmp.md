@@ -1,7 +1,7 @@
 ---
 id: network-cisco-voice-gateway-snmp
 title: Cisco Voice Gateway SNMP
-description: "Monitor Cisco Voice Gateway devices via SNMP: ISDN channel usage, interface traffic, and voice call statistics."
+description: "Monitor Cisco Voice Gateway devices via SNMP: ISDN channel usage, interface traffic, and voice call statistics, with host and interface discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -559,3 +559,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=voice-call \
 	--help
 ```
+
+## Changelog
+
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added native SNMP v3 host macro.

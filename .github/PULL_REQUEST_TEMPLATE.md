@@ -6,7 +6,8 @@ Please include a short summary of the changes and what is the purpose of the PR.
 
 - [ ] 24.10.x
 - [ ] 25.10.x
-- [ ] 26.10.x 
+- [ ] 26.10.x
+- [ ] 27.10.x
 - [ ] Cloud
 - [ ] Monitoring Connectors
 - [ ] Experience Monitoring

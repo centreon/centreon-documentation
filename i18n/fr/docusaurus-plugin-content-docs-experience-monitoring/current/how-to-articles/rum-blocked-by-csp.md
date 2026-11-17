@@ -1,7 +1,7 @@
 ---
 id: rum-blocked-by-csp
 title: Dépanner RUM
-description: Corriger une politique de sécurité de contenu qui bloque la collecte RUM
+description: "Les données RUM ne remontent pas ? Autorisez les domaines d'Experience Monitoring dans la Content Security Policy (CSP) de votre site."
 ---
 
 ## Les données du RUM sont bloquées car le site utilise une politique CSP stricte

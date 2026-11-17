@@ -1,7 +1,7 @@
 ---
 id: inside-centreon
 title: À l'intérieur de Centreon
-description: "Introduction aux composants internes qui font fonctionner Centreon"
+description: "Comprenez les composants internes de Centreon (Engine, cbmod, Broker, Gorgone, bases de données, fichiers RRD, serveur web) et leurs interactions."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: platform-statistics
 title: Platform statistics
-description: "View Broker and Engine performance statistics for your pollers"
+description: "View Centreon Broker statistics and Centreon Engine performance graphs for each poller from the Administration > Platform Status menu."
 ---
 
 The status of the Centreon platform is available through the **Administration > Platform Status** menu.

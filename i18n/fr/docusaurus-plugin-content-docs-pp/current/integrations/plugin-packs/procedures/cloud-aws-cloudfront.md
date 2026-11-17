@@ -455,3 +455,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=throughput \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the Cloud-Aws-CloudFront-Api-HostDiscovery host discovery command.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
+- [23.01](../releases/release-notes.md#2023-01) - Enhancement: Added discovery mode/rule for AWS CloudFront.

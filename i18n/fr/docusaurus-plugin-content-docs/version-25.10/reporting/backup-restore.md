@@ -1,7 +1,7 @@
 ---
 id: backup-restore
 title: Sauvegarder et restaurer MBI
-description: "Sauvegarder et restaurer les serveurs central et de reporting de Centreon MBI"
+description: "Sauvegardez Centreon MBI grâce aux tâches cron des serveurs central et MBI, et restaurez si besoin le module MBI, le serveur de reporting ou les données."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

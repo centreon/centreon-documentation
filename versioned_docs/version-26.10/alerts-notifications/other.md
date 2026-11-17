@@ -1,7 +1,7 @@
 ---
 id: other
 title: Other actions
-description: "Add comments, manage checks, and reschedule host or service checks"
+description: "Add comments to hosts and services in Centreon, enable or disable checks and notifications on a resource, and reschedule checks to run immediately."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -42,9 +42,7 @@ There are two solutions to add a comment:
 </TabItem>
 </Tabs>
 
-The following window appears:
-
-![image](../assets/alerts/comment.png)
+In the window that appears:
 
 -   The **Host Name** field defines the host concerned by the comment.
 -   If you have chosen to add a comment to a service, the **Service**

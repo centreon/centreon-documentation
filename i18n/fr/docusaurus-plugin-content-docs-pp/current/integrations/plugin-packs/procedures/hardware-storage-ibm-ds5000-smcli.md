@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-ibm-ds5000-smcli
 title: IBM DS5000 SMcli
-description: "Supervisez les baies de stockage IBM DS5000 via la CLI SMcli et suivez leur état de santé global."
+description: "Supervisez les baies de stockage IBM DS5000 via l'outil SMcli installé sur chaque collecteur, afin de contrôler l'état de santé global du stockage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: hardware-ups-himoinsa-snmp
 title: Himoinsa SNMP
-description: "Monitor Himoinsa UPS/generator units via SNMP: frequency, fuel level, phase current, status, and voltage."
+description: "Monitor Himoinsa UPS and generator units via SNMP: frequency, fuel level, phase current, operating status, and voltage, with SNMP host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -512,3 +512,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=voltage \
 	--help
 ```
+
+## Changelog
+
+- [22.11](../releases/release-notes.md#2022-11) - New connector: Added Himoinsa Monitoring Connector.

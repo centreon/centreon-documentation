@@ -1,7 +1,7 @@
 ---
 id: introduction-integrations
 title: Intégrations
-description: "Introduction aux intégrations tierces disponibles avec Centreon"
+description: "Intégrez Centreon à vos outils tiers avec les stream connectors, qui envoient évènements et métriques, et avec Centreon Open Tickets pour l'ITSM."
 ---
 
 ## Connecter Centreon à vos autres outils

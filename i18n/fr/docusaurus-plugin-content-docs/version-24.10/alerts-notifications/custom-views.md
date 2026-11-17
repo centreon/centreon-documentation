@@ -1,7 +1,7 @@
 ---
 id: custom-views
 title: Vues personnalisées (legacy)
-description: "Créer, éditer et partager des vues personnalisées basées sur des widgets"
+description: "Créez, modifiez et partagez des vues personnalisées (legacy) à base de widgets dans Centreon, définissez une vue par défaut et programmez leur rotation."
 ---
 
 Les vues personnalisées sont des tableaux de bord, créés à l'aide de widgets. Vous pouvez partager des vues avec les autres utilisateurs. Voir aussi notre [tutoriel](../getting-started/create-custom-view.md) sur les vues personnalisées.

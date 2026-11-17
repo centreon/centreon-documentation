@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction à Centreon MBI
-description: "Introduction à Centreon MBI et aux rapports qu'il génère"
+description: "Centreon MBI génère des rapports sur les groupes et catégories d'hôtes et les catégories de services : principe, données incluses et formats de sortie."
 ---
 
 ## Qu'est-ce que Centreon MBI ?

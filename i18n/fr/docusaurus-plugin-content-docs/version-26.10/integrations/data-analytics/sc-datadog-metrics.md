@@ -1,7 +1,7 @@
 ---
 id: sc-datadog-metrics
 title: Datadog Metrics
-description: "Transmettre les métriques de performance hôtes et services vers Datadog"
+description: "Installez et configurez le stream connector Datadog Metrics pour transmettre à Datadog les métriques de performance des hôtes et services Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -27,14 +27,6 @@ Faites l'installation sur le serveur qui enverra les données à Datadog (serveu
 2. Exécutez la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-stream-connector-datadog
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -43,7 +35,15 @@ dnf install centreon-stream-connector-datadog
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-stream-connector-datadog
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-stream-connector-datadog
@@ -190,3 +190,7 @@ curl -X POST -H "content-type: application/json" -H "DD-API-KEY: <api_key>" '<ht
 Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. `http_server_url` pourra être remplacé par *https://api.datadoghq.com*.
 
 3. Vérifiez que l'évènement a bien été reçu par Datadog.
+
+## Historique des modifications
+
+- [22.05](../stream-connectors-rn.md#2022-05) - New stream connector: Initial release of Datadog Metrics.

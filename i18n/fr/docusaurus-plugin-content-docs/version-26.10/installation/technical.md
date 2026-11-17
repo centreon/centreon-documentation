@@ -1,7 +1,7 @@
 ---
 id: technical
 title: Informations techniques
-description: "Flux réseau, utilisateurs, groupes et dépendances logicielles de Centreon"
+description: "Tableaux des flux réseau des serveurs centraux, distants et collecteurs Centreon, avec les utilisateurs, groupes et dépendances logicielles associés."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -91,20 +91,6 @@ import TabItem from '@theme/TabItem';
 Description des logiciels et utilisateurs liés :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-| Logiciel          | Service          | Utilisateur      | Commentaire     |
-| ----------------- | ---------------- | ---------------- | --------------- |
-| Apache            | httpd            | apache           | automatic start |
-| PHP-FPM           | php-fpm          | apache           | automatic start |
-| MariaDB/MySQL     | mariadb/mysqld   | mysql            | automatic start |
-| Centreon          | centreontrapd    | centreon         | automatic start |
-| Centreon Broker   | cbwd             | centreon-broker  | automatic start |
-| Centreon Broker   | cbd              | centreon-broker  | automatic start |
-| Centreon Engine   | centengine       | centreon-engine  | automatic start |
-| Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 | Logiciel          | Service          | Utilisateur      | Commentaire     |
@@ -119,7 +105,21 @@ Description des logiciels et utilisateurs liés :
 | Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+| Logiciel          | Service          | Utilisateur      | Commentaire     |
+| ----------------- | ---------------- | ---------------- | --------------- |
+| Apache            | httpd            | apache           | automatic start |
+| PHP-FPM           | php-fpm          | apache           | automatic start |
+| MariaDB/MySQL     | mariadb/mysqld   | mysql            | automatic start |
+| Centreon          | centreontrapd    | centreon         | automatic start |
+| Centreon Broker   | cbwd             | centreon-broker  | automatic start |
+| Centreon Broker   | cbd              | centreon-broker  | automatic start |
+| Centreon Engine   | centengine       | centreon-engine  | automatic start |
+| Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 | Software          | Service          | User             | Comment         |
 | ----------------- | ---------------- | ---------------- | --------------- |

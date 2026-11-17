@@ -1,6 +1,6 @@
 ﻿---
 id: network-tab-indicators
-description: Comprendre les données de temps de réponse réseau basées sur le ping
+description: "Mesurez le temps de réponse de votre site par des pings ICMP et TCP réguliers, interprétez les zones grises et rouges et repérez les cas à surveiller."
 title: Données réseau
 ---
 

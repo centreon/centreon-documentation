@@ -1,7 +1,7 @@
 ---
 id: notif-email
 title: Notifications par email
-description: "Configurer un serveur SMTP local pour envoyer des notifications par e-mail"
+description: "Envoyez les notifications Centreon par e-mail : configurez les notifications des ressources et un serveur SMTP local, comme Postfix, sur chaque collecteur."
 ---
 
 Le façon la plus courante d'envoyer des notifications avec Centreon est par email. Suivez la procédure [Configurer les notifications](./notif-configuration.md) pour les paramétrer.

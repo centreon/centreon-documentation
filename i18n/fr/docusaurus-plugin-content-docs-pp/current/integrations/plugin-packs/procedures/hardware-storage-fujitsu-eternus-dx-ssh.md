@@ -529,3 +529,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=volume-stats \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.10](../releases/release-notes.md#2022-10) - Breaking change: Changed to use new ssh backend.

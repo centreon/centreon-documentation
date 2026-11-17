@@ -443,3 +443,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=modem \
 	--help
 ```
+
+## Changelog
+
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Renamed System service to Modem.

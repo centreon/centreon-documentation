@@ -814,3 +814,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
+- [24.06](../releases/release-notes.md#2024-06) - Bug fix: Windows services whose names contain parentheses blocked the discovery export. Parentheses are now replaced with square brackets.
+- [24.04](../releases/release-notes.md#2024-04) - Enhancement: The **services** mode can now filter using non-ASCII characters.
+- [23.12](../releases/release-notes.md#2023-12) - Enhancement: Added the `--check-overload` option in the `EXTRAOPTIONS` macro.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the bug on Windows SNMP Services monitoring returning "UNKNOWN: No service found." instead of CRITICAL.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Added options for Service-Generic mode (may change the behavior of existing services).

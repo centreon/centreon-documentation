@@ -1,7 +1,7 @@
 ---
 id: network-meru-snmp
 title: Meru SNMP
-description: "Supervisez les équipements Meru Networks via SNMP : alarmes, processeur, mémoire, interfaces et statistiques wireless."
+description: "Supervisez les équipements Meru Networks via SNMP : alarmes, CPU, mémoire, interfaces et statistiques sans fil, avec découverte d'hôtes et de services."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

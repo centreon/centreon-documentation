@@ -1,6 +1,7 @@
 ---
 id: network-waystream-snmp
 title: Waystream SNMP
+description: "Monitor Waystream network devices via SNMP: CPU, memory, hardware, ARP table, NTP offset, uptime, interfaces, and SFP ports, with discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -932,3 +933,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=sfp-port \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - New connector: Initial release, from a community contribution ([PR 5956](https://github.com/centreon/centreon-plugins/pull/5956)).

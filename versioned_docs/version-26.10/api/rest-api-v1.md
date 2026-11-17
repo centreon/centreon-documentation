@@ -1,7 +1,7 @@
 ---
 id: rest-api-v1
 title: Rest API (v1)
-description: "Use the REST API v1 for configuration and realtime data"
+description: "Use the Centreon REST API v1 to manage configuration objects and retrieve real-time data: permissions, authentication, error codes, and API calls."
 ---
 
 ## Overview

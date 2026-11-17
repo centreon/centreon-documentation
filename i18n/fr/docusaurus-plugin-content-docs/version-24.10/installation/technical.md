@@ -1,7 +1,7 @@
 ---
 id: technical
 title: Informations techniques
-description: "Flux réseau, utilisateurs, groupes et dépendances logicielles de Centreon"
+description: "Tableaux des flux réseau des serveurs centraux, distants et collecteurs Centreon, avec les utilisateurs, groupes et dépendances logicielles associés."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

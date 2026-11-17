@@ -1,7 +1,7 @@
 ---
 id: applications-zookeeper-jmx
 title: Zookeeper
-description: "Monitor Apache Zookeeper via JMX and Jolokia: request latency, connections, and packet statistics."
+description: "Monitor Apache Zookeeper via JMX and Jolokia: average and maximum request latency, outstanding requests, connections, and packets sent and received."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -328,3 +328,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=stats \
 	--help
 ```
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

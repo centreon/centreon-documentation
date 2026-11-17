@@ -1,7 +1,7 @@
 ---
 id: dem-overview
 title: Digital Experience Monitoring
-description: "Combine external web and app performance metrics with Centreon"
+description: "Integrate digital experience monitoring tools with Centreon to combine web and application performance measurements with your other monitoring data."
 ---
 
 Get measurements from tools dedicated to tracking web and application 

@@ -1,7 +1,7 @@
 ---
 id: which-install
 title: Which installation should I choose?
-description: "Choose the right Centreon installation method for your needs"
+description: "Choose how to install Centreon: a ready-to-use virtual machine to test it or use IT-100, or RPM and DEB packages to install it in production."
 ---
 
 There are several ways to install Centreon. Which one suits your needs best?

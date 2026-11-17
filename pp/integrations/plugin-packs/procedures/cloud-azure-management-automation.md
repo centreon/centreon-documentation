@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-management-automation
 title: Azure Automation
-description: "Monitor Azure Automation jobs via API or CLI, tracking job counts, machine runs, and update deployment runs."
+description: "Monitor Azure Automation accounts via API or Azure CLI: total job counts, machine runs, and update deployment runs, with automatic host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -377,3 +377,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=jobs \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.

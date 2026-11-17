@@ -1,7 +1,7 @@
 ---
 id: rum-results
 title: Understanding RUM results
-description: Read RUM tabs for live, page, and geographic data
+description: "Explore RUM data by tab: live view, most visited pages, geography, browsers, and digital sobriety, and filter results with percentiles such as the 75th."
 ---
 
 Once RUM is [configured](../installation/real-user-monitoring-installation.md), click **Real User Monitoring** in the navigation bar at the top of the screen. Click the tabs under the navigation bar to view the data you want.

@@ -1,7 +1,7 @@
 ---
 id: network-barracuda-cloudgen-snmp
 title: Barracuda Cloudgen SNMP
-description: "Monitor Barracuda CloudGen firewalls via SNMP: CPU, memory, load, storage, interfaces, VPN status, and hardware health."
+description: "Monitor Barracuda CloudGen firewalls via SNMP: CPU, memory, load, storage, interfaces, VPN status, box and server services, and hardware health."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -864,3 +864,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=storage \
 	--help
 ```
+
+## Changelog
+
+- [23.09](../releases/release-notes.md#2023-09) - Bug fix: Fixed interfaces service template.

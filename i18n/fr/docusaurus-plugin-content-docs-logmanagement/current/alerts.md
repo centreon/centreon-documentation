@@ -1,7 +1,7 @@
 ---
 id: alert-events
 title: Définir des règles d'alerte
-description: Créer des règles d'alerte pour détecter des schémas de logs anormaux et générer des évènements d'alerte
+description: "Créez des règles d'alerte pour détecter des schémas de logs anormaux dans Centreon Log Management, générer des évènements d'alerte et suivre leur statut."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

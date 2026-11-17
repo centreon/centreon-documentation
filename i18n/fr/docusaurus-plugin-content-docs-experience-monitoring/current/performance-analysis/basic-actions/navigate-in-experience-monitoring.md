@@ -1,7 +1,7 @@
 ﻿---
 id: navigate-in-experience-monitoring
 title: Naviguer dans Experience Monitoring
-description: Basculer entre les sites, les modules et les périodes dans l'interface
+description: "Changez de site ou de module, ajoutez un site à une organisation, modifiez la période des données affichées et personnalisez la page Vue globale."
 ---
 
 Dans l'interface Centreon Experience Monitoring, vous pouvez :

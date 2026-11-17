@@ -1,7 +1,7 @@
 ---
 id: key-rotation
 title: Rotation de clés
-description: "Faire tourner les clés utilisées pour signer les paquets Centreon"
+description: "Renouvelez les clés de signature des paquets RPM et du dépôt Debian de Centreon, pour une installation neuve ou existante, et vérifiez les clés installées."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

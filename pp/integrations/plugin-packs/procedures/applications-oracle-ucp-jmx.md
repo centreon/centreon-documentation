@@ -1,7 +1,7 @@
 ---
 id: applications-oracle-ucp-jmx
 title: Oracle UCP JMX
-description: "Monitor Oracle UCP connection pools via JMX/Jolokia: track pool usage, free connections, and utilization percentage."
+description: "Monitor Oracle UCP connection pools via JMX/Jolokia: pool usage, free connections, and utilization percentage, with connection pool discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -325,3 +325,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=connection-pools \
 	--help
 ```
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.
+- [23.02](../releases/release-notes.md#2023-02) - New connector: Initial release.

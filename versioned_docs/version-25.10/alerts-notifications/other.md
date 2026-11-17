@@ -1,7 +1,7 @@
 ---
 id: other
 title: Other actions
-description: "Add comments, manage checks, and reschedule host or service checks"
+description: "Add comments to hosts and services in Centreon, enable or disable checks and notifications on a resource, and reschedule checks to run immediately."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

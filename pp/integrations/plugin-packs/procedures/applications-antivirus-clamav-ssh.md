@@ -1,7 +1,7 @@
 ---
 id: applications-antivirus-clamav-ssh
 title: Antivirus ClamAV
-description: "Monitor ClamAV antivirus via SSH to track engine, main database, and daily database update status."
+description: "Monitor ClamAV antivirus via SSH: check that the engine, the main virus database (main.cvd), and the daily database (daily.cvd) are up to date."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -327,3 +327,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=update-status \
 	--help
 ```
+
+## Changelog
+
+- [22.12](../releases/release-notes.md#2022-12) - Breaking change: Changed to use new ssh backend.

@@ -418,3 +418,8 @@ All available options for a given mode can be displayed by adding the
 	--server='10.0.0.1' \
 	--help
 ```
+
+## Changelog
+
+- [25.08](../releases/release-notes.md#2025-08) - Enhancement: Added `cert` and `key` options for authentication (available for redis-cli >= 6.x), from community contribution [PR 5555](https://github.com/centreon/centreon-plugins/pull/5555).
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

@@ -383,3 +383,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--cem-password="" \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.01](../releases/release-notes.md#2026-01) - Breaking change: The pack has been renamed and the default NRPECLIENT macro changed to use the official Nagios NRPE4 client.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Made NSClient and NRPE usage more explicit.

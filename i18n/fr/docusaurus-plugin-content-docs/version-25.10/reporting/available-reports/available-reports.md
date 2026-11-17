@@ -1,7 +1,7 @@
 ---
 id: available-reports
 title: Rapports disponibles
-description: "Aperçu des catégories de modèles de rapports disponibles dans Centreon MBI"
+description: "Parcourez les modèles de rapports Centreon MBI par catégorie, avec un aperçu de chaque modèle et le détail de ses paramètres et de ses prérequis."
 ---
 
 Vous pouvez ici prévisualiser les modèles de rapport et obtenir des informations sur leurs paramètres et leurs prérequis. Les modèles de rapport sont regroupés par le type de données qu'ils contiennent.

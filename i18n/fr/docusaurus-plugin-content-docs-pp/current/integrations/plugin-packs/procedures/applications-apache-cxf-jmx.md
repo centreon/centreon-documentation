@@ -1,7 +1,7 @@
 ---
 id: applications-apache-cxf-jmx
 title: Apache CXF
-description: "Supervisez Apache CXF via JMX/Jolokia : invocations de services, requêtes en cours et défauts applicatifs ou runtime."
+description: "Supervisez Apache CXF via JMX/Jolokia : découverte des services, invocations, requêtes en cours et défauts applicatifs, logiques ou runtime par service."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -368,3 +368,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=services \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.01](../releases/release-notes.md#2026-01) - New connector: Initial release.

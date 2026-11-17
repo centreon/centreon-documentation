@@ -1,7 +1,7 @@
 ---
 id: network-securactive-snmp
 title: Securactive SNMP
-description: "Monitor SecurActive business-critical applications and networks via SNMP, tracking BCA and BCN status and availability."
+description: "Monitor SecurActive appliances via SNMP: status and availability of business-critical applications (BCA) and networks (BCN), with automatic discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -391,3 +391,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=bcn \
 	--help
 ```
+
+## Changelog
+
+- [26.03](../releases/release-notes.md#2026-03) - Bug fix: Fixed the **Net-Securactive-SNMP-Bca** and **Net-Securactive-SNMP-Bcn** commands.
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Net-Securactive-SNMP-Bca** and **Net-Securactive-SNMP-Bcn** commands.

@@ -322,3 +322,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=numeric-value \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

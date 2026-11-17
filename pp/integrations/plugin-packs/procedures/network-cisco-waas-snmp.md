@@ -1,7 +1,7 @@
 ---
 id: network-cisco-waas-snmp
 title: Cisco Waas SNMP
-description: "Monitor Cisco WaaS appliances via SNMP, tracking TCP session counts in passthrough and optimized states."
+description: "Monitor Cisco WaaS appliances via SNMP: track the number of TCP sessions in passthrough and optimized states (TFO), with SNMP host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -335,3 +335,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=sessions \
 	--help
 ```
+
+## Changelog
+
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added native SNMP v3 host macro.
+- [25.12](../releases/release-notes.md#2025-12) - Breaking change: Fixed errors related to thresholds.

@@ -1,7 +1,7 @@
 ---
 id: unattended-install-remote
 title: Unattended installation of a remote server
-description: "Install a remote server quickly using an unattended script"
+description: "Install a Centreon remote server quickly with the unattended installation script, then register it and attach it to the central server."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -60,7 +60,7 @@ apt update && apt upgrade
 2. Download the script using the following command:
 
 ```shell
-curl -L https://download.centreon.com/25.10/unattended.sh --output /tmp/unattended.sh
+curl -L https://raw.githubusercontent.com/centreon/centreon/25.10-latest/centreon/unattended.sh --output /tmp/unattended.sh
 ```
 
 3. Run the following command as **root**:
@@ -86,5 +86,5 @@ In both cases, you will get a full log file with all errors in your **tmp** fold
 To get help on the script, use the following command:
 
 ```shell
-bash unattended.sh -h
+bash /tmp/unattended.sh -h
 ```

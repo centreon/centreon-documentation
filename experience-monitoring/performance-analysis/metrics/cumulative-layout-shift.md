@@ -1,7 +1,7 @@
 ---
 id: cumulative-layout-shift
 title: CLS - Cumulative Layout Shift (Web Vitals)
-description: CLS Web Vitals metric for visual stability during page load
+description: "CLS is a Web Vitals metric that measures visual stability by scoring unexpected layout shifts on a page, based on element size and the distance it moves."
 ---
 
 > Cumulative Layout Shift (CLS) is an important user experience metric. It measures visual stability by quantifying how often users encounter unexpected layout shifts on the page.

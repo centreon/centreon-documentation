@@ -1,7 +1,7 @@
 ---
 id: create-a-scenario
 title: Créer un parcours utilisateur
-description: Configurer une sonde de parcours utilisateur et ses différentes étapes
+description: "Créez un parcours utilisateur dans Experience Monitoring : paramètres de la sonde, étapes et actions, vérifications et gestion des étapes en échec."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: backup
 title: Sauvegarder et restaurer votre serveur central
-description: "Configurer, exécuter et restaurer les sauvegardes du serveur central"
+description: "Configurez la sauvegarde quotidienne du serveur central Centreon (bases de données et fichiers de configuration) et restaurez le serveur étape par étape."
 ---
 
 ## Fonctionnement

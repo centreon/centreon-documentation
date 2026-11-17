@@ -1,7 +1,7 @@
 ---
 id: ticketing
 title: Configuration
-description: "Configurer les fournisseurs, widgets et réglages avancés d'Open Tickets"
+description: "Configurez Centreon Open Tickets : ajoutez un fournisseur, paramétrez hôtes, services et widgets, gérez les tickets et définissez listes et règles."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
