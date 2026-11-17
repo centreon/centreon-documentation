@@ -210,10 +210,6 @@ Dans Centreon Cloud, lorsque vous crééz une activité métier, vous devez syst
     clic l'accès à la vue d'infrastructure supportant l'activité
     métier.
 
-#### Notification
-
-Cet écran n'est pas actif actuellement. Dans Centreon Cloud, les BA utilisent [le même mécanisme de notification que les hôtes et les services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).
-
 #### Rapport
 
 -   Période de rapport par défaut: la disponibilité calculées et

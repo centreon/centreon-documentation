@@ -216,10 +216,6 @@ In Centreon Cloud, when you create a business activity, you must always add it t
     access from this BA to the corresponding view to help users to drill
     down when a problem occurs on that BA.
 
-#### Notification
-
-This screen is not currently active. In Centreon Cloud, BAs use [the same notification mechanism as hosts and services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).
-
 #### Reporting
 
 -   Default reporting time period: Availability statistics for widgets and
