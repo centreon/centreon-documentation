@@ -48,7 +48,7 @@ Une sélection de pages essentielles d'Infra Monitoring OnPrem {version}. Les in
 {{page docs/api/rest-api-v2/}}
 {{page docs/resources/glossary/}}
 
-<!-- Les sections générées : une par famille de produits (Infra Monitoring, Experience Monitoring, Log Management), puis Autres langues. -->
+<!-- Les sections générées : une par famille de produits (Infra Monitoring, Experience Monitoring, Log Management), puis Texte intégral et Autres langues. -->
 {{indexes}}
 
 <!--
