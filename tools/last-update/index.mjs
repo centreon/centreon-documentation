@@ -12,15 +12,15 @@
  *
  * Plugged in as a custom Docusaurus VCS (future.experimental_vcs in
  * docusaurus.config.js). It reads the Git history once per build, instead of
- * one git log per page. See README.md.
+ * one git log per page. See README.md. Tests: tests/tools/last-update/.
  */
 import { execFile } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { promisify } from 'node:util';
 
-const IGNORE_FILE = '.lastupdate-ignore-revs';
-const SKIP_LABEL = 'skip-last-update';
+export const IGNORE_FILE = '.lastupdate-ignore-revs';
+export const SKIP_LABEL = 'skip-last-update';
 const DEFAULT_REPOSITORY = 'centreon/centreon-documentation';
 
 const run = promisify(execFile);
@@ -34,22 +34,29 @@ async function git(cwd, ...args) {
   return stdout;
 }
 
-function readIgnoreFile(root) {
-  const file = path.join(root, IGNORE_FILE);
-  if (!fs.existsSync(file)) return [];
-  return fs
-    .readFileSync(file, 'utf8')
+/** Commit hashes of .lastupdate-ignore-revs: one per line, # comments. */
+export function parseIgnoreFile(text) {
+  return text
     .split('\n')
     .map((line) => line.replace(/#.*/, '').trim())
     .filter(Boolean);
 }
 
-// Merge commits of the pull requests that have the skip label. Without a
-// token (local builds), only .lastupdate-ignore-revs applies.
-async function fetchLabeledCommits() {
-  const token = process.env.GITHUB_TOKEN;
+function readIgnoreFile(root) {
+  const file = path.join(root, IGNORE_FILE);
+  return fs.existsSync(file) ? parseIgnoreFile(fs.readFileSync(file, 'utf8')) : [];
+}
+
+/**
+ * Merge commits of the pull requests that have the skip label, or null
+ * without a token (local builds: only .lastupdate-ignore-revs applies).
+ */
+export async function fetchLabeledCommits({
+  token = process.env.GITHUB_TOKEN,
+  repository = process.env.GITHUB_REPOSITORY || DEFAULT_REPOSITORY,
+  fetch = globalThis.fetch,
+} = {}) {
   if (!token) return null;
-  const repository = process.env.GITHUB_REPOSITORY || DEFAULT_REPOSITORY;
   const query = `query($q: String!, $after: String) {
     search(query: $q, type: ISSUE, first: 100, after: $after) {
       pageInfo { hasNextPage endCursor }
@@ -76,7 +83,32 @@ async function fetchLabeledCommits() {
   }
 }
 
-async function load(siteDir) {
+/**
+ * Dates of each file from the output of
+ * git log --format=%x00%H %ct %an --name-only (newest first):
+ * - lastCommit: its last commit, skipped or not;
+ * - lastUpdate: its last commit that is not skipped;
+ * - creation: its first commit.
+ */
+export function parseGitLog(log, skipped = new Set()) {
+  const lastCommit = new Map();
+  const lastUpdate = new Map();
+  const creation = new Map();
+  for (const record of log.split('\0').slice(1)) {
+    const [header, ...files] = record.split('\n').filter(Boolean);
+    const [hash, timestamp, ...author] = header.split(' ');
+    const info = { timestamp: Number(timestamp) * 1000, author: author.join(' ') };
+    const skip = skipped.has(hash);
+    for (const file of files) {
+      if (!lastCommit.has(file)) lastCommit.set(file, info);
+      if (!skip && !lastUpdate.has(file)) lastUpdate.set(file, info);
+      creation.set(file, info);
+    }
+  }
+  return { lastCommit, lastUpdate, creation };
+}
+
+async function load(siteDir, fetchLabeled) {
   let root;
   try {
     root = (await git(siteDir, 'rev-parse', '--show-toplevel')).trim();
@@ -87,7 +119,7 @@ async function load(siteDir) {
 
   const skipped = new Set(readIgnoreFile(root));
   try {
-    const labeled = await fetchLabeledCommits();
+    const labeled = await fetchLabeled();
     if (labeled) {
       labeled.forEach((hash) => skipped.add(hash));
       console.info(`[last-update] ${labeled.length} commit(s) skipped through the ${SKIP_LABEL} label.`);
@@ -101,26 +133,15 @@ async function load(siteDir) {
     );
   }
 
-  // Newest first: "\0<hash> <timestamp> <author>\n\n<file>\n<file>…"
   const log = await git(root, 'log', '--format=%x00%H %ct %an', '--name-only', '--no-renames', 'HEAD');
-  const lastCommit = new Map(); // last commit of each file, skipped or not
-  const lastUpdate = new Map(); // last commit of each file that is not skipped
-  const creation = new Map(); // first commit of each file
-  for (const record of log.split('\0').slice(1)) {
-    const [header, ...files] = record.split('\n').filter(Boolean);
-    const [hash, timestamp, ...author] = header.split(' ');
-    const info = { timestamp: Number(timestamp) * 1000, author: author.join(' ') };
-    const skip = skipped.has(hash);
-    for (const file of files) {
-      if (!lastCommit.has(file)) lastCommit.set(file, info);
-      if (!skip && !lastUpdate.has(file)) lastUpdate.set(file, info);
-      creation.set(file, info);
-    }
-  }
-  return { root, lastCommit, lastUpdate, creation };
+  return { root, ...parseGitLog(log, skipped) };
 }
 
-function createLastUpdateVcs() {
+/**
+ * Docusaurus VCS config: { initialize, getFileCreationInfo,
+ * getFileLastUpdateInfo }. fetchLabeled is replaced in tests.
+ */
+export function createLastUpdateVcs({ fetchLabeled = fetchLabeledCommits } = {}) {
   let loading = null;
 
   async function lookup(filePath) {
@@ -133,7 +154,7 @@ function createLastUpdateVcs() {
   return {
     initialize({ siteDir }) {
       // Called once per locale: read the history only once.
-      loading ??= load(siteDir);
+      loading ??= load(siteDir, fetchLabeled);
     },
     async getFileCreationInfo(filePath) {
       const found = await lookup(filePath);

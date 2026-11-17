@@ -51,6 +51,8 @@ same dates locally:
 GITHUB_TOKEN=$(gh auth token) pnpm build
 ```
 
+Tests: `tests/tools/last-update/`, run with `pnpm test`.
+
 The deployment workflows fetch the full history (`fetch-depth: 0`). With a
 shallow clone, the older commits are unknown and a page keeps the date of its
 last commit.
