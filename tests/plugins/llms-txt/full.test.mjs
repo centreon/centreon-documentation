@@ -3,34 +3,28 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 
-import { formatSize, renderFullFile, sortPages } from '../../../src/plugins/llms-txt/full.js';
+import { formatSize, renderFullHeader, renderFullPages } from '../../../src/plugins/llms-txt/full.js';
 
-const page = (id, permalink = `/docs/${id}`) => ({ doc: { id, permalink } });
-
-describe('sortPages', () => {
-  it('puts pages in sidebar order, then the others by permalink', () => {
-    const pages = [page('z-orphan'), page('b'), page('a-orphan'), page('a'), page('c')];
-    const sorted = sortPages(pages, ['c', 'a', 'b', 'a']);
-    assert.deepEqual(
-      sorted.map(({ doc }) => doc.id),
-      ['c', 'a', 'b', 'a-orphan', 'z-orphan'],
-    );
-    assert.equal(pages[0].doc.id, 'z-orphan', 'the given array is left as is');
-  });
-});
-
-describe('renderFullFile', () => {
-  it('writes the title, the summary on one line, then each page separated by a blank line', () => {
-    const content = renderFullFile({
-      title: 'Log Management: full text',
-      summary: 'All the pages,\n  in Markdown.',
-      pages: [{ markdown: '---\ntitle: "A"\n---\n\n# A\n\nText A.\n' }, { markdown: '---\ntitle: "B"\n---\n\n# B\n' }],
-    });
+describe('renderFullHeader and renderFullPages', () => {
+  it('write the title, the summary on one line, then each page after a blank line and its separator', () => {
+    const header = renderFullHeader({ title: 'Log Management: full text', summary: 'All the pages,\n  in Markdown.' });
+    const pages = renderFullPages([
+      { url: 'https://docs.example.com/a', markdown: '---\ntitle: "A"\n---\n\n# A\n\nText A.\n' },
+      { url: 'https://docs.example.com/b', markdown: '---\ntitle: "B"\n---\n\n# B\n' },
+    ]);
     assert.equal(
-      content,
+      header + pages,
       '# Log Management: full text\n\n> All the pages, in Markdown.\n\n' +
-        '---\ntitle: "A"\n---\n\n# A\n\nText A.\n\n---\ntitle: "B"\n---\n\n# B\n',
+        '<!-- page: https://docs.example.com/a -->\n---\ntitle: "A"\n---\n\n# A\n\nText A.\n\n' +
+        '<!-- page: https://docs.example.com/b -->\n---\ntitle: "B"\n---\n\n# B\n',
     );
+  });
+
+  it('render pages that can be appended to the pages already written', () => {
+    const a = { url: 'https://docs.example.com/a', markdown: '# A\n' };
+    const b = { url: 'https://docs.example.com/b', markdown: '# B\n' };
+    assert.equal(renderFullPages([a]) + renderFullPages([b]), renderFullPages([a, b]));
+    assert.equal(renderFullPages([]), '');
   });
 });
 

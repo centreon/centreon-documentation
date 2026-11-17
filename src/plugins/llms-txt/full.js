@@ -1,41 +1,32 @@
 /**
- * llms-full.txt helpers of the llms-txt plugin: the order of the pages and
- * the rendering of a file that holds the Markdown of many pages.
+ * llms-full.txt helpers of the llms-txt plugin: the rendering of a file that
+ * holds the Markdown of many pages, and the size shown in the links to it.
+ *
+ * A file is a header (title and summary), then each page: a separator line
+ * that names the page URL, then the page Markdown, front matter included. The
+ * separator makes the pages easy to split apart again: a "---" line cannot,
+ * since code blocks such as YAML examples also hold some.
  */
 
-/**
- * Sorts pages in sidebar order: the doc ids given first, in that order, then
- * the docs in no sidebar, by permalink. Does not change the given array.
- *
- * @param {Array<{ doc: { id: string, permalink: string } }>} pages
- * @param {string[]} orderedIds  doc ids in sidebar order
- */
-function sortPages(pages, orderedIds) {
-  const rank = new Map();
-  orderedIds.forEach((id, index) => {
-    if (!rank.has(id)) {
-      rank.set(id, index);
-    }
-  });
-  return [...pages].sort((a, b) => {
-    const rankA = rank.get(a.doc.id) ?? Infinity;
-    const rankB = rank.get(b.doc.id) ?? Infinity;
-    if (rankA !== rankB) {
-      return rankA < rankB ? -1 : 1;
-    }
-    return a.doc.permalink.localeCompare(b.doc.permalink);
-  });
+/** Renders the header of an llms-full.txt file: its title and its summary, on one line. */
+function renderFullHeader({ title, summary }) {
+  return `# ${title}\n\n> ${summary.replace(/\s+/g, ' ').trim()}\n`;
+}
+
+/** Returns the separator line that opens a page in an llms-full.txt file. */
+function pageSeparator(url) {
+  return `<!-- page: ${url} -->`;
 }
 
 /**
- * Renders an llms-full.txt file: a title, a summary, then the Markdown of
- * each page (front matter included), separated by blank lines.
+ * Renders pages for an llms-full.txt file, each one after a blank line and its
+ * separator. Appending the result to a header, or to the pages already
+ * rendered, gives a complete file.
  *
- * @param {{ title: string, summary: string, pages: Array<{ markdown: string }> }} file
+ * @param {Array<{ url: string, markdown: string }>} pages
  */
-function renderFullFile({ title, summary, pages }) {
-  const parts = [`# ${title}`, `> ${summary.replace(/\s+/g, ' ').trim()}`, ...pages.map((page) => page.markdown.trim())];
-  return `${parts.join('\n\n')}\n`;
+function renderFullPages(pages) {
+  return pages.map(({ url, markdown }) => `\n${pageSeparator(url)}\n${markdown.trim()}\n`).join('');
 }
 
 /** Formats a size in bytes for a reader: "850 kB", "2.7 MB"; "850 ko", "2,7 Mo" in French. */
@@ -49,4 +40,4 @@ function formatSize(bytes, locale = 'en') {
   return french ? `${megabytes.replace('.', ',')} Mo` : `${megabytes} MB`;
 }
 
-module.exports = { formatSize, renderFullFile, sortPages };
+module.exports = { formatSize, pageSeparator, renderFullHeader, renderFullPages };

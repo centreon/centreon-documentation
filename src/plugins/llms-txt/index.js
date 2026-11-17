@@ -26,7 +26,7 @@
  * HTML to Markdown conversion lives in markdown.mjs, its URL helpers in links.js.
  *
  * With the "full" option (on by default), the converted pages are also joined
- * into llms-full.txt files, grouped like the indexes (full.js): one next to
+ * into llms-full.txt files, in the order of the indexes (full.js): one next to
  * each index (/docs/llms-full.txt, /cloud/llms-full.txt...), and a root one
  * with every product, the latest on-prem version only, linked from the root
  * llms.txt. Both outputs share the conversion, and each can be turned off on
@@ -39,7 +39,7 @@ const { pathToFileURL } = require('url');
 
 const { CATEGORY_SAMPLE, connectorCategories, isProcedure } = require('./connectors');
 const { createPageFinder, renderTemplate } = require('./editorial');
-const { formatSize, renderFullFile, sortPages } = require('./full');
+const { formatSize, pageSeparator, renderFullHeader, renderFullPages } = require('./full');
 const { markdownPath, createUrlRewriter } = require('./links');
 
 const DOCS_PLUGIN_NAME = 'docusaurus-plugin-content-docs';
@@ -135,8 +135,10 @@ const TEXTS = {
     fullLink: (url, size) => `Full text of every page of this documentation, as one Markdown file of ${size}: ${url}`,
     fullTitle: (name) => `${name}: full text`,
     fullSummary: (name, indexUrl) =>
-      `All the pages of the Centreon ${name} documentation in Markdown, grouped by topic like its index (${indexUrl}). ` +
-      'Each page starts with its front matter: title, description, URL.',
+      `All the pages of the Centreon ${name} documentation in Markdown, in the order of its index (${indexUrl}).`,
+    fullPageFormat: (separator) =>
+      `Each page starts with a "${separator}" line, then front matter with its title, description, product, ` +
+      'URL and last update date (and version, for OnPrem).',
     fullText: 'Full text',
     rootFullLink: (size) =>
       `All the pages of every product in one Markdown file of ${size}, latest OnPrem version only. ` +
@@ -144,8 +146,7 @@ const TEXTS = {
     rootFullTitle: 'Centreon Documentation: full text',
     rootFullSummary: (indexUrl) =>
       'All the pages of every Centreon product in Markdown, with the latest OnPrem version only. ' +
-      `Each product also has its own, smaller llms-full.txt, next to the llms.txt index listed in ${indexUrl}. ` +
-      'Each page starts with its front matter: title, description, product, URL.',
+      `Each product also has its own, smaller llms-full.txt, next to the llms.txt index listed in ${indexUrl}.`,
     category: (count, sample) =>
       count > CATEGORY_SAMPLE
         ? `${count} connectors, including ${sample}.`
@@ -174,8 +175,10 @@ const TEXTS = {
       `Texte intégral de toutes les pages de cette documentation, dans un seul fichier Markdown de ${size} : ${url}`,
     fullTitle: (name) => `${name} : texte intégral`,
     fullSummary: (name, indexUrl) =>
-      `Toutes les pages de la documentation Centreon ${name} en Markdown, regroupées par thème comme son index (${indexUrl}). ` +
-      'Chaque page commence par son front matter : titre, description, URL.',
+      `Toutes les pages de la documentation Centreon ${name} en Markdown, dans l'ordre de son index (${indexUrl}).`,
+    fullPageFormat: (separator) =>
+      `Chaque page commence par une ligne « ${separator} », puis un front matter avec son titre, sa description, ` +
+      'son produit, son URL et sa date de dernière mise à jour (et sa version, pour OnPrem).',
     fullText: 'Texte intégral',
     rootFullLink: (size) =>
       `Toutes les pages de tous les produits dans un seul fichier Markdown de ${size}, dernière version d'OnPrem uniquement. ` +
@@ -183,8 +186,7 @@ const TEXTS = {
     rootFullTitle: 'Documentation Centreon : texte intégral',
     rootFullSummary: (indexUrl) =>
       "Toutes les pages de tous les produits Centreon en Markdown, avec la dernière version d'OnPrem uniquement. " +
-      `Chaque produit a aussi son propre llms-full.txt, plus petit, à côté de l'index llms.txt listé dans ${indexUrl}. ` +
-      'Chaque page commence par son front matter : titre, description, produit, URL.',
+      `Chaque produit a aussi son propre llms-full.txt, plus petit, à côté de l'index llms.txt listé dans ${indexUrl}.`,
     category: (count, sample) =>
       count > CATEGORY_SAMPLE
         ? `${count} connecteurs, dont ${sample}.`
@@ -225,18 +227,6 @@ function sidebarDocIds(items) {
     }
   }
   return ids;
-}
-
-/**
- * Returns the doc ids of a version in the order of its llms.txt index: the
- * top-level docs of every sidebar first, then each top-level category.
- */
-function indexOrderIds(version) {
-  const items = Object.values(version.sidebars).flat();
-  return [
-    ...sidebarDocIds(items.filter((item) => item.type !== 'category')),
-    ...sidebarDocIds(items.filter((item) => item.type === 'category')),
-  ];
 }
 
 /**
@@ -318,7 +308,7 @@ module.exports = function llmsTxtPlugin(context, options = {}) {
   const markdownUrl = (permalink) => siteUrl + markdownPath(permalink);
 
   let docsInstances = {};
-  // Permalinks of the docs published as Markdown, filled by convertPages when
+  // Permalinks of the docs published as Markdown, filled by publishMarkdown when
   // the markdown option is on; empty otherwise, so that links stay HTML URLs.
   const markdownPermalinks = new Set();
   const pageLink = (doc) =>
@@ -356,47 +346,28 @@ module.exports = function llmsTxtPlugin(context, options = {}) {
   }
 
   /**
-   * Converts every doc not marked unlisted in the selected versions of the
-   * given sections to Markdown, from its built HTML page, and returns
-   * [{ section, version, doc, markdown }]. When Markdown pages are published,
-   * links to other published docs are rewritten to their Markdown version;
-   * links to docs without one, such as older on-prem versions by default, are kept.
+   * Converts the docs of one version, unlisted ones excepted, to Markdown from
+   * their built HTML pages, and returns [{ doc, url, markdown }] in the order
+   * of the version's llms.txt index.
    */
-  async function convertPages(outDir, sections) {
-    const { createMarkdownConverter, frontMatter } = await import(
-      pathToFileURL(path.join(__dirname, 'markdown.mjs')).href
-    );
-    const converter = createMarkdownConverter();
-
-    const pages = sections.flatMap((section) =>
-      (docsInstances[section.id] ? selectedVersions(section.id, docsInstances[section.id]) : []).flatMap((version) =>
-        version.docs.filter((doc) => !doc.unlisted).map((doc) => ({ section, version, doc })),
-      ),
-    );
-    if (markdownEnabled) {
-      pages.forEach(({ doc }) => markdownPermalinks.add(doc.permalink));
-    }
-    const markdownUrlByPageUrl = new Map(
-      [...markdownPermalinks].map((permalink) => [toUrl(permalink), markdownUrl(permalink)]),
-    );
-    const rewriteUrl = createUrlRewriter(markdownUrlByPageUrl);
-
-    for (const page of pages) {
-      const { section, version, doc } = page;
-      const relative = relativePath(doc.permalink);
+  async function convertVersion(outDir, section, version, converter) {
+    const pages = [];
+    // No sectionId: connector procedures are kept, in their sidebar categories.
+    for (const doc of groupDocs(version, undefined, texts).flatMap((group) => group.docs)) {
+      const url = toUrl(doc.permalink);
       try {
-        const html = await fs.readFile(path.join(outDir, relative, 'index.html'), 'utf8');
-        const body = await converter.convert(html, { pageUrl: toUrl(doc.permalink), rewriteUrl });
-        const header = frontMatter({
+        const html = await fs.readFile(path.join(outDir, relativePath(doc.permalink), 'index.html'), 'utf8');
+        const body = await converter.convert(html, { pageUrl: url });
+        const header = converter.frontMatter({
           title: doc.title,
           description: doc.description,
           product: section.title[locale] ?? section.title.en,
           version: section.id === ONPREM_ID ? version.versionName : undefined,
           latest: section.id === ONPREM_ID && version.isLast ? true : undefined,
-          url: toUrl(doc.permalink),
+          url,
           last_update: doc.lastUpdatedAt ? new Date(doc.lastUpdatedAt).toISOString().slice(0, 10) : undefined,
         });
-        page.markdown = `${header}\n${body}`;
+        pages.push({ doc, url, markdown: `${header}\n${body}` });
       } catch (error) {
         throw new Error(`[llms-txt] Cannot convert ${doc.source} to Markdown: ${error.message}`, { cause: error });
       }
@@ -404,61 +375,105 @@ module.exports = function llmsTxtPlugin(context, options = {}) {
     return pages;
   }
 
-  /** Publishes each converted page next to its HTML page: /docs/foo/ gives /docs/foo.md. */
-  async function writeMarkdownPages(outDir, pages) {
-    for (const { doc, markdown } of pages) {
-      await fs.writeFile(path.join(outDir, `${relativePath(doc.permalink)}.md`), markdown, 'utf8');
-    }
-    console.log(`[llms-txt] ${pages.length} Markdown pages written for locale "${locale}".`);
-  }
-
   /**
-   * Writes the llms-full.txt of each selected version, next to its index, and
-   * the root one (every product, latest on-prem version only). Returns
-   * { files, root }: { url, size } by version path and of the root file, for
-   * the links of the indexes and of the root llms.txt.
+   * Converts the docs of the selected versions of the given sections, then
+   * publishes them: each page as Markdown next to its HTML page (/docs/foo/
+   * gives /docs/foo.md) when the markdown option is on, and the llms-full.txt
+   * files when the full option is on: one next to the index of each version,
+   * and the root one (every product, latest on-prem version only).
+   *
+   * Works one version at a time, so that only one version's Markdown is held
+   * in memory. Links to docs published as Markdown are rewritten to their
+   * Markdown version; links to other docs, such as older on-prem versions by
+   * default, are kept.
+   *
+   * Returns { files, root }: { url, size } of the llms-full.txt files, by
+   * version path, and of the root one (null when the full option is off).
    */
-  async function writeFullFiles(outDir, pages, sections) {
-    const files = new Map();
-    const rootPages = [];
-    for (const section of sections) {
-      const instance = docsInstances[section.id];
-      if (!instance) {
-        continue; // Instance disabled for this build.
+  async function publishMarkdown(outDir, sections) {
+    const targets = sections.flatMap((section) =>
+      docsInstances[section.id]
+        ? selectedVersions(section.id, docsInstances[section.id]).map((version) => ({ section, version }))
+        : [],
+    );
+    if (markdownEnabled) {
+      for (const { version } of targets) {
+        version.docs.filter((doc) => !doc.unlisted).forEach((doc) => markdownPermalinks.add(doc.permalink));
       }
-      const title = section.title[locale] ?? section.title.en;
-      for (const version of selectedVersions(section.id, instance)) {
-        const versionPages = sortPages(
-          pages.filter((page) => page.version === version),
-          indexOrderIds(version),
-        );
+    }
+    const { createMarkdownConverter, frontMatter } = await import(
+      pathToFileURL(path.join(__dirname, 'markdown.mjs')).href
+    );
+    const rewriteUrl = createUrlRewriter(
+      new Map([...markdownPermalinks].map((permalink) => [toUrl(permalink), markdownUrl(permalink)])),
+    );
+    const markdownConverter = createMarkdownConverter();
+    const converter = {
+      convert: (html, options) => markdownConverter.convert(html, { ...options, rewriteUrl }),
+      frontMatter,
+    };
+
+    // How a page starts, told in the summary of each file.
+    const pageFormat = texts.fullPageFormat(pageSeparator('URL'));
+    const files = new Map();
+    const rootPath = path.join(outDir, 'llms-full.txt');
+    let rootSize = 0;
+    const appendToRoot = async (text) => {
+      await fs.appendFile(rootPath, text, 'utf8');
+      rootSize += Buffer.byteLength(text);
+    };
+    if (fullEnabled) {
+      await fs.rm(rootPath, { force: true });
+      await appendToRoot(
+        renderFullHeader({
+          title: texts.rootFullTitle,
+          summary: `${texts.rootFullSummary(rootIndexUrl)} ${pageFormat}`,
+        }),
+      );
+    }
+
+    let pageCount = 0;
+    for (const { section, version } of targets) {
+      const pages = await convertVersion(outDir, section, version, converter);
+      pageCount += pages.length;
+      if (markdownEnabled) {
+        for (const { doc, markdown } of pages) {
+          await fs.writeFile(path.join(outDir, `${relativePath(doc.permalink)}.md`), markdown, 'utf8');
+        }
+      }
+      if (fullEnabled) {
+        const title = section.title[locale] ?? section.title.en;
         const name = section.id === ONPREM_ID ? `${title} ${versionLabel(version)}` : title;
-        const content = renderFullFile({
+        const indexUrl = `${siteUrl}${version.path}/llms.txt`;
+        const header = renderFullHeader({
           title: texts.fullTitle(name),
-          summary: texts.fullSummary(name, `${siteUrl}${version.path}/llms.txt`),
-          pages: versionPages,
+          summary: `${texts.fullSummary(name, indexUrl)} ${pageFormat}`,
         });
+        const body = renderFullPages(pages);
         const relativeDir = versionDir(version, section.id);
         await fs.mkdir(path.join(outDir, relativeDir), { recursive: true });
-        await fs.writeFile(path.join(outDir, relativeDir, 'llms-full.txt'), content, 'utf8');
-        files.set(version.path, { url: `${siteUrl}${version.path}/llms-full.txt`, size: Buffer.byteLength(content) });
+        await fs.writeFile(path.join(outDir, relativeDir, 'llms-full.txt'), header + body, 'utf8');
+        files.set(version.path, {
+          url: `${siteUrl}${version.path}/llms-full.txt`,
+          size: Buffer.byteLength(header) + Buffer.byteLength(body),
+        });
         if (section.id !== ONPREM_ID || version.isLast) {
-          rootPages.push(...versionPages);
+          await appendToRoot(body);
         }
       }
     }
-    const root = renderFullFile({
-      title: texts.rootFullTitle,
-      summary: texts.rootFullSummary(rootIndexUrl),
-      pages: rootPages,
-    });
-    await fs.writeFile(path.join(outDir, 'llms-full.txt'), root, 'utf8');
-    const rootFile = { url: `${siteUrl}${baseUrl}llms-full.txt`, size: Buffer.byteLength(root) };
+
+    if (markdownEnabled) {
+      console.log(`[llms-txt] ${pageCount} Markdown pages written for locale "${locale}".`);
+    }
+    if (!fullEnabled) {
+      return { files, root: null };
+    }
     console.log(
       `[llms-txt] ${files.size + 1} llms-full.txt files written for locale "${locale}" ` +
-        `(root: ${formatSize(rootFile.size)}).`,
+        `(root: ${formatSize(rootSize)}).`,
     );
-    return { files, root: rootFile };
+    return { files, root: { url: `${siteUrl}${baseUrl}llms-full.txt`, size: rootSize } };
   }
 
   /** Renders the "Connectors by category" section of the connectors index. */
@@ -558,12 +573,8 @@ module.exports = function llmsTxtPlugin(context, options = {}) {
       ];
 
       // One conversion, shared by the Markdown pages and the llms-full.txt files.
-      const pages = markdownEnabled || fullEnabled ? await convertPages(outDir, sections) : [];
-      if (markdownEnabled) {
-        await writeMarkdownPages(outDir, pages);
-      }
-      const full = fullEnabled ? await writeFullFiles(outDir, pages, sections) : { files: new Map(), root: null };
-      const fullFiles = full.files;
+      const full =
+        markdownEnabled || fullEnabled ? await publishMarkdown(outDir, sections) : { files: new Map(), root: null };
 
       // Index lines per product family, in GROUPS order, "other" last.
       const groupLines = new Map([...GROUPS.map((group) => [group.id, []]), ['other', []]]);
@@ -583,7 +594,7 @@ module.exports = function llmsTxtPlugin(context, options = {}) {
               name: `${title} ${label}`,
               version,
               sectionId: section.id,
-              full: fullFiles.get(version.path),
+              full: full.files.get(version.path),
             });
             const parts = [description, texts.onpremVersion(version.versionName, version.isLast, entry.urlPath)];
             // Single-version builds (previews of the next version) have no older one.
@@ -601,7 +612,7 @@ module.exports = function llmsTxtPlugin(context, options = {}) {
               name: title,
               version,
               sectionId: section.id,
-              full: fullFiles.get(version.path),
+              full: full.files.get(version.path),
             });
             let count = texts.pageCount(entry.count);
             if (section.id === CONNECTORS_ID) {
