@@ -266,6 +266,8 @@ exportez la variable avant d'exécuter la commande (par exemple
 
 ## Utiliser Podman
 
+> Podman est pris en charge à partir de la version 26.10.1 de Centreon.
+
 Le script d'installation prend également en charge Podman, en mode rootful ou rootless
 (exécuté par un utilisateur standard). Il utilise `podman compose` ou `podman-compose`
 lorsque Docker n'est pas disponible, et vérifie les points suivants avant de générer les
