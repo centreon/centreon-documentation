@@ -311,4 +311,3 @@ stack again automatically after a reboot, run:
   systemctl --user enable podman-restart.service
   ```
 
-> Podman is not supported in Centreon 26.10.0.
