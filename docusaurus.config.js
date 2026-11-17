@@ -1,5 +1,5 @@
 import { themes as prismThemes } from 'prism-react-renderer';
-import { lastContentUpdate } from './tools/last-update/index.mjs';
+import { lastUpdateVcs } from './tools/last-update/index.mjs';
 
 import availableVersions from './versions.json';
 import archivedVersions from './archivedVersions.json';
@@ -88,6 +88,10 @@ const config = {
       ssgWorkerThreads: process.env.DOCUSAURUS_SSG_WORKER_THREADS === '1',
       mdxCrossCompilerCache: process.env.DOCUSAURUS_MDX_CROSS_COMPILER_CACHE === '1',
     },
+    // "Last updated" dates from one read of the Git history, without the
+    // commits that do not change the content (skip-last-update label,
+    // .lastupdate-ignore-revs). See tools/last-update/README.md.
+    experimental_vcs: lastUpdateVcs,
   },
 
   title: 'Centreon Documentation',
@@ -96,19 +100,6 @@ const config = {
   baseUrl,
   onBrokenLinks: archivedVersion || !cloud || !pp || !experienceMonitoring || !logmanagement ? 'log' : 'throw',
   markdown: {
-    // Pages whose last commit did not change their content (listed in
-    // .lastupdate-ignore-revs, or tagged [skip-last-update]) keep the date of
-    // their previous change. See tools/last-update/README.md.
-    parseFrontMatter: async (params) => {
-      const result = await params.defaultParseFrontMatter(params);
-      if (!result.frontMatter.last_update) {
-        const date = lastContentUpdate(params.filePath);
-        if (date) {
-          result.frontMatter.last_update = { date: date.toISOString() };
-        }
-      }
-      return result;
-    },
     hooks: {
       onBrokenMarkdownLinks: archivedVersion || !cloud || !pp || !experienceMonitoring || !logmanagement ? 'log' : 'throw',
     }
