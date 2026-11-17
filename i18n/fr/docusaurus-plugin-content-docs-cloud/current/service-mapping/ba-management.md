@@ -207,7 +207,7 @@ Dans Centreon Cloud, lorsque vous crééz une activité métier, vous devez syst
     clic l'accès à la vue d'infrastructure supportant l'activité
     métier.
 
-#### Reporting
+#### Rapport
 
 Cette fonctionnalité n'est pas encore opérationnelle dans Centreon Cloud.
 
