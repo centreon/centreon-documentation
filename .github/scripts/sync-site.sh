@@ -6,11 +6,15 @@
 #            content, so only new assets are uploaded
 #   pages    everything else (HTML, sitemap, images under img/...),
 #            revalidated on each visit
+#   markdown all .md pages, revalidated, with an explicit
+#            text/markdown; charset=utf-8: the guessed type may be missing
+#            or carry no charset
 #   text     all .txt files (robots.txt, llms.txt...), revalidated, with an
 #            explicit UTF-8 charset: the guessed bare text/plain can be read
 #            as Latin-1
 #
-# Each pass only deletes the files it covers.
+# Each pass only deletes the files it covers. The markdown pass runs before
+# the text one, so that llms.txt never links to a .md page not uploaded yet.
 #
 # Usage: sync-site.sh <build-dir> <s3-destination> [kept-path...]
 #
@@ -47,8 +51,12 @@ aws s3 sync "$source_dir" "$destination" \
   --cache-control "public,max-age=31536000,immutable"
 
 aws s3 sync "$source_dir" "$destination" \
-  --delete --exclude "assets/*" --exclude "fr/assets/*" --exclude "*.txt" ${kept[@]+"${kept[@]}"} \
+  --delete --exclude "assets/*" --exclude "fr/assets/*" --exclude "*.txt" --exclude "*.md" ${kept[@]+"${kept[@]}"} \
   "${revalidate[@]}"
+
+aws s3 sync "$source_dir" "$destination" \
+  --delete --exclude "*" --include "*.md" --exclude "assets/*" --exclude "fr/assets/*" ${kept[@]+"${kept[@]}"} \
+  "${revalidate[@]}" --content-type "text/markdown; charset=utf-8"
 
 aws s3 sync "$source_dir" "$destination" \
   --delete --exclude "*" --include "*.txt" --exclude "assets/*" --exclude "fr/assets/*" ${kept[@]+"${kept[@]}"} \
