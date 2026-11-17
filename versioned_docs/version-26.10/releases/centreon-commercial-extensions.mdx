@@ -13,14 +13,105 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
 | Component | Releases |
 |----------|----------|
-| **Centreon MAP** | [26.10.0 (October 20, 2026)](#centreon-map-26100) |
-| **Centreon BAM** | [26.10.0 (October 20, 2026)](#centreon-bam-26100) |
-| **Centreon MBI** | [26.10.0 (October 20, 2026)](#centreon-mbi-26100) |
-| **Centreon Auto Discovery** | [26.10.0 (October 20, 2026)](#centreon-auto-discovery-26100) |
-| **Centreon License Manager** | [26.10.0 (October 20, 2026)](#centreon-license-manager-26100) |
-| **Centreon Anomaly Detection** | [26.10.0 (October 20, 2026)](#centreon-anomaly-detection-26100) |
-| **Centreon IT Edition Extensions** | [26.10.0 (October 20, 2026)](#centreon-it-edition-extensions-26100) |
+| **Centreon MAP** | [26.10.1 (November 17, 2026)](#centreon-map-26101)<br/>[26.10.0 (October 20, 2026)](#centreon-map-26100) |
+| **Centreon BAM** | [26.10.1 (November 17, 2026)](#centreon-bam-26101)<br/>[26.10.0 (October 20, 2026)](#centreon-bam-26100) |
+| **Centreon MBI** | [26.10.1 (November 17, 2026)](#centreon-mbi-26101)<br/>[26.10.0 (October 20, 2026)](#centreon-mbi-26100) |
+| **Centreon Auto Discovery** | [26.10.1 (November 17, 2026)](#centreon-auto-discovery-26101)<br/>[26.10.0 (October 20, 2026)](#centreon-auto-discovery-26100) |
+| **Centreon License Manager** | [26.10.1 (November 17, 2026)](#centreon-license-manager-26101)<br/>[26.10.0 (October 20, 2026)](#centreon-license-manager-26100) |
+| **Centreon Anomaly Detection** | [26.10.1 (November 17, 2026)](#centreon-anomaly-detection-26101)<br/>[26.10.0 (October 20, 2026)](#centreon-anomaly-detection-26100) |
+| **Centreon IT Edition Extensions** | [26.10.1 (November 17, 2026)](#centreon-it-edition-extensions-26101)<br/>[26.10.0 (October 20, 2026)](#centreon-it-edition-extensions-26100) |
 | **Centreon Monitoring Connectors Manager** | [26.10.0 (October 20, 2026)](#centreon-monitoring-connectors-manager-26100) |
+
+</details>
+
+## November 17, 2026
+
+### Centreon MAP 26.10.1
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Improved MAP status calculation to reduce engine startup time, lower memory and CPU consumption, and make the MAP engine server ready faster. This improvement requires enabling a feature flag.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue in Centreon MAP where duplicating a multi-selection of different object types caused the map to break upon saving.
+- Fixed an issue in Centreon MAP where switching a Gauge or Metric Link widget's resource type from Meta service to Service caused a "can't load module" error.
+- Fixed an issue where performance graphs failed to load in service popups and graph widgets.
+- Fixed an issue where resource labels were truncated when viewing a map.
+- Fixed an issue where the Geoview widget was not displaying resources when viewed through a public playlist.
+- Fixed an issue where updating a container's image failed to save and reverted to the default image.
+
+</details>
+
+### Centreon BAM 26.10.1
+
+<details>
+  <summary>Security fixes</summary>
+
+- This release contains security fixes. Details will be available soon on [The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
+
+</details>
+
+
+### Centreon MBI 26.10.1
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a data formatting conflict that occurred after system updates, ensuring that MBI reports generate correctly without encountering errors.
+- Fixed an issue where administrator notifications for MBI jobs did not include reports in XLSX format.
+- Fixed an issue where the Reported duration column and the downtime filter were missing from BAM reports.
+
+</details>
+
+### Centreon Anomaly Detection 26.10.1
+
+No functional changes for this module in this version.
+
+### Centreon Auto Discovery 26.10.1
+
+<details>
+  <summary>Security fixes</summary>
+
+- This release contains security fixes. Details will be available soon on [The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
+
+</details>
+
+
+### Centreon License Manager 26.10.1
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [License] It is now possible to migrate your online Centreon license to another platform autonomously.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- This release contains security fixes. Details will be available soon on [The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
+
+</details>
+
+
+### Centreon IT Edition Extensions 26.10.1
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dashboards] Playlists now play dashboards in the order defined in the playlist, instead of falling back to alphabetical order.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- This release contains security fixes. Details will be available soon on [The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
 
 </details>
 
