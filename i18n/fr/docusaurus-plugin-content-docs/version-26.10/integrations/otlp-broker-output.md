@@ -15,7 +15,7 @@ Pour chaque résultat de contrôle d'un hôte ou d'un service, la sortie envoie 
 - les données de performance (métriques), avec leurs seuils et leurs valeurs minimum et maximum,
 - le statut de l'hôte ou du service.
 
-Chaque hôte est identifié par des attributs de ressource OpenTelemetry standards (`host.name`, `service.name`, `service.namespace`, etc.).
+Chaque hôte est identifié par des attributs de ressource OpenTelemetry standard (`host.name`, `service.name`, `service.namespace`, etc.).
 Vous pouvez ainsi corréler les données Centreon avec les autres données de télémétrie de votre plateforme d'observabilité. Les noms des
 métriques peuvent suivre les [conventions sémantiques OpenTelemetry](https://opentelemetry.io/docs/specs/semconv/) grâce à un
 [fichier de correspondance](#faire-correspondre-les-métriques-aux-conventions-sémantiques-opentelemetry) facultatif.
