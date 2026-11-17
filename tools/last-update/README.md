@@ -1,26 +1,24 @@
 # Last update date of the pages
 
 Each documentation page shows the date of its last update, and the sitemap
-gives the same date to search engines (`lastmod`). Docusaurus takes it from
-the last Git commit of the page.
+(`lastmod`) and `llms.txt` give the same date to search engines and AI
+agents. Docusaurus takes it from the last Git commit of the page.
 
-A mass change that does not change what readers read (longer descriptions in
-the front matter, link fixes, formatting) would then date thousands of pages
-of the same day. Search engines stop trusting the dates of the site, and
-readers see "updated yesterday" on pages that did not change.
+A change that does not change what readers read (longer descriptions in the
+front matter, link fixes, formatting, a typo fix) would then date the pages it
+touches of that day. After a mass change, search engines stop trusting the
+dates of the site, and readers see "updated yesterday" on pages that did not
+change.
 
 Such commits are skipped: the pages keep the date of their previous change.
 
 ## How to skip a commit
 
-**Before merging** (preferred): put `[skip-last-update]` in the title of the
-pull request. The squashed commit keeps it in its message.
+**Add the `skip-last-update` label to the pull request.** It works before or
+after merging: the label is read at each deployment, so a label added after
+the merge applies at the next one.
 
-```text
-Longer frontmatter descriptions - Connectors [skip-last-update]
-```
-
-**After merging**: add the full hash of the commit to
+**For a commit without a pull request**, add its full hash to
 `.lastupdate-ignore-revs`, at the root of the repository, with a comment:
 
 ```text
@@ -28,19 +26,31 @@ Longer frontmatter descriptions - Connectors [skip-last-update]
 2eab2f8d696fbd184e5ef53e28023353e651284b
 ```
 
-Get the full hash with `git log --format='%H %s' -5`. The change applies at the
-next deployment.
+Get the full hash with `git log --format='%H %s' -5`.
 
 Skip a commit only when it leaves the content as it is for the reader. A
 commit that fixes or adds information is a real update: keep its date.
 
 ## How it works
 
-`tools/last-update/index.mjs` reads the Git history once per build (under a
-second). In `docusaurus.config.js`, `markdown.parseFrontMatter` gives each page
-whose last commit is skipped a `last_update` front matter with the date of its
-last commit that is not. Other pages keep the Docusaurus date. A page can still
-set `last_update` by hand.
+`tools/last-update/index.mjs` is a custom Docusaurus VCS
+(`future.experimental_vcs` in `docusaurus.config.js`). It reads the Git
+history once per build, instead of one `git log` per page, and dates each page
+with its last commit that is not skipped. A page whose commits are all skipped
+keeps the date of its last commit. A page can still set `last_update` in its
+front matter.
 
-Without the full history (shallow clone), the Docusaurus dates are kept. The
-deployment workflows fetch the full history (`fetch-depth: 0`).
+The skipped commits are the merge commits of the pull requests labeled
+`skip-last-update`, read from the GitHub API, and the hashes of
+`.lastupdate-ignore-revs`. The API needs `GITHUB_TOKEN`: the deployment
+workflows set it. Without it (local builds), or if the API fails, only
+`.lastupdate-ignore-revs` applies and the build logs a warning. To get the
+same dates locally:
+
+```bash
+GITHUB_TOKEN=$(gh auth token) pnpm build
+```
+
+The deployment workflows fetch the full history (`fetch-depth: 0`). With a
+shallow clone, the older commits are unknown and a page keeps the date of its
+last commit.

@@ -45,6 +45,9 @@ jobs:
       matrix:
         locale: [en, fr]
     name: Build ${{ matrix.locale }}
+    permissions:
+      contents: read
+      pull-requests: read # PRs labeled skip-last-update (tools/last-update)
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -84,6 +87,8 @@ jobs:
         env:
           NODE_OPTIONS: --max_old_space_size=16000
           VERSIONS: ${{ steps.versions.outputs.staging_versions }}
+          # Reads the PRs labeled skip-last-update (tools/last-update).
+          GITHUB_TOKEN: ${{ github.token }}
           # Same output, faster build (opt-in flags of docusaurus.config.js).
           DOCUSAURUS_MDX_CROSS_COMPILER_CACHE: "1"
           DOCUSAURUS_SSG_WORKER_THREADS: "1"

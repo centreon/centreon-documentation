@@ -3,6 +3,8 @@
 # fixes, formatting, renames…). The pages keep the date of their previous
 # change, on the page and in the sitemap.
 #
+# For a pull request, prefer the skip-last-update label: no hash needed.
+#
 # One full commit hash per line (git log --format=%H). Text after # is a
 # comment. See tools/last-update/README.md.
 
