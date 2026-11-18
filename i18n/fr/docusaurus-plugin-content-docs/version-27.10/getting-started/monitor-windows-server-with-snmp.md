@@ -145,6 +145,10 @@ Dans l'interface Web, accédez à **Configuration > Connecteurs > Connecteurs de
 
    ![image](../assets/getting-started/prise_en_main_windows_snmp_14.gif)
 
+   :::note
+   Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+   :::
+
 6. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 7. Rendez-vous dans le menu **Monitoring > Status des Resources** et positionnez le filtre sur **Tous** pour récupérer tous les indicateurs quel que soit leur état.

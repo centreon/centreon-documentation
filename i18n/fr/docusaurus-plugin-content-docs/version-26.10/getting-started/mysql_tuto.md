@@ -62,6 +62,10 @@ Rendez-vous dans le menu **Configuration > Connecteurs > Connecteurs de supervis
 
 ![image](../assets/getting-started/quick_start_mysql_0.gif)
 
+:::note
+Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+:::
+
 ## Configurer l'hôte et déployer la configuration
 
 1. Allez à la page **Configuration > Hôtes > Hôtes** et cliquez sur le bouton **Ajouter**.
@@ -100,3 +104,7 @@ Rendez-vous dans le menu **Configuration > Connecteurs > Connecteurs de supervis
 filtre **Afficher les détails**. Dans un premier temps, les ressources apparaissent avec le statut **En attente**, ce qui signifie qu'aucun contrôle n'a encore été exécuté. Après quelques minutes, les premiers résultats de la supervision apparaissent :
 
   ![image](../assets/getting-started/quick_start_mysql_4.gif)
+
+  :::note
+  Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+  :::

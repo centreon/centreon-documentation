@@ -57,6 +57,10 @@ To acknowledge an alert, there are several solutions:
 
         ![image](../assets/alerts/resources-status/ack-hover.gif)
 
+        :::note
+        This animation may show an earlier version of the interface. The steps described remain valid.
+        :::
+
     A window appears:
 
     -   The **Comment** field is generally used to provide the reason for the

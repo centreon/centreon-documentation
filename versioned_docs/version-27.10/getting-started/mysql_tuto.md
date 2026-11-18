@@ -63,6 +63,10 @@ Go to **Configuration > Connectors > Monitoring Connectors** and install the **M
 
 ![image](../assets/getting-started/quick_start_mysql_0.gif)
 
+:::note
+This animation may show an earlier version of the interface. The steps described remain valid.
+:::
+
 ## Set up the host and deploy the configuration
 
 1. Go to **Configuration > Hosts > Hosts** and click **Add**.
@@ -101,3 +105,7 @@ for the **Service Status** filter. At first, the resources appear with the statu
  which means that no checks have been executed yet. After a few minutes, the first results of the monitoring appear:
 
   ![image](../assets/getting-started/quick_start_mysql_4.gif)
+
+  :::note
+  This animation may show an earlier version of the interface. The steps described remain valid.
+  :::

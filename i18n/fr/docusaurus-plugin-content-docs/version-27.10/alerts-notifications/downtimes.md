@@ -49,6 +49,10 @@ Il existe plusieurs manières de définir un temps d'arrêt :
 
     ![image](../assets/alerts/resources-status/dt-hover.gif)
 
+    :::note
+    Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+    :::
+
     La fenêtre suivante apparaît :
 
     ![image](../assets/alerts/resources-status/dt-popup.png)

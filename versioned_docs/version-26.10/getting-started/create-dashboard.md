@@ -14,6 +14,10 @@ Watch this tutorial to learn how to start building a dashboard by adding a widge
 
 <iframe width="100%" height="650" src="https://app.arcade.software/Ib6oIbc1RyZIaLtGkpfD" frameborder="0" allowfullscreen></iframe>
 
+:::note
+This interactive tutorial may show an earlier version of the interface. The steps described remain valid.
+:::
+
 ## More information about the feature
 
 Go to the following procedures to explore all the features and extend your experience:

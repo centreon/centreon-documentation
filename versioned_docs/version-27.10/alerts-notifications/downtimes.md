@@ -47,6 +47,10 @@ There are several ways to define downtime:
 
         ![image](../assets/alerts/resources-status/dt-hover.gif)
 
+        :::note
+        This animation may show an earlier version of the interface. The steps described remain valid.
+        :::
+
     The following window appears:
 
     ![image](../assets/alerts/resources-status/dt-popup.png)

@@ -24,6 +24,10 @@ exemple par statut ou encore par sévérité.
 
 ![image](../assets/alerts/resources-status/resources-status-listing-order.gif)
 
+:::note
+Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+:::
+
 ### Vue par hôte/par service
 
 Utilisez les boutons **Afficher la vue** au-dessus de la liste des ressources pour définir la façon dont la liste sera affichée. 
@@ -229,6 +233,10 @@ toutes les ressources de type services et métaservices.
 
   ![image](../assets/alerts/resources-status/search_tab.gif)
 
+  :::note
+  Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+  :::
+
 3. Séparez les critères de recherche par des espaces. Les critères s'additionnent 
 selon un critère "ET" : les résultats correspondront à tous les critères saisis.
 
@@ -275,6 +283,10 @@ Le panneau d'hôte contient les éléments suivants :
 
 ![image](../assets/alerts/resources-status/resources-status-panel-host.gif)
 
+:::note
+Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+:::
+
 Si l'hôte est acquitté ou en maintenance planifiée, des informations supplémentaires
 seront visibles sur le panneau.
 
@@ -291,6 +303,10 @@ Le panneau de service contient les éléments suivants :
 - Sous le nom du service, le nom de son hôte parent. Cliquez sur celui-ci pour ouvrir le panneau de détail d'hôte de l'hôte parent.
 
 ![image](../assets/alerts/resources-status/resources-status-panel-service.gif)
+
+:::note
+Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+:::
 
 Si le service est acquitté ou en downtime, des informations supplémentaires
 seront visibles sur le panneau.
@@ -318,6 +334,10 @@ Utilisez la légende pour afficher ou masquer des métriques.
 
 ![image](../assets/alerts/resources-status/resources-status-graph-select-only-metric.gif)
 
+:::note
+Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+:::
+
 Vous pouvez également afficher plusieurs métriques en faisant **Ctrl+clic** (ou bien **Cmd+clic** pour les utilisateurs Mac) sur la légende correspondante.
 
 Les graphiques affichent l'évolution des métriques sur une période donnée. La période affichée peut être définie de différentes façons :
@@ -332,13 +352,25 @@ Les graphiques affichent l'évolution des métriques sur une période donnée. L
 
     ![image](../assets/alerts/resources-status/resources-status-graph-time-selection.gif)
 
+    :::note
+    Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+    :::
+
 La bascule **Afficher les évènements** permet d'afficher certains évènements de la chronologie de la ressource (plages de maintenance, acquittements, commentaires) directement sur le graphique, aux travers d'annotations :
 
 ![image](../assets/alerts/resources-status/resources-status-graph-display-events.gif)
 
+:::note
+Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+:::
+
 Il est possible d'ajouter un commentaire directement sur le graphique, en cliquant n’importe où, au niveau du temps souhaité, et ensuite en cliquant sur **Ajouter un commentaire** sur l'infobulle qui apparaît :
 
 ![image](../assets/alerts/resources-status/resources-status-graph-add-comment.gif)
+
+:::note
+Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+:::
 
 Pour supprimer un commentaire, allez à la page **Supervision > Planifier des plages de maintenance > Commentaires**.
 
