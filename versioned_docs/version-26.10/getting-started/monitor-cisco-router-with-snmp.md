@@ -67,11 +67,11 @@ In the web interface, go to **Configuration > Connectors > Monitoring Connectors
 
 2. Input the following information:
 
-  * The name of the router (1)
-  * A description of the router (2)
-  * The IP address of the router (3)
-  * The SNMP version and community (4)
-  * Select the poller that will monitor the device (keep "Central" if you have no other poller) (5)
+  * The name of the router in the **Name** field (1)
+  * A description of the router in the **Alias** field (2)
+  * The IP address of the router in the **Address** field (3)
+  * The SNMP community and version in the **SNMP Community & Version** fields (4)
+  * In the **Monitoring server** list, select the poller that will monitor the device (keep "Central" if you have no other poller) (5)
 
 3. Click **+ Add a new entry** in the **Templates** field (6), then select the **Net-Cisco-Standard-SNMP-custom** template (7) from the list:
 

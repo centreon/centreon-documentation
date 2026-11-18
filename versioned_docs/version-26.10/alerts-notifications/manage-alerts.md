@@ -200,7 +200,7 @@ To add a recurrent downtime period, go into the
 
 #### Configuration of Downtime periods
 
--   The **Name** and **Description** fields are used to give a name and
+-   The **Name** and **Alias** fields are used to give a name and
     describe the recurrent downtime period.
 -   The **Enable** field is used to enable or disable the downtime
     period.

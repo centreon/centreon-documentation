@@ -14,6 +14,10 @@ Suivez ce tutoriel pour apprendre à concevoir un tableau de bord en y ajoutant 
 
 <iframe width="100%" height="650" src="https://app.arcade.software/8tvsmop1AEy8Au0DyfOd" frameborder="0" allowfullscreen></iframe>
 
+:::note
+Ce tutoriel interactif peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+:::
+
 ## En savoir plus sur la fonctionnalité
 
 Consultez les procédures suivantes pour découvrir toutes les fonctionnalités et prolonger votre expérience :

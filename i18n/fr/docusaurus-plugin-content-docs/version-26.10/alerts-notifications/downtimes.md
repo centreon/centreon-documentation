@@ -49,6 +49,10 @@ Il existe plusieurs manières de définir un temps d'arrêt :
 
     ![image](../assets/alerts/resources-status/dt-hover.gif)
 
+    :::note
+    Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+    :::
+
     La fenêtre suivante apparaît :
 
     ![image](../assets/alerts/resources-status/dt-popup.png)
@@ -171,7 +175,7 @@ Pour ajouter un temps d'arrêt récurrent, rendez-vous dans le menu
 
 #### Configuration des temps d'arrêts
 
--   Les champs **Name** et **Description** permettent de donner un nom
+-   Les champs **Name** et **Alias** permettent de donner un nom
     et de décrire le temps d'arrêt récurrent.
 -   Le champ **Enable** permet d'activer ou de désactiver le temps
     d'arrêt.

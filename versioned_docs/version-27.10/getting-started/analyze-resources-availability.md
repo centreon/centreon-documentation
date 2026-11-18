@@ -47,31 +47,33 @@ routers.
 
 In Centreon MBI, you configure a report by creating a scheduled job. Go
 to **Reporting > Monitoring Business Intelligence > Jobs** and click **Add**.
-The job creation form opens on the first tab.
+The job creation form opens on the **Job parameters** tab.
 
-First, under *Job Configuration*, create a name for the job. This will
+First, in the **General information** section, enter a **Job name**. This will
 be the name of the report to be generated.
 
 Note: In case of a large number of jobs, it is important to
 define naming rules.
 
-Then specify the following:
+You must also link the job to a job group, in the **Linked job group** field. This is mandatory for
+managing user rights and profiles.
 
--   Report design: **Hostgroup-Host-Availability-List**
--   Language: English
--   Output format: PDF
+Then, in the **Report options** section, specify the following:
 
-You must also link the job to a job group. This is mandatory for
-managing user rights and profiles. In the Scheduling parameters, choose
-the scheduling mode. You have a choice between immediate execution and
-scheduled execution. Select immediate execution. In this configuration,
+-   Report template: **Hostgroup-Host-Availability-List**
+-   Language: **en_US**
+-   Output formats: **PDF**
+
+In the **Scheduling** section, choose the scheduling mode. You have a choice between
+**Immediate**, **Scheduled** and **Recurring** execution. Select **Immediate**, then
+select **Last month** in the **Period** list. In this configuration,
 the report will be generated immediately, in English, in PDF format, and
 using the last month's statistics:
 
 ![image](../assets/getting-started/3_EN_createJob_FirstTab_Filled.png)
 
-Once the Configuration form is filled out correctly, we can proceed to
-the "Report Parameters" tab, where we specify the conditions and scope
+Once the **Job parameters** tab is filled out correctly, we can proceed to
+the **Report content** tab, where we specify the conditions and scope
 of the report to be generated. We list the availability of hosts stored
 in the group "Routers" located in "Europe" (host category).
 
@@ -86,7 +88,7 @@ Centreon and must be configured in Centreon MBI's general options, under
 the "ETL Options" tab. Finally, we customize the report with our logo
 (new logos can be added to the "Logo" menu).
 
-Click "Save" to schedule the report according to the selected mode:
+Click **Save** to schedule the report according to the selected mode:
 immediately.
 
 ![image](../assets/getting-started/5_EN_generateJob.png)

@@ -27,6 +27,10 @@ for free:
 
 ![image](../assets/getting-started/pp_install_basic.gif)
 
+:::note
+This animation may show an earlier version of the interface. The steps described remain valid.
+:::
+
 Now you have the basic templates and plugins to start monitoring hosts!
 
 ## Deploying a configuration

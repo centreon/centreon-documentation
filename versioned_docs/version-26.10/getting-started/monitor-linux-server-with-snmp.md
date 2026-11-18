@@ -105,11 +105,11 @@ In the web interface, go to **Configuration > Connectors > Monitoring Connectors
 
 2. Input the following information:
 
-   * The name of the server (1)
-   * A description of the server (2)
-   * Its IP address (3)
-   * The SNMP version and community (4)
-   * Select the poller that will monitor your Linux server (keep "Central" if you have no other poller) (5)
+   * The name of the server in the **Name** field (1)
+   * A description of the server in the **Alias** field (2)
+   * Its IP address in the **Address** field (3)
+   * The SNMP community and version in the **SNMP Community & Version** fields (4)
+   * In the **Monitoring server** list, select the poller that will monitor your Linux server (keep "Central" if you have no other poller) (5)
 
 3. Click **+ Add a new entry** in the **Templates** field (6), then select the **OS-Linux-SNMP-custom** template (7) from the list:
 

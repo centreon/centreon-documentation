@@ -1,7 +1,7 @@
 ---
 id: create-custom-view
 title: Creating a custom view
-description: "Create your first custom view in Centreon from the Home > Custom Views menu: name it, choose a column layout and add widgets such as a top 10 CPU chart."
+description: "Create your first legacy custom view in Centreon: name it, choose a column layout and add widgets such as a top 10 CPU chart."
 ---
 
 ## What is a custom view?
@@ -10,7 +10,7 @@ A custom view is a dashboard created with widgets.
 
 ## Create your first custom view
 
-Go to the **Home \> Custom Views** menu and click the **Show/Hide edit mode** icon (pencil) located on the far right of the interface to enable
+Custom views (legacy) are no longer available from the **Home** menu. To access them, go to `http://<centreon-server-address>/centreon/main.php?p=103`, then click the **Show/Hide edit mode** icon (pencil) located on the far right of the interface to enable
 editing mode.
 
 Click **+ Add view** to create your first custom view, then enter **My view** in the **Name** field and select **2 Columns** in the **Layout** field.

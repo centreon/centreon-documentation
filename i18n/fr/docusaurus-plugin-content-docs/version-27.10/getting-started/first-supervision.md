@@ -26,6 +26,10 @@ Installez ensuite les connecteurs de supervision inclus gratuitement avec la sol
 
 ![image](../assets/getting-started/pp_install_basic.gif)
 
+:::note
+Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+:::
+
 Vous disposez maintenant des modèles de base pour configurer votre supervision !
 
 ## Déployer une configuration
