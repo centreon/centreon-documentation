@@ -307,8 +307,7 @@ Vous pouvez exporter la liste complète des évènements au format CSV.
 
 L'onglet **Graphique** vous permet d’afficher de manière visuelle l'évolution des métriques dans le temps pour la ressource sélectionnée. Survolez les courbes avec la souris pour afficher l'heure exacte sous le titre du graphique, et dans la légende, les valeurs des différentes métriques correspondant à l'instant.
 
-Lorsque le curseur ne survole pas les courbes, la légende affiche les valeurs minimum, maximum et moyennes 
-pour chaque métrique.
+Lorsque le curseur ne survole pas les courbes, la légende affiche le nom de chaque métrique.
 
 ![image](../assets/alerts/resources-status/resources-status-values.png)
 

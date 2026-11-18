@@ -171,7 +171,7 @@ Pour ajouter un temps d'arrêt récurrent, rendez-vous dans le menu
 
 #### Configuration des temps d'arrêts
 
--   Les champs **Name** et **Description** permettent de donner un nom
+-   Les champs **Name** et **Alias** permettent de donner un nom
     et de décrire le temps d'arrêt récurrent.
 -   Le champ **Enable** permet d'activer ou de désactiver le temps
     d'arrêt.

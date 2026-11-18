@@ -295,7 +295,7 @@ The graph tab enables you to visually display how the metrics evolve for the sel
 
 Hovering over the metric curves will display the precise time under the graph's title and also display, within the legend, the different values for that same point in time.
 
-When the pointer is not hovering over curves, the legend displays Min, Max and Average values for each metric.
+When the pointer is not hovering over curves, the legend displays the name of each metric.
 
 ![image](../assets/alerts/resources-status/resources-status-values.png)
 
@@ -317,7 +317,7 @@ Graphs display metric evolution over a given period. This can be defined in the 
 
 ![image](../assets/alerts/resources-status/resources-status-graph-time-selection.gif)
 
-The **Display events** toggle (available under the **gear** button) allows you to display some timeline events (downtime, acknowledgment, comment) directly on the graph, via annotations:
+The **Display events** toggle (available next to the period selector) allows you to display some timeline events (downtime, acknowledgment, comment) directly on the graph, via annotations:
 
 ![image](../assets/alerts/resources-status/resources-status-graph-display-events.gif)
 
