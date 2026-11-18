@@ -133,6 +133,11 @@ La désinstallation de l'agent ne supprime pas la CA. Pour ne plus faire confian
 Les scripts d'installation permettent de déployer CMA sur un hôte directement depuis la ligne de commande, sans passer par l'interface Centreon.
 Ces scripts sont téléchargés et récupérés par la commande d'installation décrite ci-dessus, mais peuvent également être utilisés de manière indépendante, par exemple pour des besoins d'automatisation.
 
+> **Important** : Encadrez les valeurs des options par des quotes, en particulier lorsqu'elles contiennent des espaces (par exemple, un chemin tel que `C:\Program Files`). Sinon, la valeur ne sera pas interprétée correctement par le script. Par exemple :
+>
+> * Windows : `-CustomCheckFile 'C:\Program Files\Centreon\custom_checks.json'`
+> * Linux : `--log-file '/opt/centreon agent/logs/centagent.log'`
+
 <Tabs groupId="sync">
 <TabItem value="Windows" label="Windows">
 

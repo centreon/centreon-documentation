@@ -133,6 +133,11 @@ Uninstalling the agent does not remove the CA. To stop trusting the poller's CA,
 The installation scripts allow you to deploy CMA on a host directly from the command line, without going through the Centreon interface.
 These scripts are downloaded and retrieved by the installation command described above, but can also be used independently, for example for automation purposes.
 
+> **Important**: Enclose option values in quotes, especially when they contain spaces (for example, a path such as `C:\Program Files`). Otherwise, the value is not interpreted correctly by the script. For example:
+>
+> * Windows: `-CustomCheckFile 'C:\Program Files\Centreon\custom_checks.json'`
+> * Linux: `--log-file '/opt/centreon agent/logs/centagent.log'`
+
 <Tabs groupId="sync">
 <TabItem value="Windows" label="Windows">
 
