@@ -75,7 +75,7 @@ To check that a status page is compatible, open
 `https://<domain name of the status page>/api/v2/components.json` in a browser:
 it must return the list of its components in JSON format. Many public status
 pages use Atlassian Statuspage, for example those of GitHub, Discord, Reddit,
-Datadog, Jira and Confluence.
+Dropbox, Jira and Confluence.
 
 ## Installing the monitoring connector
 
