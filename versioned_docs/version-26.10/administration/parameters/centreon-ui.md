@@ -1,62 +1,121 @@
 ---
 id: centreon-ui
 title: Centreon UI
-description: "Configure the general options of the Centreon web interface, such as display and inheritance settings, and set up a proxy for outgoing connections."
+description: "Configure the general options of the Centreon web interface: proxy, notification inheritance, page sizes, refresh intervals, sorting, charts, autologin, time zone and search."
 ---
 
-This part covers the configuration of the general options of the Centreon web
-interface.
+The **Centreon UI** page holds the options that apply to the whole Centreon web interface, for every user.
 
-Go to **Administration > Parameters > Centreon UI**.
+To change them, go to **Administration > Parameters > Centreon UI**, edit the fields, then click **Save**.
 
-## General options
+## Configure a proxy {#proxy-configuration}
 
-- **Directory** indicates the directory where Centreon is installed
-- **Contacts & Contact groups method calculation** lets you define how
-notification inheritance for hosts and services will be calculated.
-- The **Limit per page (default)** field defines the number of objects displayed
-per **Configuration** page
-- The **Limit per page for Monitoring** field defines the number of objects
-displayed per page in the **Monitoring** menu
-- The **Graph per page for Performances** field defines the maximum number of
-charts displayed on the **Performance** page
-- The **Number of elements loaded in select** field defines the maximum number in
-the selection box
-- The **Sessions Expiration Time** field, expressed in minutes, indicates the
-maximum session duration
-- The **Refresh Interval for statistics** field, expressed in seconds, indicates
-the refreshment interval for the statistics page
-- The **Refresh Interval for monitoring** field, expressed in seconds, indicates
-the refreshment interval for the objects on the monitoring page
-- The **Sort problems by** field is used to choose how to sort the incidents in
-the **Monitoring** menu
-- The **Order sort problems** field indicates the display order for incidents, by
-ascending or descending order of gravity
-- **Display downtime and acknowledgment on chart** is used to display downtime
-and acknowledgments on a chart
-- **Display comment on chart** is used to display comments from the service on a chart
-- The **Timezone** field indicates the timezone of your monitoring server.
-- The **Centreon Support Email** field indicates the e-mail address of the
-**Customer service support center** for the Centreon platform. This e-mail
-address will be displayed at the bottom of the page on the **Centreon
-Support** link.
-- The **Send anonymous statistics** box defines whether or not the platform will
-send anonymous information for **Centreon Customer Experience Improvement**
+Configure a proxy if your central server reaches the internet through one. Centreon needs internet access to [check your license](../licenses.md) and to download Monitoring Connectors.
 
-## Proxy configuration
+1. In the **Proxy options** section, fill in the following fields:
 
-The proxy configuration is mandatory when using the Centreon IT Edition.
+   | Field              | Value                                                                   |
+   | ------------------ | ----------------------------------------------------------------------- |
+   | **Proxy URL**      | URL of the proxy, including the protocol: `http://` or `https://`.      |
+   | **Proxy port**     | Port of the proxy.                                                      |
+   | **Proxy user**     | User for the proxy. Only if the proxy uses basic authentication.        |
+   | **Proxy password** | Password of this user. Only if the proxy uses basic authentication.     |
 
-![image](../../assets/administration/proxy_configuration.png)
+2. Click **Test Internet Connection**. Centreon tries to reach its servers (`api.imp.centreon.com`) through the proxy, using the URL and port you entered: you do not need to save first.
 
-Define the required information:
+   - If **Connection Successful** appears, the proxy works.
+   - Otherwise, the message gives the error. Check the URL and the port, then test again.
 
-- **Proxy URL** (the URL must include the protocol, http:// or https://)
-- **Proxy port**
-- **Proxy user**
-- **Proxy password**
+   > The test does not use **Proxy user** and **Proxy password**. If your proxy requires authentication, check these two fields carefully.
 
-Once you have defined the settings, test your configuration by clicking the **Test Internet Connection** button.
+3. Click **Save**.
 
-To validate the configuration, click the **Test Internet Connection** button. If the message
-**Connection Successful** appears, your configuration is valid. If not, modify your parameters.
+## Options reference
+
+The options below are listed in the order of the page, section by section.
+
+### Centreon information
+
+| Option        | What it does                                                                                       |
+| ------------- | -------------------------------------------------------------------------------------------------- |
+| **Directory** | Directory where Centreon is installed. Centreon checks that it can write to it when you save. |
+
+### Notification
+
+| Option                                           | What it does                                                                                                                                                                                                                                                                                                  | Default                    |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| **Contacts & Contact groups method calculation** | How Centreon finds the contacts and contact groups to notify for a host or a service that inherits them from templates: **Vertical Inheritance Only**, **Closest Value** or **Cumulative inheritance**. See [Contacts & Contact groups method calculation](../../alerts-notifications/notif-configuration.md#contacts--contact-groups-method-calculation). | **Cumulative inheritance** |
+
+### Maximum page size
+
+| Option                                  | What it does                                                                         | Default |
+| --------------------------------------- | ------------------------------------------------------------------------------------ | ------- |
+| **Limit per page (default)**            | Number of objects per page in the **Configuration** menu lists.                      | 30      |
+| **Limit per page for Monitoring**       | Number of objects per page in the monitoring consoles, from 10 to 100.               | 30      |
+| **Graph per page for Performances**     | Number of charts per page on the **Performances** page.                              | 18      |
+| **Number of elements loaded in select** | Number of items loaded at a time in drop-down lists. The next ones load as you scroll. | 60      |
+
+### Sessions properties
+
+| Option                       | What it does                                                                                                                                       | Default     |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| **Sessions Expiration Time** | How long a session lasts, in minutes. The value cannot be greater than the `session.gc_maxlifetime` value set in the `centreon.ini` PHP file. | 120 minutes |
+
+### Refresh properties
+
+| Option                              | What it does                                                                     | Default    |
+| ----------------------------------- | -------------------------------------------------------------------------------- | ---------- |
+| **Refresh Interval for statistics** | How often the top counters refresh, in seconds. Minimum: 10.                     | 15 seconds |
+| **Refresh Interval for monitoring** | How often the monitoring consoles refresh, in seconds. Minimum: 10.              | 15 seconds |
+
+### Display properties
+
+| Option         | What it does                                                                                                                                           | Default       |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
+| **Sort by**    | Default sort column of host and service lists in the monitoring consoles: **Hosts**, **Duration**, **Services**, **Status**, **Last check**, **Output**, **Criticality** or **Attempt**. | **Hosts**     |
+| **Order sort** | Default sort order of these lists: **Ascending** or **Descending**.                                                                                    | **Ascending** |
+
+### Problem display properties
+
+| Option                  | What it does                                                                                                                                       | Default       |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| **Sort problems by**    | Default sort column of problem lists in the monitoring consoles: **Duration**, **Hosts**, **Services**, **Status**, **Last check**, **Output** or **Criticality**. | **Duration**  |
+| **Order sort problems** | Default sort order of problem lists: **Ascending** or **Descending**.                                                                              | **Ascending** |
+
+### Chart options
+
+| Option                                           | What it does                                                                         | Default  |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------ | -------- |
+| **Display downtime and acknowledgment on chart** | Shows downtimes and acknowledgments on metric charts. Charts may take longer to display. | Disabled |
+| **Display comment on chart**                     | Shows comments on status charts. Charts may take longer to display.                  | Disabled |
+
+### Authentication properties
+
+| Option                         | What it does                                                                                                         | Default  |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------- | -------- |
+| **Enable Autologin**           | Lets users connect through a URL, without typing their credentials. See [Configuring Autologin](../../connect/autologin.md). | Disabled |
+| **Display Autologin shortcut** | Adds **Copy autologin link** to the profile menu, to get the autologin URL of the current page.                      | Enabled  |
+
+### Time zone
+
+| Option       | What it does                                                          |
+| ------------ | --------------------------------------------------------------------- |
+| **Timezone** | Default time zone of hosts and contacts that have no time zone set.   |
+
+### Support information
+
+| Option                     | What it does                                                                                     |
+| -------------------------- | ------------------------------------------------------------------------------------------------ |
+| **Centreon Support Email** | Email address of your help desk. It is shown at the bottom of the interface, so users can contact it. |
+
+### Statistics
+
+| Option                        | What it does                                                                                                                                                         |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Send anonymous statistics** | Takes part in the Centreon Customer Experience Improvement Program: the platform sends anonymous usage data to Centreon, only to improve the product. You can opt out at any time. |
+
+### Resource status performance
+
+| Option                        | What it does                                                                                                                                                                                                                                                                     | Default         |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| **Free text search behavior** | Fields searched by the free text search of the **Resource Status** page. **Limited search**: host name, alias and address, and service name. Choose it if you have a lot of resources, to keep the search fast. **Full search**: also searches the output of the checks. Use it only with a small number of resources, as it slows down the search. | **Full search** |
