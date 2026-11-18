@@ -643,15 +643,27 @@
     "description": "Reader preferences (Programme Bijou)"
   },
   "navbar.product.cim": {
-    "message": "Infra monitoring",
+    "message": "Infra Monitoring",
     "description": "navbar.product.cim"
   },
+  "navbar.product.cim.onprem": {
+    "message": "OnPrem",
+    "description": "navbar.product.cim.onprem"
+  },
+  "navbar.product.cim.cloud": {
+    "message": "Cloud",
+    "description": "navbar.product.cim.cloud"
+  },
+  "navbar.product.cim.connectors": {
+    "message": "Connecteurs de supervision",
+    "description": "navbar.product.cim.connectors"
+  },
   "navbar.product.cxm": {
-    "message": "Expérience monitoring",
+    "message": "Experience Monitoring",
     "description": "navbar.product.cxm"
   },
   "navbar.product.clm": {
-    "message": "Log management",
+    "message": "Log Management",
     "description": "navbar.product.clm"
   },
   "navbar.locale.label": {

@@ -13,8 +13,16 @@ html[data-theme='dark'] .switcher {
   background: rgba(255, 255, 255, 0.08);
 }
 
+.item {
+  position: relative;
+}
+
 .pill {
   display: inline-flex;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  line-height: inherit;
   align-items: center;
   gap: 0.45rem;
   padding: 0.3rem 0.8rem;
@@ -61,6 +69,87 @@ html[data-theme='dark'] .pillActive:hover {
 
 .pillActive .dot {
   opacity: 1;
+}
+
+.chevron {
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-left: -0.1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.15s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* Infra Monitoring menu: OnPrem, Cloud, Monitoring Connectors */
+.menu {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  left: 0;
+  z-index: var(--ifm-z-index-dropdown);
+  min-width: 15rem;
+  margin: 0;
+  padding: 0.4rem;
+  list-style: none;
+  border: 1px solid #e3e5ee;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  box-shadow: 0 12px 32px rgba(0, 0, 61, 0.12);
+}
+
+.menu[hidden] {
+  display: none;
+}
+
+html[data-theme='dark'] .menu {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: #1b1b3a;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+.menuLink {
+  display: block;
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #00003d;
+}
+
+html[data-theme='dark'] .menuLink {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.menuLink:hover,
+.menuLink:focus-visible {
+  background: #f0f1f6;
+  color: #00003d;
+  text-decoration: none;
+}
+
+html[data-theme='dark'] .menuLink:hover,
+html[data-theme='dark'] .menuLink:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.menuLinkActive,
+.menuLinkActive:hover {
+  background: #dfe5ff;
+  color: #00003d;
+}
+
+html[data-theme='dark'] .menuLinkActive,
+html[data-theme='dark'] .menuLinkActive:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
 }
 
 @media (max-width: 996px) {
