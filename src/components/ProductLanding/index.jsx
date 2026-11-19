@@ -40,11 +40,14 @@ function HeroSearch({ placeholder }) {
   );
 }
 
+// The spaces between the parts of a title or a card do not show (they sit in
+// flex or block boxes), but keep the words apart in the page text: search
+// snippets, copy and paste, and the Markdown version of the page.
 function SectionTitle({ title, subtitle }) {
   return (
     <h2 className={styles.sectionTitle}>
       {title}
-      {subtitle && <span>{subtitle}</span>}
+      {subtitle && <> <span>{subtitle}</span></>}
     </h2>
   );
 }
@@ -97,10 +100,13 @@ export default function ProductLanding({
               <p className={styles.alternativeText}>{alternative.text}</p>
               <div className={styles.alternativeActions}>
                 {(alternative.links ?? [{ label: alternative.label, href: alternative.href }]).map((link) => (
-                  <Link key={link.href} to={v.href(link.href)} className={styles.alternativeButton}>
-                    {link.label}
-                    <Icon name="arrow" size={16} />
-                  </Link>
+                  <React.Fragment key={link.href}>
+                    {' '}
+                    <Link to={v.href(link.href)} className={styles.alternativeButton}>
+                      {link.label}
+                      <Icon name="arrow" size={16} />
+                    </Link>
+                  </React.Fragment>
                 ))}
               </div>
             </aside>
@@ -119,7 +125,7 @@ export default function ProductLanding({
                     <Icon name={task.icon} size={18} />
                   </span>
                   <span>
-                    <span className={styles.taskTitle}>{task.title}</span>
+                    <span className={styles.taskTitle}>{task.title}</span>{' '}
                     <span className={styles.taskMeta}>
                       {task.kind ?? guide}
                       {task.minutes && ` · ${task.minutes} min`}

@@ -34,6 +34,12 @@ const DOC_CARD_CLASS = 'theme-doc-card-container';
 const DOC_CARD_TITLE_CLASS = 'theme-doc-card-title';
 const DOC_CARD_DESCRIPTION_CLASS = 'theme-doc-card-description';
 const DROPPED_TAGS = new Set(['svg', 'button', 'script', 'style', 'noscript']);
+// Form controls are page widgets (a search field, a selector), not content:
+// rehype-remark would write their placeholder or options as text. Checkboxes
+// are kept, since they mark the items of a task list.
+const FORM_CONTROL_TAGS = new Set(['input', 'select', 'textarea']);
+const isFormControl = (node) =>
+  FORM_CONTROL_TAGS.has(node.tagName) && !(node.tagName === 'input' && node.properties?.type === 'checkbox');
 const BLOCK_TAGS = new Set([
   'article', 'blockquote', 'dd', 'details', 'div', 'dl', 'dt', 'figure', 'h1', 'h2', 'h3', 'h4', 'h5',
   'h6', 'header', 'hr', 'li', 'ol', 'p', 'pre', 'section', 'summary', 'ul',
@@ -244,7 +250,7 @@ function rewriteNode(node, context) {
   if (!isElement(node)) {
     return [node];
   }
-  if (DROPPED_TAGS.has(node.tagName) || hasClass(node, 'hash-link')) {
+  if (DROPPED_TAGS.has(node.tagName) || isFormControl(node) || hasClass(node, 'hash-link')) {
     return [];
   }
 
