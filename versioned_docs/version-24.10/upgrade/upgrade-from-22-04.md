@@ -107,15 +107,16 @@ dnf clean all --enablerepo=*
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-1. Update your Centreon 22.04 to the latest minor version.
-2. Run the following commands:
+> Centreon 22.04 was only available on Debian 11, which Centreon 24.10 does not support. Instead of following this procedure, [migrate from Debian 11 to Debian 12](../migrate/migrate-from-debian-to-debian.md).
+
+1. Run the following commands:
 
 ```shell
 echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
-3. Then import the repository key:
+2. Then import the repository key:
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
