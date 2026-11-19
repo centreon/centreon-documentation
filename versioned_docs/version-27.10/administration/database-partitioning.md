@@ -32,7 +32,7 @@ More details about MariaDB partitioning
 
 The following packages are required:
 
-- php-mysql
+- phpysql
 - Pear-DB
 - MariaDB (\>= 10.1)
 
@@ -133,7 +133,9 @@ To perform table migration, use the **-m** option and specify the
 name of the table to migrate:
 
 ```shell
+systemctl stop cbd
 /bin/php /usr/share/centreon/bin/centreon-partitioning.php -m data_bin
+systemctl start cbd
 ```
 
 If the table migration is ok, the old table can be deleted with the following
