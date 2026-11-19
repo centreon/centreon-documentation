@@ -21,8 +21,6 @@ in charge of the Salary Management application, etc.
 
 Go to the **Configuration > Users > Contact Groups** menu and click **Add**
 
-![image](../../assets/configuration/07contactgroup.png)
-
 * The **Contact Group Name** and **Alias** fields define the name and the description of the contact group.
 * The **Linked Contacts** list allows us to add contacts to the contact group.
 * The **Status** and **Comment** fields are used to enable or disable the group of contacts and to make comments on it.

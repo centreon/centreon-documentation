@@ -116,6 +116,4 @@ The table below defines the columns of the changes table:
 ## Configuration
 
 To enable user audit logs, go to **Administration > Parameters > Options** and
-check the **Enable/Disable audit logs** option:
-
-![image](../assets/administration/logs_audit_enable.png)
+check the **Enable/Disable audit logs** option.

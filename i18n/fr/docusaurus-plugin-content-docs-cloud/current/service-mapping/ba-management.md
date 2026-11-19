@@ -188,9 +188,6 @@ sections:
 
 -   Vue métier: Pour lier l'activité métier à une vue métier
 -   Affichage: Paramètrer les options d'affichage de l'activité métier
--   Rapport: paramètres gérant les SLA cibles et période de reporting à
-    utiliser dans les widgets et rapports (lié à l'extension Centreon
-    MBI)
 -   Gestionnaire d'évènements: paramètres permettant l'exécution de
     script d'auto-correction
 
@@ -210,28 +207,9 @@ Dans Centreon Cloud, lorsque vous crééz une activité métier, vous devez syst
     clic l'accès à la vue d'infrastructure supportant l'activité
     métier.
 
-#### Notification
-
-Cet écran n'est pas actif actuellement. Dans Centreon Cloud, les BA utilisent [le même mécanisme de notification que les hôtes et les services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).
-
 #### Rapport
 
--   Période de rapport par défaut: la disponibilité calculées et
-    affichées dans les widgets & rapports sera calculée sur cette
-    période
--   Service Level Agreement en %(SLA): seuil en pourcentage visible dans
-    les widgets & rapports auquel la disponibilité et l'activité est
-    comparée
--   Service Level Agreement en min(SLA): seuil en minute visible auquel
-    le temps indisponible est comparée
--   Service Level Objective en %(SLO): seuil additionnel en pourcentage
-    qui peut être utilisé comme un seuil de SLA "warning".
--   Service Level Objective en min(SLO): seuil additionnel en minute qui
-    peut être utilisé comme un seuil de SLA "warning".
--   Plages de reporting additionnelles: permet de calculer les
-    statistiques de l'activité métier sur d'autres plages horaire
-
-> Dans les champs **Période de rapport par défaut** et **Plages de reporting additionnelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#onglet-période-dexception) : les exceptions ne seront pas prises en compte.
+Cette fonctionnalité n'est pas encore opérationnelle dans Centreon Cloud.
 
 #### Gestionnaire d'évènements
 

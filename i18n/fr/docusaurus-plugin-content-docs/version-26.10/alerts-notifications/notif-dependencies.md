@@ -28,8 +28,6 @@ La configuration d'une dépendance physique se déroule au sein de
 l'onglet **Relations** d'une fiche de configuration d'un hôte via le
 menu **Configuration > Hosts > Hosts**.
 
-![image](../assets/alerts/dep_host_config.png)
-
 Il est possible de définir deux paramètres :
 
 -   **Parent Hosts**: signifie que les hôtes sélectionnés sont parents
@@ -65,21 +63,12 @@ Pour configurer une dépendance logique, rendez-vous dans le menu
 `Configuration > Notifications > Dependencies > Hosts` et cliquez sur
 **Add**.
 
-![image](../assets/alerts/03hostdependance.png)
-
 Dans ce cas, nous avons deux types d'hôtes qui entrent en jeu : un ou des
 hôtes (appelé hôtes maîtres) dont le statut contrôle l'exécution et les
-notifications d'autres hôtes (appelés hôtes dépendants). Si vous
-utilisez Centreon Broker, il est également possible à partir des hôtes
-maîtres de contrôler l'exécution et les notifications de services
-(appelés services dépendants).
+notifications d'autres hôtes (appelés hôtes dépendants).
 
 -   Les champs **Name** et **Description** indiquent le nom et la
     description de la dépendance
--   Le champ **Parent relationship** est à ignorer si vous utilisez
-    Centreon Engine. S'il est activé, alors si les liens de dépendances
-    de l'hôte maître deviennent indisponibles, la dépendance en cours de
-    création n'est plus prise en compte.
 -   Le champ **Execution Failure Criteria** indique quels sont les
     statuts du ou des hôtes maîtres qui empêcheront la vérification des
     hôtes ou des services dépendants
@@ -97,20 +86,12 @@ Pour ajouter une dépendance au niveau des services, rendez-vous dans le
 menu **Configuration > Notifications > Dependencies > Services** et
 cliquez sur **Add**.
 
-![image](../assets/alerts/03servicedependance.png)
-
 Dans ce cas, nous avons deux entités qui entrent en jeu : les services
 (dits maîtres) qui contrôlent l'exécution et les notifications d'autres
-services (dits dépendants). Si vous utilisez Centreon Broker, il est
-également possible de contrôler l'exécution et les notifications
-d'autres hôtes.
+services (dits dépendants).
 
 -   Les champs **Name** et **Description** indiquent le nom et la
     description de la dépendance
--   Le champ **Parent relationship** est à ignorer si vous utilisez
-    Centreon Engine. S'il est activé, alors si les liens de dépendances
-    du service maître deviennent indisponibles la dépendance en cours de
-    création n'est plus prise en compte.
 -   Le champ **Execution Failure Criteria** indique quels sont les
     statuts du (ou des) service(s) maître(s) qui empêchera(ront) la
     vérification des hôtes ou des services dépendants
@@ -128,18 +109,12 @@ Pour configurer une dépendance logique, rendez-vous dans le menu
 `Configuration > Notifications > Dependencies > Host Groups` et cliquez
 sur **Add**.
 
-![image](../assets/alerts/03hostgroupdependance.png)
-
 Deux types de groupes d'hôtes : Un groupe d'hôtes est dit maître s'il
 contrôle l'exécution et la notification d'autres groupes d'hôtes (dit
 dépendants).
 
 -   Les champs **Name** et **Description** indiquent le nom et la
     description de la dépendance
--   Le champ **Parent relationship** est à ignorer si vous utilisez
-    Centreon Engine. S'il est activé, alors si les liens de dépendances
-    du groupe d'hôte maître deviennent indisponibles la dépendance en
-    cours de création n'est plus prise en compte.
 -   Le champ **Execution Failure Criteria** indique quels sont les
     statuts du ou des groupes d'hôtes maîtres qui empêcheront la
     vérification des groupes d'hôtes dépendants
@@ -158,27 +133,21 @@ Pour configurer une dépendance logique, rendez-vous dans le menu
 `Configuration > Notifications > Dependencies > Service Groups` et
 cliquez sur **Add**.
 
-![image](../assets/alerts/03servicegroupdependance.png)
-
 Deux types de groupes de services : Un groupe de services est dit maître
 s'il contrôle l'exécution et la notification d'autres groupes de
 services (dit dépendants).
 
 -   Les champs **Name** et **Description** indiquent le nom et la
     description de la dépendance
--   Le champ **Parent relationship** est à ignorer si vous utilisez
-    Centreon Engine. S'il est activé, alors si les liens de dépendances
-    du groupe de service maître deviennent indisponibles la dépendance
-    en cours de création n'est plus prise en compte.
 -   Le champ **Execution Failure Criteria** indique quels sont les
     statuts du ou des groupes de services maîtres qui empêcheront la
     vérification des groupes de services dépendants
 -   Le champ **Notification Failure Criteria** indique quels sont les
     statuts du ou des hôtes maîtres qui empêcheront l'envoi de
     notifications pour des groupes de services dépendants
--   La liste **Service group names** définie le ou les groupes de
+-   La liste **Servicegroups** définit le ou les groupes de
     services maîtres
--   La liste **Dependent service group names** définie le ou les groupes
+-   La liste **Dependent Servicegroups** définit le ou les groupes
     de services dépendants
 -   Le champ **Comments** permet de commenter la dépendance
 
@@ -188,18 +157,12 @@ Pour configurer une dépendance logique, rendez-vous dans le menu
 `Configuration > Notifications > Dependencies > Métaservices` et
 cliquez sur **Add**.
 
-![image](../assets/alerts/03metaservicedependance.png)
-
 Deux types de métaservices : Un métaservice est dit maître s'il
 contrôle l'exécution et la notification d'autres métaservices (dit
 dépendants).
 
 -   Les champs **Name** et **Description** indiquent le nom et la
     description de la dépendance
--   Le champ **Parent relationship** est à ignorer si vous utilisez
-    Centreon Engine. S'il est activé, alors si les liens de dépendances
-    du métaservice maître deviennent indisponibles la dépendance en
-    cours de création n'est plus prise en compte.
 -   Le champ **Execution Failure Criteria** indique quels sont les
     statuts du ou des métaservices maîtres qui empêcheront la
     vérification des métaservices dépendants

@@ -22,8 +22,6 @@ Pour visualiser le rapport de disponibilité d'un hôte :
 * Le tableau **Statuts des éléments du rapport** permet de visualiser la disponibilité des services associés à l'hôte suivant leurs statuts
 * La frise chronologique permet de visualiser de manière intuitive le statut de l'objet au cours du temps
 
-![image](../assets/reporting/os-reporting/os-host-timeline.png)
-
 De plus, en cliquant sur une journée de la frise chronologique, vous obtenez le rapport de la journée :
 
 ![image](../assets/reporting/os-reporting/os-host-tooltip.png)
@@ -34,8 +32,6 @@ Il est également possible de visualiser des rapports web pour :
 - Les groupes de services : Cliquez sur **Rapports > Disponibilité > Groupes de services** dans le menu de gauche
 
 
-L'icône CSV permet d'exporter les données du rapport au format CSV.
-
-![image](../assets/reporting/os-reporting/os-csv.png)
+Cliquez sur l'icône **CSV** en haut à droite pour exporter les données du rapport au format CSV.
 
 > Cliquez sur le service d'un hôte dans le rapport de disponibilité de l'hôte pour obtenir un rapport détaillé du service.

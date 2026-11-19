@@ -87,7 +87,7 @@ Version 25.10 means the end of support for Debian 11. If you were using Debian 1
 1. Update your Centreon 22.04 to the latest minor version.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/22.04/el8/centreon-22.04-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/archives/repo-files/standard/rpm/22.04/el8/centreon-22.04.repo
    dnf clean all --enablerepo=*
    dnf update
    ```

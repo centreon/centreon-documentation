@@ -60,7 +60,7 @@ apt update && apt upgrade
 2. Téléchargez le script à l'aide de la commande suivante :
 
 ```shell
-curl -L https://download.centreon.com/24.10/unattended.sh --output /tmp/unattended.sh
+curl -L https://raw.githubusercontent.com/centreon/centreon/24.10-latest/centreon/unattended.sh --output /tmp/unattended.sh
 ```
 
 3. Exécutez la commande suivante en **root** :
@@ -78,5 +78,5 @@ bash /tmp/unattended.sh install -t poller -v 24.10 -r stable -l DEBUG  2>&1 |tee
 Pour obtenir de l'aide sur le script, utilisez la commande suivante :
 
 ```shell
-bash unattended.sh -h
+bash /tmp/unattended.sh -h
 ```

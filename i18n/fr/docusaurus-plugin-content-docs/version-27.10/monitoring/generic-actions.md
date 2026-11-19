@@ -13,8 +13,6 @@ Au sein du menu **Configuration** il est possible d’effectuer certaines action
 
 L’ajout d’un nouvel objet se fait via le bouton **Ajouter** à côté du menu **Plus d'actions**/au-dessus de la liste des objets.
 
-![image](../assets/configuration/common/add.png)
-
 ## Dupliquer un objet
 
 La duplication d’un objet permet de copier/cloner celui-ci afin de pouvoir réutiliser ses attributs pour la création
@@ -37,8 +35,6 @@ Par exemple, pour dupliquer une Business Activity:
 2. Cliquez sur l'icône **Dupliquer** qui apparaît au survol de l'objet : ![image](../assets/configuration/common/duplicate_new.png#thumbnail1)
 3. Entrez le nombre d'exemplaires supplémentaires de l'objet que vous souhaitez obtenir.
 
-  ![image](../assets/configuration/common/duplicate_objects_new.png)
-
 4. Cliquez sur **OK**.
 
 </TabItem>
@@ -47,13 +43,9 @@ Par exemple, pour dupliquer une Business Activity:
 Par exemple, pour dupliquer un hôte :
 
 1. Sélectionnez l’hôte que vous souhaitez dupliquer.
-2. Dans la colonne **Options**, entrez le nombre d'exemplaires supplémentaires que vous souhaitez obtenir:
-
-    ![image](../assets/configuration/common/01duplicate.png)
+2. Dans la colonne **Options**, entrez le nombre d'exemplaires supplémentaires que vous souhaitez obtenir.
 
 3. Dans le menu **Plus d'actions** cliquez sur **Dupliquer**, puis confirmez la duplication.
-
-    ![image](../assets/configuration/common/01duplicateobjects.png)
 
 
 </TabItem>
@@ -114,8 +106,6 @@ Vous pouvez également utiliser les boutons suivants en fin de ligne :
 
   * **Activer** ![image](../assets/configuration/common/enabled.png#thumbnail1)
   * **Désactiver** ![image](../assets/configuration/common/disabled.png#thumbnail1)
-
-   ![image](../assets/configuration/common/enable_disable.png)
 
 </TabItem>
 </Tabs>

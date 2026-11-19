@@ -49,6 +49,10 @@ Il existe plusieurs manières de définir un temps d'arrêt :
 
     ![image](../assets/alerts/resources-status/dt-hover.gif)
 
+    :::note
+    Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+    :::
+
     La fenêtre suivante apparaît :
 
     ![image](../assets/alerts/resources-status/dt-popup.png)
@@ -68,9 +72,7 @@ Il existe plusieurs manières de définir un temps d'arrêt :
 2.  Dans la catégorie **Commands**, cliquez sur **Schedule downtime for
     this host/service**
 
-La fenêtre suivante s'affiche :
-
-![image](../assets/alerts/downtime.png)
+Dans la fenêtre qui s'affiche :
 
 -   Le champ **Host Name** définit l'hôte concerné par le temps d'arrêt
 -   Le champ **Service** définit le service concerné par le temps
@@ -94,9 +96,7 @@ La fenêtre suivante s'affiche :
 3.  Dans le menu **More actions…**, cliquez sur **Hosts : Set Downtime**
     ou **Services : Set Downtime**
 
-La fenêtre suivante s'affiche :
-
-![image](../assets/alerts/downtime.png)
+Dans la fenêtre qui s'affiche :
 
 -   Le champ **Host Name** définit l'hôte concerné par le temps d'arrêt
 -   Le champ **Service** définit le service concerné par le temps
@@ -116,19 +116,17 @@ La fenêtre suivante s'affiche :
 1.  Rendez-vous dans le menu **Monitoring > Downtimes > Downtimes**
 2.  Cliquez sur **Add a service downtime** ou **Add a host downtime**
 
-La fenêtre suivante s'affiche :
+Dans la fenêtre qui s'affiche :
 
-![image](../assets/alerts/downtime.png)
-
--   Le champ **Host Name** définit l'hôte concerné par le temps d'arrêt
--   Le champ **Service** définit le service concerné par le temps
-    d'arrêt
+-   Le champ **Downtime type** définit le type d'objet concerné par le temps d'arrêt : **Host**, **Services**, **Hostgroup**, **Servicegroup** ou **Poller**
+-   Le champ **Hosts** définit les hôtes concernés par le temps d'arrêt
 -   Si la case **Fixed** est cochée alors le temps d'arrêt est fixe.
     Sinon, il est flexible
 -   Si le temps d'arrêt est flexible, le champ **Duration** définit la
     durée du temps d'arrêt
 -   Les champs **Start Time** et **End Time** définissent les dates de
     début et de fin du temps d'arrêt. Les temps d'arrêt ne peuvent pas débuter ni se finir après le 31 décembre 2099 à 23:59.
+-   Si la case **Set downtime for hosts services** est cochée, le temps d'arrêt s'applique également aux services des hôtes sélectionnés
 -   Le champ **Comments** sert à indiquer pourquoi le temps d'arrêt est
     programmé
 
@@ -177,13 +175,13 @@ Pour ajouter un temps d'arrêt récurrent, rendez-vous dans le menu
 
 #### Configuration des temps d'arrêts
 
--   Les champs **Name** et **Description** permettent de donner un nom
+-   Les champs **Name** et **Alias** permettent de donner un nom
     et de décrire le temps d'arrêt récurrent.
 -   Le champ **Enable** permet d'activer ou de désactiver le temps
     d'arrêt.
 -   Le champ **Periods** permet de définir une ou plusieurs périodes de
-    temps d'arrêt récurrent. Pour ajouter une période, cliquez sur le
-    symbole ![image](../assets/common/navigate_plus.png)
+    temps d'arrêt récurrent. Pour ajouter une période, cliquez sur
+    **Add new period**.
 
 Il est possible de choisir trois types de périodes :
 

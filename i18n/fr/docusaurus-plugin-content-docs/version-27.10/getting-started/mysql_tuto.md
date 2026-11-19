@@ -62,11 +62,13 @@ Rendez-vous dans le menu **Configuration > Connecteurs > Connecteurs de supervis
 
 ![image](../assets/getting-started/quick_start_mysql_0.gif)
 
+:::note
+Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+:::
+
 ## Configurer l'hôte et déployer la configuration
 
-1. Allez à la page **Configuration > Hôtes > Hôtes** et cliquez sur le bouton **Ajouter** :
-
-  ![image](../assets/getting-started/quick_start_mysql_1a.gif)
+1. Allez à la page **Configuration > Hôtes > Hôtes** et cliquez sur le bouton **Ajouter**.
 
 2. Renseignez les informations suivantes :
 
@@ -90,9 +92,7 @@ Rendez-vous dans le menu **Configuration > Connecteurs > Connecteurs de supervis
   * **MYSQLPASSWORD** : le mot de passe associé à cet utilisateur.
   * **MYSQLPORT** : le port d'écoute de la base de données, par défaut 3306.
 
-5. Cliquez sur le bouton **Sauvegarder**. Votre équipement a été ajouté à la liste des hôtes :
-
-  ![image](../assets/getting-started/quick_start_mysql_2.png)
+5. Cliquez sur le bouton **Sauvegarder**. Votre équipement a été ajouté à la liste des hôtes.
 
 6. Allez dans **Configuration > Services > Services par hôte**. Un ensemble d'indicateurs a été créé automatiquement.
 
@@ -104,3 +104,7 @@ Rendez-vous dans le menu **Configuration > Connecteurs > Connecteurs de supervis
 filtre **Afficher les détails**. Dans un premier temps, les ressources apparaissent avec le statut **En attente**, ce qui signifie qu'aucun contrôle n'a encore été exécuté. Après quelques minutes, les premiers résultats de la supervision apparaissent :
 
   ![image](../assets/getting-started/quick_start_mysql_4.gif)
+
+  :::note
+  Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+  :::

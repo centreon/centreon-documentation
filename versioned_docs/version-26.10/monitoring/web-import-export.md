@@ -52,14 +52,10 @@ apt install centreon-awie
 
 ### UI installation
 
-Go to **Administration > Extensions > Manager** and search **awie**. Click 
-**Install selection**:
+Go to **Administration > Extensions > Manager** and search **awie**. Click **Install**
+on the **Api Web Import Export** tile.
 
-![imaage](../assets/configuration/awie/install_01.png)
-
-Your module is now installed:
-
-![imaage](../assets/configuration/awie/install_02.png)
+Your module is now installed.
 
 ## Export configuration
 
@@ -80,8 +76,6 @@ file contained in the archive.
 
 ### Poller Export
 
-![imaage](../assets/configuration/awie/poller.png)
-
 If you set the **All** checkbox to yes (default value is no), then all
 configured pollers will be exported with their configuration files (for engine,
 Broker, etc.) after you have clicked the **Export** button.
@@ -91,11 +85,7 @@ field (one single value is accepted; this field has no list of suggested items).
 
 ### Hosts Export
 
-![imaage](../assets/configuration/awie/hostsetc.png)
-
 #### Hosts
-
-![imaage](../assets/configuration/awie/hosts.png)
 
 Same principle as poller export, but:
 
@@ -112,16 +102,12 @@ services.
 
 #### Host templates
 
-![imaage](../assets/configuration/awie/hoststemplates.png)
-
 Check the *Host templates* checkbox if you want to export all host templates.
 
 Use the *Filter* field for one single value if you want to export one specific
 host template.
 
 #### Host groups
-
-![imaage](../assets/configuration/awie/hostgroups.png)
 
 Check the **Host groups** checkbox if you want to export all host groups.
 
@@ -130,18 +116,12 @@ host group.
 
 #### Host categories
 
-![imaage](../assets/configuration/awie/hostscat.png)
-
 Check the **Host categories** checkbox if you want to export all host
 categories. There is no **Filter** field for this object.
 
 ### Services Export
 
-![imaage](../assets/configuration/awie/servicesetc.png)
-
 #### Services
-
-![imaage](../assets/configuration/awie/services.png)
 
 Same principle as poller export, but:
 
@@ -151,8 +131,6 @@ service.
 
 #### Service templates
 
-![imaage](../assets/configuration/awie/servicestemplates.png)
-
 Check the **Service templates** checkbox if you want to export all service
 templates.
 
@@ -161,8 +139,6 @@ service template.
 
 #### Service groups
 
-![imaage](../assets/configuration/awie/servicegroups.png)
-
 Check the **Service groups** checkbox if you want to export all service groups.
 
 Use the **Filter** field for one single value if you want to export one specific
@@ -170,21 +146,15 @@ service group.
 
 #### Service categories
 
-![imaage](../assets/configuration/awie/servicescat.png)
-
 Check the **Service categories** checkbox if you want to export all service
 categories. There is no **Filter** field for this object.
 
 ### Contacts Export
 
-![imaage](../assets/configuration/awie/contacts.png)
-
 You can export all Contacts (without linked contact groups) or all Contact
 groups (with linked users). No **Filter**.
 
 ### Commands Export
-
-![imaage](../assets/configuration/awie/commands.png)
 
 Check the checkbox corresponding to the type of command you want to export
 (Check, Notification, Miscellaneous or Discovery). No **Filter**.
@@ -193,7 +163,7 @@ Check the checkbox corresponding to the type of command you want to export
 
 ### Resources Export
 
-![imaage](../assets/configuration/awie/resources.png)
+The **Resources** section lets you export ACL objects, LDAP configurations and time periods.
 
 ### ACL
 
@@ -221,18 +191,14 @@ file is created and downloaded.
 This is the file that you will upload in the Import Page of another Centreon Web
 platform.
 
-Go to **Configuration > Import/Export > Import**:
-
-![imaage](../assets/configuration/awie/Import.png)
+Go to **Configuration > Import/Export > Import**.
 
 Select the centreon-clapi-export zip file you want to import, and then click the
 **Import** button:
 
 ![imaage](../assets/configuration/awie/zipfileuploaded.png)
 
-You should get an **Import successful** message at the end of the process:
-
-![imaage](../assets/configuration/awie/success.png)
+You should get an **Import successful** message at the end of the process.
 
 To check that objects have been properly imported, go to the Configuration pages as
 usual.

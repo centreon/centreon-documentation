@@ -16,9 +16,7 @@ Rendez-vous dans le menu **Configuration > Connecteurs > Connecteurs de supervis
 > pour configurer et vérifier la connexion de votre serveur Centreon à internet.
 
 Commencez par installer le connecteur de supervision **Base Pack** (s'il n'est pas déjà installé) en déplaçant votre curseur sur ce dernier et en cliquant sur
-l'icône **+** (il s'agit d'un pré-requis à l'installation de tout autre connecteur de supervision) :
-
-![image](../assets/getting-started/pp_base_generic_1.png)
+l'icône **+** (il s'agit d'un pré-requis à l'installation de tout autre connecteur de supervision).
 
 Vous pouvez aussi cliquer sur le connecteur de supervision afin d'en connaître son contenu avant de l'installer :
 
@@ -27,6 +25,10 @@ Vous pouvez aussi cliquer sur le connecteur de supervision afin d'en connaître 
 Installez ensuite les connecteurs de supervision inclus gratuitement avec la solution, par exemple **Linux SNMP** et **Windows SNMP** :
 
 ![image](../assets/getting-started/pp_install_basic.gif)
+
+:::note
+Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+:::
 
 Vous disposez maintenant des modèles de base pour configurer votre supervision !
 
@@ -37,8 +39,6 @@ Lorsque vous créerez des hôtes, vous devrez déployer la configuration pour qu
 1. Rendez-vous dans le menu **Configuration > Collecteurs > Collecteurs**.
 2. Choisissez les collecteurs sur lesquels exporter la configuration.
 3. Cliquez sur **Exporter la configuration**.
-
-    ![image](../assets/monitoring/monitoring-servers/export_conf.png)
 
 4. Cochez les cases suivantes :
   - **Générer les fichiers de configuration**

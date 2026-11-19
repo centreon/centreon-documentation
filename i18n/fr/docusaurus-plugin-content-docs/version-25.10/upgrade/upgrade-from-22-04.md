@@ -88,7 +88,7 @@ Debian 11 n'est plus supporté depuis la version 24.10. Si vous utilisiez Debian
 1. Mettez à jour votre Centreon 22.04 jusqu'à la dernière version mineure.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/22.04/el8/centreon-22.04-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/archives/repo-files/standard/rpm/22.04/el8/centreon-22.04.repo
    dnf clean all --enablerepo=*
    dnf update
    ```

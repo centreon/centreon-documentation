@@ -120,6 +120,4 @@ Le tableau ci-dessous définit les colonnes du tableau des modifications :
 
 Pour activer la journalisation des actions utilisateurs, rendez-vous dans le
 menu **Administration > Paramètres > Options** et cocher la case
-**Activer/Désactiver les journaux d'audit**:
-
-![image](../assets/administration/logs_audit_enable.png)
+**Activer/Désactiver les journaux d'audit**.

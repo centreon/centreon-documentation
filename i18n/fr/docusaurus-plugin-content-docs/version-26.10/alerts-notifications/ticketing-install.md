@@ -52,14 +52,10 @@ apt install centreon-open-tickets
 
 Après avoir installé le rpm, vous devez terminer l'installation du
 module via l'interface Web. Rendez-vous dans le menu
-`Administration > Extensions > Manager` et recherchez **open tickets**.
-Cliquez sur **Install selection**:
-
-![image](../assets/alerts/open_tickets_install_01.png)
+`Administration > Extensions > Manager` et recherchez **Open Tickets**.
+Cliquez sur l'icône d'installation de la carte du module (ou sur **Install all**).
 
 Le module est maintenant installé.
-
-![image](../assets/alerts/open_tickets_install_02.png)
 
 ## Sauvegarder votre configuration personnalisée de fournisseur OpenTicket
 

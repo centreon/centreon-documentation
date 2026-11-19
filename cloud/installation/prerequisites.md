@@ -8,10 +8,11 @@ description: "OS, hardware, and network requirements to meet before installing a
 
 ## OS
 
-The poller must be installed on a dedicated fresh Alma Linux/RHEL/Oracle Linux 8 or 9 server. Debian 12 is also supported for pollers from version 24.04. See our knowledge base articles [How to install Linux to host Centreon software](https://thewatch.centreon.com/product-how-to-21/how-to-install-linux-to-host-centreon-software-3759) and [OS updates & security](https://thewatch.centreon.com/product-how-to-21/os-updates-security-3136).
+* If you are installing your poller [on a VM or physical machine](./deploy-poller.md), it must be installed on a dedicated fresh Alma Linux/RHEL/Oracle Linux 9 or 10, or Debian 13 server. See our knowledge base articles [How to install Linux to host Centreon software](https://thewatch.centreon.com/product-how-to-21/how-to-install-linux-to-host-centreon-software-3759) and [OS updates & security](https://thewatch.centreon.com/product-how-to-21/os-updates-security-3136).
+* If you are using a container, [see the container prerequisites here](./using-containers.md#prerequisites).
 
 ## Hardware
- 
+
 The host machine must have at least the following characteristics:
 
 * To handle testing or small environments (up to 2000 services with checks every 5 minutes, or up to 500 services with checks every minute):

@@ -63,20 +63,22 @@ Go to **Configuration > Connectors > Monitoring Connectors** and install the **M
 
 ![image](../assets/getting-started/quick_start_mysql_0.gif)
 
+:::note
+This animation may show an earlier version of the interface. The steps described remain valid.
+:::
+
 ## Set up the host and deploy the configuration
 
-1. Go to **Configuration > Hosts > Hosts** and click **Add**:
-
-  ![image](../assets/getting-started/quick_start_mysql_1a.gif)
+1. Go to **Configuration > Hosts > Hosts** and click **Add**.
 
 2. Input the following information:
 
-  * The name of your server
-  * A description of your server
-  * Its IP address
-  * Select the poller that will monitor the database (leave "Central" if you have no other poller)
+  * The name of your server in the **Name** field
+  * A description of your server in the **Alias** field
+  * Its IP address in the **Address** field
+  * In the **Monitoring server** list, select the poller that will monitor the database (leave "Central" if you have no other poller)
 
-3. Click the **+ Add New Entry** button for the **Templates** field and select the **App-DB-MySQL-custom** template:
+3. Click **+ Add a new entry** in the **Templates** field and select the **App-DB-MySQL-custom** template:
 
   ![image](../assets/getting-started/quick_start_mysql_1a.png)
 
@@ -87,12 +89,10 @@ Go to **Configuration > Connectors > Monitoring Connectors** and install the **M
   Fill in the value of following macros:
 
   * **MYSQLUSERNAME**: the name of the user that will connect to the database.
-  * **MySQLPASSWORD**: the password associated with this user.
-  * **MySQLPORT**: the listening port of the database, by default 3306.
+  * **MYSQLPASSWORD**: the password associated with this user.
+  * **MYSQLPORT**: the listening port of the database, by default 3306.
 
-5. Click **Save**. Your device has been added to the list of hosts:
-
-  ![image](../assets/getting-started/quick_start_mysql_2.png)
+5. Click **Save**. Your device has been added to the list of hosts.
 
 6. Go to **Configuration > Services > Services by host**. A set of indicators has been deployed automatically:
 
@@ -105,3 +105,7 @@ for the **Service Status** filter. At first, the resources appear with the statu
  which means that no checks have been executed yet. After a few minutes, the first results of the monitoring appear:
 
   ![image](../assets/getting-started/quick_start_mysql_4.gif)
+
+  :::note
+  This animation may show an earlier version of the interface. The steps described remain valid.
+  :::
