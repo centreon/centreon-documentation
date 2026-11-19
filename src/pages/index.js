@@ -46,7 +46,7 @@ const cards = [
       },
       {
         label: "Monitoring Connectors",
-        href: "pp/integrations/plugin-packs/getting-started/introduction/",
+        href: "pp/welcome",
       },
     ],
   },

@@ -44,7 +44,7 @@ const cards = [
       },
       {
         label: "Connecteurs de supervision",
-        href: "pp/integrations/plugin-packs/getting-started/introduction/",
+        href: "pp/welcome",
       },
     ],
   },
