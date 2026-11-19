@@ -23,9 +23,7 @@ Pour installer une extension :
 
 ![image](../assets/administration/install-imp-1.png)
 
-Pour tout installer en une seule fois cliquez sur **Install all** :
-
-![image](../assets/administration/install-imp-2.png)
+Pour tout installer en une seule fois cliquez sur **Install all**.
 
 Vous pouvez également mettre à jour toutes les extensions en cliquant sur le
 bouton **Update all**, ou gérez extension par extension.
