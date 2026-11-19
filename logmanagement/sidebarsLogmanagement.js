@@ -107,6 +107,33 @@ module.exports = {
         }
        ]
     },
+
+    {
+          "collapsed": true,
+          "type": "category",
+          "label": "Exploring traces (BETA)",
+          "link": {
+            "type": "generated-index",
+          },
+          items: [
+        {
+          type: 'doc',
+          id: 'traces/traces-concepts'
+        },
+        {
+          type: 'doc',
+          id: 'traces/traces-use-cases'
+        },
+        {
+          type: 'doc',
+          id: 'traces/traces-prerequisites'
+        },
+        {
+          type: 'doc',
+          id: 'traces/traces-explore'
+        }
+       ]
+    },
         {
           "collapsed": true,
           "type": "category",
