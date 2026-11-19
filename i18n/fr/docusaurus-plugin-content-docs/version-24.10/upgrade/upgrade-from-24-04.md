@@ -140,8 +140,8 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/e
 1. Mettez à jour votre Centreon 24.04 jusqu'à la dernière version mineure.
 
    ```shell
-   curl -fsSL https://packages.centreon.com/archives/repo-files/apt/centreon-archives-apt.asc -o /usr/share/keyrings/centreon-archives.asc
-   curl -fsSL https://packages.centreon.com/archives/repo-files/standard/apt/24.04/$(lsb_release -sc)/centreon-24.04.list -o /etc/apt/sources.list.d/centreon.list
+   wget -O- https://packages.centreon.com/archives/repo-files/apt/centreon-archives-apt.asc | gpg --dearmor | tee /usr/share/keyrings/centreon-archives.gpg > /dev/null 2>&1
+   echo "deb [signed-by=/usr/share/keyrings/centreon-archives.gpg] https://packages.centreon.com/archives/standard/apt-stable $(lsb_release -sc)-24.04-stable main" | tee /etc/apt/sources.list.d/centreon.list
    apt update
    apt install --only-upgrade "centreon*"
    ```
