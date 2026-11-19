@@ -32,7 +32,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details open>
   <summary>Enhancements</summary>
 
-- [CMA] The freshness threshold was raised from 120 to 500 seconds to avoid unnecessary re-checks. Custom values are kept on upgrade.
+- [CMA] The freshness threshold was raised from 120 to 500 seconds to avoid unnecessary re-checks. Custom values will not be affected by the upgrade.
 - [Unattended] Fix path to repo files (RPM).
 
 </details>
@@ -40,8 +40,8 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- Fix(unattended): Added support for version 26.10.
-- [API] API requests containing invalid non-integer values for the page or limit parameters (e.g., ?page=abc) now correctly return an HTTP 400 Bad Request instead of an uncaught HTTP 500 error, ensuring accurate error reporting and preventing critical log pollution.
+- [Unattended install]: Added support for version 26.10.
+- [API] API requests containing invalid non-integer values for the page or limit parameters (e.g., ?page=abc) now correctly return an HTTP 400 Bad Request instead of an uncaught HTTP 500 error. This means more accurate error reporting and avoiding critical log pollution.
 - [API] Listing services with the configuration API no longer fails with an error when some of them are deployed by host group.
 - [Agent configuration] Deleting a host no longer stops the poller from collecting data from the other hosts using poller-initiated connections.
 - [Agent configuration] Errors during automatic host creation are now logged with their real cause instead of a log file permission error.
@@ -90,9 +90,9 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed an issue where Centreon Broker generated irrelevant RRD update error logs when losing connection to pollers, which could saturate the disk partition.
-- Fixed an issue where Centreon Engine crashed unexpectedly during configuration application when deleting hosts associated with active service downtimes.
+- [Broker] Fixed an issue where Centreon Broker generated irrelevant RRD update error logs when losing connection to pollers, which could saturate the disk partition.
 - [Broker] Fixed the remaining incorrect error messages in Broker logs.
+- [Engine] Fixed an issue where Centreon Engine crashed unexpectedly during configuration application when deleting hosts associated with active service downtimes.
 - [Engine] Fixed an issue where centengine did not restart automatically after a package update, requiring a manual service restart.
 - [Engine] Fixed passive service freshness issues causing engine hangs, memory growth and flapping with CMA checks.
 - [Reporting] Fixed an issue where canceled downtimes were wrongly included in availability calculations, causing inconsistent reports.
@@ -121,7 +121,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed an issue where MBI reports failed to generate after updating Centreon, due to a data format mismatch.
+- [MBI] Fixed an issue where MBI reports failed to generate after updating Centreon, due to a data format mismatch.
 - [Engine] Fixed an issue where centengine did not restart automatically after a package update, requiring a manual service restart.
 - [Gorgone] Fixed a missing whitelist entry that caused "command not allowed" errors when fetching Broker stats.json files.
 - [Gorgone] Fixed pullwss pollers being rejected after the central's API session expired, requiring a gorgoned restart.
