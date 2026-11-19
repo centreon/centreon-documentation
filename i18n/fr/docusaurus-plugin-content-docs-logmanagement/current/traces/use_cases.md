@@ -6,7 +6,7 @@ description: "Usages courants des traces : trouver les goulets d'étranglement,
 
 Les traces servent principalement à comprendre et à améliorer vos systèmes. Voici les cas d'usage les plus courants.
 
-## Identifier les goulets d'étranglement
+## Identifier les goulots d'étranglement
 
 [Une trace découpe une requête en spans](concepts.md#quest-ce-quune-trace) répartis entre services, bases de données et appels externes : vous voyez exactement quelle étape est lente. « La validation de la commande prend 3 s » devient « l'appel à l'API de paiement prend 2,4 s, la requête SQL 0,4 s ». Plus besoin de deviner ni de fouiller dans les logs.
 
