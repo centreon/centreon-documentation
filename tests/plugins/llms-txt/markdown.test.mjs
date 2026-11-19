@@ -47,6 +47,15 @@ describe('doc body', () => {
     const markdown = await convert('<h2 id=intro>Intro<a href=#intro class=hash-link aria-label="Direct link">\u200b</a></h2>');
     assert.equal(markdown, '## Intro\n');
   });
+
+  it('drops form controls such as an embedded search field, but keeps task list checkboxes', async () => {
+    const markdown = await convert(
+      '<p>Before.</p><div class=search_x><input placeholder=Search aria-label=Search value=""></div>' +
+        '<select><option>Choice</option></select><textarea placeholder=Comment></textarea>' +
+        '<ul class=contains-task-list><li class=task-list-item><input type=checkbox disabled checked> Done</li></ul>',
+    );
+    assert.equal(markdown, 'Before.\n\n- [x] Done\n');
+  });
 });
 
 describe('tabs', () => {
