@@ -14,3 +14,39 @@ See https://github.com/facebook/docusaurus/pull/11142
 :global(.navbar__items--right) > :last-child {
   padding-right: 0;
 }
+
+/* Keep the logo on one line */
+:global(.navbar__brand) {
+  flex-shrink: 0;
+}
+
+/* "Docs" under the logo, as "Download" on download.centreon.com: the label
+   sits under the wordmark, aligned on its right edge. */
+:global(.navbar__brand .navbar__logo) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height: auto;
+}
+
+:global(.navbar__brand .navbar__logo img) {
+  height: 1.7rem;
+}
+
+:global(.navbar__brand .navbar__logo)::after {
+  content: 'Docs';
+  margin-top: 0.1rem;
+  /* Letter spacing also follows the last letter: compensate on the right */
+  margin-right: -0.32em;
+  font-family: var(--ifm-font-family-base);
+  font-size: 0.62rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #00003d;
+}
+
+:global(html[data-theme='dark'] .navbar__brand .navbar__logo)::after {
+  color: rgba(255, 255, 255, 0.85);
+}

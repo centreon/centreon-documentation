@@ -1,0 +1,35 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  margin: 0 0.25rem 0 0.75rem;
+}
+
+.locale {
+  padding: 0.15rem 0.35rem;
+  border-radius: 5px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.locale:hover {
+  color: var(--ifm-navbar-link-color);
+  text-decoration: none;
+}
+
+.active {
+  background: #e3e8ff;
+  color: #00003d;
+}
+
+.active:hover {
+  color: #00003d;
+}
+
+html[data-theme='dark'] .active {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}

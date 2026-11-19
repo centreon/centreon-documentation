@@ -1,276 +1,507 @@
-import { Redirect } from "@docusaurus/router";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import { usePluginData } from "@docusaurus/useGlobalData";
-import Layout from "@theme/Layout";
+import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
-import React from "react";
+import { Redirect } from "@docusaurus/router";
+import Link from "@docusaurus/Link";
+import Layout from "@theme/Layout";
+import { translate } from "@docusaurus/Translate";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import {
+  useAllPluginInstancesData,
+  usePluginData,
+} from "@docusaurus/useGlobalData";
+import SearchBar from "@theme/SearchBar";
+import Icon from "@site/src/components/Icon";
 import styles from "./index.module.css";
 
-const basePathImg = "./img/homepage/";
+const THE_WATCH_URL = "https://thewatch.centreon.com/";
 
-const links = {
-  social: [
+// Key figures shown in the hero card. Each figure must be sourced: the mockup's
+// marketing claims ("N°1 open source in Europe", monthly downloads) can replace
+// these once validated by Product Marketing.
+function getKeyFigures() {
+  return [
     {
-      href: "https://github.com/centreon/centreon/",
-      image: basePathImg + "social-network/github.png",
+      value: "700+",
+      label: translate({
+        id: "home.figures.connectors",
+        message: "monitoring connectors",
+      }),
     },
     {
-      href: "https://twitter.com/Centreon",
-      image: basePathImg + "social-network/twitter.png",
+      value: "2005",
+      label: translate({
+        id: "home.figures.openSource",
+        message: "open source since",
+      }),
     },
-    {
-      href: "https://www.linkedin.com/company/centreonsoftware",
-      image: basePathImg + "social-network/linkedin.png",
-    },
-    {
-      href: "https://www.youtube.com/c/Centreon-Monitoring",
-      image: basePathImg + "social-network/youtube.png",
-    },
-  ],
-  thewatch: "https://thewatch.centreon.com/",
-  contribute: "https://github.com/centreon/.github/blob/master/CONTRIBUTING.md",
-};
+  ];
+}
 
-const cards = [
-  {
-    title: "Infra Monitoring",
-    href: "docs/getting-started/welcome/",
-    links: [
-      {
-        label: "Infra Monitoring OnPrem",
-        href: "docs/getting-started/welcome",
-      },
-      {
-        label: "Infra Monitoring Cloud",
-        href: "cloud/getting-started/welcome",
-      },
-      {
-        label: "Monitoring Connectors",
-        href: "pp/integrations/plugin-packs/getting-started/introduction/",
-      },
-    ],
-  },
-  {
-    title: "Experience Monitoring",
-    href: "experience-monitoring/getting-started/welcome/",
-    links: [
-      {
-        label: "Getting started with Centreon Experience Monitoring",
-        href: "experience-monitoring/getting-started/welcome/",
-      },
-      {
-        label: "Synthetic Monitoring/User journeys (STM)",
-        href: "experience-monitoring/configuration/user-journey/user-journey-intro/",
-      },
-      {
-        label: "Real User Monitoring (RUM)",
-        href: "experience-monitoring/rum/rum-intro/",
-      },
-      {
-        label: "Digital sobriety",
-        href: "experience-monitoring/category/digital-sobriety/"
-      },{
-        label: "Experience Monitoring release notes",
-        href: "experience-monitoring/release-notes/"
-      },
-    ],
-  },
-  {
-    title: "Log Management",
-    href: "logmanagement/getting-started/welcome/",
-    links: [
-      {
-        label: "Log Management basics",
-        href: "logmanagement/getting-started/concepts/",
-      },
-      {
-        label: "Configuring an OpenTelemetry collector",
-        href: "logmanagement/collector/",
-      },
-      {
-        label: "Exploring and analyzing logs",
-        href: "logmanagement/explore-analyze/",
-      },
-    ],
-  },
-];
+// LTS versions are the ones released in even years (see releases/lifecycle).
+function isLts(version) {
+  return Number(version?.split('.')[0]) % 2 === 0;
+}
 
-const versionInfo = {
-  version: "26.10",
-  link: "https://centreon.com/blog/centreon-news/centreon-infra-monitoring-26-10-lts-whats-new/",
-  target: "_blank",
-};
-
-const Button = (props) => {
-  return (
-    <a
-      className={clsx(styles.button, {
-        [styles.button_dark]: props.dark === "true",
-      })}
-      href={props.href}
-      target={props.target}
-    >
-      {props.label}
-      <img src={basePathImg + "arrow.svg"} />
-    </a>
+// Products, in the order of the navbar switcher. Infra Monitoring comes in
+// three spaces (OnPrem, Cloud, connectors), shown as three small cards.
+// `pluginId` hides a product whose documentation is not part of the build.
+function getProducts(docsPath, version) {
+  const available = translate({ id: 'home.badge.available', message: 'Available' });
+  const upgradeLabel = translate(
+    { id: 'home.product.onprem.task.upgrade', message: 'Upgrade ({version})' },
+    { version: isLts(version) ? `${version} LTS` : version },
   );
-};
 
-function BannerBlock() {
+  return [
+    {
+      id: 'onprem',
+      code: 'CIM',
+      group: 'cim',
+      pluginId: 'default',
+      name: 'Centreon Infra Monitoring OnPrem',
+      shortName: 'Infra Monitoring OnPrem',
+      href: `${docsPath}/getting-started/welcome/`,
+      badge: available,
+      description: translate({
+        id: 'home.product.onprem.description',
+        message: 'Install the platform on your premises: your data stays in your information system.',
+      }),
+      tasks: [
+        {
+          icon: 'administer',
+          label: translate({
+            id: 'home.product.onprem.task.architecture',
+            message: 'Plan the architecture: pollers, high availability, remote servers',
+          }),
+          href: `${docsPath}/installation/architectures/`,
+        },
+        {
+          icon: 'install',
+          label: translate({
+            id: 'home.product.onprem.task.install',
+            message: 'Install the central server and the pollers',
+          }),
+          href: `${docsPath}/installation/introduction/`,
+        },
+        ...(version ? [{ icon: 'upgrade', label: upgradeLabel, href: `${docsPath}/upgrade/introduction/` }] : []),
+      ],
+    },
+    {
+      id: 'cloud',
+      code: 'CIM',
+      group: 'cim',
+      pluginId: 'cloud',
+      name: 'Centreon Infra Monitoring Cloud',
+      shortName: 'Infra Monitoring Cloud',
+      href: '/cloud/getting-started/welcome/',
+      badge: available,
+      description: translate({
+        id: 'home.product.cloud.description',
+        message: 'Monitor without managing the platform: Centreon hosts it and keeps it up to date.',
+      }),
+      tasks: [
+        {
+          icon: 'install',
+          label: translate({ id: 'home.product.cloud.task.poller', message: 'Deploy a poller' }),
+          href: '/cloud/installation/deploy-poller/',
+        },
+        {
+          icon: 'server',
+          label: translate({ id: 'home.product.cloud.task.host', message: 'Add a host' }),
+          href: '/cloud/monitoring/basic-objects/hosts-create/',
+        },
+        {
+          icon: 'alert',
+          label: translate({ id: 'home.product.cloud.task.notifications', message: 'Set up notifications' }),
+          href: '/cloud/alerts-notifications/notif-configuration/',
+        },
+      ],
+    },
+    {
+      id: 'connectors',
+      code: 'CIM',
+      group: 'cim',
+      pluginId: 'pp',
+      name: 'Monitoring connectors',
+      shortName: 'Monitoring connectors',
+      href: '/pp/integrations/plugin-packs/welcome/',
+      badge: available,
+      description: translate({
+        id: 'home.product.connectors.description',
+        message: 'More than 700 ready-to-use connectors for Infra Monitoring.',
+      }),
+      tasks: [
+        {
+          icon: 'discover',
+          label: translate({ id: 'home.product.connectors.task.start', message: 'Get started with connectors' }),
+          href: '/pp/integrations/plugin-packs/getting-started/introduction/',
+        },
+        {
+          icon: 'connector',
+          label: translate({
+            id: 'home.product.connectors.task.agent',
+            message: 'Monitor Linux with the Centreon Monitoring Agent',
+          }),
+          href: '/pp/integrations/plugin-packs/procedures/operatingsystems-linux-centreon-monitoring-agent/',
+        },
+        {
+          icon: 'reference',
+          label: translate({ id: 'home.product.connectors.task.releases', message: 'Read the connectors release notes' }),
+          href: '/pp/integrations/plugin-packs/releases/release-notes/',
+        },
+      ],
+    },
+    {
+      id: 'cxm',
+      code: 'CXM',
+      pluginId: 'experience-monitoring',
+      name: 'Experience Monitoring',
+      shortName: 'Experience Monitoring',
+      href: '/experience-monitoring/getting-started/welcome/',
+      badge: available,
+      description: translate({
+        id: 'home.product.cxm.description',
+        message: 'Measure real user experience and web performance.',
+      }),
+      tasks: [
+        {
+          icon: 'discover',
+          label: translate({ id: 'home.product.cxm.task.start', message: 'Get started with Experience Monitoring' }),
+          href: '/experience-monitoring/getting-started/welcome/',
+        },
+        {
+          icon: 'journey',
+          label: translate({ id: 'home.product.cxm.task.journey', message: 'Create a user journey' }),
+          href: '/experience-monitoring/configuration/user-journey/user-journey-intro/',
+        },
+        {
+          icon: 'user',
+          label: translate({ id: 'home.product.cxm.task.rum', message: 'Set up Real User Monitoring' }),
+          href: '/experience-monitoring/rum/rum-intro/',
+        },
+      ],
+    },
+    {
+      id: 'clm',
+      code: 'CLM',
+      pluginId: 'logmanagement',
+      name: 'Log Management',
+      shortName: 'Log Management',
+      href: '/logmanagement/getting-started/welcome/',
+      badge: translate({ id: 'home.badge.new', message: 'New' }),
+      isNew: true,
+      description: translate({
+        id: 'home.product.clm.description',
+        message: 'Centralize and analyze your logs in real time.',
+      }),
+      tasks: [
+        {
+          icon: 'send',
+          label: translate({ id: 'home.product.clm.task.send', message: 'Send your first logs' }),
+          href: '/logmanagement/collector/collector-generator/',
+        },
+        {
+          icon: 'explore',
+          label: translate({ id: 'home.product.clm.task.search', message: 'Search your logs' }),
+          href: '/logmanagement/log-explorer/',
+        },
+        {
+          icon: 'alert',
+          label: translate({ id: 'home.product.clm.task.alert', message: 'Create a log alert' }),
+          href: '/logmanagement/alert-events/',
+        },
+      ],
+    },
+  ];
+}
+
+// The homepage has a single search input, in the hero (the navbar one is not
+// rendered on this page, see src/theme/SearchBar). It searches every product.
+function HeroSearch() {
+  const ref = useRef(null);
+  const placeholder = translate({ id: "home.hero.search", message: "What are you looking for?" });
+
+  // The search plugin does not expose its placeholder as a prop.
+  useEffect(() => {
+    const input = ref.current?.querySelector("input");
+    if (input) {
+      input.placeholder = placeholder;
+    }
+  }, [placeholder]);
+
   return (
-    <div className={clsx(styles.bannerContainer)}>
-      <div className={clsx(styles.mainContainer)}>
-        <div className={clsx(styles.bannerWrapper)}>
-          {
-            <span className={clsx(styles.badge)}>
-              CENTREON Infra Monitoring {versionInfo.version}
-            </span>
-          }
-          <Button
-            href={versionInfo.link}
-            target={versionInfo.target}
-            label="New software version available"
-            dark="true"
-          />
-        </div>
-      </div>
+    <div ref={ref} className={styles.heroSearch}>
+      <SearchBar placement="hero" />
     </div>
   );
 }
 
-function HeadingCard(props) {
+function Hero() {
   return (
-    <div className={clsx(styles.headingCard)}>
-      {props.card.isBeta && (
-        <div className={clsx(styles.headingCardBetaBadge)}>BETA</div>
+    <section className={styles.hero}>
+      <div className={clsx(styles.container, styles.heroInner)}>
+        <div className={styles.heroMain}>
+          <h1 className={styles.heroTitle}>
+            {translate({ id: "home.hero.title", message: "Search. Find. Act." })}
+          </h1>
+          <HeroSearch />
+        </div>
+        <aside className={styles.figures}>
+          <p className={styles.figuresTitle}>
+            {translate({ id: "home.figures.title", message: "Key figures" })}
+          </p>
+          <dl className={styles.figuresList}>
+            {getKeyFigures().map((figure) => (
+              <div key={figure.value}>
+                <dt>{figure.value}</dt>
+                <dd>{figure.label}</dd>
+              </div>
+            ))}
+          </dl>
+          <Link to={THE_WATCH_URL} className={styles.figuresLink}>
+            <Icon name="community" size={18} />
+            <span>{translate({ id: "home.figures.community", message: "Join The Watch" })}</span>
+            <Icon name="arrow" size={18} className={styles.pushRight} />
+          </Link>
+        </aside>
+      </div>
+    </section>
+  );
+}
+
+// First click on a product selects it and shows its tasks on the right; a
+// click on the selected product opens its page. Clicks with a modifier
+// (new tab, new window) keep the default behavior of the link.
+function ProductCard({ product, isActive, onActivate, compact }) {
+  const onClick = (event) => {
+    if (isActive || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+      return;
+    }
+    event.preventDefault();
+    onActivate();
+  };
+
+  return (
+    <Link
+      to={product.href}
+      className={clsx(styles.product, compact && styles.productCompact, isActive && styles.productActive)}
+      onClick={onClick}
+      aria-current={isActive ? "true" : undefined}
+      aria-controls="home-product-tasks"
+    >
+      <span className={styles.productHead}>
+        <span className={styles.productCode}>{product.code}</span>
+        {!compact && <span className={styles.productName}>{product.name}</span>}
+        <span className={clsx(styles.badge, product.isNew && styles.badgeNew)}>{product.badge}</span>
+      </span>
+      {compact && <span className={styles.productName}>{product.name}</span>}
+      <span className={styles.productText}>{product.description}</span>
+      {isActive && (
+        <span className={styles.productOpen}>
+          {translate({ id: "home.products.open", message: "Open" })}
+          <Icon name="arrow" size={14} />
+        </span>
       )}
-      <a href={props.card.href} className={clsx(styles.headingCardHeader)}>
-        {props.card.title}
-      </a>
-      <div className={clsx(styles.headingCardBody)}>
-        <ul>
-          {props.card.links.map((link, index) => {
-            return (
-              <li key={index}>
-                <a href={link.href}>
-                  <span>{link.label}</span>
-                  <img src={basePathImg + "external_link.svg"} />
-                </a>
+    </Link>
+  );
+}
+
+function ProductChooser({ products }) {
+  const [activeId, setActiveId] = useState(products[0]?.id);
+  const active = products.find((product) => product.id === activeId) ?? products[0];
+
+  if (!active) {
+    return null;
+  }
+
+  const cim = products.filter((product) => product.group === "cim");
+  const others = products.filter((product) => product.group !== "cim");
+  const card = (product, compact) => (
+    <li key={product.id}>
+      <ProductCard
+        product={product}
+        compact={compact}
+        isActive={product.id === active.id}
+        onActivate={() => setActiveId(product.id)}
+      />
+    </li>
+  );
+
+  return (
+    <section className={clsx(styles.container, styles.chooserSection)}>
+      <h2 className={styles.sectionTitle}>
+        {translate({ id: "home.products.title", message: "Choose a product" })}
+      </h2>
+      <div className={styles.chooser}>
+        <div className={styles.productColumn}>
+          {cim.length > 0 && (
+            <ul className={styles.cimGrid} style={{ "--cim-count": cim.length }}>
+              {cim.map((product) => card(product, true))}
+            </ul>
+          )}
+          <ul className={styles.productList}>{others.map((product) => card(product, false))}</ul>
+        </div>
+        <div id="home-product-tasks" className={styles.tasks} aria-live="polite">
+          <div className={styles.tasksHead}>
+            <p className={styles.tasksLabel}>
+              <Icon name="server" size={16} />
+              <span>
+                {translate({ id: "home.products.getStarted", message: "Get started" })}
+                {" · "}
+                {active.shortName}
+              </span>
+            </p>
+            <Link to={active.href} className={styles.productPage}>
+              {translate({ id: "home.products.page", message: "Product page" })}
+              <Icon name="arrow" size={14} />
+            </Link>
+          </div>
+          <ul>
+            {active.tasks.map((task) => (
+              <li key={task.href}>
+                <Link to={task.href} className={styles.task}>
+                  <Icon name={task.icon} size={20} className={styles.taskIcon} />
+                  <span>{task.label}</span>
+                  <Icon name="arrow" size={18} className={styles.pushRight} />
+                </Link>
               </li>
-            );
-          })}
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function NewsAndPopular({ version, docsPath }) {
+  const popular = [
+    {
+      label: translate({ id: "home.popular.host", message: "Add a host" }),
+      href: `${docsPath}/monitoring/basic-objects/hosts-create/`,
+    },
+    {
+      label: translate({ id: "home.popular.notifications", message: "Set up notifications" }),
+      href: `${docsPath}/alerts-notifications/notif-configuration/`,
+    },
+    {
+      label: translate({ id: "home.popular.apiTokens", message: "API tokens" }),
+      href: `${docsPath}/api/authentication-tokens/`,
+    },
+  ];
+
+  return (
+    <section className={clsx(styles.container, styles.newsRow)}>
+      <Link to={`${docsPath}/releases/introduction/`} className={styles.news}>
+        <span className={styles.newsHead}>
+          <span className={styles.newsVersion}>{version}</span>
+          <span>{translate({ id: "home.news.title", message: "What's new" })}</span>
+          <span className={styles.newsLink}>
+            {translate({ id: "home.news.link", message: "Release notes" })}
+            <Icon name="arrow" size={16} />
+          </span>
+        </span>
+        <span className={styles.newsText}>
+          {translate(
+            {
+              id: "home.news.text",
+              message: "Discover the new features and fixes of Centreon Infra Monitoring {version}.",
+            },
+            { version },
+          )}
+        </span>
+      </Link>
+      <div className={styles.popular}>
+        <p className={styles.popularTitle}>
+          {translate({ id: "home.popular.title", message: "Popular" })}
+        </p>
+        <ul>
+          {popular.map((item) => (
+            <li key={item.href}>
+              <Link to={item.href}>{item.label}</Link>
+            </li>
+          ))}
         </ul>
       </div>
-    </div>
+    </section>
   );
 }
 
-function HeadingCards(props) {
-  return (
-    <div className={clsx(styles.headingCards)}>
-      {props.cards.map((card, index) => {
-        return <HeadingCard card={card} key={index} />;
-      })}
-    </div>
-  );
-}
+function Previews({ docsPath }) {
+  const previews = [
+    {
+      image: "/img/homepage/previews/resources-status.png",
+      caption: translate({ id: "home.previews.status", message: "Resource Status console" }),
+      href: `${docsPath}/alerts-notifications/resources-status/`,
+    },
+    {
+      image: "/img/homepage/previews/dashboard.png",
+      caption: translate({ id: "home.previews.dashboard", message: "Dashboard example" }),
+      href: `${docsPath}/alerts-notifications/dashboards/`,
+    },
+    {
+      image: "/img/homepage/previews/architecture.png",
+      caption: translate({ id: "home.previews.architecture", message: "Distributed architecture" }),
+      href: `${docsPath}/installation/architectures/`,
+    },
+  ];
 
-function HeadingBlock() {
   return (
-    <div className={clsx(styles.headingContainer)}>
-      <div className={clsx(styles.mainContainer)}>
-        <h1>Welcome to Centreon documentation!</h1>
-        <p>
-          Use the top-right icon to switch between product documentations at any
-          time.
-        </p>
-        <HeadingCards cards={cards} />
-      </div>
-    </div>
-  );
-}
-
-function CommunityBlock() {
-  return (
-    <div className={clsx(styles.socialBlock)}>
-      <span className={clsx(styles.badge)}>A strong community</span>
-      <div className={clsx(styles.watchWrapper)}>
-        <div>
-          <img src={basePathImg + "social-network/thewatch.png"} />
+    <section className={styles.previewsBand}>
+      <div className={styles.container}>
+        <h2 className={clsx(styles.sectionTitle, styles.withIcon)}>
+          <Icon name="image" size={18} />
+          {translate({ id: "home.previews.title", message: "Product previews" })}
+        </h2>
+        <div className={styles.previews}>
+          {previews.map((preview) => (
+            <PreviewCard key={preview.image} {...preview} />
+          ))}
         </div>
-        <Button
-          href={links.thewatch}
-          target="_blank"
-          label="Join the community"
-        />
       </div>
-      <div className={clsx(styles.socialWrapper)}>
-        {links.social.map((link, index) => {
-          return (
-            <a href={link.href} key={index}>
-              <img src={link.image} />
-            </a>
-          );
-        })}
-      </div>
-    </div>
+    </section>
   );
 }
 
-function OpensourceBlock() {
+function PreviewCard({ image, caption, href }) {
   return (
-    <div className={clsx(styles.socialBlock)}>
-      <span className={clsx(styles.badge)}>AN OPEN SOURCE CORE</span>
-      <p>
-        Praised by hundreds of thousands of IT professionals around the world
-        with 6,000 monthly downloads, Centreon Infra Monitoring has become the
-        number 1 in open source monitoring in Europe.
-      </p>
-      <Button
-        href={links.contribute}
-        target="_blank"
-        label="Contribute to the Open Source project"
-      />
-    </div>
-  );
-}
-
-function SocialBlock() {
-  return (
-    <div className={clsx(styles.socialContainer)}>
-      <div className={clsx(styles.mainContainer)}>
-        <CommunityBlock />
-        <OpensourceBlock />
-      </div>
-    </div>
+    <Link to={href} className={styles.preview}>
+      <img src={useBaseUrl(image)} alt={caption} loading="lazy" />
+      <span>{caption}</span>
+    </Link>
   );
 }
 
 export default function Home() {
-  const { versions } = usePluginData("docusaurus-plugin-content-docs");
-  const defaultPath = versions?.[0]?.path ?? "docs";
-  const defaultPage =
-    versions?.[0]?.mainDocId ?? "getting-started/installation-first-steps";
-  const defaultRoute = `${defaultPath}/${defaultPage}`;
-
   const { siteConfig } = useDocusaurusContext();
-  const {
-    customFields: { version },
-  } = siteConfig;
+  const { versions } = usePluginData("docusaurus-plugin-content-docs");
+  const docsPlugins = useAllPluginInstancesData("docusaurus-plugin-content-docs");
 
-  if (version) {
-    return <Redirect to={defaultRoute} />;
+  const latestVersion = versions?.[0];
+  const docsPath = latestVersion?.path ?? "/docs";
+
+  // Archived builds only contain one on-premises version: go straight to it.
+  if (siteConfig.customFields.version) {
+    const defaultPage = latestVersion?.mainDocId ?? "getting-started/installation-first-steps";
+    return <Redirect to={`${docsPath}/${defaultPage}`} />;
   }
+
+  const products = getProducts(docsPath, latestVersion?.name).filter((product) => docsPlugins[product.pluginId]);
 
   return (
     <Layout
-      title={`Welcome to ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title={translate({ id: "home.meta.title", message: "Documentation" })}
+      description={translate({
+        id: "home.meta.description",
+        message:
+          "Documentation for the Centreon observability platform: install, configure and use Infra Monitoring, Experience Monitoring and Log Management.",
+      })}
     >
-      <main>
-        <HeadingBlock />
-        <BannerBlock />
-        <SocialBlock />
+      <main className={clsx(styles.home, "home-page")}>
+        <Hero />
+        <ProductChooser products={products} />
+        {latestVersion && <NewsAndPopular version={latestVersion.name} docsPath={docsPath} />}
+        <Previews docsPath={docsPath} />
       </main>
     </Layout>
   );
