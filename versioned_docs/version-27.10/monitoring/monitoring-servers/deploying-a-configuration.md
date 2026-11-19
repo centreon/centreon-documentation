@@ -15,8 +15,6 @@ server and of all pollers and remote servers linked to it: changes are shown in 
 
 2. Select the central server, the remote server or the poller whose configuration has changed. 
 
-   ![image](../../assets/monitoring/monitoring-servers/export_conf.png)
-
 3. Click on **Export configuration**.
 
 4. Check the following boxes (see section [**Export options**](#export-options)):

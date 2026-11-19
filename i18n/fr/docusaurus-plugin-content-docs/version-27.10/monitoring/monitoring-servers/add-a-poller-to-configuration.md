@@ -170,8 +170,6 @@ la commande suivante depuis le **serveur Central** :
   Éditez la configuration du collecteur fraîchement créé, et sélectionnez **SSH**
 comme **Protocole de connexion utilisé par Gorgone**. Définissez le **port** adéquat.
 
-  ![image](../../assets/monitoring/monitoring-servers/poller-edit-ssh.png)
-
  2. Cliquez sur **Sauvegarder**.
 
     > Notez que le *SSH Legacy port* n'est plus utilisé et sera supprimé.
@@ -245,8 +243,6 @@ puis cliquez sur **Exporter** :
   ![image](../../assets/monitoring/monitoring-servers/poller-generate-config.png)
 
   Le moteur de supervision du collecteur va alors démarrer et se connecter au Broker du serveur central ou du serveur distant (suivant le serveur auquel vous avez rattaché le collecteur).
-
-  ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq-started.png)
 
 ## Premiers pas
 

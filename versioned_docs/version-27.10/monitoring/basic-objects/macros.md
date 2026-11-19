@@ -106,10 +106,8 @@ To add a global macro:
 * Go into the **Configuration \> Pollers \> Global macros** menu
 * Click **Add**
 
-![image](../../assets/configuration/01globalmacros.png)
-
 * The **Name** field defines the name of the macro, e.g.: $USER3$
-* The **Expression** field defines the value of the macro.
+* The **Value** field defines the value of the macro. Select the **Password** checkbox to mask the value in the form.
 * The **Linked Instances** list allows us to define which monitoring poller will be able to access this macro.
 * The **Status** and **Comment** fields are used to enable / disable the macro and to comment on it.
 

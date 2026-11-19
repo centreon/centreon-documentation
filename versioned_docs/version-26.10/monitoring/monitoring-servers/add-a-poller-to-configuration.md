@@ -170,8 +170,6 @@ the following command from the **central server**:
     Edit the newly created poller configuration, and select **SSH** as **Gorgone
     connection protocol**. Define the suitable **port**.
 
-    ![image](../../assets/monitoring/monitoring-servers/poller-edit-ssh.png)
-
 2. Click **Save**.
 
     > Note that the *SSH Legacy port* is no longer used, and will be removed.
@@ -243,8 +241,6 @@ configuration**.
   ![image](../../assets/monitoring/monitoring-servers/poller-generate-config.png)
 
   The poller's engine will then start and connect to the Broker service of the central server or remote server (according to which one you have attached the poller to).
-
-  ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq-started.png)
 
 ## Getting started
 

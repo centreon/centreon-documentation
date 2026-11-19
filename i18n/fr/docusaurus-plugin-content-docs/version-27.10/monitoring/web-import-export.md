@@ -47,14 +47,10 @@ apt install centreon-awie
 
 ### Installer le module via l'interface
 
-Allez à la page **Administration > Extensions > Manager** et recherchez **awie**. Cliquez sur
-**Install selection** :
+Allez à la page **Administration > Extensions > Manager** et recherchez **awie**. Cliquez sur **Install**
+dans la tuile **Api Web Import Export**.
 
-![imaage](../assets/configuration/awie/install_01.png)
-
-Le module est maintenant installé :
-
-![imaage](../assets/configuration/awie/install_02.png)
+Le module est maintenant installé.
 
 ## Exporter la configuration
 
@@ -70,19 +66,13 @@ Sachez que si vous modifiez le nom de l'archive créée, vous ne pourrez pas l'i
 
 ### Exporter le collecteur
 
-![imaage](../assets/configuration/awie/poller.png)
-
 Si vous cochez la case **All** (non cochée par défaut), tous les collecteurs configurés seront exportés avec leurs fichiers de configuration (pour le moteur, le broker, etc.) après avoir cliqué sur le bouton **Export**.
 
 Si vous souhaitez exporter un seul collecteur, saisissez son nom exact dans le champ **Filter** (une seule valeur est acceptée, ce champ ne propose pas de liste d'éléments).
 
 ### Exporter les hôtes
 
-![imaage](../assets/configuration/awie/hostsetc.png)
-
 #### Hôtes
-
-![imaage](../assets/configuration/awie/hosts.png)
 
 Il s'agit du même principe que l'export de collecteur, cependant :
 
@@ -92,15 +82,11 @@ Si vous exportez un hôte spécifique en utilisant le champ **Filter** (un seul 
 
 #### Modèles d'hôtes
 
-![imaage](../assets/configuration/awie/hoststemplates.png)
-
 Cochez la case **Host templates** si vous voulez exporter tous les modèles d'hôtes.
 
 Utilisez le champ **Filter** pour renseigner une seule valeur, si vous souhaitez exporter un modèle d'hôtes spécifique.
 
 #### Groupes d'hôtes
-
-![imaage](../assets/configuration/awie/hostgroups.png)
 
 Cochez la case **Host groups** si vous voulez exporter tous les groupes d'hôtes.
 
@@ -108,17 +94,11 @@ Utilisez le champ **Filter** pour renseigner une seule valeur, si vous souhaitez
 
 #### Catégories d'hôtes
 
-![imaage](../assets/configuration/awie/hostscat.png)
-
 Cochez la case **Host categories** si vous voulez exporter toutes les catégories d'hôtes. Il n'y a pas de champ **Filter** pour cet objet.
 
 ### Exporter les services
 
-![imaage](../assets/configuration/awie/servicesetc.png)
-
 #### Services
-
-![imaage](../assets/configuration/awie/services.png)
 
 Il s'agit du même principe que l'export de collecteur, cependant :
 
@@ -127,15 +107,11 @@ créera TOUS les services liés au premier hôte lié au service filtré.
 
 #### Modèles de services
 
-![imaage](../assets/configuration/awie/servicestemplates.png)
-
 Cochez la case **Service templates** si vous voulez exporter tous les modèles de services.
 
 Utilisez le champ **Filter** pour renseigner une seule valeur, si vous souhaitez exporter un modèle de services spécifique.
 
 #### Groupes de services
-
-![imaage](../assets/configuration/awie/servicegroups.png)
 
 Cochez la case **Service groups** si vous voulez exporter tous les groupes de services.
 
@@ -143,19 +119,13 @@ Utilisez le champ **Filter** pour renseigner une seule valeur, si vous souhaitez
 
 #### Catégories de services
 
-![imaage](../assets/configuration/awie/servicescat.png)
-
 Cochez la case **Service categories** si vous voulez exporter toutes les catégories de services. Il n'y a pas de champ **Filter** pour cet objet.
 
 ### Exporter les contacts
 
-![imaage](../assets/configuration/awie/contacts.png)
-
 Vous pouvez exporter tous les contacts (sans leurs groupes de contacts liés) ou tous les groupes de contacts (avec leurs utilisateurs liés). Il n'y a pas de champ **Filter** pour cet objet.
 
 ### Exporter les commandes
-
-![imaage](../assets/configuration/awie/commands.png)
 
 Cochez la case correspondant au type de commande que vous souhaitez exporter (**Check**, **Notification**, **Misc** ou **Discovery**). Il n'y a pas de champ **Filter** pour cet objet.
 
@@ -163,7 +133,7 @@ Cochez la case correspondant au type de commande que vous souhaitez exporter (**
 
 ### Exporter les ressources
 
-![imaage](../assets/configuration/awie/resources.png)
+La section **Resources** permet d'exporter les objets ACL, les configurations LDAP et les périodes de temps.
 
 ### ACL
 
@@ -186,17 +156,13 @@ Dans la page **Exporter**, chaque fois que vous cliquez sur le bouton **Export**
 
 C'est ce fichier que vous chargerez dans la page **Importer** d'une autre plateforme Centreon Web.
 
-Allez à la page **Configuration > Import/Export > Import** :
-
-![imaage](../assets/configuration/awie/Import.png)
+Allez à la page **Configuration > Import/Export > Import**.
 
 Sélectionnez le fichier ZIP **centreon-clapi-export** souhaité et cliquez sur le bouton **Import** :
 
 ![imaage](../assets/configuration/awie/zipfileuploaded.png)
 
-Le message **Import successful** doit normalement s'afficher :
-
-![imaage](../assets/configuration/awie/success.png)
+Le message **Import successful** doit normalement s'afficher.
 
 Pour vérifier que les objets sont correctement importés, allez dans les pages **Configuration**.
 

@@ -23,8 +23,6 @@ Severities are assigned in the host categories and service categories configurat
 
 Go to the **Configuration > Hosts > Categories** menu and click **Add**.
 
-![image](../assets/configuration/08hostcategory.png)
-
 * The **Host Category Name** and **Alias** fields contain the name and the alias of the category of host, respectively.
 * The **Linked hosts** list allows us to add hosts to the category.
 * If a host template is added to the **Linked host template** list, all the hosts that inherit from this Model belong to
@@ -37,10 +35,8 @@ Go to the **Configuration > Hosts > Categories** menu and click **Add**.
 
 Go to the **Configuration > Services > Categories** menu and click **Add**.
 
-![image](../assets/configuration/08servicecategory.png)
-
 * The **Name** and **Description** fields define the name and the description of the category of service.
-* If a service template is added to the **Service Template Descriptions** list, all the services that inherit from this
+* If a service template is added to the **Linked Templates** list, all the services that inherit from this
   template belong to this category. 
 * The **Severity type** box can be checked to assign a severity to the service. Severities must be a number ranging from 1 to 127. The highest severity level is 1.
 * The **Level** and **Icon** fields define a criticality level and an associated icon, respectively.

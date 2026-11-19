@@ -10,16 +10,12 @@ Within centreon, the root OIDs of the SNMP traps is filed by manufacturer. To ad
 
 Go to **Configuration > SNMP traps > Manufacturer** and click **Add**
 
-![image](../../assets/configuration/06constructors.png)
-
-* The **Name** and **Alias** fields define the name and the alias of the manufacturer
+* The **Vendor Name** and **Alias** fields define the name and the alias of the manufacturer
 * The **Description** field provides an indication about the manufacturer
 
 ## Import SNMP traps from a MIB file
 
 Go into the **Configuration > SNMP traps > MIBs** menu
-
-![image](../../assets/configuration/06importmibssuccess.png)
 
 * The **Manufacturer** list can be used to choose the manufacturer to which the MIB that you are importing belongs
 * The **File (.mib)** field can be used to load the MIB

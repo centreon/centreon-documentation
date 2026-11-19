@@ -13,8 +13,6 @@ In the **Configuration** menu it is possible to perform certain “generic” ac
 
 To create a new object, click the **Add** button next to the **More actions** menu/above the list of objects.
 
-![image](../assets/configuration/common/add.png)
-
 ## Duplicating objects
 
 Duplicate an object to re-use its properties for the creation of a new
@@ -35,9 +33,7 @@ For example, to duplicate a Business Activity:
 
 1. Select the Business Activity that you want to duplicate by checking the associated box.
 2. Click on the duplicate icon: ![image](../assets/configuration/common/duplicate_new.png#thumbnail1)
-3. Enter the number of extra copies you want to obtain:
-
-    ![image](../assets/configuration/common/duplicate_objects_new.png)
+3. Enter the number of extra copies you want to obtain.
 
 4. Click **OK**.
 
@@ -47,13 +43,9 @@ For example, to duplicate a Business Activity:
 For example, to duplicate a host:
 
 1. Select the host that you want to duplicate.
-2. In the **Options** column, enter the number of extra copies you want to obtain:
+2. In the **Options** column, enter the number of extra copies you want to obtain.
 
-    ![image](../assets/configuration/common/01duplicate.png)
-
-3. In the **More actions** menu, click **Duplicate**:
-
-    ![image](../assets/configuration/common/01duplicateobjects.png)
+3. In the **More actions** menu, click **Duplicate**.
 
 </TabItem>
 </Tabs>
@@ -113,8 +105,6 @@ You can also use the following buttons at the end of the line:
 
 *  **Enable**: ![image](../assets/configuration/common/enabled.png#thumbnail1)
 * **Disable**: ![image](../assets/configuration/common/disabled.png#thumbnail1)
-
-![image](../assets/configuration/common/enable_disable.png)
 
 </TabItem>
 </Tabs>

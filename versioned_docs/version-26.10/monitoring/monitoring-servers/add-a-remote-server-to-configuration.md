@@ -244,9 +244,7 @@ it with the following command from the **Central server**:
 1. On the central server, return to the **Configuration > Pollers > Pollers** menu, select the remote server and click **Export
 configuration**.
 
-2. Then check the first three boxes and click **Export**:
-
-    ![image](../../assets/monitoring/monitoring-servers/remote-generate-config.png)
+2. Then check the first three boxes and click **Export**.
 
 3. Finally, from the Remote Server, start/restart the collect processes:
 
@@ -256,8 +254,6 @@ configuration**.
 
     The Remote Server's Broker and Engine will then start and connect to the
     Central Broker.
-
-    ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq-started.png)
 
 ## Getting started
 
