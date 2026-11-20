@@ -84,7 +84,6 @@ export default function NavbarContent(): ReactNode {
       left={
         // TODO stop hardcoding items?
         <>
-          {!mobileSidebar.disabled && <NavbarMobileSidebarToggle />}
           <NavbarLogo />
           <ProductSwitcher items={items} activePluginId={pluginId} />
         </>
@@ -100,6 +99,9 @@ export default function NavbarContent(): ReactNode {
               <SearchBar />
             </NavbarSearch>
           )}
+          {/* Mobile menu button at the right, next to the search, as on
+              www.centreon.com: the menu opens from the right */}
+          {!mobileSidebar.disabled && <NavbarMobileSidebarToggle />}
         </>
       }
     />
