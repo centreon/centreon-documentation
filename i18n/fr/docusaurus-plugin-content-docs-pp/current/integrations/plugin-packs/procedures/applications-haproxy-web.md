@@ -123,6 +123,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
+> _**Il faut que la version de Haproxy soit >= 2.0, cf [Changelog | HAProxy Enterprise 2.0r1](https://www.haproxy.com/documentation/haproxy-configuration-manual/new/2-0r1/changelog/#undefined)**_
+
 Pour superviser les statistiques HAProxy via API vous devez activer l’interface des statistiques dans HAProxy.
 Dans votre fichier de configuration `haproxy.cfg`, ajoutez ou modifiez cette section :
 
@@ -136,8 +138,11 @@ listen stats
 ```
 
 > `bind *:8404` : Expose la page des statistiques sur le port 8404.
+> 
 > `stats uri /haproxy?stats` : Définit l’URL d’accès aux statistiques.
+> 
 > `stats auth username:password` : Définit l’authentification (choisissez le couple username/password)
+> 
 > `stats refresh 10s` : Rafraîchit les statistiques toutes les 10 secondes (vous pouvez ajuster cette valeur à votre cas).
 
 Vous pouvez vérifier l'accès à la page API (depuis un navigateur ou avec curl) :
