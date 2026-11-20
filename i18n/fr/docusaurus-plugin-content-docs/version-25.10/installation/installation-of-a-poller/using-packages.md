@@ -343,7 +343,7 @@ dnf install -y centreon-poller
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-apt install -y --no-install-recommends centreon-poller
+apt install -y --no-install-recommends centreon-poller logrotate
 ```
 
 </TabItem>
