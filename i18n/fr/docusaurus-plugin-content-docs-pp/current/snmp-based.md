@@ -31,9 +31,10 @@ SNMP (Simple Network Management Protocol) est un protocole standard qui sert à 
 
 ### Les principaux composants
 
-Gestionnaire : le système de supervision (ici, le collecteur Centreon). Il demande des informations aux équipements et collecte les réponses.
-Agent : un petit logiciel qui s'exécute sur chaque équipement supervisé. Il connaît l'état de l'équipement et répond aux requêtes du gestionnaire.
-MIB (Management Information Base) : un catalogue structuré de tout ce qui peut être supervisé sur un équipement. Chaque donnée (charge CPU, trafic d'une interface, température, etc.) possède une adresse unique appelée OID (Object Identifier), qui s'écrit sous forme d'une suite de nombres, comme 1.3.6.1.2.1.1.3.0.
+
+- Gestionnaire : le système de supervision (ici, le collecteur Centreon). Il demande des informations aux équipements et collecte les réponses.
+- Agent : un petit logiciel qui s'exécute sur chaque équipement supervisé. Il connaît l'état de l'équipement et répond aux requêtes du gestionnaire.
+- MIB (Management Information Base) : un catalogue structuré de tout ce qui peut être supervisé sur un équipement. Chaque donnée (charge CPU, trafic d'une interface, température, etc.) possède une adresse unique appelée OID (Object Identifier), qui s'écrit sous forme d'une suite de nombres, comme 1.3.6.1.2.1.1.3.0.
 
 ### Fonctionnement des échanges
 
