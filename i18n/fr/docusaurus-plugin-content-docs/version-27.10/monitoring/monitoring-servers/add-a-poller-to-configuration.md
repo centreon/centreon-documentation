@@ -32,15 +32,14 @@ configuration.
 
 Si le collecteur qui vous êtes en train d'ajouter sera en flux inversé, vous devez maintenant exporter la configuration de votre central. En haut à gauche de votre écran, cliquez sur **Collecteurs** puis sur **Exporter la configuration**. 
 
-4. Saisissez le nom, l'adresse du collecteur (IP ou FQDN) et celle du serveur central, puis
-cliquez sur **Suivant** :
+4. Remplissez les champs **Server Name**, **Server address** (adresse IP ou FQDN du collecteur) et **Centreon Central address, as seen by this server**, puis cliquez sur **Suivant** :
 
 ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
 
- > L'adresse du collecteur est l'adresse IP ou le FQDN pour accéder au
+ > Le champ **Server address** est l'adresse IP ou le FQDN pour accéder au
  > collecteur depuis le serveur central.
  >
- > L'adresse IP du serveur central est l'adresse IP ou le FQDN pour accéder au
+ > Le champ **Centreon Central address, as seen by this server** est l'adresse IP ou le FQDN pour accéder au
  > serveur central depuis le collecteur.
 
 5. Reliez le collecteur au central ou à un serveur distant :
@@ -51,6 +50,10 @@ cliquez sur **Suivant** :
    ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-3.png)
 
    - Si vous souhaitez lier ce collecteur à un serveur distant, sélectionnez celui-ci dans la liste et cliquez sur **Appliquer**.
+
+    > Si vous souhaitez que le collecteur initie la connexion Gorgone vers le serveur central
+    > (PullWSS), cochez la case **Advanced: gorgone - poller connects to the central**.
+    > Le serveur central doit au préalable [être configuré pour accepter les connexions PullWSS](../../installation/installation-of-a-poller/pollers-containers-prerequisites.md).
 
     Patientez quelques secondes, l'assistant va configurer votre nouveau serveur.
 

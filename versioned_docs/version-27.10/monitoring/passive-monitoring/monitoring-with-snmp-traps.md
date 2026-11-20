@@ -8,13 +8,13 @@ description: "Create passive services to monitor SNMP traps in Centreon, apply t
 
 Go to the **Configuration > Services > Services by host** menu and click **Add**.
 
-* Set a description of the service
-* Select the host to which to attach this service
-* Select the **generic-passive-service-custom** template
+* In the **Name** field, enter a name for the service
+* In the **Hosts** field, select the host to which to attach this service
+* In the **Template** field, select the **generic-passive-service-custom** template
 
 ![image](../../assets/configuration/06createpassiveservice.png)
 
-* Go to the **Relation** tab and select the SNMP traps
+* Go to the **Relations** tab and select the SNMP traps
 
 ![image](../../assets/configuration/06servicetrapsrelation.png)
 
