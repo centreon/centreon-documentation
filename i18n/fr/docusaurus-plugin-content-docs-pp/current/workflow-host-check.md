@@ -79,7 +79,7 @@ Centreon Engine convertit le code de retour du plugin en état provisoire de l'h
 | `2` (CRITIQUE) | INDISPONIBLE |
 | `3` (INCONNU) | INDISPONIBLE |
 
-Un hôte n'a pas de statut ALERTE : un résultat ALERTE signifie que l'hôte est DISPONIBLE. Si le contrôle agressif des hôtes (`use_aggressive_host_checking`) est activé sur le collecteur, un résultat ALERTE signifie au contraire INDISPONIBLE.
+Un hôte n'a pas de statut WARNING : un résultat WARNING signifie que l'hôte est DISPONIBLE. Si le contrôle agressif des hôtes (`use_aggressive_host_checking`) est activé sur le collecteur, un résultat WARNING signifie au contraire INDISPONIBLE.
 
 Si l'état provisoire est DISPONIBLE, il est définitif. S'il est INDISPONIBLE, Centreon Engine passe à l'étape 3.
 
