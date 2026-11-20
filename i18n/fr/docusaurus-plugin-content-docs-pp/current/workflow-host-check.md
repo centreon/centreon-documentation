@@ -53,7 +53,7 @@ flowchart TD
 Centreon Engine exécute la commande de contrôle de l'hôte dans les cas suivants :
 
 - **Contrôles planifiés** : à chaque intervalle de contrôle (ici, toutes les 5 minutes), ou à chaque intervalle de nouvelle tentative (1 minute) tant qu'un problème est en cours de confirmation. Si l'intervalle de contrôle vaut `0`, aucun contrôle régulier n'est planifié.
-- **Contrôles à la demande** : lorsqu'un service de l'hôte change d'état. Par exemple, si un service de `srv-linux-01` passe en CRITIQUE, Centreon Engine contrôle l'hôte pour savoir si tout le serveur est en panne.
+- **Contrôles à la demande** : lorsqu'un service de l'hôte change d'état. Par exemple, si un service de `srv-linux-01` passe en CRITICAL, Centreon Engine contrôle l'hôte pour savoir si tout le serveur est en panne.
 - **Contrôles d'accessibilité** : lorsqu'un hôte tombe, Centreon Engine peut contrôler ses hôtes parents pour localiser la panne (voir l'[étape 3](#étape-3--indisponible-ou-injoignable)).
 
 Pour `srv-linux-01`, le contrôle exécute :
