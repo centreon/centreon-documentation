@@ -111,8 +111,38 @@
   }
 }
 
+/* Phones: a compact footer. The logo and the tagline are already in the
+   navbar, the products in the menu: only Resources and Community remain,
+   side by side, above the copyright and the legal links. */
 @media (max-width: 600px) {
+  .footer {
+    padding: 1.75rem 0 1.25rem;
+  }
+
+  .brand,
+  nav.column:first-of-type {
+    display: none;
+  }
+
   .top {
-    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  .title {
+    margin-bottom: 0.6rem;
+  }
+
+  .column ul {
+    gap: 0.4rem;
+  }
+
+  .bottom {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  .legal {
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
   }
 }
