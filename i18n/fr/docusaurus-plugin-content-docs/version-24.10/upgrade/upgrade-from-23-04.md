@@ -132,15 +132,16 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/e
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-1. Mettez à jour votre Centreon 23.04 jusqu'à la dernière version mineure.
-2. Exécutez les commandes suivantes :
+> Centreon 23.04 n'était disponible que sur Debian 11, qui n'est pas supporté par Centreon 24.10. Au lieu de suivre cette procédure, [migrez depuis Debian 11 vers Debian 12](../migrate/migrate-from-debian-to-debian.md).
+
+1. Exécutez les commandes suivantes :
 
 ```shell
 echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
-3. Ensuite, importez la clé du dépôt :
+2. Ensuite, importez la clé du dépôt :
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
