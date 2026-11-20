@@ -54,7 +54,14 @@ See https://github.com/facebook/docusaurus/pull/11142
 /* Mobile menu button at the right of the navbar (see index.tsx), and the
    menu opening from the right */
 :global(.navbar__items--right .navbar__toggle) {
-  margin: 0 0 0 0.5rem;
+  margin: 0;
+}
+/* Small phones: a slightly smaller logo, so that the controls of the right
+   keep their spacing */
+@media (max-width: 400px) {
+  :global(.navbar__brand .navbar__logo img) {
+    height: 1.5rem;
+  }
 }
 @media (max-width: 996px) {
   :global(.navbar-sidebar) {

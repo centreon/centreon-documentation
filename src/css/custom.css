@@ -951,10 +951,23 @@ html:root {
   }
 }
 
-/* Phones: the language toggle is in the menu (Languages), for room */
+/* Phones: the language toggle shows only the other language (EN on the
+   French site, FR on the English one), for room */
 @media (max-width: 576px) {
-  .navbar__items--right [class*='toggle_'][role='group'] {
+  .navbar__items--right [role='group'] [aria-current='true'] {
     display: none;
+  }
+  .navbar__items--right [role='group'] a {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid var(--ifm-color-emphasis-300);
+    border-radius: 999px;
+    color: var(--ifm-navbar-link-color);
+    font-size: 0.85rem;
+    font-weight: 700;
   }
 }
 
@@ -1056,13 +1069,33 @@ html:root {
     display: none;
   }
 }
-/* Small phones: tighter gaps, so that the logo, the search, the version,
-   the reading settings and the menu button fit on one row */
-@media (max-width: 400px) {
-  .navbar [class*='navbarSearchContainer'] {
+/* Phones and tablets: the same gap between every control of the right of
+   the navbar (search, version, languages, menu button), and the search
+   button as a 36px circle, like the version pill next to it. */
+@media (max-width: 996px) {
+  .navbar__items--right {
+    gap: 0.5rem;
+  }
+  .navbar .navbar__items--right > * {
+    margin-left: 0;
     margin-right: 0;
   }
   .navbar__items--right .navbar__toggle {
-    margin-left: 0.25rem;
+    margin: 0;
+  }
+}
+@media (max-width: 576px) {
+  .navbar [class*='navbarSearchContainer'],
+  .navbar [class*='navbarSearchContainer'] .navbar__search-input {
+    width: 36px;
+    height: 36px;
+  }
+  .navbar [class*='navbarSearchContainer'] .navbar__search-input:not(:focus) {
+    padding-left: 36px;
+    border-radius: 999px;
+    background-position: center;
+  }
+  .navbar [class*='navbarSearchContainer']:focus-within .navbar__search {
+    top: calc(50% - 18px);
   }
 }
