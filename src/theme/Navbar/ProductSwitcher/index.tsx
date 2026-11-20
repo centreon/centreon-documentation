@@ -7,13 +7,13 @@ import {translate} from '@docusaurus/Translate';
 import {type Props as NavbarItemConfig} from '@theme/NavbarItem';
 import styles from './styles.module.css';
 
-type Section = {
+export type Section = {
   label: string;
   to: string;
   pluginId: string;
 };
 
-type Product = {
+export type Product = {
   code: string;
   label: string;
   to: string;
@@ -33,7 +33,7 @@ const linkTo = (item: NavbarItemConfig): string | undefined =>
  * Infra Monitoring has three documentation spaces (OnPrem, Cloud and the
  * monitoring connectors): its pill opens a menu to switch between them.
  */
-function getProducts(items: NavbarItemConfig[]): Product[] {
+export function getProducts(items: NavbarItemConfig[]): Product[] {
   const sections: Section[] = [];
   for (const item of items) {
     const to = linkTo(item);

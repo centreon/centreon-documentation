@@ -1,0 +1,27 @@
+/* Name of a product with several documentation spaces (Infra Monitoring):
+   a label, not a link, above the links to its spaces */
+.group {
+  display: block;
+  padding: var(--ifm-menu-link-padding-vertical) var(--ifm-menu-link-padding-horizontal);
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sections {
+  margin-bottom: 0.5rem;
+  padding-left: 0;
+}
+
+/* Languages and versions, apart from the products */
+.others {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.others:empty {
+  display: none;
+}

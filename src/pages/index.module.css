@@ -556,11 +556,44 @@ html[data-theme] .heroSearch :global(.navbar__search-input:focus) {
   .tasks {
     padding: 1rem 0.25rem 0;
   }
+
+  /* Key figures side by side, so that the card does not fill the screen */
+  .figuresList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .figuresList dt {
+    font-size: 1.6rem;
+  }
 }
 
 @media (max-width: 600px) {
   .cimGrid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* The tasks of the selected product show below its card (index.js) */
+  .productColumn {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .cimGrid > li.inlineTasks,
+  .productList > li.inlineTasks {
+    display: block;
+  }
+
+  .inlineTasks .tasks {
+    padding: 0.25rem 0.25rem 0.5rem;
+  }
+
+  .hero {
+    padding: 1.75rem 0;
+  }
+
+  .heroTitle {
+    margin-bottom: 1.25rem;
   }
 
   .previews {

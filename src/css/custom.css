@@ -838,6 +838,20 @@ html:has([data-product-landing]) nav.theme-doc-breadcrumbs {
   html[data-reader-width='full'] main .row:has(.theme-doc-toc-desktop) > .col:first-child {
     flex: 1 1 0;
   }
+  /* Up to ~1370px, the 75% cap of the content column plus the table of
+     contents are wider than the row: without this, the table of contents
+     wraps below the article, at the bottom of the page. */
+  main .row:has(.theme-doc-toc-desktop) {
+    flex-wrap: nowrap;
+  }
+}
+/* Laptops and landscape tablets: a narrower table of contents leaves the text
+   a readable width next to the sidebar */
+@media (min-width: 997px) and (max-width: 1279px) {
+  main .row:has(.theme-doc-toc-desktop) > .col--3 {
+    flex-basis: 13rem;
+    max-width: 13rem;
+  }
 }
 
 /* Thin separator between the navbar and the page, across the full width */
@@ -862,11 +876,78 @@ html:root {
   background-size: 1rem 1rem;
 }
 
-/* Medium screens: a narrower navbar search, so that it does not overlap the
-   Docs / API links */
-@media (min-width: 997px) and (max-width: 1280px) {
+/* NAVBAR ON SMALL SCREENS
+   Below 997px, Docusaurus lays the search over the right of the navbar
+   (position: absolute), on top of the language toggle and of the reading
+   settings: it goes back in the row, before them. */
+@media (max-width: 996px) {
+  .navbar [class*='navbarSearchContainer'] {
+    position: static;
+    margin-right: 0.25rem;
+  }
   .navbar .navbar__search-input {
-    width: 13rem;
+    width: 12rem;
+  }
+}
+
+/* Where the row is short (phones; laptops and landscape tablets, where the
+   product switcher takes the room), the search is a button: a click opens
+   the field over the navbar, results below it. */
+@media (max-width: 576px), (min-width: 997px) and (max-width: 1279px) {
+  .navbar [class*='navbarSearchContainer'] {
+    position: relative;
+    width: 38px;
+    height: 38px;
+  }
+  /* The search library sets inline positions on the field: the block that
+     holds it is the one positioned. On the button at rest; open, at the
+     right of the navbar, so that it never leaves the screen. */
+  .navbar [class*='navbarSearchContainer'] .navbar__search {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .navbar [class*='navbarSearchContainer']:focus-within {
+    position: static;
+  }
+  .navbar [class*='navbarSearchContainer']:focus-within .navbar__search {
+    z-index: 3;
+    top: calc(50% - 19px);
+    right: var(--ifm-navbar-padding-horizontal);
+  }
+  .navbar [class*='navbarSearchContainer'] .navbar__search-input {
+    width: 38px;
+    padding: 0 0 0 38px;
+    background-position: 9px center;
+    cursor: pointer;
+  }
+  .navbar [class*='navbarSearchContainer'] .navbar__search-input::placeholder {
+    color: transparent;
+  }
+  .navbar [class*='navbarSearchContainer'] [class*='searchHintContainer'] {
+    display: none;
+  }
+  .navbar [class*='navbarSearchContainer'] .navbar__search-input:focus {
+    width: min(22rem, calc(100vw - 2 * var(--ifm-navbar-padding-horizontal)));
+    padding-right: 0.75rem;
+    cursor: text;
+  }
+  .navbar [class*='navbarSearchContainer'] .navbar__search-input:focus::placeholder {
+    color: var(--ifm-navbar-search-input-placeholder-color);
+  }
+  /* The field opens over the navbar: an opaque background */
+  .navbar [class*='navbarSearchContainer'] .navbar__search-input:focus {
+    background-color: #ffffff;
+  }
+  html[data-theme='dark'] .navbar [class*='navbarSearchContainer'] .navbar__search-input:focus {
+    background-color: #0b0b45;
+  }
+}
+
+/* Phones: the language toggle is in the menu (Languages), for room */
+@media (max-width: 576px) {
+  .navbar__items--right [class*='toggle_'][role='group'] {
+    display: none;
   }
 }
 
