@@ -6,7 +6,7 @@ description: "Browse the Centreon MBI report designs by category, with a preview
 
 Here you can preview report designs and get information on their parameters and prerequisites. Report designs are grouped by the type of data they contain.
 
-For an overview of what each report design looks like, check out our [Sample Reports](../../assets/reporting/Centreon-MBI-Sample-Reports.pdf) PDF.
+For an overview of what each report design looks like, check out our <a href={require("../../assets/reporting/Centreon-MBI-Sample-Reports.pdf").default} target="_blank">Sample Reports</a> PDF.
 
 | Report category | Type of data |
 | --- | --- |
