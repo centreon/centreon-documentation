@@ -364,14 +364,15 @@ function ProductChooser({ products }) {
     </div>
   );
 
-  // On phones, the products are a single column: the tasks of the selected
-  // product show right below it, instead of below the whole list.
+  // On phones, the products are a single column: every card has the same
+  // layout (the compact one of Infra Monitoring), and the tasks of the
+  // selected product show right below it, instead of below the whole list.
   const card = (product, compact) => (
     <React.Fragment key={product.id}>
       <li>
         <ProductCard
           product={product}
-          compact={compact}
+          compact={compact || isPhone}
           isActive={product.id === active.id}
           onActivate={() => setActiveId(product.id)}
         />

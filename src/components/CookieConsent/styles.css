@@ -1,0 +1,195 @@
+/* Cookie banner and preferences window: the styles of www.centreon.com
+   (centreon/WebApp-corporate-website: src/styles/global.css), with its
+   colors as local tokens. */
+.cookie-modal {
+  --cc-bg: #ffffff;
+  --cc-text: #02023d;
+  --cc-text-soft: #5a5a6e;
+  --cc-border: #e5e7f0;
+  --cc-link: #3102dd;
+  --cc-cyan: #59e1ef;
+}
+html[data-theme='dark'] .cookie-modal {
+  --cc-bg: #11113a;
+  --cc-text: #eef0fb;
+  --cc-text-soft: #a4a7c8;
+  --cc-border: #25264d;
+  --cc-link: #59e1ef;
+}
+
+/* --- Banner (centered dialog: title, text and 3 actions of equal weight) --- */
+.cookie-consent-dialog { max-width: 640px; }
+.cookie-consent-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+@media (max-width: 560px) {
+  .cookie-consent-actions { grid-template-columns: 1fr; }
+}
+/* The 3 choices have the same visual weight: the CNIL recommends not to make
+   "Accept all" more visible than refusing. */
+.btn-consent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--cc-cyan);
+  box-shadow: 0 6px 20px rgba(89, 225, 239, 0.28);
+  color: #02023d;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.25;
+  white-space: normal;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+.btn-consent:hover { transform: translateY(-1px); background: #43d4e4; }
+
+/* Phones: a panel anchored at the bottom of the screen, full width */
+@media (max-width: 560px) {
+  .cookie-modal.cookie-consent-dialog {
+    width: 100%;
+    max-width: 100%;
+    max-height: 85dvh;
+    margin: auto 0 0;
+    border-radius: 18px 18px 0 0;
+    padding: 20px 18px calc(16px + env(safe-area-inset-bottom, 0px));
+  }
+  .cookie-consent-dialog::backdrop { background: rgb(2 2 61 / 0.35); }
+  .cookie-consent-dialog .cookie-modal-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    margin-bottom: 10px;
+  }
+  .cookie-consent-dialog .cookie-modal-title { font-size: 1rem; }
+  .cookie-consent-dialog .cookie-modal-policy-link { font-size: 0.8rem; }
+  .cookie-consent-dialog .cookie-modal-body p { font-size: 0.8rem; line-height: 1.5; margin: 0; }
+  .cookie-consent-actions { gap: 8px; margin-top: 14px; }
+  .cookie-consent-dialog .btn-consent { padding: 9px 12px; box-shadow: none; }
+}
+
+/* --- Preferences window (Settings / Cookies / Cookie policy) --- */
+.cookie-modal {
+  border: none;
+  border-radius: 16px;
+  background: var(--cc-bg);
+  color: var(--cc-text);
+  width: min(560px, calc(100vw - 32px));
+  max-height: calc(100vh - 64px);
+  padding: 32px 36px 36px;
+  box-shadow: 0 30px 80px rgb(2 2 61 / 0.35);
+  font-family: var(--ifm-font-family-base);
+  text-align: left;
+  overflow-y: auto;
+}
+.cookie-modal::backdrop { background: rgb(2 2 61 / 0.55); }
+.cookie-modal-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.cookie-modal-title { margin: 0; font-size: 1.15rem; font-weight: 700; flex: 1; }
+.cookie-modal-policy-link { font-size: 0.85rem; color: var(--cc-link); white-space: nowrap; }
+.cookie-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--cc-text-soft);
+  cursor: pointer;
+  padding: 0 0 0 4px;
+}
+.cookie-modal-close:hover { color: var(--cc-text); }
+
+.cookie-modal-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--cc-border);
+  margin-bottom: 20px;
+}
+.cookie-tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 10px 4px;
+  margin-right: 20px;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--cc-text-soft);
+  cursor: pointer;
+}
+.cookie-tab[aria-selected='true'] { color: var(--cc-cyan); border-bottom-color: var(--cc-cyan); }
+
+.cookie-tab-panel[hidden] { display: none; }
+
+/* Categories: header (chevron + title + switch) and a description folded by
+   default, independent of the switch. */
+.cookie-cat { border-bottom: 1px solid var(--cc-border); padding: 14px 0; }
+.cookie-cat:first-child { padding-top: 0; }
+.cookie-cat:last-child { border-bottom: none; padding-bottom: 0; }
+.cookie-cat-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.cookie-cat-chevron {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--cc-text);
+  cursor: pointer;
+  text-align: left;
+}
+.cookie-chevron-icon { flex: none; transition: transform 0.15s ease; }
+.cookie-cat-chevron[aria-expanded='true'] .cookie-chevron-icon { transform: rotate(180deg); }
+.cookie-cat-title { font-weight: 700; font-size: 0.95rem; }
+.cookie-cat-desc { margin: 10px 0 0; font-size: 0.85rem; color: var(--cc-text-soft); line-height: 1.6; }
+.cookie-cat-desc[hidden] { display: none; }
+.cookie-cat-desc em { color: var(--cc-text); font-style: normal; font-weight: 600; }
+
+/* On/off switch */
+.cookie-switch { position: relative; display: inline-flex; flex: none; cursor: pointer; }
+.cookie-switch-locked { cursor: default; opacity: 0.7; }
+.cookie-switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.cookie-switch-track {
+  display: block;
+  width: 40px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--cc-border);
+  transition: background 0.15s ease;
+}
+.cookie-switch-thumb {
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin: 3px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.15s ease;
+}
+.cookie-switch input:checked ~ .cookie-switch-track { background: var(--cc-cyan); }
+.cookie-switch input:checked ~ .cookie-switch-track .cookie-switch-thumb { transform: translateX(18px); }
+.cookie-switch input:focus-visible ~ .cookie-switch-track { outline: 2px solid var(--cc-cyan); outline-offset: 2px; }
+
+.cookie-table { display: table; width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 0.82rem; }
+.cookie-table th,
+.cookie-table td { text-align: left; padding: 8px 10px; border: 0; border-bottom: 1px solid var(--cc-border); background: none; }
+.cookie-table thead,
+.cookie-table tr { background: none; border: 0; }
+.cookie-table th { color: var(--cc-text-soft); font-weight: 600; }
+
+.cookie-modal-body p { font-size: 0.88rem; color: var(--cc-text-soft); line-height: 1.6; }
+.cookie-modal-body a { color: var(--cc-link); }
+
+/* Focus set on the window when it opens: no outline. */
+.cookie-modal:focus { outline: none; }
+
+/* Footer link that opens the preferences */
+.cookie-settings-link { cursor: pointer; }

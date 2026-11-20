@@ -588,6 +588,16 @@ html[data-theme] .heroSearch :global(.navbar__search-input:focus) {
     padding: 0.25rem 0.25rem 0.5rem;
   }
 
+  /* "Get started · <product>" on its own line, the product page link below */
+  .tasksHead {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tasksLabel {
+    flex-basis: 100%;
+  }
+
   .hero {
     padding: 1.75rem 0;
   }
