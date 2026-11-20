@@ -37,7 +37,7 @@ Remote Server on the Centreon platform.
       The **Database username** and **Database password** are the credentials defined
       during the installation of the Remote Server.
 
-      The **Server IP address** field has the following form:
+      The **Server address** field has the following form:
       [(http|https)://]@IP[:(port)]. If your Remote Server is only available on
       HTTPS, it is mandatory to define the HTTP method and the TCP port if it is
        not the default one.
