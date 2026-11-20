@@ -39,17 +39,17 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- Fix(centreontrapd): fix host macro substitution in centreontrapd PREEXEC commands.
-- Fixed the unattended installation script with the --tls enabled option: the web interface and the API now connect to the database over TLS. Before, the TLS settings written by the script were ignored and these connections were not encrypted.
-- [API] Non-admin users without host category restrictions can again search and list host groups.
+- [Centreontrapd]: Fixed an issue causing host macro to not be substitued in centreontrapd's PREEXEC commands when configured to do so.
+- [Installation] Fixed an issue with the unattended installation script with the --tls option enabled that caused the script to ignore this option.
+- [API] Non-admin users without host category restrictions can once again search and list host groups.
 - [Agent configuration] Deleting a host no longer stops the poller from collecting data from the other hosts using poller-initiated connections.
 - [Configuration] Applying a mass change to host templates now correctly removes the services from the old templates instead of only adding the new ones.
 - [Configuration] On new installations, the "Never" time period now stops checks as expected.
-- [Configuration] The API now refuses to add a host template under license (IT-100) to a host or host template once the license host limit is reached.
+- [Configuration] The API now refuses to add a host when a license's (IT-100) host limit has been reached.
 - [Dashboards] The gauge in the Single metric widget now displays correctly in Firefox instead of appearing upside down.
 - [Dashboards] The quick access menu now lists all dashboards, not only search results.
 - [Monitoring] Host and service status detail pages no longer fail to open when a contact or contact group is inherited more than once.
-- [Performance Graphs] Meta service graphs now display the meta service name as their title, so they are easier to identify on the page.
+- [Performance Graphs] Meta service graphs now display the meta service name as their title to be easier to identify.
 - [Web] Deleting a host no longer fails with an error when one of its services is used by more than one service dependency.
 
 </details>
@@ -67,7 +67,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details open>
   <summary>Enhancements</summary>
 
-- [Open Tickets] Add new provider for Matrix42.
+- [Open Tickets] Added a new provider for Matrix42.
 
 </details>
 
@@ -76,11 +76,11 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed a build failure with the Windows agent installer when downloading the centreon_plugins.exe binary.
-- Fixed an issue where Centreon Broker generated irrelevant RRD update error logs when losing connection to pollers, which could saturate the disk partition.
-- Fixed an issue where Centreon Engine crashed unexpectedly during configuration application when deleting hosts associated with active service downtimes.
-- Fixed the installation of centreon-engine and centreon-monitoring-agent on hosts where USERGROUPS_ENAB is set to no in /etc/login.defs: the centreon-engine and centreon-monitoring-agent groups are now always created.
-- [Broker] Fixed remaining false error messages in broker logs that were not fully removed by the previous backport.
+- [Windows] Fixed a build failure with the Windows agent installer when downloading the centreon_plugins.exe binary.
+- [Engine] Fixed an issue where Centreon Engine crashed when applying the configuration after deleting hosts while it was processing a downtime cancellation.
+- [Engine] Fixed the installation of centreon-engine and centreon-monitoring-agent on hosts where USERGROUPS_ENAB is set to "No" in /etc/login.defs: the centreon-engine and centreon-monitoring-agent groups are now always created.
+- [Broker] Fixed an issue where Centreon Broker generated irrelevant RRD update error logs when losing connection to pollers, which could saturate the disk partition.
+- [Broker] Fixed the remaining false error messages in broker logs that were not fully removed by the previous backport.
 - [Reporting] Fixed an issue where canceled downtimes were wrongly included in availability calculations, causing inconsistent reports.
 
 </details>
@@ -90,7 +90,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed an issue in Centreon MBI where rebuilding performance data over a partial date range failed with a duplicate primary key SQL error during weekly centile calculations.
+- [MBI] Fixed an issue with MBI that caused the rebuild of performance data over a partial date range to fail with a duplicate primary key SQL error.
 - [Config] Enhanced ETL resilience when handling data directories copied from other hosts.
 - [Gorgone] Fixed a missing whitelist entry that caused "command not allowed" errors when fetching broker stats.json files.
 
@@ -101,15 +101,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details open>
   <summary>Enhancements</summary>
 
-- Fixed an issue where icons configured for Business Activities were not showing up properly.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- Fixed a build failure with the Windows agent installer when downloading the centreon_plugins.exe binary.
-- Fixed the installation of centreon-engine and centreon-monitoring-agent on hosts where USERGROUPS_ENAB is set to no in /etc/login.defs: the centreon-engine and centreon-monitoring-agent groups are now always created.
+- [CMA] Fixed an issue where icons configured for Business Activities were not showing up properly.
 
 </details>
 
