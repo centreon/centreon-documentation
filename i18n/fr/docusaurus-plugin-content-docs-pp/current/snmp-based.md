@@ -21,7 +21,7 @@ Le collecteur Centreon doit pouvoir joindre le port SNMP UDP/161 de l'équipemen
 * La version SNMP utilisée (par exemple 1, 2c ou 3).
 * Les identifiants, qui dépendent de la version :
    * Pour SNMP v1/v2c : la communauté SNMP.
-   * Pour SNMP v3 : les paramètres d'authentification. Avec SNMP v3, utilisez la macro SNMPEXTRAOPTIONS pour ajouter les paramètres d'authentification (nom d'utilisateur, phrase secrète et protocole d'authentification, phrase secrète et protocole de chiffrement).
+   * Pour SNMP v3 : les paramètres d'authentification. Avec SNMP v3, utilisez les macros d'hôte dédiées lorsqu'elles sont disponibles, ou sinon la macro SNMPEXTRAOPTIONS pour ajouter les paramètres d'authentification (nom d'utilisateur, phrase secrète et protocole d'authentification, phrase secrète et protocole de chiffrement).
 
 Une fois le modèle appliqué, vous renseignez ces valeurs dans les macros du connecteur et pouvez ajuster les seuils d'alerte et critique. Nous vous recommandons de [tester le contrôle en ligne de commande depuis le collecteur](./connectors-test.md) avant de déployer la configuration, pour vérifier que l'équipement répond.
 
