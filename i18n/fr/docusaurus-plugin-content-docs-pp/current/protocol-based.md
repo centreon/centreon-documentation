@@ -18,7 +18,7 @@ Un connecteur à base de protocole se connecte directement à un service ou exé
 * SSH : le port SSH (en général 22) et l'authentification, par nom d'utilisateur et mot de passe ou par clé SSH. Le collecteur doit être autorisé à se connecter, et la commande ou le contrôle distant doit souvent s'exécuter avec un compte disposant des droits nécessaires.
 * Connexions aux bases de données : le port de la base (par exemple 3306 pour MySQL, 5432 pour PostgreSQL, 1521 pour Oracle), un nom d'utilisateur et un mot de passe pour la base, et souvent le nom de la base ou de l'instance. Le compte a généralement besoin de droits de lecture sur ce que vous supervisez.
 
-Dans tous les cas, vous renseignez ces valeurs dans les macros du connecteur après avoir appliqué son modèle. Nous vous recommandons de [tester le contrôle en ligne de commande depuis le collecteur](./connectors-test.md) avant de déployer la configuration.
+Dans tous les cas, vous renseignez ces valeurs dans les macros d'hôte du connecteur après avoir appliqué son modèle. Nous vous recommandons de [tester le contrôle en ligne de commande depuis le collecteur](./connectors-test.md) avant de déployer la configuration.
 
 Certains contrôles de bases de données ou d'applications nécessitent un pilote ou une bibliothèque cliente supplémentaire sur le collecteur. Dans ce cas, la procédure de supervision du connecteur indique lequel installer.
 
