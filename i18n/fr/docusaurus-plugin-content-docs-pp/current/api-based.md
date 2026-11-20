@@ -21,6 +21,8 @@ Les exigences d'authentification varient d'un service à l'autre. Vous pouvez av
 * Parfois d'un nom d'utilisateur et d'un mot de passe, ou d'une combinaison servant à obtenir un jeton d'accès temporaire.
 * Pour les fournisseurs cloud, d'identifiants supplémentaires comme un ID d'abonnement, un ID de tenant, une région ou un ID de compte.
 
+> Notez que pour certains connecteurs plusieurs modes d'authentification sont supportés (voir les documentations dédiées à chacun).
+
 ## Ce que vous interrogez
 
 * La ressource ou l'objet précis à superviser (par exemple une base de données, une VM ou un bucket donné).
