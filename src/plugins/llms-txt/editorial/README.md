@@ -22,11 +22,13 @@ in the order you want. Only the following are replaced when the site is built:
 | `{{indexes}}`                    | the generated sections that link to the index of each product      |
 
 A `{{...}}` directive must be alone on its line, and `{{indexes}}` must appear
-exactly once. A page path is the path of its URL without the language
-(`docs/installation/architectures/`, in `root.fr.md` too). Titles and
-descriptions come from the pages themselves: to change how a page is described,
-change its `title` or `description` front matter. Any `{word}` in braces is
-read as a placeholder: the template cannot hold one literally.
+exactly once. It becomes a section per product family, then "Full text" (the
+root `llms-full.txt`) and "Other languages". A page path is the path of its
+URL without the language (`docs/installation/architectures/`, in `root.fr.md`
+too). Titles and descriptions come from the pages themselves: to change how a
+page is described, change its `title` or `description` front matter. Any
+`{word}` in braces is read as a placeholder: the template cannot hold one
+literally.
 
 The build fails on an unknown placeholder or directive, an unclosed comment, and
 a `{{page}}` path that matches no listed page, so a renamed page cannot leave a
@@ -41,6 +43,7 @@ supported distributions: link to the page that holds them instead. The
 `## Optional` section keeps its English title in French too, since the
 llms.txt format reserves it for links that tools may skip; keep it last.
 
-The product indexes (`/docs/llms.txt`, `/cloud/llms.txt`...) and the generated
-sections are written by the plugin in `src/plugins/llms-txt/index.js`. To check
+The product indexes (`/docs/llms.txt`, `/cloud/llms.txt`...), the
+`llms-full.txt` files next to them and at the root, and the generated sections
+are written by the plugin in `src/plugins/llms-txt/index.js`. To check
 a change, run `pnpm build` and read `build/llms.txt` and `build/fr/llms.txt`.

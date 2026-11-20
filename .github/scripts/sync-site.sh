@@ -9,12 +9,14 @@
 #   markdown all .md pages, revalidated, with an explicit
 #            text/markdown; charset=utf-8: the guessed type may be missing
 #            or carry no charset
-#   text     all .txt files (robots.txt, llms.txt...), revalidated, with an
-#            explicit UTF-8 charset: the guessed bare text/plain can be read
-#            as Latin-1
+#   full     the llms-full.txt files, like the text pass below
+#   text     all other .txt files (robots.txt, llms.txt...), revalidated,
+#            with an explicit UTF-8 charset: the guessed bare text/plain can
+#            be read as Latin-1
 #
-# Each pass only deletes the files it covers. The markdown pass runs before
-# the text one, so that llms.txt never links to a .md page not uploaded yet.
+# Each pass only deletes the files it covers. The markdown and full passes
+# run before the text one, so that llms.txt never links to a .md page or an
+# llms-full.txt file not uploaded yet.
 #
 # Usage: sync-site.sh <build-dir> <s3-destination> [kept-path...]
 #
@@ -58,6 +60,11 @@ aws s3 sync "$source_dir" "$destination" \
   --delete --exclude "*" --include "*.md" --exclude "assets/*" --exclude "fr/assets/*" ${kept[@]+"${kept[@]}"} \
   "${revalidate[@]}" --content-type "text/markdown; charset=utf-8"
 
+text_type="text/plain; charset=utf-8"
 aws s3 sync "$source_dir" "$destination" \
-  --delete --exclude "*" --include "*.txt" --exclude "assets/*" --exclude "fr/assets/*" ${kept[@]+"${kept[@]}"} \
-  "${revalidate[@]}" --content-type "text/plain; charset=utf-8"
+  --delete --exclude "*" --include "*llms-full.txt" --exclude "assets/*" --exclude "fr/assets/*" ${kept[@]+"${kept[@]}"} \
+  "${revalidate[@]}" --content-type "$text_type"
+
+aws s3 sync "$source_dir" "$destination" \
+  --delete --exclude "*" --include "*.txt" --exclude "*llms-full.txt" --exclude "assets/*" --exclude "fr/assets/*" \
+  ${kept[@]+"${kept[@]}"} "${revalidate[@]}" --content-type "$text_type"

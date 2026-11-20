@@ -275,7 +275,8 @@ const config = {
       // are indexed for the latest version only ('all' for every built one).
       // Also publishes each doc of these versions as Markdown, unlisted ones
       // excepted: /docs/foo/ gives /docs/foo.md.
-      ['./src/plugins/llms-txt', { onPremVersions: 'latest', markdown: true }],
+      // Joins them into llms-full.txt files, one per index and a root one.
+      ['./src/plugins/llms-txt', { onPremVersions: 'latest', markdown: true, full: true }],
     ];
 
     if (cloud) {
