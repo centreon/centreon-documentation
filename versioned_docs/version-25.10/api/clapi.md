@@ -3673,7 +3673,6 @@ You may edit the following parameters:
 | notification\_interval         | Notification interval                                                  |
 | notification\_options          | Notification options                                                   |
 | notification\_period           | Notification period                                                    |
-| recovery\_notification\_delay  | Recovery notification delay                                            |
 | obsess\_over\_host             | Whether or not obsess over host option is enabled                      |
 | passive\_checks\_enabled       | Whether or not passive checks are enabled                              |
 | retain\_nonstatus\_information | Whether or not there is non-status retention                           |
@@ -3681,7 +3680,6 @@ You may edit the following parameters:
 | retry\_check\_interval         | Retry check interval                                                   |
 | snmp\_community                | Snmp Community                                                         |
 | snmp\_version                  | Snmp version                                                           |
-| stalking\_options              | Comma-separated options: 'o' for OK, 'd' for Down, 'u' for Unreachable |
 | statusmap\_image               | Status map image (used by statusmap)                                   |
 | host\_notification\_options    | Notification options (d,u,r,f,s)                                       |
 | timezone                       | Timezone                                                               |
@@ -3747,16 +3745,13 @@ You may edit the following parameters:
 | notification\_interval         | Notification interval                                                  |
 | notification\_options          | Notification options                                                   |
 | notification\_period           | Notification period                                                    |
-| recovery\_notification\_delay  | Recovery notification delay                                            |
 | obsess\_over\_host             | Whether or not obsess over host option is enabled                      |
 | passive\_checks\_enabled       | Whether or not passive checks are enabled                              |
-| process\_perf\_data            | Process performance data command                                       |
 | retain\_nonstatus\_information | Whether or not there is non-status retention                           |
 | retain\_status\_information    | Whether or not there is status retention                               |
 | retry\_check\_interval         | Retry check interval                                                   |
 | snmp\_community                | Snmp Community                                                         |
 | snmp\_version                  | Snmp version                                                           |
-| stalking\_options              | Comma-separated options: 'o' for OK, 'd' for Down, 'u' for Unreachable |
 | statusmap\_image               | Status map image (used by statusmap)                                   |
 | host\_notification\_options    | Notification options (d,u,r,f,s)                                       |
 | timezone                       | Timezone                                                               |
@@ -5049,7 +5044,6 @@ Parameters that may be modified:
 | notification\_period           | Name of the notification period                                                               |
 | notification\_options          | Status linked to notifications                                                                |
 | first\_notification\_delay     | First notification delay in seconds                                                           |
-| recovery\_notification\_delay  | Recovery notification delay                                                                   |
 | obsess\_over\_service          | *1* when obsess over service is enabled, *0* otherwise                                        |
 | check\_freshness               | *1* when check freshness is enabled, *0* otherwise                                            |
 | freshness\_threshold           | Value in seconds                                                                              |
@@ -5065,7 +5059,6 @@ Parameters that may be modified:
 | icon\_image                    | Icon image                                                                                    |
 | icon\_image\_alt               | Icon image alt text                                                                           |
 | comment                        | Comment                                                                                       |
-| service\_notification\_options | Notification options (w,u,c,r,f,s)                                                            |
 
 > ***NOTE:*** You need to generate your configuration file and restart the monitoring engine in order to apply changes.
 
@@ -5113,7 +5106,6 @@ You may edit the following parameters:
 | notification\_period           | Name of the notification period                                                               |
 | notification\_options          | Status linked to notifications                                                                |
 | first\_notification\_delay     | First notification delay in seconds                                                           |
-| recovery\_notification\_delay  | Recovery notification delay                                                                   |
 | obsess\_over\_service          | *1* when obsess over service is enabled, *0* otherwise                                        |
 | check\_freshness               | *1* when check freshness is enabled, *0* otherwise                                            |
 | freshness\_threshold           | Value in seconds                                                                              |
@@ -5129,7 +5121,6 @@ You may edit the following parameters:
 | icon\_image                    | Icon image                                                                                    |
 | icon\_image\_alt               | Icon image alt text                                                                           |
 | comment                        | Comment                                                                                       |
-| service\_notification\_options | Notification options (w,u,c,r,f,s)                                                            |
 
 #### Addhost and Sethost
 
@@ -5506,17 +5497,13 @@ Parameters that may be modified:
 | notification\_period           | Name of the notification period                                                                |
 | notification\_options          | Status linked to notifications                                                                 |
 | first\_notification\_delay     | First notification delay in seconds                                                            |
-| recovery\_notification\_delay  | Recovery notification delay                                                                    |
-| parallelize\_check             | 1 when parallelize checks are enabled, 0 otherwise                                             |
 | obsess\_over\_service          | 1 when obsess over service is enabled, 0 otherwise                                             |
 | check\_freshness               | 1 when check freshness is enabled, 0 otherwise                                                 |
 | freshness\_threshold           | Service freshness threshold in seconds                                                         |
 | event\_handler\_enabled        | 1 when event handler is enabled, 0 otherwise                                                   |
 | flap\_detection\_enabled       | 1 when flap detection is enabled, 0 otherwise                                                  |
-| process\_perf\_data            | 1 when process performance data is enabled, 0 otherwise                                        |
 | retain\_status\_information    | 1 when status information is retained, 0 otherwise                                             |
 | retain\_nonstatus\_information | 1 when non status information is retained, 0 otherwise                                         |
-| stalking\_options              | Comma separated options: 'o' for OK, 'w' for Warning, 'u' for Unknown and 'c' for Critical     |
 | event\_handler                 | Name of the event handler command                                                              |
 | event\_handler\_arguments      | Arguments that go along with the event handler, prepend each argument with the "\!" character  |
 | notes                          | Notes                                                                                          |
@@ -5524,9 +5511,7 @@ Parameters that may be modified:
 | action\_url                    | Action URL                                                                                     |
 | icon\_image                    | Icon image                                                                                     |
 | icon\_image\_alt               | Icon image alt text                                                                            |
-| graphtemplate                  | Graph template namei                                                                           |
 | comment                        | Comment                                                                                        |
-| service\_notification\_options | Notification options (w,u,c,r,f,s)                                                             |
 
 > ***NOTE:*** You need to generate your configuration file and restart the monitoring engine in order to apply the changes.
 
@@ -5574,17 +5559,13 @@ You may edit the following parameters:
 | notification\_period           | Name of the notification period                                                                |
 | notification\_options          | Status linked to notifications                                                                 |
 | first\_notification\_delay     | First notification delay in seconds                                                            |
-| recovery\_notification\_delay  | Recovery notification delay                                                                    |
-| parallelize\_check             | 1 when parallelize checks are enabled, 0 otherwise                                             |
 | obsess\_over\_service          | 1 when obsess over service is enabled, 0 otherwise                                             |
 | check\_freshness               | 1 when check freshness is enabled, 0 otherwise                                                 |
 | freshness\_threshold           | Service freshness threshold in seconds                                                         |
 | event\_handler\_enabled        | 1 when event handler is enabled, 0 otherwise                                                   |
 | flap\_detection\_enabled       | 1 when flap detection is enabled, 0 otherwise                                                  |
-| process\_perf\_data            | 1 when process performance data is enabled, 0 otherwise                                        |
 | retain\_status\_information    | 1 when status information is retained, 0 otherwise                                             |
 | retain\_nonstatus\_information | 1 when non status information is retained, 0 otherwise                                         |
-| stalking\_options              | Comma separated options: 'o' for OK, 'w' for Warning, 'u' for Unknown and 'c' for Critical     |
 | event\_handler                 | Name of the event handler command                                                              |
 | event\_handler\_arguments      | Arguments that go along with the event handler, prepend each argument with the "\!" character  |
 | notes                          | Notes                                                                                          |
@@ -5592,9 +5573,7 @@ You may edit the following parameters:
 | action\_url                    | Action URL                                                                                     |
 | icon\_image                    | Icon image                                                                                     |
 | icon\_image\_alt               | Icon image alt text                                                                            |
-| graphtemplate                  | Graph template namei                                                                           |
 | comment                        | Comment                                                                                        |
-| service\_notification\_options | Notification options (w,u,c,r,f,s)                                                             |
 
 
 #### Addhosttemplate and Sethosttemplate
@@ -6448,7 +6427,6 @@ The parameters that you can change are the following:
   |notification\_period            |Notification period                                                  |                                                                                                                                                         |
   |notification\_interval          |Notification interval                                                |                                                                                                                                                         |
   |first\_notification\_delay      |Delay before sending first notification when entering non-OK status  |                                                                                                                                                         |
-  |recovery\_notification\_delay   |Delay before sending first notification when entering OK status      |                                                                                                                                                         |
   |icon                            |Business Activity icon                                               |                                                                                                                                                         |
   |inherit\_kpi\_downtimes         |Inherit planned downtimes from KPIs                                  |*0* to ignore the planned downtime, *1* to inherit the planned downtime on the business activity, *2* to ignore the indicator in the calculation |
   |geo_coords                      |Geo-coordinate to position the BA                                    |                                                                                                                                                         |
