@@ -239,18 +239,18 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-DEM-Restapi
 | TIMEFRAME                    | Set timeframe in seconds                                                                                                                         | 1800              |             |
 | PERSPECTIVE                  | Set the perspective in which the data will be applied. Can be: 'all', 'url', 'browser', 'country', 'city', 'os'                                  | all               |             |
 | LIMITRESULTS                 | To be used with --perspective. Limit the number of results to be fetched (number of different URLs, browsers, etc...).                           | 10                |             |
-| WARNINGBOUNCERATE            | Warning threshold for bounce rate                                                                                                                |                   |             |
-| CRITICALBOUNCERATE           | Critical threshold for bounce rate                                                                                                               |                   |             |
+| WARNINGBOUNCERATE            | Warning threshold for bounce rate (in %)                                                                                                         |                   |             |
+| CRITICALBOUNCERATE           | Critical threshold for bounce rate (in %)                                                                                                        |                   |             |
 | WARNINGINTERACTIONNEXTPAINT  | Warning threshold for time to interaction next paint (in ms)                                                                                     |                   |             |
 | CRITICALINTERACTIONNEXTPAINT | Critical threshold for time to interaction next paint (in ms)                                                                                    |                   |             |
 | WARNINGONLOAD                | Warning threshold for `onload` time (in ms)                                                                                                      |                   |             |
 | CRITICALONLOAD               | Critical threshold for `onload` time (in ms)                                                                                                     |                   |             |
-| WARNINGPAGEVIEWS             | Warning threshold for page views                                                                                                                 |                   |             |
-| CRITICALPAGEVIEWS            | Critical threshold for page views                                                                                                                |                   |             |
-| WARNINGSESSIONS              | Warning threshold for sessions                                                                                                                   |                   |             |
-| CRITICALSESSIONS             | Critical threshold for sessions                                                                                                                  |                   |             |
-| WARNINGSPEEDINDEX            | Warning threshold for speed index                                                                                                                |                   |             |
-| CRITICALSPEEDINDEX           | Critical threshold for speed index                                                                                                               |                   |             |
+| WARNINGPAGEVIEWS             | Warning threshold for page views (number of page views)                                                                                          |                   |             |
+| CRITICALPAGEVIEWS            | Critical threshold for page views (number of page views)                                                                                         |                   |             |
+| WARNINGSESSIONS              | Warning threshold for sessions (number of sessions)                                                                                              |                   |             |
+| CRITICALSESSIONS             | Critical threshold for sessions (number of sessions)                                                                                             |                   |             |
+| WARNINGSPEEDINDEX            | Warning threshold for speed index (in ms)                                                                                                        |                   |             |
+| CRITICALSPEEDINDEX           | Critical threshold for speed index (in ms)                                                                                                       |                   |             |
 | WARNINGTTFB                  | Warning threshold for time to first byte (in ms)                                                                                                 |                   |             |
 | CRITICALTTFB                 | Critical threshold for time to first byte (in ms)                                                                                                |                   |             |
 | EXTRAOPTIONS                 | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
@@ -261,15 +261,17 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-DEM-Restapi
 | Macro                        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | TIMEFRAME                    | Set timeframe in seconds                                                                                                                         | 86400             |             |
-| WARNINGCARBONFOOTPRINT       | Warning threshold for carbon footprint                                                                                                           |                   |             |
-| CRITICALCARBONFOOTPRINT      | Critical threshold for carbon footprint                                                                                                          |                   |             |
-| WARNINGDIGITALSOBRIETYSCORE  | Warning threshold for digital sobriety score                                                                                                     |                   |             |
-| CRITICALDIGITALSOBRIETYSCORE | Critical threshold for digital sobriety score                                                                                                    |                   |             |
-| WARNINGECODESIGNSCORE        | Warning threshold for `eco design` score                                                                                                         |                   |             |
-| CRITICALECODESIGNSCORE       | Critical threshold for `eco design` score                                                                                                        |                   |             |
-| WARNINGPERFORMANCESCORE      | Warning threshold for performance score                                                                                                          |                   |             |
-| CRITICALPERFORMANCESCORE     | Critical threshold for performance score                                                                                                         |                   |             |
+| WARNINGCARBONFOOTPRINT       | Warning threshold for carbon footprint per click (in g)                                                                                          |                   |             |
+| CRITICALCARBONFOOTPRINT      | Critical threshold for carbon footprint per click (in g)                                                                                         |                   |             |
+| WARNINGDIGITALSOBRIETYSCORE  | Warning threshold for digital sobriety score (from 0 to 100)                                                                                     |                   |             |
+| CRITICALDIGITALSOBRIETYSCORE | Critical threshold for digital sobriety score (from 0 to 100)                                                                                    |                   |             |
+| WARNINGECODESIGNSCORE        | Warning threshold for `eco design` score (from 0 to 100)                                                                                         |                   |             |
+| CRITICALECODESIGNSCORE       | Critical threshold for `eco design` score (from 0 to 100)                                                                                        |                   |             |
+| WARNINGPERFORMANCESCORE      | Warning threshold for performance score (from 0 to 100)                                                                                          |                   |             |
+| CRITICALPERFORMANCESCORE     | Critical threshold for performance score (from 0 to 100)                                                                                         |                   |             |
 | EXTRAOPTIONS                 | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+> Les données Site Performance Overview sont agrégées une fois par jour par Centreon Experience Monitoring. Avec une période (timeframe) inférieure à 24 heures (86400 secondes), aucune donnée n'est remontée.
 
 </TabItem>
 <TabItem value="User Journey Incidents" label="User Journey Incidents">
@@ -282,8 +284,8 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-DEM-Restapi
 | CRITICALINCIDENTDURATION | Critical threshold for incident duration (in seconds)                                                                                                                                     |                   |             |
 | WARNINGINCIDENTSTATUS    | Define the conditions to match for the status to be B\<WARNING\>.  You can use the following variables: `%\{status\}`.  Example: `--warning-incident-status='%\{status\} =~ /open/i'`     |                   |             |
 | CRITICALINCIDENTSTATUS   | Define the conditions to match for the status to be B\<CRITICAL\>.  You can use the following variables: `%\{status\}`.  Default: `--critical-incident-status='%\{status\} =~ /open/i'`   |                   |             |
-| WARNINGINCIDENTSTOTAL    | Warning threshold for incidents total                                                                                                                                                     |                   |             |
-| CRITICALINCIDENTSTOTAL   | Critical threshold for incidents total                                                                                                                                                    |                   |             |
+| WARNINGINCIDENTSTOTAL    | Warning threshold for incidents total (number of incidents)                                                                                                                               |                   |             |
+| CRITICALINCIDENTSTOTAL   | Critical threshold for incidents total (number of incidents)                                                                                                                              |                   |             |
 | WARNINGINCIDENTTYPE      | Define the conditions to match for the incident type to be B\<WARNING\>.  You can use the following variables: `%\{type\}`.  Example: `--warning-incident-type='%\{type\} =~ /error/i'`   |                   |             |
 | CRITICALINCIDENTTYPE     | Define the conditions to match for the incident type to be B\<CRITICAL\>.  You can use the following variables: `%\{type\}`.  Example: `--critical-incident-type='%\{type\} =~ /error/i'` |                   |             |
 | EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                          |                   |             |
@@ -295,22 +297,22 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-DEM-Restapi
 |:------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | TIMEFRAME                           | Set timeframe in seconds                                                                                                                                               | 300               |             |
 | JOURNEYID                           | Set ID of the user journey                                                                                                                                             |                   |      X      |
-| WARNINGINTERACTIONHEROTIME          | Warning threshold for interaction hero time (in ms)                                                                                                                    |                   |             |
-| CRITICALINTERACTIONHEROTIME         | Critical threshold for interaction hero time (in ms)                                                                                                                   |                   |             |
-| WARNINGINTERACTIONPERFORMANCESCORE  | Warning threshold for interaction performance score                                                                                                                    |                   |             |
-| CRITICALINTERACTIONPERFORMANCESCORE | Critical threshold for interaction performance score                                                                                                                   |                   |             |
-| WARNINGINTERACTIONSPEEDINDEX        | Warning threshold for interaction speed index (in ms)                                                                                                                  |                   |             |
-| CRITICALINTERACTIONSPEEDINDEX       | Critical threshold for interaction speed index (in ms)                                                                                                                 |                   |             |
-| WARNINGINTERACTIONTTFB              | Warning threshold for interaction time to first byte (in ms)                                                                                                           |                   |             |
-| CRITICALINTERACTIONTTFB             | Critical threshold for time to first byte (in ms)                                                                                                                      |                   |             |
+| WARNINGINTERACTIONHEROTIME          | Warning threshold for interaction hero time (in ms). Only used with `--show-interactions`.                                                                             |                   |             |
+| CRITICALINTERACTIONHEROTIME         | Critical threshold for interaction hero time (in ms). Only used with `--show-interactions`.                                                                            |                   |             |
+| WARNINGINTERACTIONPERFORMANCESCORE  | Warning threshold for interaction performance score (from 0 to 100). Only used with `--show-interactions`.                                                             |                   |             |
+| CRITICALINTERACTIONPERFORMANCESCORE | Critical threshold for interaction performance score (from 0 to 100). Only used with `--show-interactions`.                                                            |                   |             |
+| WARNINGINTERACTIONSPEEDINDEX        | Warning threshold for interaction speed index (in ms). Only used with `--show-interactions`.                                                                           |                   |             |
+| CRITICALINTERACTIONSPEEDINDEX       | Critical threshold for interaction speed index (in ms). Only used with `--show-interactions`.                                                                          |                   |             |
+| WARNINGINTERACTIONTTFB              | Warning threshold for interaction time to first byte (in ms). Only used with `--show-interactions`.                                                                    |                   |             |
+| CRITICALINTERACTIONTTFB             | Critical threshold for interaction time to first byte (in ms). Only used with `--show-interactions`.                                                                   |                   |             |
 | WARNINGJOURNEYHEROTIME              | Warning threshold for journey hero time (in ms)                                                                                                                        |                   |             |
 | CRITICALJOURNEYHEROTIME             | Critical threshold for journey hero time (in ms)                                                                                                                       |                   |             |
-| WARNINGJOURNEYPERFORMANCESCORE      | Warning threshold for journey performance score                                                                                                                        |                   |             |
-| CRITICALJOURNEYPERFORMANCESCORE     | Critical threshold for journey performance score                                                                                                                       |                   |             |
+| WARNINGJOURNEYPERFORMANCESCORE      | Warning threshold for journey performance score (from 0 to 100)                                                                                                        |                   |             |
+| CRITICALJOURNEYPERFORMANCESCORE     | Critical threshold for journey performance score (from 0 to 100)                                                                                                       |                   |             |
 | WARNINGJOURNEYSPEEDINDEX            | Warning threshold for journey speed index (in ms)                                                                                                                      |                   |             |
 | CRITICALJOURNEYSPEEDINDEX           | Critical threshold for journey speed index (in ms)                                                                                                                     |                   |             |
 | WARNINGJOURNEYTTFB                  | Warning threshold for journey time to first byte (in ms)                                                                                                               |                   |             |
-| CRITICALJOURNEYTTFB                 | Critical threshold for journey time to first byte (in ms).  =back  nteraction related metrics  The following parameters take effect only if --show-interactions is set |                   |             |
+| CRITICALJOURNEYTTFB                 | Critical threshold for journey time to first byte (in ms)                                                                                                              |                   |             |
 | EXTRAOPTIONS                        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
 
 </TabItem>
@@ -472,20 +474,20 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --timeframe                       | Set timeframe in seconds (default: 1800).                                                                                             |
 | --perspective                     | Set the perspective in which the data will be applied. Can be: 'all', 'url', 'browser', 'country', 'city', 'os' (default: 'all').     |
 | --limit-results                   | To be used with --perspective. Limit the number of results to be fetched (number of different URLs, browsers, etc...). (default: 10). |
-| --warning-sessions                | Warning threshold for sessions.                                                                                                       |
-| --critical-sessions               | Critical threshold for sessions.                                                                                                      |
-| --warning-page-views              | Warning threshold for page views.                                                                                                     |
-| --critical-page-views             | Critical threshold for page views.                                                                                                    |
-| --warning-bounce-rate             | Warning threshold for bounce rate.                                                                                                    |
-| --critical-bounce-rate            | Critical threshold for bounce rate.                                                                                                   |
+| --warning-sessions                | Warning threshold for sessions (number of sessions).                                                                                  |
+| --critical-sessions               | Critical threshold for sessions (number of sessions).                                                                                 |
+| --warning-page-views              | Warning threshold for page views (number of page views).                                                                              |
+| --critical-page-views             | Critical threshold for page views (number of page views).                                                                             |
+| --warning-bounce-rate             | Warning threshold for bounce rate (in %).                                                                                             |
+| --critical-bounce-rate            | Critical threshold for bounce rate (in %).                                                                                            |
 | --warning-ttfb                    | Warning threshold for time to first byte (in ms).                                                                                     |
 | --critical-ttfb                   | Critical threshold for time to first byte (in ms).                                                                                    |
 | --warning-onload                  | Warning threshold for `onload` time (in ms).                                                                                          |
 | --critical-onload                 | Critical threshold for `onload` time (in ms).                                                                                         |
 | --warning-interaction-next-paint  | Warning threshold for time to interaction next paint (in ms).                                                                         |
 | --critical-interaction-next-paint | Critical threshold for time to interaction next paint (in ms).                                                                        |
-| --warning-speed-index             | Warning threshold for speed index.                                                                                                    |
-| --critical-speed-index            | Critical threshold for speed index.                                                                                                   |
+| --warning-speed-index             | Warning threshold for speed index (in ms).                                                                                            |
+| --critical-speed-index            | Critical threshold for speed index (in ms).                                                                                           |
 
 </TabItem>
 <TabItem value="Site Performances Overview" label="Site Performances Overview">
@@ -494,14 +496,14 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:----------------------------------|:-----------------------------------------------|
 | --site-id                         | Set ID of the site (mandatory option).         |
 | --timeframe                       | Set timeframe in seconds (default: 86400).     |
-| --warning-performance-score       | Warning threshold for performance score.       |
-| --critical-performance-score      | Critical threshold for performance score.      |
-| --warning-digital-sobriety-score  | Warning threshold for digital sobriety score.  |
-| --critical-digital-sobriety-score | Critical threshold for digital sobriety score. |
-| --warning-eco-design-score        | Warning threshold for `eco design` score.      |
-| --critical-eco-design-score       | Critical threshold for `eco design` score.     |
-| --warning-carbon-footprint        | Warning threshold for carbon footprint.        |
-| --critical-carbon-footprint       | Critical threshold for carbon footprint.       |
+| --warning-performance-score       | Warning threshold for performance score (from 0 to 100). |
+| --critical-performance-score      | Critical threshold for performance score (from 0 to 100). |
+| --warning-digital-sobriety-score  | Warning threshold for digital sobriety score (from 0 to 100). |
+| --critical-digital-sobriety-score | Critical threshold for digital sobriety score (from 0 to 100). |
+| --warning-eco-design-score        | Warning threshold for `eco design` score (from 0 to 100). |
+| --critical-eco-design-score       | Critical threshold for `eco design` score (from 0 to 100). |
+| --warning-carbon-footprint        | Warning threshold for carbon footprint per click (in g). |
+| --critical-carbon-footprint       | Critical threshold for carbon footprint per click (in g). |
 
 </TabItem>
 <TabItem value="User Journey Incidents" label="User Journey Incidents">
@@ -512,8 +514,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --journey-id                 | Set ID of the user journey (mandatory option).                                                                                                                                            |
 | --timeframe                  | Set timeframe in seconds (default: 300).                                                                                                                                                  |
 | --ignore-closed              | Ignore closed incidents.                                                                                                                                                                  |
-| --warning-incidents-total    | Warning threshold for incidents total.                                                                                                                                                    |
-| --critical-incidents-total   | Critical threshold for incidents total.                                                                                                                                                   |
+| --warning-incidents-total    | Warning threshold for incidents total (number of incidents).                                                                                                                              |
+| --critical-incidents-total   | Critical threshold for incidents total (number of incidents).                                                                                                                             |
 | --warning-incident-status    | Define the conditions to match for the status to be B\<WARNING\>.  You can use the following variables: `%\{status\}`.  Example: `--warning-incident-status='%\{status\} =~ /open/i'`     |
 | --critical-incident-status   | Define the conditions to match for the status to be B\<CRITICAL\>.  You can use the following variables: `%\{status\}`.  Default: `--critical-incident-status='%\{status\} =~ /open/i'`   |
 | --warning-incident-type      | Define the conditions to match for the incident type to be B\<WARNING\>.  You can use the following variables: `%\{type\}`.  Example: `--warning-incident-type='%\{type\} =~ /error/i'`   |
@@ -530,22 +532,22 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --journey-id                             | Set ID of the user journey (mandatory option).                                                                                                                           |
 | --show-interactions                      | Also monitor interactions (scenario's steps) of a user journey.                                                                                                          |
 | --timeframe                              | Set timeframe in seconds (default: 300).                                                                                                                                 |
-| --warning-journey-performance-score      | Warning threshold for journey performance score.                                                                                                                         |
-| --critical-journey-performance-score     | Critical threshold for journey performance score.                                                                                                                        |
+| --warning-journey-performance-score      | Warning threshold for journey performance score (from 0 to 100).                                                                                                         |
+| --critical-journey-performance-score     | Critical threshold for journey performance score (from 0 to 100).                                                                                                        |
 | --warning-journey-hero-time              | Warning threshold for journey hero time (in ms).                                                                                                                         |
 | --critical-journey-hero-time             | Critical threshold for journey hero time (in ms).                                                                                                                        |
 | --warning-journey-speed-index            | Warning threshold for journey speed index (in ms).                                                                                                                       |
 | --critical-journey-speed-index           | Critical threshold for journey speed index (in ms).                                                                                                                      |
 | --warning-journey-ttfb                   | Warning threshold for journey time to first byte (in ms).                                                                                                                |
-| --critical-journey-ttfb                  | Critical threshold for journey time to first byte (in ms).  =back  nteraction related metrics  The following parameters take effect only if --show-interactions is set   |
-| --warning-interaction-performance-score  | Warning threshold for interaction performance score.                                                                                                                     |
-| --critical-interaction-performance-score | Critical threshold for interaction performance score.                                                                                                                    |
-| --warning-interaction-hero-time          | Warning threshold for interaction hero time (in ms).                                                                                                                     |
-| --critical-interaction-hero-time         | Critical threshold for interaction hero time (in ms).                                                                                                                    |
-| --warning-interaction-speed-index        | Warning threshold for interaction speed index (in ms).                                                                                                                   |
-| --critical-interaction-speed-index       | Critical threshold for interaction speed index (in ms).                                                                                                                  |
-| --warning-interaction-ttfb               | Warning threshold for interaction time to first byte (in ms).                                                                                                            |
-| --critical-interaction-ttfb              | Critical threshold for time to first byte (in ms).                                                                                                                       |
+| --critical-journey-ttfb                  | Critical threshold for journey time to first byte (in ms).                                                                                                               |
+| --warning-interaction-performance-score  | Warning threshold for interaction performance score (from 0 to 100). Only used with `--show-interactions`.                                                               |
+| --critical-interaction-performance-score | Critical threshold for interaction performance score (from 0 to 100). Only used with `--show-interactions`.                                                              |
+| --warning-interaction-hero-time          | Warning threshold for interaction hero time (in ms). Only used with `--show-interactions`.                                                                               |
+| --critical-interaction-hero-time         | Critical threshold for interaction hero time (in ms). Only used with `--show-interactions`.                                                                              |
+| --warning-interaction-speed-index        | Warning threshold for interaction speed index (in ms). Only used with `--show-interactions`.                                                                             |
+| --critical-interaction-speed-index       | Critical threshold for interaction speed index (in ms). Only used with `--show-interactions`.                                                                            |
+| --warning-interaction-ttfb               | Warning threshold for interaction time to first byte (in ms). Only used with `--show-interactions`.                                                                      |
+| --critical-interaction-ttfb              | Critical threshold for interaction time to first byte (in ms). Only used with `--show-interactions`.                                                                     |
 
 </TabItem>
 </Tabs>
