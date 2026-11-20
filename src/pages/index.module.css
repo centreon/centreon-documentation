@@ -36,15 +36,6 @@ html[data-theme='dark'] .home {
   padding: 0 var(--ifm-navbar-padding-horizontal);
 }
 
-.label {
-  font-family: var(--ifm-font-family-monospace);
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--home-muted);
-  margin: 0 0 0.75rem;
-}
-
 .sectionTitle {
   font-family: var(--ifm-font-family-base);
   font-size: 0.85rem;

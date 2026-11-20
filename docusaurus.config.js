@@ -581,10 +581,6 @@ const config = {
             community,
           ];
         })(),
-        logo: {
-          alt: 'Centreon Open Source Logo',
-          src: 'img/logo_centreon.png',
-        },
         copyright: `Copyright © 2005 - 2026 Centreon`,
       },
     }),

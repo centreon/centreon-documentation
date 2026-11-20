@@ -77,11 +77,11 @@ function consentScript(cfg) {
   };
 
   // Cookies set by each category, removed when it is refused or withdrawn
-  // (CNIL: withdrawing consent must delete what was set).
+  // (CNIL: withdrawing consent must delete what was set). The documentation
+  // loads no advertising tracker, so that category sets none.
   var CONSENT_COOKIES = {
     performance: /^(_ga($|_)|_gid$|_gat)/,
     measurement: /^_qta_/,
-    advertising: /^(hubspotutk$|__hstc$|__hssc$|__hssrc$|__hs_|messagesUtk$|_gcl_)/,
   };
   function clearCookies(pattern) {
     var parts = location.hostname.split('.');
@@ -101,7 +101,6 @@ function consentScript(cfg) {
   window.__applyConsent = function (prefs) {
     if (!prefs.performance) clearCookies(CONSENT_COOKIES.performance);
     if (prefs.measurement === false) clearCookies(CONSENT_COOKIES.measurement);
-    if (!prefs.advertising) clearCookies(CONSENT_COOKIES.advertising);
     gtag('consent', 'update', {
       analytics_storage: prefs.performance ? 'granted' : 'denied',
       ad_storage: prefs.advertising ? 'granted' : 'denied',
