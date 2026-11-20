@@ -6,7 +6,7 @@ description: "Parcourez les modèles de rapports Centreon MBI par catégorie, av
 
 Vous pouvez ici prévisualiser les modèles de rapport et obtenir des informations sur leurs paramètres et leurs prérequis. Les modèles de rapport sont regroupés par le type de données qu'ils contiennent.
 
-Pour un aperçu de chaque rapport, consultez notre PDF [**Exemple de rapports**](../../assets/reporting/Centreon-MBI-Exemples-de-rapports.pdf).
+Pour un aperçu de chaque rapport, consultez notre PDF <a href={require("../../assets/reporting/Centreon-MBI-Exemples-de-rapports.pdf").default} target="_blank"><strong>Exemple de rapports</strong></a>.
 
 | Catégorie de rapport | Type de données |
 | --- | --- |
