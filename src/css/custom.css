@@ -775,11 +775,15 @@ html:has([data-product-landing]) .main-wrapper main .container {
 
 /* READER PREFERENCES (text size and content width, set from the "Aa" button
    of the navbar). Headings are sized in em, so they follow the text size. */
-html[data-reader-font='s'] .theme-doc-markdown.markdown {
-  font-size: 14.5px;
-}
-html[data-reader-font='l'] .theme-doc-markdown.markdown {
-  font-size: 17.5px;
+/* Not on phones and tablets, where the button is hidden: the system text
+   size applies there, and a choice made on a computer must not stick. */
+@media (min-width: 997px) {
+  html[data-reader-font='s'] .theme-doc-markdown.markdown {
+    font-size: 14.5px;
+  }
+  html[data-reader-font='l'] .theme-doc-markdown.markdown {
+    font-size: 17.5px;
+  }
 }
 
 html[data-reader-width='wide'] .theme-doc-markdown.markdown,
