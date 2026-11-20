@@ -43,8 +43,10 @@ Les échanges peuvent aussi se faire dans l'autre sens, avec les traps SNMP (sur
 
 ### Versions et sécurité
 
-v1 / v2c : l'authentification repose sur un simple mot de passe partagé, appelé communauté SNMP (souvent « public » en lecture seule). Il circule en clair, ce qui n'est pas sécurisé.
-v3 : apporte une vraie sécurité, avec une authentification par utilisateur et le chiffrement des échanges. C'est pourquoi la v3 demande des paramètres supplémentaires (nom d'utilisateur, phrase secrète et protocole d'authentification, phrase secrète et protocole de chiffrement).
+
+- v1 / v2c : l'authentification repose sur un simple mot de passe partagé, appelé communauté SNMP (souvent « public » en lecture seule). Il circule en clair, ce qui n'est pas sécurisé.
+- v3 : apporte une vraie sécurité, avec une authentification par utilisateur et le chiffrement des échanges. C'est pourquoi la v3 demande des paramètres supplémentaires (nom d'utilisateur, phrase secrète et protocole d'authentification, phrase secrète et protocole de chiffrement).
+
 
 En résumé, le collecteur Centreon (le gestionnaire) interroge régulièrement l'agent de chaque équipement pour obtenir des valeurs identifiées par des OID, l'agent répond, et Centreon transforme ces nombres en métriques, en statuts et en alertes.
 
