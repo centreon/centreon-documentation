@@ -50,3 +50,26 @@ See https://github.com/facebook/docusaurus/pull/11142
 :global(html[data-theme='dark'] .navbar__brand .navbar__logo)::after {
   color: rgba(255, 255, 255, 0.85);
 }
+
+/* Mobile menu button at the right of the navbar (see index.tsx), and the
+   menu opening from the right */
+:global(.navbar__items--right .navbar__toggle) {
+  margin: 0;
+}
+/* Small phones: a slightly smaller logo, so that the controls of the right
+   keep their spacing */
+@media (max-width: 400px) {
+  :global(.navbar__brand .navbar__logo img) {
+    height: 1.5rem;
+  }
+}
+@media (max-width: 996px) {
+  :global(.navbar-sidebar) {
+    left: auto;
+    right: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+  :global(.navbar-sidebar--show .navbar-sidebar) {
+    transform: translate3d(0, 0, 0);
+  }
+}

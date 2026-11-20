@@ -16,6 +16,22 @@ import styles from "./index.module.css";
 
 const THE_WATCH_URL = "https://thewatch.centreon.com/";
 
+// Same breakpoint as the single-column layout of index.module.css.
+const PHONE_QUERY = "(max-width: 600px)";
+
+// Whether the media query matches; false while rendering on the server.
+function useMediaQuery(query) {
+  const [matches, setMatches] = useState(false);
+  useEffect(() => {
+    const list = window.matchMedia(query);
+    const update = () => setMatches(list.matches);
+    update();
+    list.addEventListener("change", update);
+    return () => list.removeEventListener("change", update);
+  }, [query]);
+  return matches;
+}
+
 // Key figures shown in the hero card. Each figure must be sourced: the mockup's
 // marketing claims ("N°1 open source in Europe", monthly downloads) can replace
 // these once validated by Product Marketing.
@@ -309,6 +325,7 @@ function ProductCard({ product, isActive, onActivate, compact }) {
 
 function ProductChooser({ products }) {
   const [activeId, setActiveId] = useState(products[0]?.id);
+  const isPhone = useMediaQuery(PHONE_QUERY);
   const active = products.find((product) => product.id === activeId) ?? products[0];
 
   if (!active) {
@@ -317,15 +334,51 @@ function ProductChooser({ products }) {
 
   const cim = products.filter((product) => product.group === "cim");
   const others = products.filter((product) => product.group !== "cim");
+  const tasks = (
+    <div id="home-product-tasks" className={styles.tasks} aria-live="polite">
+      <div className={styles.tasksHead}>
+        <p className={styles.tasksLabel}>
+          <Icon name="server" size={16} />
+          <span>
+            {translate({ id: "home.products.getStarted", message: "Get started" })}
+            {" · "}
+            {active.shortName}
+          </span>
+        </p>
+        <Link to={active.href} className={styles.productPage}>
+          {translate({ id: "home.products.page", message: "Product page" })}
+          <Icon name="arrow" size={14} />
+        </Link>
+      </div>
+      <ul>
+        {active.tasks.map((task) => (
+          <li key={task.href}>
+            <Link to={task.href} className={styles.task}>
+              <Icon name={task.icon} size={20} className={styles.taskIcon} />
+              <span>{task.label}</span>
+              <Icon name="arrow" size={18} className={styles.pushRight} />
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
+  // On phones, the products are a single column: every card has the same
+  // layout (the compact one of Infra Monitoring), and the tasks of the
+  // selected product show right below it, instead of below the whole list.
   const card = (product, compact) => (
-    <li key={product.id}>
-      <ProductCard
-        product={product}
-        compact={compact}
-        isActive={product.id === active.id}
-        onActivate={() => setActiveId(product.id)}
-      />
-    </li>
+    <React.Fragment key={product.id}>
+      <li>
+        <ProductCard
+          product={product}
+          compact={compact || isPhone}
+          isActive={product.id === active.id}
+          onActivate={() => setActiveId(product.id)}
+        />
+      </li>
+      {isPhone && product.id === active.id && <li className={styles.inlineTasks}>{tasks}</li>}
+    </React.Fragment>
   );
 
   return (
@@ -342,33 +395,7 @@ function ProductChooser({ products }) {
           )}
           <ul className={styles.productList}>{others.map((product) => card(product, false))}</ul>
         </div>
-        <div id="home-product-tasks" className={styles.tasks} aria-live="polite">
-          <div className={styles.tasksHead}>
-            <p className={styles.tasksLabel}>
-              <Icon name="server" size={16} />
-              <span>
-                {translate({ id: "home.products.getStarted", message: "Get started" })}
-                {" · "}
-                {active.shortName}
-              </span>
-            </p>
-            <Link to={active.href} className={styles.productPage}>
-              {translate({ id: "home.products.page", message: "Product page" })}
-              <Icon name="arrow" size={14} />
-            </Link>
-          </div>
-          <ul>
-            {active.tasks.map((task) => (
-              <li key={task.href}>
-                <Link to={task.href} className={styles.task}>
-                  <Icon name={task.icon} size={20} className={styles.taskIcon} />
-                  <span>{task.label}</span>
-                  <Icon name="arrow" size={18} className={styles.pushRight} />
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {!isPhone && tasks}
       </div>
     </section>
   );

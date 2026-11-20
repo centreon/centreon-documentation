@@ -757,5 +757,165 @@
   "landing.task.guide": {
     "message": "Guide",
     "description": "landing.task.guide"
+  },
+  "footer.cookieSettings": {
+    "message": "Gérer les cookies",
+    "description": "footer.cookieSettings"
+  },
+  "cookie.title": {
+    "message": "Nous utilisons des cookies",
+    "description": "cookie.title"
+  },
+  "cookie.text": {
+    "message": "Nous utilisons des cookies et technologies similaires sur ce site. Certains sont techniquement nécessaires et toujours activés. Nous n'utilisons les autres, à des fins statistiques, qu'avec votre consentement explicite. Vous pouvez ajuster ou retirer votre consentement à tout moment depuis les paramètres de cookies. Si vous ne souhaitez pas de cookies optionnels, cliquez sur « Cookies nécessaires uniquement ».",
+    "description": "cookie.text"
+  },
+  "cookie.accept": {
+    "message": "Tout accepter",
+    "description": "cookie.accept"
+  },
+  "cookie.customize": {
+    "message": "Personnaliser",
+    "description": "cookie.customize"
+  },
+  "cookie.modal.title": {
+    "message": "Paramètres de confidentialité",
+    "description": "cookie.modal.title"
+  },
+  "cookie.modal.close": {
+    "message": "Fermer",
+    "description": "cookie.modal.close"
+  },
+  "cookie.modal.tab.settings": {
+    "message": "Réglages",
+    "description": "cookie.modal.tab.settings"
+  },
+  "cookie.modal.tab.cookies": {
+    "message": "Cookies",
+    "description": "cookie.modal.tab.cookies"
+  },
+  "cookie.modal.tab.policy": {
+    "message": "Politique de cookies",
+    "description": "cookie.modal.tab.policy"
+  },
+  "cookie.modal.acceptAll": {
+    "message": "Tout accepter",
+    "description": "cookie.modal.acceptAll"
+  },
+  "cookie.modal.saveSelection": {
+    "message": "Enregistrer la sélection",
+    "description": "cookie.modal.saveSelection"
+  },
+  "cookie.modal.necessaryOnly": {
+    "message": "Cookies nécessaires uniquement",
+    "description": "cookie.modal.necessaryOnly"
+  },
+  "cookie.modal.alwaysActive": {
+    "message": "Toujours actif",
+    "description": "cookie.modal.alwaysActive"
+  },
+  "cookie.cat.necessary.title": {
+    "message": "Nécessaires",
+    "description": "cookie.cat.necessary.title"
+  },
+  "cookie.cat.necessary.desc": {
+    "message": "Ces cookies sont indispensables au bon fonctionnement du site et ne peuvent pas être désactivés.",
+    "description": "cookie.cat.necessary.desc"
+  },
+  "cookie.cat.measurement.title": {
+    "message": "Mesure technique des performances",
+    "description": "cookie.cat.measurement.title"
+  },
+  "cookie.cat.measurement.desc": {
+    "message": "Mesure anonyme des temps de chargement du site (Centreon Experience Monitoring), exemptée de consentement selon les règles de la CNIL. Activée par défaut, vous pouvez la désactiver.",
+    "description": "cookie.cat.measurement.desc"
+  },
+  "cookie.cat.performance.title": {
+    "message": "Performance",
+    "description": "cookie.cat.performance.title"
+  },
+  "cookie.cat.performance.desc": {
+    "message": "Nous utilisons ces cookies pour obtenir des statistiques d'audience anonymisées (Google Analytics) et améliorer le site.",
+    "description": "cookie.cat.performance.desc"
+  },
+  "cookie.cat.functional.title": {
+    "message": "Fonctionnels",
+    "description": "cookie.cat.functional.title"
+  },
+  "cookie.cat.functional.desc": {
+    "message": "Ces cookies permettraient d'activer des fonctionnalités supplémentaires (chat en direct, vidéos, partage sur les réseaux sociaux). Le site n'en utilise aucun actuellement.",
+    "description": "cookie.cat.functional.desc"
+  },
+  "cookie.cat.advertising.title": {
+    "message": "Publicitaires",
+    "description": "cookie.cat.advertising.title"
+  },
+  "cookie.cat.advertising.desc": {
+    "message": "Ces cookies et traceurs serviraient à mesurer nos campagnes publicitaires. Le site de documentation n'en utilise aucun actuellement.",
+    "description": "cookie.cat.advertising.desc"
+  },
+  "cookie.cookies.intro": {
+    "message": "Voici la liste des cookies réellement déposés sur ce site, selon les choix ci-dessus.",
+    "description": "cookie.cookies.intro"
+  },
+  "cookie.cookies.table.name": {
+    "message": "Nom",
+    "description": "cookie.cookies.table.name"
+  },
+  "cookie.cookies.table.provider": {
+    "message": "Fournisseur",
+    "description": "cookie.cookies.table.provider"
+  },
+  "cookie.cookies.table.purpose": {
+    "message": "Finalité",
+    "description": "cookie.cookies.table.purpose"
+  },
+  "cookie.cookies.table.duration": {
+    "message": "Durée",
+    "description": "cookie.cookies.table.duration"
+  },
+  "cookie.cookies.ga.purpose": {
+    "message": "Mesure d'audience (Google Analytics)",
+    "description": "cookie.cookies.ga.purpose"
+  },
+  "cookie.cookies.ga.duration": {
+    "message": "13 mois",
+    "description": "cookie.cookies.ga.duration"
+  },
+  "cookie.cookies.quanta.purpose": {
+    "message": "Mesure technique des performances du site (temps de chargement), exemptée de consentement",
+    "description": "cookie.cookies.quanta.purpose"
+  },
+  "cookie.cookies.quanta.duration": {
+    "message": "30 minutes d'inactivité (session)",
+    "description": "cookie.cookies.quanta.duration"
+  },
+  "cookie.policy.text": {
+    "message": "Lorsque vous visitez le site, votre système d'exploitation, votre adresse IP, la date et l'heure d'accès, votre navigateur et votre langue, et plus généralement votre comportement de navigation sont enregistrés afin d'établir des statistiques d'utilisation agrégées et anonymisées, utilisées pour améliorer le site. Les données collectées via les cookies sont conservées deux ans maximum.",
+    "description": "cookie.policy.text"
+  },
+  "cookie.policy.link": {
+    "message": "Consulter la politique de confidentialité complète",
+    "description": "cookie.policy.link"
+  },
+  "cookie.privacyPolicy": {
+    "message": "Politique de confidentialité",
+    "description": "cookie.privacyPolicy"
+  },
+  "navbar.version.label": {
+    "message": "Version",
+    "description": "navbar.version.label"
+  },
+  "navbar.version.current": {
+    "message": "Version {version}, changer",
+    "description": "navbar.version.current"
+  },
+  "navbar.version.latest": {
+    "message": "Dernière",
+    "description": "navbar.version.latest"
+  },
+  "navbar.version.archived": {
+    "message": "Versions archivées",
+    "description": "navbar.version.archived"
   }
 }

@@ -26,19 +26,17 @@ function useNavbarItems() {
   return useThemeConfig().navbar.items as NavbarItemConfig[];
 }
 
-function NavbarItems({items, allItems, position, isDocPage = false}: {items: NavbarItemConfig[], allItems: NavbarItemConfig[], position: string, isDocPage?: boolean}): ReactNode {
+// Items of the right of the navbar (search, version, languages), then the
+// reading settings, which only matter on documentation pages, and the color
+// mode toggle.
+function NavbarRightItems({items, isDocPage}: {items: NavbarItemConfig[]; isDocPage: boolean}): ReactNode {
   return (
     <>
       {items.map((item, i) => (
         <NavbarItem {...item} key={i} />
       ))}
-      {position === 'right' && (
-        <>
-          {/* Reading settings only matter on documentation pages */}
-          {isDocPage && <ReaderSettings />}
-          <NavbarColorModeToggle className={styles.colorModeToggle} />
-        </>
-      )}
+      {isDocPage && <ReaderSettings />}
+      <NavbarColorModeToggle className={styles.colorModeToggle} />
     </>
   );
 }
@@ -76,30 +74,30 @@ export default function NavbarContent(): ReactNode {
   const pluginId = activePlugin?.pluginId || '';
 
   const items = useNavbarItems();
-  const [leftItems, rightItems] = splitNavbarItems(items);
+  const [, rightItems] = splitNavbarItems(items);
   const searchBarItem = items.find((item) => item.type === 'search');
 
   return (
     <NavbarContentLayout
       left={
-        // TODO stop hardcoding items?
+        // The left items of the config (OnPrem, Cloud, Connectors, the
+        // products) are shown by the product switcher.
         <>
-          {!mobileSidebar.disabled && <NavbarMobileSidebarToggle />}
           <NavbarLogo />
           <ProductSwitcher items={items} activePluginId={pluginId} />
         </>
       }
       right={
-        // TODO stop hardcoding items?
-        // Ask the user to add the respective navbar items => more flexible
         <>
-          <NavbarItems items={rightItems} allItems={items} position="right" isDocPage={!!pluginId} />
-          {/* <NavbarColorModeToggle className={styles.colorModeToggle} /> */}
+          <NavbarRightItems items={rightItems} isDocPage={!!pluginId} />
           {!searchBarItem && (
             <NavbarSearch>
               <SearchBar />
             </NavbarSearch>
           )}
+          {/* Mobile menu button at the right, next to the search, as on
+              www.centreon.com: the menu opens from the right */}
+          {!mobileSidebar.disabled && <NavbarMobileSidebarToggle />}
         </>
       }
     />

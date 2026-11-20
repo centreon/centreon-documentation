@@ -73,6 +73,12 @@ export default function Footer() {
                 <Link href={link.href}>{link.label}</Link>
               </li>
             ))}
+            <li>
+              {/* Opens the cookie preferences (src/components/CookieConsent) */}
+              <a href="#" data-cookie-settings className="cookie-settings-link">
+                {translate({ id: 'footer.cookieSettings', message: 'Manage cookies' })}
+              </a>
+            </li>
           </ul>
         </div>
       </div>
