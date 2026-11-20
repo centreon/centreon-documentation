@@ -901,5 +901,9 @@
   "cookie.privacyPolicy": {
     "message": "Politique de confidentialité",
     "description": "cookie.privacyPolicy"
+  },
+  "navbar.version.label": {
+    "message": "Version",
+    "description": "navbar.version.label"
   }
 }

@@ -896,6 +896,9 @@ html:root {
 @media (max-width: 576px), (min-width: 997px) and (max-width: 1279px) {
   .navbar [class*='navbarSearchContainer'] {
     position: relative;
+    /* Docusaurus sets right: 16px for its own absolute positioning; with
+       position: relative, it would shift the button 16px to the left */
+    right: auto;
     width: 38px;
     height: 38px;
   }
@@ -1038,5 +1041,46 @@ html:root {
   }
   aside.theme-doc-sidebar-container button.button svg g {
     fill: rgba(255, 255, 255, 0.7);
+  }
+}
+
+/* VERSION ON PHONES AND TABLETS: a native select in the navbar
+   (src/theme/NavbarItem/DocsVersionDropdownNavbarItem.jsx), so the version
+   badge above the title, which repeats it, is hidden. */
+.navbar-version-select {
+  height: 34px;
+  margin-right: 0.25rem;
+  padding: 0 1.6rem 0 0.7rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 0.55rem center / 0.85rem;
+  color: var(--ifm-navbar-link-color);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  appearance: none;
+  -webkit-appearance: none;
+}
+html[data-theme='dark'] .navbar-version-select option {
+  background: #0b0b45;
+}
+@media (max-width: 996px) {
+  .theme-doc-version-badge {
+    display: none;
+  }
+}
+/* Small phones: tighter gaps, so that the logo, the search, the version,
+   the reading settings and the menu button fit on one row */
+@media (max-width: 400px) {
+  .navbar [class*='navbarSearchContainer'] {
+    margin-right: 0;
+  }
+  .navbar-version-select {
+    margin: 0 0 0 0.35rem;
+    padding: 0 1.45rem 0 0.6rem;
+    background-position: right 0.45rem center;
+  }
+  .navbar__items--right .navbar__toggle {
+    margin-left: 0.25rem;
   }
 }
