@@ -905,5 +905,17 @@
   "navbar.version.label": {
     "message": "Version",
     "description": "navbar.version.label"
+  },
+  "navbar.version.current": {
+    "message": "Version {version}, changer",
+    "description": "navbar.version.current"
+  },
+  "navbar.version.latest": {
+    "message": "Dernière",
+    "description": "navbar.version.latest"
+  },
+  "navbar.version.archived": {
+    "message": "Versions archivées",
+    "description": "navbar.version.archived"
   }
 }
