@@ -141,7 +141,7 @@ Lorsqu'un hôte passe dans un état de problème HARD ou en sort :
 
 ## Questions fréquentes
 
-**Tous les services de mon hôte sont CRITIQUES, mais l'hôte est DISPONIBLE. Est-ce un bug ?**
+**Tous les services de mon hôte sont CRITICAL, mais l'hôte est DISPONIBLE. Est-ce un bug ?**
 Non. Le statut de l'hôte ne reflète que sa propre commande de contrôle, généralement un ping. Le serveur répond aux pings : il est donc DISPONIBLE, même si les applications qu'il héberge sont en échec.
 
 **Mon hôte est INJOIGNABLE, mais le serveur fonctionne.**
