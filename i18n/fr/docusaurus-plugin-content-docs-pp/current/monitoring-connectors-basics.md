@@ -9,7 +9,7 @@ description: "Découvrez ce qu'est un connecteur de supervision Centreon, ce que
 Un connecteur de supervision Centreon associe deux éléments qui servent à superviser un type de ressource informatique précis :
 
 * un plugin : le script qui exécute les contrôles depuis un collecteur ;
-* un pack : les commandes, les modèles d'hôtes et les modèles de services, avec des seuils par défaut. Certains connecteurs incluent aussi des éléments de découverte : un fournisseur de découverte d'hôtes (pour trouver des hôtes) et/ou des règles de découverte de services (pour trouver les éléments à superviser sur un hôte).
+* un pack : fichier contenant les commandes, les modèles d'hôtes et les modèles de services, avec des seuils par défaut. Certains connecteurs incluent aussi des éléments de découverte : un fournisseur de découverte d'hôtes (pour trouver des hôtes) et/ou des règles de découverte de services (pour trouver les éléments à superviser sur un hôte).
 
 Ces deux éléments s'installent séparément, mais fonctionnent ensemble pour former le connecteur. (Anciennement appelé « Plugin Pack ».)
 
