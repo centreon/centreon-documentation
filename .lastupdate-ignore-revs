@@ -1,0 +1,22 @@
+# Commits that must not change the "last updated" date of the pages they
+# touch: mass changes that leave the content as it is (front matter, link
+# fixes, formatting, renames…). The pages keep the date of their previous
+# change, on the page and in the sitemap.
+#
+# One full commit hash per line (git log --format=%H). Text after # is a
+# comment. See tools/last-update/README.md.
+
+# 2026-11-04 Longer frontmatter descriptions - OnPrem (#5752)
+2eab2f8d696fbd184e5ef53e28023353e651284b
+# 2026-11-04 Longer frontmatter descriptions - Connectors (#5751)
+3c7122066172569ac9ca2cb8f248fd358c6397a0
+# 2026-11-03 Longer frontmatter descriptions - Cloud (#5743)
+cac78df190756a95d3501f6fc44ba0ee980e6859
+# 2026-07-29 Add description to connector frontmatter to improve SEO (#5492)
+1cdf05fafecc476cccdcace2cec4dfd7d4cc70d3
+# 2026-07-28 Add description to frontmatter for OnPrem (#5510)
+4604f6ef7b3ab34518e7ce6f2acd513342c4eddd
+# 2026-07-27 Add description to frontmatter for Centreon Cloud (#5508)
+a31db173786c8e8380dc0b73bfe96818bf70cb6e
+# 2026-07-16 Improve SEO (log management + experience monitoring) (#5484)
+b766c2087500eb0ac576a757804cf2c894c71354
