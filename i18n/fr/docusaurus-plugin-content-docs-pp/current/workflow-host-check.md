@@ -46,7 +46,7 @@ flowchart TD
 | INDISPONIBLE | L'hôte ne répond pas, alors que le chemin réseau qui y mène fonctionne |
 | INJOIGNABLE | L'hôte ne peut pas être contrôlé, car tous les chemins qui y mènent passent par un hôte parent en panne |
 
-> **Remarque :** ne confondez pas les codes de retour des plugins avec les codes de statut des hôtes. Un plugin renvoie `0` (OK), `1` (ALERTE), `2` (CRITIQUE) ou `3` (INCONNU). Centreon enregistre ensuite les statuts des hôtes avec leurs propres codes : `0` (DISPONIBLE), `1` (INDISPONIBLE), `2` (INJOIGNABLE). Un statut d'hôte égal à `1` signifie donc INDISPONIBLE, et non ALERTE.
+> **Remarque :** ne confondez pas les codes de retour des plugins avec les codes de statut des hôtes. Un plugin renvoie `0` (OK), `1` (WARNING), `2` (CRITICAL) ou `3` (UNKNOWN). Centreon enregistre ensuite les statuts des hôtes avec leurs propres codes : `0` (DISPONIBLE), `1` (INDISPONIBLE), `2` (INJOIGNABLE). Un statut d'hôte égal à `1` signifie donc INDISPONIBLE, et non ALERTE.
 
 ## Étape 1 : Centreon Engine exécute le contrôle de l'hôte
 
