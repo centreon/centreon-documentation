@@ -147,8 +147,8 @@ Non. Le statut de l'hôte ne reflète que sa propre commande de contrôle, gén�
 **Mon hôte est INJOIGNABLE, mais le serveur fonctionne.**
 Au moins un de ses hôtes parents est INDISPONIBLE ou INJOIGNABLE. Vérifiez d'abord les parents, puis vérifiez que les relations de parenté définies dans la configuration correspondent à votre réseau réel.
 
-**Le plugin qui contrôle mon hôte renvoie ALERTE, mais l'hôte est DISPONIBLE.**
-C'est normal : les contrôles d'hôtes n'ont pas d'état ALERTE, et ALERTE signifie DISPONIBLE, sauf si le contrôle agressif des hôtes est activé.
+**Le plugin qui contrôle mon hôte renvoie WARNING, mais l'hôte est DISPONIBLE.**
+C'est normal : les contrôles d'hôtes n'ont pas d'état WARNING, et WARNING signifie DISPONIBLE, sauf si le contrôle agressif des hôtes est activé.
 
 **Pourquoi mon hôte est-il passé INDISPONIBLE sans aucune notification ?**
 L'état était probablement encore SOFT. Les notifications ne sont envoyées qu'une fois l'état passé en HARD, après le nombre maximum de contrôles.
