@@ -4,16 +4,17 @@ The API reference is generated from OpenAPI specifications with
 [docusaurus-plugin-openapi-docs](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs):
 one page per endpoint, with its parameters, request and response schemas and
 code samples. It is part of the OnPrem and Cloud docs: each API is a category
-of the **API** section of their sidebar (**API V2**, **MAP API**, **BAM API**),
+of the **API** section of their sidebar (**API V2**, **Autodiscovery API**,
+**MAP API**, **BAM API**),
 and its pages follow the version of the docs.
 
-| Documentation | API V2                        | MAP API                   | BAM API                   |
-|---------------|-------------------------------|---------------------------|---------------------------|
-| OnPrem 24.10  | `centreon-web-24.10.json`     |                           |                           |
-| OnPrem 25.10  | `centreon-web-25.10.json`     |                           |                           |
-| OnPrem 26.10  | `centreon-web-26.10.json`     | `centreon-map-26.10.json` | `centreon-bam-26.10.json` |
-| OnPrem 27.10  | `centreon-web-26.10.json` (*) | `centreon-map-26.10.json` | `centreon-bam-26.10.json` |
-| Cloud         | `centreon-web-cloud.json`     | `centreon-map-26.10.json` | `centreon-bam-cloud.json` |
+| Documentation | API V2                        | Autodiscovery API                     | MAP API                   | BAM API                   |
+|---------------|-------------------------------|---------------------------------------|---------------------------|---------------------------|
+| OnPrem 24.10  | `centreon-web-24.10.json`     |                                       |                           |                           |
+| OnPrem 25.10  | `centreon-web-25.10.json`     |                                       |                           |                           |
+| OnPrem 26.10  | `centreon-web-26.10.json`     | `centreon-autodiscovery-26.10.json`   | `centreon-map-26.10.json` | `centreon-bam-26.10.json` |
+| OnPrem 27.10  | `centreon-web-26.10.json` (*) | `centreon-autodiscovery-26.10.json`   | `centreon-map-26.10.json` | `centreon-bam-26.10.json` |
+| Cloud         | `centreon-web-cloud.json`     | `centreon-autodiscovery-cloud.json`   | `centreon-map-26.10.json` | `centreon-bam-cloud.json` |
 
 (*) No spec of 27.10 yet.
 
@@ -87,6 +88,12 @@ already bundled, then fixed:
   security scheme is removed, and the server is the real one: the central
   server (`https://your-centreon-server:443/centreon`, the paths start with
   `/api/`) or the Cloud instance URL;
+- Autodiscovery (OnPrem and Cloud, same endpoints): taken from the Redoc
+  pages https://docs-api.centreon.com/api/centreon-autodiscovery/ and
+  `…/cloud/` (the spec is embedded in the page, `__redoc_state`); the
+  `Cookie` security scheme is removed, and the server is the real one:
+  `https://your-centreon-server:443/centreon/api/latest/auto-discovery`, or
+  the Cloud instance URL followed by `/api/latest/auto-discovery`;
 - Web 24.10: 5 `$ref` with a wrong relative path in the product sources
   (`centreon/doc/API/latest/onPremise/…`) are resolved from the files they
   point to.

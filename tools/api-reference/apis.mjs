@@ -42,6 +42,14 @@ export const APIS = {
     description: () =>
       'Centreon MAP REST API: sign in, make your first request, and browse the endpoints for maps, views and access rights, with code samples.',
   },
+  autodiscovery: {
+    title: 'Centreon Autodiscovery REST API',
+    badge: 'Centreon Autodiscovery',
+    auth: 'Token',
+    template: 'centreon-autodiscovery.mdx',
+    description: () =>
+      'Centreon Autodiscovery REST API: get a token, make your first request, and browse the endpoints for providers, credentials, discovery jobs and discovered hosts.',
+  },
   bam: {
     title: 'Centreon BAM REST API',
     badge: 'Centreon BAM',
@@ -75,6 +83,7 @@ export const TARGETS = [
     values: { baseUrl: 'https://<your-centreon-server>/centreon', tokensDoc: '/api/authentication-tokens.md', postmanDoc: '/api/rest-api-v2.md', mapDoc: '/api/map-api.md' },
     apis: [
       { api: 'web', dir: 'web', spec: 'centreon-web-26.10.json' },
+      { api: 'autodiscovery', dir: 'autodiscovery', spec: 'centreon-autodiscovery-26.10.json' },
       { api: 'map', dir: 'map', spec: 'centreon-map-26.10.json' },
       { api: 'bam', dir: 'bam', spec: 'centreon-bam-26.10.json' },
     ],
@@ -86,6 +95,7 @@ export const TARGETS = [
     values: { baseUrl: 'https://<your-centreon-server>/centreon', tokensDoc: '/api/authentication-tokens.md', postmanDoc: '/api/rest-api-v2.md', mapDoc: '/api/map-api.md' },
     apis: [
       { api: 'web', dir: 'web', spec: 'centreon-web-26.10.json' },
+      { api: 'autodiscovery', dir: 'autodiscovery', spec: 'centreon-autodiscovery-26.10.json' },
       { api: 'map', dir: 'map', spec: 'centreon-map-26.10.json' },
       { api: 'bam', dir: 'bam', spec: 'centreon-bam-26.10.json' },
     ],
@@ -96,6 +106,7 @@ export const TARGETS = [
     values: { baseUrl: 'https://<organization>.<region>.centreon.cloud/<instance-name>', tokensDoc: '/administration/api_tokens.md' },
     apis: [
       { api: 'cloud', dir: 'web', spec: 'centreon-web-cloud.json' },
+      { api: 'autodiscovery', dir: 'autodiscovery', spec: 'centreon-autodiscovery-cloud.json' },
       { api: 'map', dir: 'map', spec: 'centreon-map-26.10.json' },
       { api: 'bam', dir: 'bam', spec: 'centreon-bam-cloud.json' },
     ],
@@ -131,6 +142,7 @@ const FALLBACK_URLS = {
   web: 'https://docs-api.centreon.com/api/centreon-web/',
   map: 'https://docs-api.centreon.com/api/centreon-map/',
   bam: 'https://docs-api.centreon.com/api/centreon-bam/',
+  autodiscovery: 'https://docs-api.centreon.com/api/centreon-autodiscovery/',
 };
 
 export async function apiSidebarItemsGenerator({ defaultSidebarItemsGenerator, ...args }) {
