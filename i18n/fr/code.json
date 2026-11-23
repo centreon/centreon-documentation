@@ -1347,7 +1347,7 @@
     "description": "api.page.status.500.title"
   },
   "api.page.status.500.text": {
-    "message": "Une erreur inattendue s'est produite sur le serveur. Consultez les journaux de votre serveur Centreon.",
+    "message": "Une erreur inattendue s'est produite sur le serveur. Si elle persiste, consultez les journaux de Centreon ou contactez le support.",
     "description": "api.page.status.500.text"
   },
   "api.page.status.2xx.title": {

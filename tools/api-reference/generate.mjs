@@ -119,6 +119,32 @@ function authOf(spec) {
 //   responses.
 // The generator puts the description after the method and path; the
 // sentence that points to the Cloud API becomes a notice with a link.
+// The properties that the search and sort_by parameters accept, listed by
+// the description of the list endpoints:
+//   The available parameters to **search** / **sort_by** are:
+//
+//   * host.id
+//   * host.name
+// Shown as a compact block (ApiSearchFields) before the request, instead of
+// a long list in the lead.
+const SEARCH_FIELDS =
+  /\n*The available parameters to \*\*search\*\*(?: \/ \*\*(sort_by)\*\*)?(?: by)? are\s*:\s*\n+((?:[^\S\n]*[*-][^\S\n]+\S[^\n]*(?:\n|$))+)/i;
+
+function searchFieldsOf(description) {
+  const match = description.match(SEARCH_FIELDS);
+  if (!match) {
+    return { description, fields: null };
+  }
+  const fields = match[2]
+    .split('\n')
+    .map((line) => line.replace(/^\s*[*-]\s+/, '').replace(/`/g, '').trim())
+    .filter(Boolean);
+  return {
+    description: description.replace(match[0], '\n').trim(),
+    fields: { fields, params: match[1] ? ['search', 'sort_by'] : ['search'] },
+  };
+}
+
 const CLOUD_SENTENCE =
   /\n?\*This endpoint has a specific behaviou?r on Cloud environments\.\*\s*\n?\*Please check the dedicated Cloud API documentation\.\*/;
 
@@ -132,7 +158,7 @@ function layoutEndpointPage(content, { api, version, baseUrl, auth, prefix, clou
   // Imports, after the last import of the page.
   const lastImport = content.lastIndexOf('\nimport ');
   const importEnd = content.indexOf('\n', lastImport + 1);
-  content = `${content.slice(0, importEnd + 1)}import { ApiAccess, ApiBadges, ApiCloudNotice } from "@site/src/components/ApiPage";\n${content.slice(importEnd + 1)}`;
+  content = `${content.slice(0, importEnd + 1)}import { ApiAccess, ApiBadges, ApiCloudNotice, ApiSearchFields } from "@site/src/components/ApiPage";\n${content.slice(importEnd + 1)}`;
 
   // Badges, before the title.
   content = content.replace(/<Heading\s+as=\{"h1"\}/, (heading) => `<ApiBadges ${props({ api, version })} />\n\n${heading}`);
@@ -147,6 +173,8 @@ function layoutEndpointPage(content, { api, version, baseUrl, auth, prefix, clou
   let description = content.slice(endpointEnd, sectionStart).trim();
   const hasCloudSentence = CLOUD_SENTENCE.test(description);
   description = description.replace(CLOUD_SENTENCE, '').trim();
+  const search = searchFieldsOf(description);
+  description = search.description;
 
   const endpoint = content
     .slice(endpointStart, endpointEnd)
@@ -156,6 +184,7 @@ function layoutEndpointPage(content, { api, version, baseUrl, auth, prefix, clou
     endpoint,
     hasCloudSentence && cloudNotice && `<ApiCloudNotice ${props({ to: cloudNotice })} />`,
     `<ApiAccess ${props({ auth, baseUrl })} />`,
+    search.fields && `<ApiSearchFields ${props(search.fields)} />`,
   ].filter(Boolean);
   return `${content.slice(0, endpointStart)}${blocks.join('\n\n')}\n\n${content.slice(sectionStart)}`;
 }
@@ -210,7 +239,14 @@ for (const target of TARGETS) {
       .replace(/^title: .*$/m, `title: ${JSON.stringify(title)}`)
       .replace(/^description: .*$/m, `description: ${JSON.stringify(api.description(target))}`)
       .replace(/^sidebar_label: .*$/m, 'sidebar_label: Get started')
-      .replace(/(className=\{"openapi__heading"\}\s*children=\{)"[^"]*"/, `$1${JSON.stringify(title)}`);
+      .replace(/(className=\{"openapi__heading"\}\s*children=\{)"[^"]*"/, `$1${JSON.stringify(title)}`)
+      // The badges of the endpoint pages instead of "Version: 26.10"
+      .replace(
+        /<span\s+className=\{"theme-doc-version-badge[^"]*"\}\s+children=\{"[^"]*"\}\s*>\s*<\/span>/,
+        `import { ApiBadges } from "@site/src/components/ApiPage";\n\n<ApiBadges api={${JSON.stringify(api.badge)}}${
+          target.docs === 'cloud' ? '' : ` version={${JSON.stringify(`v${target.version}`)}}`
+        } />`,
+      );
     // Keep the front matter, the version badge and the title; replace the
     // rest (logo, spec description, security schemes, contact and license)
     // with the introduction.

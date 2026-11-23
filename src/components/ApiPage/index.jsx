@@ -3,13 +3,17 @@
  * tools/api-reference/generate.mjs (styles: src/css/api-reference.css):
  * - ApiBadges: "API reference" and the API with its version, above the title;
  * - ApiCloudNotice: the endpoint behaves differently on Centreon Cloud;
- * - ApiAccess: how to authenticate, and the base URL of the requests.
+ * - ApiAccess: how to authenticate, and the base URL of the requests;
+ * - ApiSearchFields: the properties that search and sort_by accept;
+ * - ApiStatusList: status codes with what they mean, for the "Get started"
+ *   pages.
  */
 import React from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Link from '@docusaurus/Link';
 import Translate from '@docusaurus/Translate';
 import { useTypedSelector } from '@theme/ApiItem/hooks';
+import { meaningOf, statusClass } from './statusCodes';
 
 export function ApiBadges({ api, version }) {
   return (
@@ -91,5 +95,54 @@ export function ApiAccess({ auth = [], baseUrl }) {
         </code>
       </div>
     </div>
+  );
+}
+
+export function ApiSearchFields({ fields = [], params = ['search'] }) {
+  if (fields.length === 0) {
+    return null;
+  }
+  return (
+    <div className="api-fields">
+      <div className="api-fields__label">
+        {params.length > 1 ? (
+          <Translate
+            id="api.page.fields.searchSort"
+            values={{ search: <code>search</code>, sortBy: <code>sort_by</code> }}>
+            {'Properties for {search} and {sortBy}'}
+          </Translate>
+        ) : (
+          <Translate id="api.page.fields.search" values={{ search: <code>search</code> }}>
+            {'Properties for {search}'}
+          </Translate>
+        )}
+      </div>
+      <ul className="api-fields__list">
+        {fields.map((field) => (
+          <li key={field}>
+            <code>{field}</code>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export function ApiStatusList({ codes = [] }) {
+  return (
+    <ul className="api-status-list">
+      {codes.map((code) => {
+        const meaning = meaningOf(code);
+        return (
+          <li key={code} className={`api-response-summary api-response-summary--${statusClass(code)}`}>
+            <div className="api-response-summary__title">
+              <span className="api-response-summary__code">{code}</span>
+              <span>{meaning.title}</span>
+            </div>
+            {meaning.text && <p className="api-response-summary__text">{meaning.text}</p>}
+          </li>
+        );
+      })}
+    </ul>
   );
 }

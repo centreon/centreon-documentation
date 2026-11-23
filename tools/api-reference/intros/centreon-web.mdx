@@ -1,4 +1,6 @@
 import { ApiConfiguration, ApiDownload } from '@site/src/components/ApiSetup';
+import { ApiStatusList } from '@site/src/components/ApiPage';
+import { ApiSearchSyntax } from '@site/src/components/ApiPage/SearchHelp';
 
 The Centreon Web REST API lets your scripts and tools drive Centreon Infra Monitoring OnPrem: create hosts and services from your CMDB, read the real-time status of your resources, acknowledge alerts, schedule downtimes and administer the platform.
 
@@ -64,13 +66,17 @@ Listing endpoints share the same query parameters:
 | `search` | Filter, in JSON | `search={"host.name":{"$lk":"srv-%"}}` |
 | `sort_by` | Sort, in JSON | `sort_by={"host.name":"ASC"}` |
 
-`search` supports the operators `$eq`, `$neq`, `$lt`, `$le`, `$gt`, `$ge`, `$lk` (like, with `%` as a wildcard), `$nk`, `$in`, `$ni` and `$rg` (regular expression), combined with `$and` and `$or`. URL-encode its value.
+`search` takes conditions on the properties of the resources, in JSON: compare values with the operators below, and combine conditions with `$and` and `$or`. URL-encode its value. The properties you can use are listed on each endpoint page.
+
+<ApiSearchSyntax />
 
 Listings return the items in `result` and the pagination in `meta` (`page`, `limit`, `total`). Dates use the ISO 8601 format.
 
 ## Errors
 
-An error returns an HTTP status code and a JSON body with a `code` and a `message`. The most common: `400` (invalid request), `401` (missing or expired token), `403` (insufficient rights), `404` (resource not found).
+An error returns an HTTP status code and a JSON body with a `code` and a `message` that explain it. The most common:
+
+<ApiStatusList codes={[400, 401, 403, 404, 500]} />
 
 ## Tools
 

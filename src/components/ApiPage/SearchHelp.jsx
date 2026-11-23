@@ -7,6 +7,9 @@
  * code blocks. The operators and examples are read from the description, so
  * that each version shows its own (26.10 adds $rg).
  *
+ * ApiSearchSyntax: the aggregators and operators alone, for the "Get started"
+ * pages.
+ *
  * The block opens with a button, not a <details>: the parameters are in a
  * Details of Docusaurus, which handles the clicks on any <summary> inside it,
  * and would close the whole section instead.
@@ -61,6 +64,71 @@ function examplesOf(rawDescription) {
     : { flat: blocks(description.slice(0, nestedAt)), nested: blocks(description.slice(nestedAt)) };
 }
 
+// Aggregators and operators, in tables.
+function SearchSyntax({ operators, warnsAboutAnd }) {
+  return (
+    <>
+      <h4 className="api-search__title">
+        <Translate id="api.page.search.aggregators">Combine conditions</Translate>
+      </h4>
+      <dl className="api-search__ops">
+        <div>
+          <dt>
+            <code>$and</code>
+          </dt>
+          <dd>
+            <Translate id="api.page.search.and">all the conditions are true</Translate>
+          </dd>
+        </div>
+        <div>
+          <dt>
+            <code>$or</code>
+          </dt>
+          <dd>
+            <Translate id="api.page.search.or">at least one condition is true</Translate>
+          </dd>
+        </div>
+      </dl>
+      {warnsAboutAnd && (
+        <p className="api-search__note">
+          <Translate id="api.page.search.andNote">
+            $and on the same property with two different values always returns nothing: use $or to get the resources
+            that match either value.
+          </Translate>
+        </p>
+      )}
+
+      {operators.length > 0 && (
+        <>
+          <h4 className="api-search__title">
+            <Translate id="api.page.search.operators">Compare values</Translate>
+          </h4>
+          <dl className="api-search__ops">
+            {operators.map(({ code, meaning }) => (
+              <div key={code}>
+                <dt>
+                  <code>{code}</code>
+                </dt>
+                <dd>{meaning}</dd>
+              </div>
+            ))}
+          </dl>
+        </>
+      )}
+    </>
+  );
+}
+
+// The syntax on its own, for the "Get started" pages: every operator.
+export function ApiSearchSyntax() {
+  const operators = Object.entries(OPERATORS).map(([code, meaning]) => ({ code, meaning: meaning() }));
+  return (
+    <div className="api-search api-search__body">
+      <SearchSyntax operators={operators} warnsAboutAnd />
+    </div>
+  );
+}
+
 export default function SearchHelp({ description }) {
   const operators = operatorsOf(description);
   const { flat, nested } = examplesOf(description);
@@ -90,53 +158,7 @@ export default function SearchHelp({ description }) {
       </button>
 
       <div className="api-search__body" id={bodyId} hidden={!open}>
-        <h4 className="api-search__title">
-          <Translate id="api.page.search.aggregators">Combine conditions</Translate>
-        </h4>
-        <dl className="api-search__ops">
-          <div>
-            <dt>
-              <code>$and</code>
-            </dt>
-            <dd>
-              <Translate id="api.page.search.and">all the conditions are true</Translate>
-            </dd>
-          </div>
-          <div>
-            <dt>
-              <code>$or</code>
-            </dt>
-            <dd>
-              <Translate id="api.page.search.or">at least one condition is true</Translate>
-            </dd>
-          </div>
-        </dl>
-        {warnsAboutAnd && (
-          <p className="api-search__note">
-            <Translate id="api.page.search.andNote">
-              $and on the same property with two different values always returns nothing: use $or to get the
-              resources that match either value.
-            </Translate>
-          </p>
-        )}
-
-        {operators.length > 0 && (
-          <>
-            <h4 className="api-search__title">
-              <Translate id="api.page.search.operators">Compare values</Translate>
-            </h4>
-            <dl className="api-search__ops">
-              {operators.map(({ code, meaning }) => (
-                <div key={code}>
-                  <dt>
-                    <code>{code}</code>
-                  </dt>
-                  <dd>{meaning}</dd>
-                </div>
-              ))}
-            </dl>
-          </>
-        )}
+        <SearchSyntax operators={operators} warnsAboutAnd={warnsAboutAnd} />
 
         {flat.length + nested.length > 0 && (
           <>

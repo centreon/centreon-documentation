@@ -1,4 +1,5 @@
 import { ApiConfiguration, ApiDownload } from '@site/src/components/ApiSetup';
+import { ApiStatusList } from '@site/src/components/ApiPage';
 
 The Centreon BAM REST API lets your scripts and tools work with Business Activity Monitoring: list business views, business activities and their indicators, read their real-time status and their tree, and follow the impact of each indicator.
 
@@ -43,7 +44,9 @@ Enter the address of your platform, and your token to send requests from this re
 
 ## Errors
 
-An error returns an HTTP status code and a JSON body with a `code` and a `message`. The most common: `400` (invalid request), `401` (missing or expired token), `403` (insufficient rights), `404` (resource not found).
+An error returns an HTTP status code and a JSON body with a `code` and a `message` that explain it. The most common:
+
+<ApiStatusList codes={[400, 401, 403, 404, 500]} />
 
 ## Tools
 
