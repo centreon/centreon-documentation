@@ -106,6 +106,9 @@ jobs:
         site: [staging, next]
         locale: [en, fr]
     name: Build ${{ matrix.site }} ${{ matrix.locale }}
+    permissions:
+      contents: read
+      pull-requests: read # PRs labeled skip-last-update (tools/last-update)
     steps:
       - name: Skip a site the PR does not change
         id: want
@@ -151,6 +154,8 @@ jobs:
           NODE_OPTIONS: --max_old_space_size=16000
           VERSIONS: ${{ matrix.site == 'staging' && needs.sites.outputs.staging_versions || needs.sites.outputs.next_version }}
           BASE_URL: /${{ needs.sites.outputs.slug }}/${{ matrix.site == 'next' && 'next/' || '' }}
+          # Reads the PRs labeled skip-last-update (tools/last-update).
+          GITHUB_TOKEN: ${{ github.token }}
           # Same output, faster build (opt-in flags of docusaurus.config.js).
           DOCUSAURUS_MDX_CROSS_COMPILER_CACHE: "1"
           DOCUSAURUS_SSG_WORKER_THREADS: "1"
