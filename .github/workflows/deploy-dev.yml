@@ -379,6 +379,10 @@ jobs:
     concurrency:
       group: deploy-dev-dashboard
       cancel-in-progress: false
+    permissions:
+      contents: read
+      id-token: write # AWS role through OIDC
+      pull-requests: read # state of the pull request behind each preview
     runs-on: documentation
     environment: preprod
     env:
@@ -394,6 +398,13 @@ jobs:
         with:
           role-to-assume: ${{ env.ROLE }}
           aws-region: ${{ env.AWS_REGION }}
+
+      # Catches the previews the cleanup job never saw (see the script).
+      - name: Remove the previews of closed pull requests
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: bash .github/scripts/prune-dev-previews.sh
 
       - name: Regenerate the previews page
         run: bash .github/scripts/gen-dev-dashboard.sh

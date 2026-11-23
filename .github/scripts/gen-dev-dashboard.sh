@@ -38,7 +38,7 @@ row() {
   [ -n "$(jq -r '.sites.next.version // ""' "$f")" ] && next_cell="$(link "$f" next "/${p}/next/")"
   commit_cell="—"
   [ -n "$commit" ] && commit_cell="<a href=\"${REPO_URL}/commit/${commit}\" target=\"_blank\" rel=\"noopener\"><code>${commit}</code></a>"
-  echo "<tr><td>${branch}</td><td>$(link "$f" staging "/${p}/")</td><td>${next_cell}</td><td>${pr_cell}</td><td>${commit_cell}</td><td>${actor:-—}</td><td>${updated:-—}</td></tr>"
+  echo "<tr data-actor=\"${actor}\"$([[ "$p" == staging ]] && echo ' class="pinned"')><td>${branch}</td><td>$(link "$f" staging "/${p}/")</td><td>${next_cell}</td><td>${pr_cell}</td><td>${commit_cell}</td><td>${actor:-—}</td><td>${updated:-—}</td></tr>"
 }
 
 # The staging row is always there, even before staging is first deployed.
@@ -69,7 +69,12 @@ cat > "$out" <<HTML
   body { margin:0; font-family:Inter,system-ui,Arial,sans-serif; background:var(--bg); color:var(--ink); }
   header { background:var(--navy); color:#fff; padding:24px; }
   header h1 { margin:0; font-size:20px; }
-  main { max-width:1200px; margin:32px auto; padding:0 24px; overflow-x:auto; }
+  main { max-width:1680px; margin:32px auto; padding:0 24px; overflow-x:auto; }
+  .toolbar { display:flex; align-items:center; gap:12px; margin-bottom:16px; font-size:14px; }
+  .toolbar label { font-weight:600; color:var(--navy); }
+  .toolbar select { font:inherit; padding:6px 10px; border:1px solid var(--line); border-radius:6px; background:#fff; color:var(--ink); min-width:220px; }
+  .toolbar .count { color:var(--muted); }
+  tr[hidden] { display:none; }
   table { width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--line); border-radius:10px; overflow:hidden; }
   th, td { text-align:left; padding:12px 16px; border-bottom:1px solid var(--line); font-size:14px; }
   th { background:#eef2f8; font-weight:600; color:var(--navy); }
@@ -84,6 +89,11 @@ cat > "$out" <<HTML
   <h1>Previews — Centreon documentation</h1>
 </header>
 <main>
+  <div class="toolbar">
+    <label for="by">GitHub account</label>
+    <select id="by"><option value="">All accounts</option></select>
+    <span class="count" id="count"></span>
+  </div>
   <table>
     <thead><tr><th>Branch</th><th>Current versions</th><th>Next version</th><th>PR</th><th>Commit</th><th>By</th><th>Updated (UTC)</th></tr></thead>
     <tbody>
@@ -91,6 +101,36 @@ cat > "$out" <<HTML
     </tbody>
   </table>
 </main>
+<script>
+  // Filters the previews by GitHub account. The choice lives in the URL
+  // (?by=login), so it survives the 30-second refresh and can be shared.
+  (function () {
+    var select = document.getElementById('by');
+    var count = document.getElementById('count');
+    var rows = Array.prototype.slice.call(document.querySelectorAll('tbody tr'));
+    var actors = rows.filter(function (r) { return !r.classList.contains('pinned'); })
+      .map(function (r) { return r.dataset.actor; })
+      .filter(function (a, i, all) { return a && all.indexOf(a) === i; })
+      .sort(function (a, b) { return a.localeCompare(b, undefined, {sensitivity: 'base'}); });
+    actors.forEach(function (a) { select.add(new Option(a, a)); });
+    var wanted = new URLSearchParams(location.search).get('by') || '';
+    select.value = actors.indexOf(wanted) >= 0 ? wanted : '';
+    function apply() {
+      var by = select.value, shown = 0;
+      rows.forEach(function (r) {
+        var pinned = r.classList.contains('pinned');
+        r.hidden = !pinned && by !== '' && r.dataset.actor !== by;
+        if (!pinned && !r.hidden) shown++;
+      });
+      count.textContent = shown + (shown === 1 ? ' preview' : ' previews');
+      var url = new URL(location.href);
+      if (by) url.searchParams.set('by', by); else url.searchParams.delete('by');
+      history.replaceState(null, '', url);
+    }
+    select.addEventListener('change', apply);
+    apply();
+  })();
+</script>
 </body>
 </html>
 HTML
