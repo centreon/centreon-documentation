@@ -75,3 +75,21 @@ Notez qu'il faut attendre jusqu'à 24 heures pour que la sonde ait assez de donn
 Après un bref délai, la sonde aura réalisé son premier contrôle et votre supervision de parcours interne sera alors opérationnelle. Vous pouvez étudier ce parcours de la même manière qu'un [parcours utilisateur](../../how-to-articles/user-journey-screen.md) normal.
 
 Si vous rencontrez des soucis, essayez notre [guide de dépannage pour parcours utilisateurs](../../performance-analysis/errors-and-unavailability-front-end.md).
+
+## Mettre à jour une sonde interne
+
+Centreon publie régulièrement de nouvelles versions de l'image de la sonde. Pour mettre à jour une sonde, récupérez la nouvelle image (`docker pull`), puis recréez la sonde avec la commande obtenue via **Associer une sonde**.
+
+Chaque image est étiquetée avec son numéro de version (par exemple `1.0.5`), en plus de son étiquette habituelle. Pour fixer une sonde sur une version donnée, remplacez l'étiquette de l'image par le numéro de version dans la commande de la sonde.
+
+Pour connaître la version d'une sonde, lisez les labels de son image. L'image porte les labels OCI standard (nom du produit, éditeur, licence, version, révision et date de construction) :
+
+```shell
+docker inspect --format '{{ index .Config.Labels "org.opencontainers.image.version" }}' <nom du conteneur de la sonde>
+```
+
+### Version 1.0.5
+
+- La sonde masque les valeurs marquées comme [secrètes](create-a-scenario.md#protéger-les-identifiants) dans tout ce qu'elle envoie : logs, enregistrements réseau et résultats, y compris l'URL visitée. Les captures d'écran ne sont pas masquées. Son log affiche le nom des variables, jamais leur valeur.
+- Une sonde antérieure à la version 1.0.5 ignore les valeurs secrètes et ne masque les valeurs qu'en fonction de leur nom. Si vos parcours utilisent des valeurs secrètes, mettez vos sondes à jour.
+- Une action [**Remplir un formulaire**](create-a-scenario.md#actions-possibles-dans-un-parcours-utilisateur) échoue désormais immédiatement lorsque l'un de ses champs est introuvable. Les parcours qui reposaient sur le fait qu'un champ manquant soit ignoré se mettront à échouer.

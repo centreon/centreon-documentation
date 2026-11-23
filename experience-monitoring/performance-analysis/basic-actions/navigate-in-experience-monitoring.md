@@ -41,6 +41,8 @@ Multi-site comparisons are only possible from the [dashboards](../dashboards.md)
 3. Click **Create a site**.
 4. Enter the homepage's URL, then click **Create** and confirm. The site appears in the list of sites on the page, and in the site selector.
 
+Each organization is linked to one license, displayed in the **Licenses & Sites** tab. New sites are created on this license. Sites on other licenses remain listed, but you cannot add new sites to those licenses. To change your organization's license, contact your Centreon sales representative or the [Centreon support](http://support.centreon.com/).
+
 ## Switching between modules
 
 The **horizontal navigation bar** (top left) lets you switch between Experience Monitoring modules ([**User Journeys**](../../getting-started/synthetic-monitoring.md), [**System**](../../getting-started/system-view.md), [**Real User Monitoring**](../../getting-started/real-user-monitoring.md), etc.).
