@@ -60,19 +60,19 @@ export const TARGETS = [
   {
     docs: 'versioned_docs/version-24.10',
     version: '24.10',
-    values: { baseUrl: 'https://<your-centreon-server>/centreon', tokensDoc: '../../api-tokens.md', postmanDoc: '../../rest-api-v2.md' },
+    values: { baseUrl: 'https://<your-centreon-server>/centreon', tokensDoc: '/api/api-tokens.md', postmanDoc: '/api/rest-api-v2.md' },
     apis: [{ api: 'web', dir: 'web', spec: 'centreon-web-24.10.json' }],
   },
   {
     docs: 'versioned_docs/version-25.10',
     version: '25.10',
-    values: { baseUrl: 'https://<your-centreon-server>/centreon', tokensDoc: '../../api-tokens.md', postmanDoc: '../../rest-api-v2.md' },
+    values: { baseUrl: 'https://<your-centreon-server>/centreon', tokensDoc: '/api/api-tokens.md', postmanDoc: '/api/rest-api-v2.md' },
     apis: [{ api: 'web', dir: 'web', spec: 'centreon-web-25.10.json' }],
   },
   {
     docs: 'versioned_docs/version-26.10',
     version: '26.10',
-    values: { baseUrl: 'https://<your-centreon-server>/centreon', tokensDoc: '../../authentication-tokens.md', postmanDoc: '../../rest-api-v2.md', mapDoc: '../../map-api.md' },
+    values: { baseUrl: 'https://<your-centreon-server>/centreon', tokensDoc: '/api/authentication-tokens.md', postmanDoc: '/api/rest-api-v2.md', mapDoc: '/api/map-api.md' },
     apis: [
       { api: 'web', dir: 'web', spec: 'centreon-web-26.10.json' },
       { api: 'map', dir: 'map', spec: 'centreon-map-26.10.json' },
@@ -83,7 +83,7 @@ export const TARGETS = [
     // No spec of 27.10 yet: same APIs as 26.10.
     docs: 'versioned_docs/version-27.10',
     version: '27.10',
-    values: { baseUrl: 'https://<your-centreon-server>/centreon', tokensDoc: '../../authentication-tokens.md', postmanDoc: '../../rest-api-v2.md', mapDoc: '../../map-api.md' },
+    values: { baseUrl: 'https://<your-centreon-server>/centreon', tokensDoc: '/api/authentication-tokens.md', postmanDoc: '/api/rest-api-v2.md', mapDoc: '/api/map-api.md' },
     apis: [
       { api: 'web', dir: 'web', spec: 'centreon-web-26.10.json' },
       { api: 'map', dir: 'map', spec: 'centreon-map-26.10.json' },
@@ -93,7 +93,7 @@ export const TARGETS = [
   {
     docs: 'cloud',
     version: 'cloud',
-    values: { baseUrl: 'https://<organization>.<region>.centreon.cloud/<instance-name>', tokensDoc: '../../../administration/api-tokens.md' },
+    values: { baseUrl: 'https://<organization>.<region>.centreon.cloud/<instance-name>', tokensDoc: '/administration/api_tokens.md' },
     apis: [
       { api: 'cloud', dir: 'web', spec: 'centreon-web-cloud.json' },
       { api: 'map', dir: 'map', spec: 'centreon-map-26.10.json' },
