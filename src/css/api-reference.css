@@ -110,6 +110,11 @@ html:has(.theme-api-markdown) {
   --api-delete: #d0312d;
   --api-required: #c0392b;
   --api-success: #1f7a3d;
+  /* Status codes, by class */
+  --api-status-2xx: #1f7a3d;
+  --api-status-3xx: #2f5cf0;
+  --api-status-4xx: #b25e00;
+  --api-status-5xx: #c62b27;
 }
 
 html[data-theme='dark']:has(.theme-api-markdown) {
@@ -117,6 +122,10 @@ html[data-theme='dark']:has(.theme-api-markdown) {
   --api-code-bg: #05052a;
   --api-required: #ff6b5e;
   --api-success: #2e9e55;
+  --api-status-2xx: #3fb56a;
+  --api-status-3xx: #7d9bff;
+  --api-status-4xx: #f0a040;
+  --api-status-5xx: #ff6b5e;
 }
 
 /* The content spans the width of the column: the description and the right
@@ -131,11 +140,10 @@ html:has(.theme-api-markdown) .pagination-nav {
 
 /* Small uppercase labels, as in the design */
 .api-access__label,
-.api-table-head,
 .api-on-this-page__title,
 .theme-api-markdown .openapi-markdown__details-summary-header-params,
 .theme-api-markdown .openapi-markdown__details > summary h3,
-.theme-api-markdown .openapi-markdown__details > summary strong {
+.theme-api-markdown .openapi-markdown__details > summary strong:not(.openapi-schema__property) {
   color: var(--api-label);
   font-family: var(--ifm-font-family-monospace);
   font-size: 0.68rem;
@@ -285,9 +293,9 @@ html[data-theme='dark'] .api-endpoint__param {
 }
 
 /* ---------- Authentication and base URL ---------- */
+/* One row per item, the label on the left and the value on the right, so
+   that a long value (the URL) fits on one line */
 .api-access {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   margin-bottom: 2rem;
   border: 1px solid var(--api-border);
   border-radius: var(--api-radius);
@@ -296,19 +304,24 @@ html[data-theme='dark'] .api-endpoint__param {
 }
 
 .api-access__item {
-  padding: 0.85rem 1rem;
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  column-gap: 1rem;
+  align-items: baseline;
   min-width: 0;
+  padding: 0.6rem 1rem;
 }
 
 .api-access__item + .api-access__item {
-  border-left: 1px solid var(--api-border);
+  border-top: 1px solid var(--api-border);
 }
 
 .api-access__label {
-  margin-bottom: 0.4rem;
+  margin: 0;
 }
 
 .api-access__value {
+  min-width: 0;
   color: var(--api-muted);
   font-size: 0.85rem;
 }
@@ -326,14 +339,11 @@ html[data-theme='dark'] .api-endpoint__param {
   overflow-wrap: anywhere;
 }
 
+/* Phones: the label above the value */
 @media (max-width: 576px) {
-  .api-access {
-    grid-template-columns: 1fr;
-  }
-
-  .api-access__item + .api-access__item {
-    border-top: 1px solid var(--api-border);
-    border-left: 0;
+  .api-access__item {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.3rem;
   }
 }
 
@@ -367,29 +377,12 @@ html[data-theme='dark'] .api-endpoint__param {
   display: none;
 }
 
-/* Rows: name and badges, type, then the description, values and example */
-.api-table-head,
-.theme-api-markdown .openapi-params__list-item,
-.theme-api-markdown .openapi-schema__list-item > div:not([class]) {
-  display: grid;
-  grid-template-columns: minmax(0, 2.6fr) 6.5rem minmax(0, 2.4fr);
-  column-gap: 1.25rem;
-  align-items: start;
-}
-
-.api-table-head {
-  padding: 0 0 0.4rem;
-  border-bottom: 1px solid var(--ifm-color-emphasis-400);
-}
-
-.api-table-head > span:last-child {
-  grid-column: 3;
-}
-
+/* Rows: a line with the name, the type and the badges, then the
+   description, values and example under it, over the full width */
 .theme-api-markdown .openapi-params__list-item,
 .theme-api-markdown .openapi-schema__list-item > div:not([class]) {
   margin: 0;
-  padding: 0.7rem 0;
+  padding: 0.8rem 0;
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
   font-size: 0.85rem;
 }
@@ -401,7 +394,6 @@ html[data-theme='dark'] .api-endpoint__param {
 
 .theme-api-markdown .openapi-params__list-item > *,
 .theme-api-markdown .openapi-schema__list-item > div:not([class]) > * {
-  grid-column: 3;
   min-width: 0;
   margin: 0 0 0.2rem;
 }
@@ -410,28 +402,13 @@ html[data-theme='dark'] .api-endpoint__param {
 .theme-api-markdown .openapi-schema__list-item > div:not([class]) > .openapi-schema__container {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 0.35rem 0.5rem;
-  grid-column: 1 / 3;
-  grid-row: 1 / span 20;
-  margin: 0;
-}
-
-/* The type, in the second column: the container spans the first two
-   columns, and the type sits at its right end, over the second one, so that
-   a long name and its badges wrap in the first column only */
-.theme-api-markdown .openapi-params__list-item > .openapi-schema__container,
-.theme-api-markdown .openapi-schema__list-item > div:not([class]) > .openapi-schema__container {
-  position: relative;
-  padding-right: calc(6.5rem + 1.25rem);
+  align-items: baseline;
+  gap: 0.35rem 0.6rem;
+  margin: 0 0 0.4rem;
 }
 
 .theme-api-markdown .openapi-schema__container > .openapi-schema__type,
 .theme-api-markdown .openapi-schema__container > .openapi-schema__name {
-  position: absolute;
-  top: 0.1rem;
-  right: 0;
-  width: 6.5rem;
   color: var(--api-muted);
   font-family: var(--ifm-font-family-monospace);
   font-size: 0.75rem;
@@ -490,16 +467,48 @@ html[data-theme='dark'] .api-endpoint__param {
   font-size: 0.72rem;
 }
 
-/* Collapsible objects (a property with properties): a full-width row */
+/* Collapsible objects (a property with properties): a row like the other
+   properties (name, type and badges at the same place), with the chevron at
+   its right end instead of before the name */
 .theme-api-markdown .openapi-schema__list-item > details,
 .theme-api-markdown .openapi-schema__list-item > div > details {
   margin: 0;
-  padding: 0.5rem 0;
+  padding: 0.8rem 0;
+  border: 0;
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 0;
+  background: none;
 }
 
 .theme-api-markdown .openapi-left-panel__container details details {
   padding-left: 1rem;
+}
+
+.theme-api-markdown .openapi-left-panel__container .openapi-schema__list-item > details,
+.theme-api-markdown .openapi-left-panel__container .openapi-schema__list-item > div > details {
+  padding-left: 0;
+}
+
+.theme-api-markdown .openapi-schema__list-item > details > summary,
+.theme-api-markdown .openapi-schema__list-item > div > details > summary {
+  position: relative;
+  padding: 0 1.75rem 0 0;
+  font-size: 0.85rem;
+  list-style: none;
+  cursor: pointer;
+}
+
+.theme-api-markdown .openapi-schema__list-item > details > summary::before,
+.theme-api-markdown .openapi-schema__list-item > div > details > summary::before {
+  top: 0.3rem;
+  right: 0.25rem;
+  left: auto;
+}
+
+/* Its content: a little space under the row */
+.theme-api-markdown .openapi-schema__list-item > details > div,
+.theme-api-markdown .openapi-schema__list-item > div > details > div {
+  margin-top: 0.4rem;
 }
 
 /* Sections (path parameters, body, schema): label and no frame */
@@ -539,54 +548,282 @@ html[data-theme='dark'] .api-endpoint__param {
   color: var(--ifm-color-primary);
 }
 
-/* Responses: the title, then the status codes, as pills */
+/* Bodies (request and responses): a card. A header bar with the content type
+   on the left and the schema / example switch on the right, then the
+   properties or the example. The switch is in the panel of the content type:
+   it is placed in the header bar, over its right end. */
+.theme-api-markdown .openapi-left-panel__container .tabs-container:has(> .tabs__container > .openapi-tabs__mime-container) {
+  --api-card-head: 2.75rem;
+  position: relative;
+  margin: 0 0 1.5rem;
+  border: 1px solid var(--api-border);
+  border-radius: var(--api-radius);
+  background: var(--ifm-background-color);
+  overflow: hidden;
+}
+
+.theme-api-markdown .openapi-left-panel__container .tabs-container > .tabs__container:has(> .openapi-tabs__mime-container) {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: var(--api-card-head);
+  margin: 0;
+  padding: 0 1rem;
+  border-bottom: 1px solid var(--api-border);
+  background: var(--api-surface);
+}
+
+.theme-api-markdown .openapi-left-panel__container .openapi-tabs__mime-container {
+  margin: 0;
+}
+
+.theme-api-markdown .openapi-left-panel__container .tabs-container:has(> .tabs__container > .openapi-tabs__mime-container) .margin-top--md {
+  /* Infima's margin-top--md is !important in a cascade layer, which wins over
+     any !important rule outside a layer: the wrapper is left out of the
+     layout instead, and the panel inside gets the padding */
+  display: contents;
+}
+
+/* The content type: a label, framed when there are several to choose from */
+.theme-api-markdown .openapi-left-panel__container .openapi-tabs__mime-item {
+  color: var(--ifm-font-color-base);
+}
+
+.theme-api-markdown .openapi-left-panel__container .openapi-tabs__mime-item:only-child {
+  padding-left: 0;
+  border-color: transparent !important;
+  color: var(--ifm-font-color-base) !important;
+  cursor: default;
+}
+
+/* Schema / example: a segmented switch, in the header bar */
+.theme-api-markdown .openapi-left-panel__container .openapi-tabs__schema-tabs-container {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: var(--api-card-head);
+  margin: 0 !important;
+  overflow: visible;
+}
+
+.theme-api-markdown .openapi-left-panel__container .tabs-container .openapi-tabs__schema-list-container {
+  gap: 0;
+  padding: 2px;
+  border: 1px solid var(--api-border);
+  border-radius: 6px;
+  background: var(--ifm-background-color);
+  overflow: visible;
+}
+
+.theme-api-markdown .openapi-left-panel__container .tabs-container .openapi-tabs__schema-item {
+  margin: 0 !important;
+  padding: 0.12rem 0.6rem;
+  border: 0;
+  border-radius: 4px;
+}
+
+.theme-api-markdown .openapi-left-panel__container .tabs-container .openapi-tabs__schema-item.active {
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+html[data-theme='dark'] .theme-api-markdown .openapi-left-panel__container .tabs-container .openapi-tabs__schema-item.active {
+  color: #05052a;
+}
+
+/* The content: properties or example */
+.theme-api-markdown .openapi-left-panel__container .openapi-tabs__schema-container > .margin-top--md > [role='tabpanel'] {
+  padding: 0.25rem 1rem;
+}
+
+.theme-api-markdown .openapi-left-panel__container .openapi-tabs__schema-container .openapi-markdown__details:is(.mime, .response) {
+  margin: 0;
+  padding: 0; /* of the "alert" class of Docusaurus details */
+  border: 0;
+  background: none;
+}
+
+/* "Schema": the tab already says it. "Body" stays when it is required. */
+.theme-api-markdown .openapi-left-panel__container .openapi-markdown__details:is(.mime, .response) > summary:not(:has(.openapi-schema__required)) {
+  display: none !important; /* the theme forces display: flex !important */
+}
+
+/* No space of the collapsible content above the first property */
+.theme-api-markdown .openapi-left-panel__container .openapi-markdown__details:is(.mime, .response) [class*='collapsibleContent'] {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+/* No line under the last property: the card closes the list (the
+   properties are in the list, or in a wrapper in the list) */
+.theme-api-markdown .openapi-left-panel__container .openapi-markdown__details:is(.mime, .response) > div > div > ul > .openapi-schema__list-item:last-child > :is(div, details),
+.theme-api-markdown .openapi-left-panel__container .openapi-markdown__details:is(.mime, .response) > div > div > ul > div:last-child > .openapi-schema__list-item:last-child > :is(div, details) {
+  padding-bottom: 0.3rem;
+  border-bottom: 0;
+}
+
+/* The example: its code block in the card, with the same space above and
+   below it (the theme puts 2rem above the container of the block) */
+.theme-api-markdown .openapi-left-panel__container .openapi-tabs__schema-container [class*='openapi-code__code-samples'] {
+  margin-top: 0;
+}
+
+.theme-api-markdown .openapi-left-panel__container .openapi-tabs__schema-container [class*='codeBlockContainer'] {
+  margin: 0.6rem 0;
+  box-shadow: none;
+}
+
+/* Responses: the title, then the status codes on one row of pills, of the
+   same size and evenly spaced (the theme caps the row at 390px, which wraps
+   it, and adds a margin to the right of each pill) */
 .theme-api-markdown .openapi-tabs__response-header-section {
   display: block;
 }
 
 .theme-api-markdown .openapi-tabs__response-container {
-  margin-bottom: 0.75rem;
+  max-width: none;
+  margin-bottom: 1rem;
+  overflow: visible;
 }
 
 .theme-api-markdown .openapi-tabs__response-container .openapi-tabs__response-list-container {
   display: flex;
-  margin: 0;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
   padding: 0;
   border: 0;
   background: none;
+  overflow: visible;
 }
 
 .theme-api-markdown .openapi-tabs__response-code-item {
-  padding: 0.25rem 0.6rem;
+  --api-status: var(--api-status-2xx);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 !important;
+  padding: 0.25rem 0.5rem;
   border: 1px solid var(--api-border);
   border-radius: 6px;
   background: var(--ifm-background-color);
   color: var(--ifm-font-color-base);
   font-family: var(--ifm-font-family-monospace);
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+  opacity: 1;
 }
 
-.theme-api-markdown .openapi-tabs__response-code-item.active {
-  border-color: var(--api-success);
-  background: var(--api-success);
+/* The class of the code: a dot, and the color of the selected pill */
+.theme-api-markdown .openapi-tabs__response-code-item::before {
+  content: '';
+  width: 0.45rem;
+  height: 0.45rem;
+  flex: none;
+  border-radius: 50%;
+  background: var(--api-status);
+}
+
+.theme-api-markdown .openapi-tabs__response-code-item.api-status--3xx {
+  --api-status: var(--api-status-3xx);
+}
+
+.theme-api-markdown .openapi-tabs__response-code-item.api-status--4xx {
+  --api-status: var(--api-status-4xx);
+}
+
+.theme-api-markdown .openapi-tabs__response-code-item.api-status--5xx {
+  --api-status: var(--api-status-5xx);
+}
+
+.theme-api-markdown .openapi-tabs__response-code-item:hover:not(.active) {
+  border-color: var(--api-status);
+  background: var(--ifm-background-color);
+}
+
+.theme-api-markdown .openapi-tabs__response-code-item.active,
+.theme-api-markdown .openapi-tabs__response-code-item.active.danger,
+.theme-api-markdown .openapi-tabs__response-code-item.active.success,
+.theme-api-markdown .openapi-tabs__response-code-item.active.info {
+  border-color: var(--api-status);
+  background: var(--api-status);
   color: #fff;
 }
 
-.theme-api-markdown .openapi-tabs__response-code-item.active.danger {
-  border-color: var(--api-delete);
-  background: var(--api-delete);
+.theme-api-markdown .openapi-tabs__response-code-item.active::before {
+  background: currentColor;
+}
+
+/* Dark mode: light status colors, so dark text on the selected pill */
+html[data-theme='dark'] .theme-api-markdown .openapi-tabs__response-code-item.active {
+  color: #05052a;
 }
 
 .theme-api-markdown .openapi-tabs__response-container .tabs__nav-item,
-.theme-api-markdown .openapi-tabs__response-container button.tabs__arrow {
+.theme-api-markdown .openapi-tabs__response-container button.tabs__arrow,
+.theme-api-markdown .openapi-tabs__response-container .openapi-tabs__arrow {
   display: none;
 }
 
-.api-response-description {
-  margin: 0.5rem 0 0.75rem;
+/* What the selected response means: a title, and an explanation */
+.api-response-summary {
+  --api-status: var(--api-status-2xx);
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--api-border);
+  border-left: 3px solid var(--api-status);
+  border-radius: var(--api-radius);
+  background: var(--api-surface);
+  font-size: 0.85rem;
+}
+
+.api-response-summary--3xx {
+  --api-status: var(--api-status-3xx);
+}
+
+.api-response-summary--4xx {
+  --api-status: var(--api-status-4xx);
+}
+
+.api-response-summary--5xx {
+  --api-status: var(--api-status-5xx);
+}
+
+.api-response-summary__title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.api-response-summary__code {
+  color: var(--api-status);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8rem;
+}
+
+.api-response-summary__text {
+  margin: 0;
+}
+
+.api-response-summary__text + .api-response-summary__text {
+  margin-top: 0.3rem;
+}
+
+.api-response-summary__text p {
+  margin: 0;
+}
+
+.api-response-summary__hint {
+  color: var(--api-muted);
 }
 
 /* Previous and next endpoints: compact buttons */
@@ -856,6 +1093,16 @@ html[data-theme='dark'] .theme-api-markdown .openapi-explorer__request-btn {
   color: var(--api-code-muted);
 }
 
+/* Line numbers of the dark panels (code samples, response example): a narrow
+   gutter, the numbers aligned on the right (the theme and Docusaurus put
+   1rem on each side, on top of the padding of the panel) */
+.theme-api-markdown .openapi-explorer__code-block-code-line-number,
+.api-response-example [class*='codeLineNumber'] {
+  padding-right: 0.75rem !important;
+  padding-left: 0.25rem !important;
+  text-align: right;
+}
+
 /* Reading time and last update: not relevant for an endpoint */
 html:has(.theme-api-markdown) article > div[class^='meta_'] {
   display: none;
@@ -976,29 +1223,8 @@ html[lang='fr'] .theme-api-markdown .openapi-explorer__response-placeholder-mess
   display: none;
 }
 
-/* Phones: the description under the name and the type */
+/* Phones */
 @media (max-width: 576px) {
-  .api-table-head {
-    display: none;
-  }
-
-  .theme-api-markdown .openapi-params__list-item,
-  .theme-api-markdown .openapi-schema__list-item > div:not([class]) {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .theme-api-markdown .openapi-params__list-item > *,
-  .theme-api-markdown .openapi-schema__list-item > div:not([class]) > * {
-    grid-column: 1;
-  }
-
-  .theme-api-markdown .openapi-params__list-item > .openapi-schema__container,
-  .theme-api-markdown .openapi-schema__list-item > div:not([class]) > .openapi-schema__container {
-    grid-column: 1;
-    grid-row: auto;
-    margin-bottom: 0.35rem;
-  }
-
   .api-endpoint {
     flex-wrap: wrap;
   }
@@ -1041,4 +1267,123 @@ html[lang='fr'] .theme-api-markdown .openapi-explorer__response-placeholder-mess
 .api-copy {
   min-width: 4.75rem;
   text-align: center;
+}
+
+/* ---------- The "search" parameter (SearchHelp) ---------- */
+.api-search__lead {
+  margin: 0 0 0.4rem;
+}
+
+.theme-api-markdown code.api-search__simple {
+  display: inline-block;
+  font-size: 0.75rem;
+}
+
+.api-search__toggle {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.6rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ifm-color-primary);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Chevron: right when closed, down when open */
+.api-search__toggle::before {
+  content: '';
+  width: 0.4rem;
+  height: 0.4rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 150ms;
+}
+
+.api-search__toggle[aria-expanded='true']::before {
+  transform: rotate(45deg);
+}
+
+.api-search__toggle:hover {
+  text-decoration: underline;
+}
+
+.api-search__body {
+  margin-top: 0.6rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--api-border);
+  border-radius: var(--api-radius);
+  background: var(--api-surface);
+}
+
+.theme-api-markdown .api-search__title {
+  margin: 0.9rem 0 0.4rem;
+  color: var(--api-label);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.theme-api-markdown .api-search__title:first-child {
+  margin-top: 0;
+}
+
+/* Operators: code and meaning, in columns that fill the width */
+.api-search__ops {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 0.3rem 1.25rem;
+  margin: 0;
+}
+
+.api-search__ops > div {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.api-search__ops dt {
+  flex: none;
+  width: 3rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+.api-search__ops dd {
+  margin: 0;
+  color: var(--api-muted);
+}
+
+.api-search__note,
+.api-search__caption {
+  margin: 0.5rem 0 0;
+  color: var(--api-muted);
+  font-size: 0.8rem;
+}
+
+.api-search__caption {
+  margin-bottom: 0.4rem;
+}
+
+.api-search [class*='codeBlockContainer'] {
+  margin: 0 0 0.5rem;
+  border: 1px solid var(--api-border);
+  box-shadow: none;
+}
+
+.api-search [class*='codeBlockContainer'],
+.api-search [class*='codeBlockContainer'] pre {
+  background: var(--ifm-background-color) !important;
+}
+
+.api-search [class*='codeBlockContainer'] code {
+  font-size: 0.72rem;
 }

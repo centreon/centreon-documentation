@@ -962,18 +962,6 @@
     "message": "Copié",
     "description": "api.page.copied"
   },
-  "api.page.table.name": {
-    "message": "Nom",
-    "description": "api.page.table.name"
-  },
-  "api.page.table.type": {
-    "message": "Type",
-    "description": "api.page.table.type"
-  },
-  "api.page.table.description": {
-    "message": "Description",
-    "description": "api.page.table.description"
-  },
   "api.page.params.path": {
     "message": "Paramètres de chemin",
     "description": "api.page.params.path"
@@ -1257,5 +1245,205 @@
   "theme.openapi.tabs.responses.label": {
     "message": "Réponses",
     "description": "theme.openapi.tabs.responses.label"
+  },
+  "api.page.status.200.title": {
+    "message": "Succès",
+    "description": "api.page.status.200.title"
+  },
+  "api.page.status.200.text": {
+    "message": "La requête a abouti. Le corps de la réponse contient les données demandées.",
+    "description": "api.page.status.200.text"
+  },
+  "api.page.status.201.title": {
+    "message": "Ressource créée",
+    "description": "api.page.status.201.title"
+  },
+  "api.page.status.201.text": {
+    "message": "La ressource a été créée. Le corps de la réponse la décrit.",
+    "description": "api.page.status.201.text"
+  },
+  "api.page.status.202.title": {
+    "message": "Requête acceptée",
+    "description": "api.page.status.202.title"
+  },
+  "api.page.status.202.text": {
+    "message": "La requête a été acceptée et sera traitée plus tard.",
+    "description": "api.page.status.202.text"
+  },
+  "api.page.status.204.title": {
+    "message": "Succès, sans contenu",
+    "description": "api.page.status.204.title"
+  },
+  "api.page.status.204.text": {
+    "message": "La requête a abouti. La réponse n'a pas de corps.",
+    "description": "api.page.status.204.text"
+  },
+  "api.page.status.302.title": {
+    "message": "Redirection",
+    "description": "api.page.status.302.title"
+  },
+  "api.page.status.302.text": {
+    "message": "La ressource se trouve temporairement à une autre URL, indiquée dans l'en-tête Location.",
+    "description": "api.page.status.302.text"
+  },
+  "api.page.status.304.title": {
+    "message": "Non modifiée",
+    "description": "api.page.status.304.title"
+  },
+  "api.page.status.304.text": {
+    "message": "La ressource n'a pas changé depuis votre dernière requête : utilisez la copie que vous avez déjà.",
+    "description": "api.page.status.304.text"
+  },
+  "api.page.status.400.title": {
+    "message": "Requête non valide",
+    "description": "api.page.status.400.title"
+  },
+  "api.page.status.400.text": {
+    "message": "Un paramètre est manquant ou mal formé, ou le corps ne respecte pas le schéma. Le corps de la réponse indique le problème.",
+    "description": "api.page.status.400.text"
+  },
+  "api.page.status.401.title": {
+    "message": "Non authentifié",
+    "description": "api.page.status.401.title"
+  },
+  "api.page.status.401.text": {
+    "message": "Le token est absent, non valide ou expiré. Obtenez un nouveau token et renvoyez la requête.",
+    "description": "api.page.status.401.text"
+  },
+  "api.page.status.403.title": {
+    "message": "Accès refusé",
+    "description": "api.page.status.403.title"
+  },
+  "api.page.status.403.text": {
+    "message": "Vous êtes authentifié, mais votre utilisateur n'a pas les droits (ACL) nécessaires pour cette action.",
+    "description": "api.page.status.403.text"
+  },
+  "api.page.status.404.title": {
+    "message": "Introuvable",
+    "description": "api.page.status.404.title"
+  },
+  "api.page.status.404.text": {
+    "message": "La ressource n'existe pas, ou votre utilisateur n'est pas autorisé à la voir.",
+    "description": "api.page.status.404.text"
+  },
+  "api.page.status.409.title": {
+    "message": "Conflit",
+    "description": "api.page.status.409.title"
+  },
+  "api.page.status.409.text": {
+    "message": "La requête est en conflit avec l'état actuel de la ressource, par exemple un nom déjà utilisé. Le corps de la réponse donne le détail.",
+    "description": "api.page.status.409.text"
+  },
+  "api.page.status.422.title": {
+    "message": "Données non valides",
+    "description": "api.page.status.422.title"
+  },
+  "api.page.status.422.text": {
+    "message": "La requête est bien formée, mais ses données enfreignent une règle métier. Le corps de la réponse donne le détail.",
+    "description": "api.page.status.422.text"
+  },
+  "api.page.status.500.title": {
+    "message": "Erreur du serveur",
+    "description": "api.page.status.500.title"
+  },
+  "api.page.status.500.text": {
+    "message": "Une erreur inattendue s'est produite sur le serveur. Consultez les journaux de votre serveur Centreon.",
+    "description": "api.page.status.500.text"
+  },
+  "api.page.status.2xx.title": {
+    "message": "Succès",
+    "description": "api.page.status.2xx.title"
+  },
+  "api.page.status.3xx.title": {
+    "message": "Redirection",
+    "description": "api.page.status.3xx.title"
+  },
+  "api.page.status.4xx.title": {
+    "message": "Requête refusée",
+    "description": "api.page.status.4xx.title"
+  },
+  "api.page.status.5xx.title": {
+    "message": "Erreur du serveur",
+    "description": "api.page.status.5xx.title"
+  },
+  "api.page.search.op.eq": {
+    "message": "égal à",
+    "description": "api.page.search.op.eq"
+  },
+  "api.page.search.op.neq": {
+    "message": "différent de",
+    "description": "api.page.search.op.neq"
+  },
+  "api.page.search.op.lt": {
+    "message": "inférieur à",
+    "description": "api.page.search.op.lt"
+  },
+  "api.page.search.op.le": {
+    "message": "inférieur ou égal à",
+    "description": "api.page.search.op.le"
+  },
+  "api.page.search.op.gt": {
+    "message": "supérieur à",
+    "description": "api.page.search.op.gt"
+  },
+  "api.page.search.op.ge": {
+    "message": "supérieur ou égal à",
+    "description": "api.page.search.op.ge"
+  },
+  "api.page.search.op.lk": {
+    "message": "ressemble à (% est un joker)",
+    "description": "api.page.search.op.lk"
+  },
+  "api.page.search.op.nk": {
+    "message": "ne ressemble pas à (% est un joker)",
+    "description": "api.page.search.op.nk"
+  },
+  "api.page.search.op.in": {
+    "message": "dans une liste de valeurs",
+    "description": "api.page.search.op.in"
+  },
+  "api.page.search.op.ni": {
+    "message": "hors d'une liste de valeurs",
+    "description": "api.page.search.op.ni"
+  },
+  "api.page.search.op.rg": {
+    "message": "correspond à une expression régulière",
+    "description": "api.page.search.op.rg"
+  },
+  "api.page.search.lead": {
+    "message": "Renvoie uniquement les données qui correspondent à une expression JSON : une propriété et sa valeur, ou des conditions combinées avec des opérateurs.",
+    "description": "api.page.search.lead"
+  },
+  "api.page.search.syntax": {
+    "message": "Syntaxe de recherche",
+    "description": "api.page.search.syntax"
+  },
+  "api.page.search.aggregators": {
+    "message": "Combiner des conditions",
+    "description": "api.page.search.aggregators"
+  },
+  "api.page.search.and": {
+    "message": "toutes les conditions sont vraies",
+    "description": "api.page.search.and"
+  },
+  "api.page.search.or": {
+    "message": "au moins une condition est vraie",
+    "description": "api.page.search.or"
+  },
+  "api.page.search.andNote": {
+    "message": "$and sur une même propriété avec deux valeurs différentes ne renvoie jamais rien : utilisez $or pour obtenir les ressources qui correspondent à l'une ou l'autre valeur.",
+    "description": "api.page.search.andNote"
+  },
+  "api.page.search.operators": {
+    "message": "Comparer des valeurs",
+    "description": "api.page.search.operators"
+  },
+  "api.page.search.examples": {
+    "message": "Exemples",
+    "description": "api.page.search.examples"
+  },
+  "api.page.search.nested": {
+    "message": "Avec des agrégateurs imbriqués :",
+    "description": "api.page.search.nested"
   }
 }

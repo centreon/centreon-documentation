@@ -1,17 +1,21 @@
 /**
  * Parameters of an endpoint (swizzled from docusaurus-theme-openapi-docs).
  *
- * Changes from the original: each list of parameters (path, query, header,
- * cookie) is a table, with a row of column titles (Name, Type, Description;
- * the rows are laid out in src/css/api-reference.css), and a title per type
- * that translates as a whole ("Paramètres de chemin").
+ * Changes from the original:
+ * - a title per type of parameters (path, query, header, cookie) that
+ *   translates as a whole ("Paramètres de chemin");
+ * - the "search" parameter of the list endpoints: its long description is
+ *   replaced with SearchHelp (src/components/ApiPage/SearchHelp.jsx), in a
+ *   row with the same classes as the others.
+ * The rows are laid out in src/css/api-reference.css.
  */
 import React from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
-import Translate, { translate } from '@docusaurus/Translate';
+import { translate } from '@docusaurus/Translate';
 import Details from '@theme/Details';
 import ParamsItem from '@theme/ParamsItem';
 import SkeletonLoader from '@theme/SkeletonLoader';
+import SearchHelp, { isSearchHelp } from '@site/src/components/ApiPage/SearchHelp';
 
 const TYPES = ['path', 'query', 'header', 'cookie'];
 
@@ -45,30 +49,29 @@ function ParamsDetailsComponent({ parameters }) {
                 </h3>
               </summary>
             }>
-            <div className="api-table-head" aria-hidden="true">
-              <span>
-                <Translate id="api.page.table.name">Name</Translate>
-              </span>
-              <span>
-                <Translate id="api.page.table.type">Type</Translate>
-              </span>
-              <span>
-                <Translate id="api.page.table.description">Description</Translate>
-              </span>
-            </div>
             <ul>
-              {params.map((param, index) => (
-                <ParamsItem
-                  key={index}
-                  className="paramsItem"
-                  param={{
-                    ...param,
-                    enumDescriptions: Object.entries(
-                      param?.schema?.['x-enumDescriptions'] ?? param?.schema?.items?.['x-enumDescriptions'] ?? {},
-                    ),
-                  }}
-                />
-              ))}
+              {params.map((param, index) =>
+                isSearchHelp(param) ? (
+                  <div key={index} className="openapi-params__list-item">
+                    <span className="openapi-schema__container">
+                      <strong className="openapi-schema__property">{param.name}</strong>
+                      <span className="openapi-schema__type"> {param.schema?.type ?? 'string'}</span>
+                    </span>
+                    <SearchHelp description={param.description} />
+                  </div>
+                ) : (
+                  <ParamsItem
+                    key={index}
+                    className="paramsItem"
+                    param={{
+                      ...param,
+                      enumDescriptions: Object.entries(
+                        param?.schema?.['x-enumDescriptions'] ?? param?.schema?.items?.['x-enumDescriptions'] ?? {},
+                      ),
+                    }}
+                  />
+                ),
+              )}
             </ul>
           </Details>
         );
