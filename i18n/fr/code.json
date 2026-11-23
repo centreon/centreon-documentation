@@ -1445,5 +1445,105 @@
   "api.page.search.nested": {
     "message": "Avec des agrégateurs imbriqués :",
     "description": "api.page.search.nested"
+  },
+  "api.setup.required": {
+    "message": "Obligatoire.",
+    "description": "api.setup.required"
+  },
+  "api.setup.port": {
+    "message": "Un nombre entre 1 et 65535.",
+    "description": "api.setup.port"
+  },
+  "api.setup.label.protocol": {
+    "message": "Protocole",
+    "description": "api.setup.label.protocol"
+  },
+  "api.setup.label.server": {
+    "message": "Serveur",
+    "description": "api.setup.label.server"
+  },
+  "api.setup.label.port": {
+    "message": "Port",
+    "description": "api.setup.label.port"
+  },
+  "api.setup.label.version": {
+    "message": "Version de l'API",
+    "description": "api.setup.label.version"
+  },
+  "api.setup.label.organization": {
+    "message": "Organisation",
+    "description": "api.setup.label.organization"
+  },
+  "api.setup.label.region": {
+    "message": "Région",
+    "description": "api.setup.label.region"
+  },
+  "api.setup.label.instance": {
+    "message": "Instance",
+    "description": "api.setup.label.instance"
+  },
+  "api.setup.optional": {
+    "message": "(facultatif)",
+    "description": "api.setup.optional"
+  },
+  "api.setup.hide": {
+    "message": "Masquer",
+    "description": "api.setup.hide"
+  },
+  "api.setup.show": {
+    "message": "Afficher",
+    "description": "api.setup.show"
+  },
+  "api.setup.baseUrl": {
+    "message": "URL de base",
+    "description": "api.setup.baseUrl"
+  },
+  "api.setup.save": {
+    "message": "Enregistrer",
+    "description": "api.setup.save"
+  },
+  "api.setup.reset": {
+    "message": "Réinitialiser",
+    "description": "api.setup.reset"
+  },
+  "api.setup.saved": {
+    "message": "Enregistré. Le panneau de requête et les exemples de code de chaque page d'endpoint les utilisent désormais, jusqu'à la fermeture de cet onglet.",
+    "description": "api.setup.saved"
+  },
+  "api.setup.resetDone": {
+    "message": "Valeurs par défaut rétablies.",
+    "description": "api.setup.resetDone"
+  },
+  "api.setup.invalid": {
+    "message": "Vérifiez les champs en rouge.",
+    "description": "api.setup.invalid"
+  },
+  "api.setup.storageError": {
+    "message": "Votre navigateur ne permet pas à cette page de les enregistrer.",
+    "description": "api.setup.storageError"
+  },
+  "api.setup.note": {
+    "message": "Votre jeton reste dans cet onglet du navigateur : il n'est envoyé qu'à votre serveur, et seulement quand vous cliquez sur {send}.",
+    "description": "api.setup.note"
+  },
+  "api.setup.note.send": {
+    "message": "Envoyer la requête",
+    "description": "api.setup.note.send"
+  },
+  "api.download.title": {
+    "message": "Importez cette API dans Postman, Bruno ou Insomnia",
+    "description": "api.download.title"
+  },
+  "api.download.text": {
+    "message": "Téléchargez sa définition OpenAPI et importez-la dans votre client d'API, ou utilisez-la pour générer un client dans votre langage.",
+    "description": "api.download.text"
+  },
+  "api.download.ariaLabel": {
+    "message": "Télécharger la définition OpenAPI de {name}",
+    "description": "api.download.ariaLabel"
+  },
+  "api.download.button": {
+    "message": "Télécharger OpenAPI (JSON)",
+    "description": "api.download.button"
   }
 }

@@ -25,6 +25,8 @@ export const APIS = {
     template: 'centreon-web.mdx',
     description: (target) =>
       `Centreon Web REST API ${target.version}: get a token, make your first request, and browse every endpoint with its parameters, schemas and code samples.`,
+    descriptionFr: (target) =>
+      `API REST Centreon Web ${target.version} : obtenez un jeton, envoyez votre première requête et parcourez chaque endpoint avec ses paramètres, ses schémas et des exemples de code.`,
   },
   cloud: {
     title: 'Centreon Cloud REST API',
@@ -33,6 +35,8 @@ export const APIS = {
     template: 'centreon-cloud.mdx',
     description: () =>
       'Centreon Cloud REST API: get an API token, make your first request, and browse the configuration endpoints with their schemas and code samples.',
+    descriptionFr: () =>
+      "API REST Centreon Cloud : obtenez un jeton d'API, envoyez votre première requête et parcourez les endpoints de configuration avec leurs schémas et des exemples de code.",
   },
   map: {
     title: 'Centreon MAP REST API',
@@ -41,6 +45,8 @@ export const APIS = {
     template: 'centreon-map.mdx',
     description: () =>
       'Centreon MAP REST API: sign in, make your first request, and browse the endpoints for maps, views and access rights, with code samples.',
+    descriptionFr: () =>
+      "API REST Centreon MAP : connectez-vous, envoyez votre première requête et parcourez les endpoints des cartes, des vues et des droits d'accès, avec des exemples de code.",
   },
   autodiscovery: {
     title: 'Centreon Autodiscovery REST API',
@@ -49,6 +55,8 @@ export const APIS = {
     template: 'centreon-autodiscovery.mdx',
     description: () =>
       'Centreon Autodiscovery REST API: get a token, make your first request, and browse the endpoints for providers, credentials, discovery jobs and discovered hosts.',
+    descriptionFr: () =>
+      'API REST Centreon Autodiscovery : obtenez un jeton, envoyez votre première requête et parcourez les endpoints des fournisseurs, des identifiants, des tâches de découverte et des hôtes découverts.',
   },
   bam: {
     title: 'Centreon BAM REST API',
@@ -57,6 +65,8 @@ export const APIS = {
     template: 'centreon-bam.mdx',
     description: () =>
       'Centreon BAM REST API: get a token, make your first request, and browse the endpoints for business views, business activities and indicators.',
+    descriptionFr: () =>
+      'API REST Centreon BAM : obtenez un jeton, envoyez votre première requête et parcourez les endpoints des vues métier, des activités métier et des indicateurs.',
   },
 };
 

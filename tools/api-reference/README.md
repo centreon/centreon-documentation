@@ -37,8 +37,10 @@ and its pages follow the version of the docs.
   (`src/theme/ApiDocItem`), which gives the endpoint pages the page of the
   plugin (`@theme/ApiItem`, with the request panel) and every other page the
   default page.
-- The **Get started** page of each API is written by hand in `intros/` and
-  replaces the description of the spec (title, description and body are set by
+- The **Get started** page of each API is written by hand in `intros/`
+  (English) and `intros/fr/` (French, written in
+  `i18n/fr/docusaurus-plugin-content-docs/…` and `…-cloud/current/`, not
+  committed either), and replaces the description of the spec (title, description and body are set by
   `generate.mjs`; links to the other pages of the docs are relative, so that
   they stay in the same version).
 - The **Get started** page has a form that saves the server and the API token
@@ -64,9 +66,12 @@ and its pages follow the version of the docs.
   endpoint pages is styled: the menus, the header and the footer are those of
   the site. Order of the code samples: `languageTabs` in
   `docusaurus.config.js`.
-- French: the strings of the endpoint pages and of the theme
-  (`theme.openapi.*`, `api.page.*`) are in `i18n/fr/code.json`. The
-  descriptions of the endpoints come from the specs, in English.
+- French: the strings of the endpoint pages, of the Get started blocks and
+  of the theme (`theme.openapi.*`, `api.page.*`, `api.setup.*`,
+  `api.download.*`) are in `i18n/fr/code.json`. The descriptions of the
+  endpoints come from the specs, in English, and so do the menu items of the
+  reference (tags such as `Host`, `Downtime`, `Acknowledgement`: Centreon
+  objects, kept in English).
 - `API=0` builds the site without the API reference.
 
 POC: the specs were taken from https://docs-api.centreon.com, where they are

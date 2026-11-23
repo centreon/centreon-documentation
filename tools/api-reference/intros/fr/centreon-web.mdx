@@ -1,0 +1,84 @@
+import { ApiConfiguration, ApiDownload } from '@site/src/components/ApiSetup';
+import { ApiStatusList } from '@site/src/components/ApiPage';
+import { ApiSearchSyntax } from '@site/src/components/ApiPage/SearchHelp';
+
+L'API REST Centreon Web permet à vos scripts et à vos outils de piloter Centreon Infra Monitoring OnPrem : créer des hôtes et des services depuis votre CMDB, lire le statut temps réel de vos ressources, acquitter des alertes, planifier des plages de maintenance et administrer la plateforme.
+
+<ApiDownload spec="{{spec}}" name="Centreon Web REST API" />
+
+## Démarrer en 3 étapes
+
+### 1. Trouvez l'URL de l'API
+
+Tous les endpoints de cette référence partent de la même URL de base :
+
+```text
+https://<your-centreon-server>/centreon/api/latest
+```
+
+`latest` désigne la version d'API la plus récente de votre plateforme. Pour fixer une version, remplacez-le par `v{{version}}`.
+
+:::tip Utilisez votre plateforme dans cette référence
+
+Saisissez son adresse dans [Configurer cette référence](#configure), plus bas : le panneau de requête et les exemples de code de chaque page d'endpoint l'utilisent alors.
+
+:::
+
+### 2. Obtenez un jeton
+
+Pour les scripts et les intégrations, créez un **jeton d'API** dans **Administration > Jetons d'authentification** (voir [Jetons d'authentification]({{tokensDoc}})). Il appartient à un utilisateur et reste valide jusqu'à son expiration ou sa révocation.
+
+Pour un test rapide, vous pouvez aussi vous connecter avec les identifiants d'un utilisateur :
+
+```bash
+curl -s -X POST "https://<your-centreon-server>/centreon/api/latest/login" \
+  -H "Content-Type: application/json" \
+  -d '{"security": {"credentials": {"login": "<login>", "password": "<password>"}}}'
+```
+
+La réponse contient le jeton dans `security.token`. Un jeton obtenu de cette façon expire après une heure sans utilisation.
+
+### 3. Appelez l'API
+
+Envoyez le jeton dans l'en-tête `X-AUTH-TOKEN` de chaque requête. Par exemple, pour lister 20 hôtes avec leur statut :
+
+```bash
+curl -s "https://<your-centreon-server>/centreon/api/latest/monitoring/hosts?limit=20" \
+  -H "X-AUTH-TOKEN: <token>"
+```
+
+Chaque appel s'exécute avec les droits de l'utilisateur à qui appartient le jeton.
+
+## Configurer cette référence {#configure}
+
+Saisissez l'adresse de votre plateforme, et votre jeton pour envoyer des requêtes depuis cette référence avec **Envoyer la requête**. Le panneau de requête et les exemples de code de chaque page d'endpoint les utilisent jusqu'à la fermeture de cet onglet du navigateur. Vous pouvez aussi les modifier sur n'importe quelle page d'endpoint, avec **Modifier** à côté de l'URL de base.
+
+<ApiConfiguration server={{{server}}} auth="{{auth}}" tokenLabel="Jeton d'API" />
+
+## Filtrer, trier et paginer
+
+Les endpoints de liste partagent les mêmes paramètres de requête :
+
+| Paramètre | Rôle | Exemple |
+|:----------|:-----|:--------|
+| `limit` | Nombre d'éléments par page (10 par défaut) | `limit=50` |
+| `page` | Page à renvoyer, à partir de 1 | `page=2` |
+| `search` | Filtre, en JSON | `search={"host.name":{"$lk":"srv-%"}}` |
+| `sort_by` | Tri, en JSON | `sort_by={"host.name":"ASC"}` |
+
+`search` prend des conditions sur les propriétés des ressources, en JSON : comparez des valeurs avec les opérateurs ci-dessous, et combinez des conditions avec `$and` et `$or`. Encodez sa valeur pour l'URL. Les propriétés utilisables sont indiquées sur chaque page d'endpoint.
+
+<ApiSearchSyntax />
+
+Les listes renvoient les éléments dans `result` et la pagination dans `meta` (`page`, `limit`, `total`). Les dates sont au format ISO 8601.
+
+## Erreurs
+
+Une erreur renvoie un code de statut HTTP et un corps JSON avec un `code` et un `message` qui l'expliquent. Les plus fréquentes :
+
+<ApiStatusList codes={[400, 401, 403, 404, 500]} />
+
+## Outils
+
+- **Définition OpenAPI** : téléchargez-la avec le bouton en haut de cette page, pour importer l'API dans Postman, Bruno ou Insomnia, ou pour générer un client.
+- **Postman** : voir [Utiliser l'API v2 avec Postman]({{postmanDoc}}).

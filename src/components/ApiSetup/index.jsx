@@ -5,6 +5,7 @@
  * - ApiDownload: the OpenAPI file, to import into Postman, Bruno…
  */
 import React, { useEffect, useId, useState } from 'react';
+import Translate, { translate } from '@docusaurus/Translate';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
@@ -55,22 +56,23 @@ function resolveUrl(server, values) {
 
 function fieldError(name, value) {
   if (value.trim() === '') {
-    return 'Required.';
+    return translate({ id: 'api.setup.required', message: 'Required.' });
   }
   if (name === 'port' && !(Number(value) >= 1 && Number(value) <= 65535)) {
-    return 'A number from 1 to 65535.';
+    return translate({ id: 'api.setup.port', message: 'A number from 1 to 65535.' });
   }
   return null;
 }
 
+// One translate() call per label, so that each can be extracted.
 const LABELS = {
-  protocol: 'Protocol',
-  server: 'Server',
-  port: 'Port',
-  version: 'API version',
-  organization: 'Organization',
-  region: 'Region',
-  instance: 'Instance',
+  protocol: () => translate({ id: 'api.setup.label.protocol', message: 'Protocol' }),
+  server: () => translate({ id: 'api.setup.label.server', message: 'Server' }),
+  port: () => translate({ id: 'api.setup.label.port', message: 'Port' }),
+  version: () => translate({ id: 'api.setup.label.version', message: 'API version' }),
+  organization: () => translate({ id: 'api.setup.label.organization', message: 'Organization' }),
+  region: () => translate({ id: 'api.setup.label.region', message: 'Region' }),
+  instance: () => translate({ id: 'api.setup.label.instance', message: 'Instance' }),
 };
 
 export function ApiConfiguration({ server, auth, tokenLabel = 'API token' }) {
@@ -127,7 +129,7 @@ export function ApiConfiguration({ server, auth, tokenLabel = 'API token' }) {
       <div className={styles.fields}>
         {Object.entries(server.variables ?? {}).map(([name, variable]) => (
           <label key={name} className={styles.field} htmlFor={`${id}-${name}`}>
-            <span className={styles.label}>{LABELS[name] ?? name}</span>
+            <span className={styles.label}>{LABELS[name]?.() ?? name}</span>
             {variable.enum ? (
               <select id={`${id}-${name}`} value={values[name]} onChange={(e) => update(name, e.target.value)}>
                 {variable.enum.map((option) => (
@@ -154,7 +156,10 @@ export function ApiConfiguration({ server, auth, tokenLabel = 'API token' }) {
         ))}
         <label className={`${styles.field} ${styles.wide}`} htmlFor={`${id}-token`}>
           <span className={styles.label}>
-            {tokenLabel} <span className={styles.optional}>(optional)</span>
+            {tokenLabel}{' '}
+            <span className={styles.optional}>
+              <Translate id="api.setup.optional">(optional)</Translate>
+            </span>
           </span>
           <span className={styles.tokenRow}>
             <input
@@ -169,33 +174,51 @@ export function ApiConfiguration({ server, auth, tokenLabel = 'API token' }) {
               spellCheck={false}
             />
             <button type="button" className={styles.linkButton} onClick={() => setShowToken(!showToken)}>
-              {showToken ? 'Hide' : 'Show'}
+              {showToken
+                ? translate({ id: 'api.setup.hide', message: 'Hide' })
+                : translate({ id: 'api.setup.show', message: 'Show' })}
             </button>
           </span>
         </label>
       </div>
       <p className={styles.preview}>
-        <span className={styles.label}>Base URL</span>
+        <span className={styles.label}>
+          <Translate id="api.setup.baseUrl">Base URL</Translate>
+        </span>
         <code>{resolveUrl(server, values)}</code>
       </p>
       <div className={styles.actions}>
         <button type="submit" className="button button--primary">
-          Save
+          <Translate id="api.setup.save">Save</Translate>
         </button>
         <button type="button" className="button button--secondary" onClick={reset}>
-          Reset
+          <Translate id="api.setup.reset">Reset</Translate>
         </button>
         <span className={styles.status} role="status">
           {status === 'saved' &&
-            'Saved. The request panel and the code samples of every endpoint page now use them, until you close this tab.'}
-          {status === 'reset' && 'Back to the default values.'}
-          {status === 'invalid' && 'Check the fields in red.'}
-          {status === 'error' && 'Your browser does not let this page save them.'}
+            translate({
+              id: 'api.setup.saved',
+              message:
+                'Saved. The request panel and the code samples of every endpoint page now use them, until you close this tab.',
+            })}
+          {status === 'reset' && translate({ id: 'api.setup.resetDone', message: 'Back to the default values.' })}
+          {status === 'invalid' && translate({ id: 'api.setup.invalid', message: 'Check the fields in red.' })}
+          {status === 'error' &&
+            translate({ id: 'api.setup.storageError', message: 'Your browser does not let this page save them.' })}
         </span>
       </div>
       <p className={styles.note}>
-        Your token stays in this browser tab: it is never sent anywhere but to your server, and only when you click{' '}
-        <strong>Send API Request</strong>.
+        <Translate
+          id="api.setup.note"
+          values={{
+            send: (
+              <strong>
+                <Translate id="api.setup.note.send">Send API Request</Translate>
+              </strong>
+            ),
+          }}>
+          {'Your token stays in this browser tab: it is never sent anywhere but to your server, and only when you click {send}.'}
+        </Translate>
       </p>
     </form>
   );
@@ -206,14 +229,25 @@ export function ApiDownload({ spec, name }) {
   return (
     <div className={styles.download}>
       <div>
-        <strong>Import this API into Postman, Bruno or Insomnia</strong>
+        <strong>
+          <Translate id="api.download.title">Import this API into Postman, Bruno or Insomnia</Translate>
+        </strong>
         <p>
-          Download its OpenAPI definition and import it into your API client, or use it to generate a client in your
-          language.
+          <Translate id="api.download.text">
+            Download its OpenAPI definition and import it into your API client, or use it to generate a client in your
+            language.
+          </Translate>
         </p>
       </div>
-      <a className="button button--primary" href={href} download={spec} aria-label={`Download the OpenAPI definition of ${name}`}>
-        Download OpenAPI (JSON)
+      <a
+        className="button button--primary"
+        href={href}
+        download={spec}
+        aria-label={translate(
+          { id: 'api.download.ariaLabel', message: 'Download the OpenAPI definition of {name}' },
+          { name },
+        )}>
+        <Translate id="api.download.button">Download OpenAPI (JSON)</Translate>
       </a>
     </div>
   );

@@ -1,0 +1,53 @@
+import { ApiConfiguration, ApiDownload } from '@site/src/components/ApiSetup';
+import { ApiStatusList } from '@site/src/components/ApiPage';
+
+L'API REST Centreon BAM permet à vos scripts et à vos outils de travailler avec Business Activity Monitoring : lister les vues métier, les activités métier et leurs indicateurs, lire leur statut temps réel et leur arborescence, et suivre l'impact de chaque indicateur.
+
+<ApiDownload spec="{{spec}}" name="Centreon BAM REST API" />
+
+## Démarrer en 3 étapes
+
+### 1. Trouvez l'URL de l'API
+
+L'API BAM est servie par votre plateforme Centreon, avec le reste de l'API REST Centreon. Les endpoints partent de :
+
+```text
+{{baseUrl}}
+```
+
+:::tip Utilisez votre plateforme dans cette référence
+
+Saisissez son adresse dans [Configurer cette référence](#configure), plus bas : le panneau de requête et les exemples de code de chaque page d'endpoint l'utilisent alors.
+
+:::
+
+### 2. Obtenez un jeton
+
+Créez un **jeton d'API** dans **Administration > Jetons d'authentification** (voir [Jetons d'authentification]({{tokensDoc}})). Il appartient à un utilisateur et reste valide jusqu'à son expiration ou sa révocation. Le même jeton fonctionne avec l'API REST Centreon Web.
+
+### 3. Appelez l'API
+
+Envoyez le jeton dans l'en-tête `X-AUTH-TOKEN` de chaque requête. Par exemple, pour lister vos activités métier avec leur statut temps réel :
+
+```bash
+curl -s "{{baseUrl}}/api/latest/bam/monitoring/business-activities" \
+  -H "X-AUTH-TOKEN: <token>"
+```
+
+Chaque appel s'exécute avec les droits de l'utilisateur à qui appartient le jeton.
+
+## Configurer cette référence {#configure}
+
+Saisissez l'adresse de votre plateforme, et votre jeton pour envoyer des requêtes depuis cette référence avec **Envoyer la requête**. Le panneau de requête et les exemples de code de chaque page d'endpoint les utilisent jusqu'à la fermeture de cet onglet du navigateur. Vous pouvez aussi les modifier sur n'importe quelle page d'endpoint, avec **Modifier** à côté de l'URL de base.
+
+<ApiConfiguration server={{{server}}} auth="{{auth}}" tokenLabel="Jeton d'API" />
+
+## Erreurs
+
+Une erreur renvoie un code de statut HTTP et un corps JSON avec un `code` et un `message` qui l'expliquent. Les plus fréquentes :
+
+<ApiStatusList codes={[400, 401, 403, 404, 500]} />
+
+## Outils
+
+- **Définition OpenAPI** : téléchargez-la avec le bouton en haut de cette page, pour importer l'API dans Postman, Bruno ou Insomnia, ou pour générer un client.

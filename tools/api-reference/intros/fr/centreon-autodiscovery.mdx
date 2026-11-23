@@ -1,0 +1,61 @@
+import { ApiConfiguration, ApiDownload } from '@site/src/components/ApiSetup';
+import { ApiStatusList } from '@site/src/components/ApiPage';
+
+L'API REST Centreon Autodiscovery permet à vos scripts et à vos outils d'automatiser la découverte d'hôtes : lister les fournisseurs de découverte de vos connecteurs, gérer leurs identifiants, créer et planifier des tâches de découverte, lire les hôtes qu'elles trouvent, et les ajouter à votre configuration avec des mappers.
+
+<ApiDownload spec="{{spec}}" name="Centreon Autodiscovery REST API" />
+
+## Démarrer en 3 étapes
+
+### 1. Trouvez l'URL de l'API
+
+L'API Autodiscovery est servie par votre plateforme Centreon, avec le reste de l'API REST Centreon. Les endpoints partent de :
+
+```text
+{{baseUrl}}/api/latest/auto-discovery
+```
+
+:::tip Utilisez votre plateforme dans cette référence
+
+Saisissez son adresse dans [Configurer cette référence](#configure), plus bas : le panneau de requête et les exemples de code de chaque page d'endpoint l'utilisent alors.
+
+:::
+
+### 2. Obtenez un jeton
+
+Créez un **jeton d'API** dans **Administration > Jetons d'authentification** (voir [Jetons d'authentification]({{tokensDoc}})). Il appartient à un utilisateur et reste valide jusqu'à son expiration ou sa révocation. Le même jeton fonctionne avec l'API REST Centreon Web.
+
+### 3. Appelez l'API
+
+Envoyez le jeton dans l'en-tête `X-AUTH-TOKEN` de chaque requête. Par exemple, pour lister vos tâches de découverte :
+
+```bash
+curl -s "{{baseUrl}}/api/latest/auto-discovery/jobs" \
+  -H "X-AUTH-TOKEN: <token>"
+```
+
+Chaque appel s'exécute avec les droits de l'utilisateur à qui appartient le jeton.
+
+## Fonctionnement de la découverte
+
+1. Un **fournisseur** découvre des hôtes d'un type donné (VMware, AWS, SNMP…). Il est fourni avec le connecteur de supervision que vous avez installé : `GET /providers`.
+2. Des **identifiants** contiennent ce dont le fournisseur a besoin pour se connecter (login, mot de passe, clé d'API…) : `/provider-types/{type_id}/credentials`.
+3. Une **tâche** exécute un fournisseur avec ses paramètres, une fois ou de façon planifiée : `/jobs`.
+4. Les **hôtes découverts** par une tâche sont listés avec leurs attributs : `GET /jobs/{job_id}/discovered-hosts`.
+5. Les **mappers** transforment les attributs en configuration des hôtes (nom, adresse, modèles…), et les hôtes que vous choisissez sont enregistrés dans la configuration : `POST /jobs/{job_id}/discovered-hosts/save`.
+
+## Configurer cette référence {#configure}
+
+Saisissez l'adresse de votre plateforme, et votre jeton pour envoyer des requêtes depuis cette référence avec **Envoyer la requête**. Le panneau de requête et les exemples de code de chaque page d'endpoint les utilisent jusqu'à la fermeture de cet onglet du navigateur. Vous pouvez aussi les modifier sur n'importe quelle page d'endpoint, avec **Modifier** à côté de l'URL de base.
+
+<ApiConfiguration server={{{server}}} auth="{{auth}}" tokenLabel="Jeton d'API" />
+
+## Erreurs
+
+Une erreur renvoie un code de statut HTTP et un corps JSON avec un `code` et un `message` qui l'expliquent. Les plus fréquentes :
+
+<ApiStatusList codes={[400, 401, 403, 404, 500]} />
+
+## Outils
+
+- **Définition OpenAPI** : téléchargez-la avec le bouton en haut de cette page, pour importer l'API dans Postman, Bruno ou Insomnia, ou pour générer un client.

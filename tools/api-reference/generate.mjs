@@ -7,7 +7,9 @@
  *
  * For each API, next to its pages:
  * - sidebar.json: its sidebar items, read by apiSidebarItemsGenerator
- *   (apis.mjs) for the API category of the docs sidebar.
+ *   (apis.mjs) for the API category of the docs sidebar;
+ * - the "Get started" page, in English (intros/) and in French
+ *   (intros/fr/, written in i18n/fr/).
  * Also static/api/specs/: the specs, to download and import into Postman,
  * Bruno… None of them is committed.
  *
@@ -39,6 +41,14 @@ const builtVersions =
       ? allVersions.slice(0, 1)
       : process.env.VERSIONS.split(',');
 const lastVersion = allVersions.find((version) => builtVersions.includes(version));
+
+// French translation of a documentation (the "Get started" pages only: the
+// endpoint pages come from the specs, in English).
+function frenchDocsOf(target) {
+  return target.docs === 'cloud'
+    ? path.join('i18n', 'fr', 'docusaurus-plugin-content-docs-cloud', 'current')
+    : target.docs.replace(/^versioned_docs\//, path.join('i18n', 'fr', 'docusaurus-plugin-content-docs') + '/');
+}
 
 // Route of a page of the API reference, from the root of the site.
 function routeOf(target, docId) {
@@ -196,6 +206,7 @@ const docusaurus = (...args) =>
 // existing pages, and removed endpoints must disappear.
 for (const target of TARGETS) {
   fs.rmSync(path.join(target.docs, REFERENCE_DIR), { recursive: true, force: true });
+  fs.rmSync(path.join(frenchDocsOf(target), REFERENCE_DIR), { recursive: true, force: true });
 }
 fs.rmSync(SPECS_DIR, { recursive: true, force: true });
 
@@ -219,39 +230,63 @@ for (const target of TARGETS) {
     fs.writeFileSync(path.join(dir, 'sidebar.json'), `${JSON.stringify(readSidebar(dir, apiDir), null, 2)}\n`);
     fs.rmSync(path.join(dir, 'sidebar.ts'));
 
-    // Introduction page
+    // Introduction page ("Get started"), in English in the docs, and in
+    // French in i18n/fr/ (from intros/fr/), with the same header.
     const values = {
       ...target.values,
       version: target.version,
       spec: specFile,
       auth: api.auth,
       server: JSON.stringify(spec.servers?.[0] ?? null),
-      mapScenario: target.values.mapDoc
-        ? `- [Centreon MAP API](${target.values.mapDoc}): a complete scenario, from sign-in to adding a shape on a map.\n`
-        : '',
     };
-    const body = fs
-      .readFileSync(path.join(INTROS_DIR, api.template), 'utf8')
-      .replace(/\{\{(\w+)\}\}/g, (match, key) => values[key] ?? match);
     const title = api.title;
-    let intro = fs.readFileSync(path.join(dir, infoFile), 'utf8');
-    intro = intro
-      .replace(/^title: .*$/m, `title: ${JSON.stringify(title)}`)
-      .replace(/^description: .*$/m, `description: ${JSON.stringify(api.description(target))}`)
-      .replace(/^sidebar_label: .*$/m, 'sidebar_label: Get started')
-      .replace(/(className=\{"openapi__heading"\}\s*children=\{)"[^"]*"/, `$1${JSON.stringify(title)}`)
-      // The badges of the endpoint pages instead of "Version: 26.10"
-      .replace(
-        /<span\s+className=\{"theme-doc-version-badge[^"]*"\}\s+children=\{"[^"]*"\}\s*>\s*<\/span>/,
-        `import { ApiBadges } from "@site/src/components/ApiPage";\n\n<ApiBadges api={${JSON.stringify(api.badge)}}${
-          target.docs === 'cloud' ? '' : ` version={${JSON.stringify(`v${target.version}`)}}`
-        } />`,
-      );
-    // Keep the front matter, the version badge and the title; replace the
-    // rest (logo, spec description, security schemes, contact and license)
-    // with the introduction.
-    const titleEnd = intro.indexOf('</Heading>');
-    fs.writeFileSync(path.join(dir, infoFile), `${intro.slice(0, titleEnd + '</Heading>'.length)}\n\n${body}`);
+    const source = fs.readFileSync(path.join(dir, infoFile), 'utf8');
+    const languages = [
+      {
+        dir,
+        templates: INTROS_DIR,
+        label: 'Get started',
+        description: api.description(target),
+        mapScenario: target.values.mapDoc
+          ? `- [Centreon MAP API](${target.values.mapDoc}): a complete scenario, from sign-in to adding a shape on a map.\n`
+          : '',
+      },
+      {
+        dir: path.join(frenchDocsOf(target), REFERENCE_DIR, apiDir),
+        templates: path.join(INTROS_DIR, 'fr'),
+        label: 'Démarrer',
+        description: api.descriptionFr(target),
+        mapScenario: target.values.mapDoc
+          ? `- [Automatiser MAP via l'API](${target.values.mapDoc}) : un scénario complet, de la connexion à l'ajout d'une forme sur une carte.\n`
+          : '',
+      },
+    ];
+    for (const language of languages) {
+      const template = path.join(language.templates, api.template);
+      if (!fs.existsSync(template)) {
+        continue;
+      }
+      const all = { ...values, mapScenario: language.mapScenario };
+      const body = fs.readFileSync(template, 'utf8').replace(/\{\{(\w+)\}\}/g, (match, key) => all[key] ?? match);
+      const intro = source
+        .replace(/^title: .*$/m, `title: ${JSON.stringify(title)}`)
+        .replace(/^description: .*$/m, `description: ${JSON.stringify(language.description)}`)
+        .replace(/^sidebar_label: .*$/m, `sidebar_label: ${JSON.stringify(language.label)}`)
+        .replace(/(className=\{"openapi__heading"\}\s*children=\{)"[^"]*"/, `$1${JSON.stringify(title)}`)
+        // The badges of the endpoint pages instead of "Version: 26.10"
+        .replace(
+          /<span\s+className=\{"theme-doc-version-badge[^"]*"\}\s+children=\{"[^"]*"\}\s*>\s*<\/span>/,
+          `import { ApiBadges } from "@site/src/components/ApiPage";\n\n<ApiBadges api={${JSON.stringify(api.badge)}}${
+            target.docs === 'cloud' ? '' : ` version={${JSON.stringify(`v${target.version}`)}}`
+          } />`,
+        );
+      // Keep the front matter, the version badge and the title; replace the
+      // rest (logo, spec description, security schemes, contact and license)
+      // with the introduction.
+      const titleEnd = intro.indexOf('</Heading>');
+      fs.mkdirSync(language.dir, { recursive: true });
+      fs.writeFileSync(path.join(language.dir, infoFile), `${intro.slice(0, titleEnd + '</Heading>'.length)}\n\n${body}`);
+    }
 
     // Endpoint pages
     const infoPath = routeOf(target, `${REFERENCE_DIR}/${apiDir}/${infoId}`);
