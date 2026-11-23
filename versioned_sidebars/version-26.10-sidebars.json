@@ -1616,13 +1616,10 @@
       "label": "API",
       "className": "sidebar-icon sidebar-icon--extend",
       "link": {
-        "type": "generated-index"
+        "type": "doc",
+        "id": "api/introduction"
       },
       "items": [
-        {
-          "type": "doc",
-          "id": "api/introduction"
-        },
         {
           "type": "category",
           "label": "API V2",
