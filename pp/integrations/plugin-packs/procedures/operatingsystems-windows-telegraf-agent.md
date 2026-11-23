@@ -289,14 +289,14 @@ This connector relies on an integration supported by Centreon Engine and does no
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Macro          | Description                                                                                                                    | Default value | Mandatory |
-| :------------- | :----------------------------------------------------------------------------------------------------------------------------- | :------------ | :-------: |
-| NTPHOSTNAME    | Set the NTP server to use (if not set, we try to find it with w32tm command).                                                  |               |           |
-| NTPPORT        | Set the NTP port (default: 123).                                                                                               |               |           |
-| WARNINGOFFSET  | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. | -1:1          |           |
+| Macro          | Description                                                                                                                                                          | Default value | Mandatory |
+| :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------| :------------ | :-------: |
+| NTPHOSTNAME    | Set the NTP server to use (if not set, we try to find it with w32tm command).                                                                                        |               |           |
+| NTPPORT        | Set the NTP port (default: 123).                                                                                                                                     | 123           |           |
+| WARNINGOFFSET  | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds.   | -1:1          |           |
 | CRITICALOFFSET | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. | -2:2          |           |
-| TIMEOUT        | Set timeout time for 'w32tm' command execution (default: 30 sec).                                                              | 10            |           |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |               |           |
+| TIMEOUT        | Set timeout time for 'w32tm' command execution (default: 30 sec).                                                                                                    | 30            |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                       |               |           |
 
 </TabItem>
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
