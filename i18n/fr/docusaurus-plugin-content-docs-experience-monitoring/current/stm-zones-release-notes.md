@@ -32,7 +32,7 @@ Ne pas recopier la procédure de mise à jour dans l'entrée : mettre un lien.
 
 ## 1.0.5
 
-Date de sortie : à venir. [Procédure de mise à jour](configuration/user-journey/stm-zones.md#mettre-à-jour-une-sonde).
+Date de sortie : 25 novembre 2026. [Procédure de mise à jour](configuration/user-journey/stm-zones.md#mettre-à-jour-une-sonde).
 
 - **Amélioration** : la sonde masque les valeurs de parcours marquées comme secrètes dans tout ce qu'elle envoie à la plateforme (logs, enregistrements réseau et résultats), quel que soit le nom de la valeur. Les captures d'écran ne sont pas masquées. Les sondes antérieures à la version 1.0.5 ignorent le marquage secret et ne masquent les valeurs que d'après leur nom : si vous utilisez des valeurs secrètes, mettez à jour vos sondes.
 - **Correction, changement de comportement** : une étape de formulaire échoue désormais immédiatement lorsqu'un de ses champs est introuvable, et l'incident indique le nom de ce champ. Jusqu'ici, le champ était ignoré, le formulaire était tout de même envoyé et le parcours échouait plus tard, sur une étape sans rapport. Les parcours qui reposaient sur un champ ignoré sans avertissement vont se mettre à échouer.

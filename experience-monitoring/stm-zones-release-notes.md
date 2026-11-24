@@ -32,7 +32,7 @@ Do not copy the update procedure into the entry: link to it.
 
 ## 1.0.5
 
-Release date: TBD. [Update procedure](configuration/user-journey/stm-zones.md#update-a-probe).
+Release date: November 25th, 2026. [Update procedure](configuration/user-journey/stm-zones.md#update-a-probe).
 
 - **Enhancement**: The probe masks the journey values marked as secret in everything it uploads to the platform: logs, network recordings and results, whatever the name of the value. Screenshots are not masked. Probes older than 1.0.5 ignore the secret marking and only mask values based on their name: if you use secret values, update your probes.
 - **Fix, behaviour change**: A form step now fails immediately when one of its fields cannot be found, and the incident names that field. Until now, the field was skipped, the form was submitted anyway, and the journey failed later on an unrelated step. Journeys that relied on a field being silently skipped will start failing.
