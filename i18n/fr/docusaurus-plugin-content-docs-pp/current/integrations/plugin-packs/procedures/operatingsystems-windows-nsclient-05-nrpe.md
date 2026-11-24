@@ -443,6 +443,8 @@ dnf install nagios-plugins-nrpe
 | Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | NTPADDR      | Set the ntp hostname (if not set, we try to find it with w32tm command)                                                                  |                   |             |
+| NTPPORT      | Set the NTP port                                                                                                                         | 123               |             |
+| TIMEOUT      | Set timeout time for 'w32tm' command execution                                                                                           | 30                |             |
 | WARNING      | Warning threshold                                                                                                                        | -1:1              |             |
 | CRITICAL     | Critical threshold                                                                                                                       | -2:2              |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
