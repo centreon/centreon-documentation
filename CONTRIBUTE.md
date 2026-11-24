@@ -54,8 +54,8 @@ flowchart LR
 ````
 
 * Give each node a class instead of colors: `central`, `remote`, `poller`,
-  `database`, `question`, `answer` or `muted`. Colors are set once for all
-  diagrams in `src/css/mermaid.css`.
+  `database`, `component`, `question`, `answer` or `muted`. Colors are set
+  once for all diagrams in `src/css/mermaid.css`.
 * Describe the diagram with `accTitle` and `accDescr`: screen readers read them.
 * Use readable node IDs (`central`, `remote1`), and keep the same IDs and
   structure in the English and French versions: only labels are translated.

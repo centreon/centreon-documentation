@@ -9,7 +9,7 @@
  *   central   Central server        remote    Remote server
  *   poller    Poller                database  Database server
  *   question  Question (decision)   answer    Outcome (decision)
- *   muted     Secondary element
+ *   component Software component    muted     Secondary element
  */
 
 :root {
@@ -31,6 +31,9 @@
   --mermaid-answer-bg: #f3f1fe;
   --mermaid-answer-fg: #1d0a73;
   --mermaid-answer-border: #9b88f0;
+  --mermaid-component-bg: #ffffff;
+  --mermaid-component-fg: #1d0a73;
+  --mermaid-component-border: #3102dd;
   --mermaid-muted-bg: #f4f5f7;
   --mermaid-muted-fg: #4a4f57;
   --mermaid-muted-border: #c4c8cf;
@@ -57,6 +60,9 @@ html[data-theme='dark']:root {
   --mermaid-answer-bg: #1c2e3a;
   --mermaid-answer-fg: #bfeee1;
   --mermaid-answer-border: #37d6ae;
+  --mermaid-component-bg: #1c2e3a;
+  --mermaid-component-fg: #e3f7f1;
+  --mermaid-component-border: #37d6ae;
   --mermaid-muted-bg: #23252b;
   --mermaid-muted-fg: #b4b8bf;
   --mermaid-muted-border: #4b5058;
@@ -83,15 +89,16 @@ html[data-theme='dark']:root {
 .theme-mermaid .node.database { --bg: var(--mermaid-database-bg); --fg: var(--mermaid-database-fg); --border: var(--mermaid-database-border); }
 .theme-mermaid .node.question { --bg: var(--mermaid-question-bg); --fg: var(--mermaid-question-fg); --border: var(--mermaid-question-border); }
 .theme-mermaid .node.answer { --bg: var(--mermaid-answer-bg); --fg: var(--mermaid-answer-fg); --border: var(--mermaid-answer-border); }
+.theme-mermaid .node.component { --bg: var(--mermaid-component-bg); --fg: var(--mermaid-component-fg); --border: var(--mermaid-component-border); }
 .theme-mermaid .node.muted { --bg: var(--mermaid-muted-bg); --fg: var(--mermaid-muted-fg); --border: var(--mermaid-muted-border); }
 
-.theme-mermaid .node:is(.central, .remote, .poller, .database, .question, .answer, .muted) :is(rect, circle, ellipse, polygon, path) {
+.theme-mermaid .node:is(.central, .remote, .poller, .database, .question, .answer, .component, .muted) :is(rect, circle, ellipse, polygon, path) {
   fill: var(--bg) !important;
   stroke: var(--border) !important;
   stroke-width: 1.5px !important;
 }
 
-.theme-mermaid .node:is(.central, .remote, .poller, .database, .question, .answer, .muted) :is(.nodeLabel, .nodeLabel *, text) {
+.theme-mermaid .node:is(.central, .remote, .poller, .database, .question, .answer, .component, .muted) :is(.nodeLabel, .nodeLabel *, text) {
   color: var(--fg) !important;
   fill: var(--fg) !important;
 }
@@ -103,6 +110,12 @@ html[data-theme='dark']:root {
 /* Edges and their labels (Yes / No). */
 .theme-mermaid .flowchart-link {
   stroke: var(--mermaid-edge) !important;
+}
+
+/* Mermaid computes the dashes of each link inline, and sometimes draws a
+   dotted link (-.->) solid. */
+.theme-mermaid .flowchart-link.edge-pattern-dotted {
+  stroke-dasharray: 2 3 !important;
 }
 
 .theme-mermaid marker path {
