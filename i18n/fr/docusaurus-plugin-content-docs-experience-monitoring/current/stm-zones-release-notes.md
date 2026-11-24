@@ -8,7 +8,7 @@ La sonde interne est la sonde que vous déployez dans votre propre infrastructur
 
 Une sonde indique sa version dans ses logs au démarrage.
 
-Les versions sont classées de la plus récente à la plus ancienne. Chaque changement porte l'un des libellés suivants :
+Les versions sont classées de la plus récente à la plus ancienne. La date de sortie est celle à laquelle la version a été intégrée pour la release : l'image publique a pu être publiée plus tard. Chaque changement porte l'un des libellés suivants :
 
 - **Amélioration** : ajoute ou améliore une fonctionnalité.
 - **Correction** : corrige un défaut.

@@ -8,7 +8,7 @@ The internal probe is the probe you deploy in your own infrastructure to run use
 
 A probe writes its version in its logs when it starts.
 
-Versions are listed newest first. Each change is labeled as follows:
+Versions are listed newest first. Release dates are the day each version was merged for release: the public image may have been published later. Each change is labeled as follows:
 
 - **Enhancement**: adds or improves a capability.
 - **Fix**: corrects a defect.
