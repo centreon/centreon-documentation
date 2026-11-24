@@ -67,10 +67,10 @@ import TabItem from '@theme/TabItem';
 - [**VMware8 vCenter REST API**](../procedures/applications-virtualization-vmware8-vcenter-restapi.md) - Fixed an authentication failure (HTTP 401) when the username and password are longer than 57 characters in total.
 - [**VMware8 VCSA REST API**](../procedures/applications-virtualization-vmware8-vcsa-restapi.md) - Fixed an authentication failure (HTTP 401) when the username and password are longer than 57 characters in total.
 - [**VMware8 VM REST API**](../procedures/applications-virtualization-vmware8-vm-restapi.md) - Fixed an authentication failure (HTTP 401) when the username and password are longer than 57 characters in total.
-- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Fixed the **NTP** service, which did not work with an empty port: the port now defaults to 123 and the timeout matches the plugin default. Fixed `--filter-sessionname` in **sessions** mode, which did not always work depending on the system language.
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Fixed the **NTP** service, which did not work with an empty port: the port now defaults to 123 and the timeout matches the plugin default.
 - [**Windows NSClient 0.5 NRPE**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Fixed the **NTP** service, which did not work with an empty port: the port now defaults to 123 and the timeout matches the plugin default.
-- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - Fixed the **NTP** service, which did not work with an empty port: the port now defaults to 123 and the timeout matches the plugin default. Fixed `--filter-sessionname` in **sessions** mode, which did not always work depending on the system language.
-- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - Fixed the **NTP** service, which did not work with an empty port: the port now defaults to 123 and the timeout matches the plugin default. Fixed `--filter-sessionname` in **sessions** mode, which did not always work depending on the system language.
+- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - Fixed the **NTP** service, which did not work with an empty port: the port now defaults to 123 and the timeout matches the plugin default.
+- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - Fixed the **NTP** service, which did not work with an empty port: the port now defaults to 123 and the timeout matches the plugin default.
 
 </TabItem>
 </Tabs>
