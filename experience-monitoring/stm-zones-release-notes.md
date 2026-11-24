@@ -4,8 +4,6 @@ title: Internal probe (STM zones) release notes
 description: "Changes in each version of the internal probe that runs your private STM zones: new features, fixes and behaviour changes to check before you update."
 ---
 
-Changes in each version of the internal probe that runs your private STM zones.
-
 The internal probe is the probe you deploy in your own infrastructure to run user journeys from a [private STM zone](configuration/user-journey/stm-zones.md). Internal probes are not updated automatically, and only the latest version is supported: [update your probes](configuration/user-journey/stm-zones.md#update-a-probe) when a new version is released.
 
 A probe writes its version in its logs when it starts.
