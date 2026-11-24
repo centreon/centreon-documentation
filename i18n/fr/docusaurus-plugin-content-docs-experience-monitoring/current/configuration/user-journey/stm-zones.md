@@ -85,6 +85,12 @@ Pour savoir dans quelle version sont vos sondes, consultez [Versions de la sonde
 Pour mettre à jour une sonde :
 
 1. Sur la page de votre organisation, dans l'onglet **Zones de Monitoring Synthétique**, cliquez sur **Associer une sonde** à droite de votre zone, puis exécutez la commande Docker de connexion au registre.
-2. Sur la machine qui héberge la sonde, arrêtez et supprimez le conteneur de la sonde actuelle.
-3. Exécutez à nouveau la commande de la sonde avec votre jeton de sonde, comme à l'[étape 4](#étape-4--créer-et-démarrer-la-sonde). La dernière version de l'image est téléchargée et démarrée.
+2. Sur la machine qui héberge la sonde, téléchargez la dernière version de l'image. Utilisez le nom de l'image qui figure dans la commande de la sonde :
+
+   ```shell
+   docker pull <image de la sonde>
+   ```
+
+3. Arrêtez et supprimez le conteneur de la sonde actuelle.
+4. Exécutez à nouveau la commande de la sonde avec votre jeton de sonde, comme à l'[étape 4](#étape-4--créer-et-démarrer-la-sonde). La sonde démarre avec la dernière version de l'image.
 
