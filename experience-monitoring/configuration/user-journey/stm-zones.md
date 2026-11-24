@@ -80,7 +80,7 @@ If you are running into any issues, try our [user journey troubleshooting guide]
 
 Internal probes are not updated automatically, and only the latest version is supported. Check the [internal probe release notes](../../stm-zones-release-notes.md) for the changes in each version, especially behaviour changes that may make an existing journey fail.
 
-A probe writes its version in its logs when it starts.
+To check which version your probes run, see [Internal probe versions](stm-zones-versions.md).
 
 To update a probe:
 

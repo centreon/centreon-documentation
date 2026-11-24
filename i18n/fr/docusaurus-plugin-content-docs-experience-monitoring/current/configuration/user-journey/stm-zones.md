@@ -80,7 +80,7 @@ Si vous rencontrez des soucis, essayez notre [guide de dépannage pour parcours 
 
 Les sondes internes ne sont pas mises à jour automatiquement, et seule la dernière version est prise en charge. Consultez les [notes de release de la sonde interne](../../stm-zones-release-notes.md) pour connaître les changements de chaque version, en particulier les changements de comportement qui peuvent faire échouer un parcours existant.
 
-Une sonde indique sa version dans ses logs au démarrage.
+Pour savoir dans quelle version sont vos sondes, consultez [Versions de la sonde interne](stm-zones-versions.md).
 
 Pour mettre à jour une sonde :
 

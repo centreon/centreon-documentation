@@ -6,7 +6,7 @@ description: "Changes in each version of the internal probe that runs your priva
 
 The internal probe is the probe you deploy in your own infrastructure to run user journeys from a [private STM zone](configuration/user-journey/stm-zones.md). Internal probes are not updated automatically, and only the latest version is supported: [update your probes](configuration/user-journey/stm-zones.md#update-a-probe) when a new version is released.
 
-A probe writes its version in its logs when it starts.
+To check which version your probes run and what the support policy is, see [Internal probe versions](configuration/user-journey/stm-zones-versions.md).
 
 Versions are listed newest first. Release dates are the day each version was merged for release: the public image may have been published later. Each change is labeled as follows:
 
