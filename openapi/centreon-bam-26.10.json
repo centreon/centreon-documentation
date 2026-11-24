@@ -3,14 +3,17 @@
   "info": {
     "title": "Centreon BAM API",
     "description": "# Authentication\nThere are two modes of authentication:\n* By token: after identification with your login credentials\n* By cookie: by reusing a valid session ID\n",
-    "x-logo": {
-      "url": "../../../centreon-logo.png"
-    },
     "contact": {
       "name": "Centreon",
       "url": "https://www.centreon.com"
     },
-    "version": "26.10"
+    "version": "26.10",
+    "x-source": {
+      "repo": "centreon/centreon-modules",
+      "path": "centreon-bam/doc/API/centreon-bam-api.yaml",
+      "ref": "release-onprem-20261001-26.10",
+      "commit": "52a96d5e1d71d3c9d1074dc803a00fab86e78a63"
+    }
   },
   "externalDocs": {
     "description": "You can contact us on our community platform The Watch",

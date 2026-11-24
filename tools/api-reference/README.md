@@ -3,25 +3,27 @@
 The API reference is generated from OpenAPI specifications with
 [docusaurus-plugin-openapi-docs](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs):
 one page per endpoint, with its parameters, request and response schemas and
-code samples. It is part of the OnPrem and Cloud docs: each API is a category
-of the **API** section of their sidebar (**API V2**, **Autodiscovery API**,
-**MAP API**, **BAM API**),
-and its pages follow the version of the docs.
+code samples. It is part of the OnPrem, Cloud and Log Management docs: each API is a
+category of the **API** section of their sidebar (**API V2**, **Autodiscovery
+API**, **MAP API**, **BAM API**; **API** for Log Management), and its pages
+follow the version of the docs.
 
-| Documentation | API V2                        | Autodiscovery API                     | MAP API                   | BAM API                   |
-|---------------|-------------------------------|---------------------------------------|---------------------------|---------------------------|
-| OnPrem 24.10  | `centreon-web-24.10.json`     |                                       |                           |                           |
-| OnPrem 25.10  | `centreon-web-25.10.json`     |                                       |                           |                           |
-| OnPrem 26.10  | `centreon-web-26.10.json`     | `centreon-autodiscovery-26.10.json`   | `centreon-map-26.10.json` | `centreon-bam-26.10.json` |
-| OnPrem 27.10  | `centreon-web-26.10.json` (*) | `centreon-autodiscovery-26.10.json`   | `centreon-map-26.10.json` | `centreon-bam-26.10.json` |
-| Cloud         | `centreon-web-cloud.json`     | `centreon-autodiscovery-cloud.json`   | `centreon-map-26.10.json` | `centreon-bam-cloud.json` |
+| Documentation  | Reference (`sources.yaml`)      | API V2                    | Autodiscovery API                   | MAP API                   | BAM API                   |
+|----------------|---------------------------------|---------------------------|-------------------------------------|---------------------------|---------------------------|
+| OnPrem 24.10   | `release-onprem-…-24.10`        | `centreon-web-24.10.json` |                                     |                           |                           |
+| OnPrem 25.10   | `release-onprem-…-25.10`        | `centreon-web-25.10.json` |                                     |                           |                           |
+| OnPrem 26.10   | `release-onprem-…-26.10`        | `centreon-web-26.10.json` | `centreon-autodiscovery-26.10.json` | `centreon-map-26.10.json` | `centreon-bam-26.10.json` |
+| OnPrem 27.10   | `develop` (next version)        | `centreon-web-27.10.json` | `centreon-autodiscovery-27.10.json` | `centreon-map-27.10.json` | `centreon-bam-27.10.json` |
+| Cloud          | `release-cloud-…`               | `centreon-web-cloud.json` | `centreon-autodiscovery-cloud.json` | `centreon-map-26.10.json` | `centreon-bam-cloud.json` |
+| Log Management | published spec (SaaS)           | `centreon-log-management-saas.json` (**API**) |                 |                           |                           |
 
-(*) No spec of 27.10 yet.
-
+- `openapi/sources.yaml` declares where each spec comes from: the repository
+  and path of each API, and the reference of each documentation (a release
+  tag, `develop` for the next version). See [Updating the specs](#updating-the-specs).
 - `apis.mjs` declares which API is published in which documentation (the
   table above), and gives the entries of the plugin
-  (`docusaurus.config.js`). To add an API or a version, add its spec in
-  `openapi/` and its entry in `TARGETS`.
+  (`docusaurus.config.js`). To add an API or a version, add it in
+  `openapi/sources.yaml`, run `pnpm api:sync`, and add its entry in `TARGETS`.
 - `generate.mjs` (`pnpm gen-api`, run before `pnpm start` and `pnpm build`)
   generates the pages of each API in `<docs>/api/reference/<api>/`
   (`versioned_docs/version-<version>/…` or `cloud/…`), with `sidebar.json`,
@@ -74,34 +76,81 @@ and its pages follow the version of the docs.
   objects, kept in English).
 - `API=0` builds the site without the API reference.
 
-POC: the specs were taken from https://docs-api.centreon.com, where they are
-already bundled, then fixed:
+## Updating the specs
 
-- servers: real URL patterns (`https://your-centreon-server:443/centreon/api/latest`,
-  Cloud instance URL, MAP server on port 9443) instead of `localhost` and a
-  wrong `v25.10` default in the 26.10 spec;
-- Cloud: HTML notice replaced with an admonition (it broke the MDX build);
-- MAP: unresolved `$ref` removed, readable tags (`Maps`, `Views`…) instead of
-  Java controller names, and a summary for every endpoint; the API token
-  (`X-AUTH-TOKEN`) is the first security scheme, as for the other APIs;
-- Web and Cloud: the `Cookie` security scheme (`PHPSESSID`) is removed: a
-  browser does not send this cookie from another site, so it cannot work from
-  this reference, and it added a confusing "Security Scheme" list;
-- Web: the `version` server variable is a list (`latest`, `v<version>`);
-- BAM (OnPrem and Cloud, same endpoints): taken from
-  https://docs-api.centreon.com/api/centreon-bam/ and `…/cloud/`; the `Cookie`
-  security scheme is removed, and the server is the real one: the central
-  server (`https://your-centreon-server:443/centreon`, the paths start with
-  `/api/`) or the Cloud instance URL;
-- Autodiscovery (OnPrem and Cloud, same endpoints): taken from the Redoc
-  pages https://docs-api.centreon.com/api/centreon-autodiscovery/ and
-  `…/cloud/` (the spec is embedded in the page, `__redoc_state`); the
-  `Cookie` security scheme is removed, and the server is the real one:
-  `https://your-centreon-server:443/centreon/api/latest/auto-discovery`, or
-  the Cloud instance URL followed by `/api/latest/auto-discovery`;
-- Web 24.10: 5 `$ref` with a wrong relative path in the product sources
-  (`centreon/doc/API/latest/onPremise/…`) are resolved from the files they
-  point to.
+The specs of `openapi/` are taken from the product repositories by
+`pnpm api:sync` (`sync.mjs`), never by hand:
 
-The target is to take the specs from the product repositories at each release
-tag, and to make these fixes there.
+| API                         | Repository                              | Spec                                                       |
+|-----------------------------|-----------------------------------------|------------------------------------------------------------|
+| Web (OnPrem; Cloud)         | `centreon/centreon`                     | `centreon/doc/API/centreon-api.yaml`; `…/centreon-cloud-api.yaml` |
+| Autodiscovery, MAP, BAM     | `centreon/centreon-modules` (private)   | `centreon-<module>/doc/API/centreon-<module>-api.yaml`     |
+| Log Management              | `centreon/centreon-pulse` (private)     | built from the Rust code, published by its CI on each push to `develop`: https://docs-api.centreon.com/api/centreon-log-management/openapi.json |
+
+For each documentation of `openapi/sources.yaml`, the script takes each spec
+at the reference of the documentation (sparse, shallow clone), bundles it
+with its `$ref` files (`@redocly/openapi-core`, as the product does for
+docs-api.centreon.com), applies the fixes of `fixes.mjs`, and writes
+`openapi/centreon-<api>-<version>.json`, with its origin in `info.x-source`
+(repository, path, reference and commit; or URL and hash). It then lists the
+endpoints added and removed.
+
+```bash
+pnpm api:sync                  # every documentation
+pnpm api:sync 27.10 saas       # these documentations only
+pnpm api:sync --check          # fails if a spec is not up to date
+```
+
+Reading `centreon-modules` needs a GitHub token: `GH_TOKEN`, `GITHUB_TOKEN`
+or the one of the GitHub CLI (`gh auth login`).
+
+- **Release** of a version: change its `ref` in `openapi/sources.yaml` to the
+  release tag (`release-onprem-<date>-<version>`, `release-cloud-<date>-<yy.mm>`,
+  shared by `centreon` and `centreon-modules`), run `pnpm api:sync <version>`
+  and commit the specs. A released version is never synced from a branch.
+- **New version**: add it in `openapi/sources.yaml` (`develop` until its
+  release) and in `TARGETS`; the former next version gets its release tag.
+- **Weekly**: the `api-sync` workflow syncs the next version (`develop`) and
+  Log Management, and opens a pull request when a spec changes
+  (`.github/workflows/api-sync.yml`).
+
+### Fixes
+
+`fixes.mjs` fixes what the product specs get wrong for this reference, one
+function per fix, with why. They should move to the product repositories:
+then remove them.
+
+- servers: real URL patterns (`https://your-centreon-server:443/centreon`,
+  Cloud instance URL, MAP server on port 9443) instead of
+  `http://localhost:80`, and the right version (`v25.10` in the 26.10
+  Autodiscovery spec);
+- the `Cookie` security scheme (`PHPSESSID`) is removed: a browser does not
+  send this cookie from another site, so it cannot work from this reference;
+- HTML notices (Cloud) become admonitions (they break the MDX build);
+- endpoints without `operationId` and with the same summary (Web: "List all
+  host groups" in configuration and monitoring) get an `operationId`, or the
+  generator gives them the same page and one is lost;
+- MAP: readable tags (`Maps`, `Views`…) instead of Java controller names, a
+  summary for every endpoint, and the API token first;
+- Autodiscovery: the description of the API token;
+- Log Management: the title, the role out of the summaries (`[Editor]: …`),
+  and the API key *or* the CCIAM login for each endpoint (the spec requires
+  both at once).
+
+### Errors of the product specs
+
+The script accepts what Redoc (docs-api.centreon.com) accepts, and lists it
+(`product spec to fix: …`) so that it gets fixed in the product:
+
+- YAML that js-yaml 5 (Redocly) rejects but js-yaml 4 reads: a flow
+  collection (`[ { … } ]`) less indented than its key, a duplicated key
+  (Web 24.10 to 27.10, Autodiscovery);
+- YAML that no parser reads: an empty schema (Web 24.10:
+  `AgentConfiguration/Schema/UpdateAcRequest.yaml`, broken in every 24.10
+  release since September 2025);
+- a `$ref` to a missing component: an empty schema (Web 25.10:
+  `#/components/schemas/ServiceCategory`);
+- a `$ref` written from the root of the repository (MAP:
+  `centreon-map/doc/API/info.yaml`);
+- a `$ref` the bundler does not follow, in an invalid place of the spec (a
+  schema written as a list, `allOf` in a response): inlined (Web 24.10).

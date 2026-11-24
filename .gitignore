@@ -28,6 +28,8 @@ package-lock.json
 # API reference: pages generated from openapi/ by `pnpm gen-api`
 versioned_docs/*/api/reference/
 cloud/api/reference/
+logmanagement/api/reference/
 i18n/fr/docusaurus-plugin-content-docs/*/api/reference/
 i18n/fr/docusaurus-plugin-content-docs-cloud/current/api/reference/
+i18n/fr/docusaurus-plugin-content-docs-logmanagement/current/api/reference/
 static/api/

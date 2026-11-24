@@ -1,0 +1,60 @@
+import { ApiConfiguration, ApiDownload } from '@site/src/components/ApiSetup';
+import { ApiStatusList } from '@site/src/components/ApiPage';
+
+L'API REST Centreon Log Management permet à vos scripts et à vos outils de travailler avec vos logs et vos traces : les rechercher, gérer les règles d'alerte, les acquittements et les plages de maintenance, les tableaux de bord, les canaux de notification et les paramètres de votre organisation.
+
+<ApiDownload spec="{{spec}}" name="Centreon Log Management REST API" />
+
+## Démarrer en 3 étapes
+
+### 1. Trouvez l'URL de l'API
+
+Tous les endpoints de cette référence partent de l'URL de l'API Log Management :
+
+```text
+{{baseUrl}}
+```
+
+### 2. Obtenez un jeton
+
+Créez un jeton dans **Administration > Token management** : cliquez sur **Add**, entrez un nom, puis cliquez sur **Generate token** (voir [Gérer les jetons d'authentification]({{tokensDoc}})). Le jeton ne s'affiche qu'une seule fois : stockez-le de manière sécurisée.
+
+### 3. Appelez l'API
+
+Envoyez le jeton dans l'en-tête `X-Api-Key` de chaque requête. La plupart des endpoints portent sur une organisation : récupérez d'abord l'identifiant de la vôtre.
+
+```bash
+curl -s "{{baseUrl}}/v1/orgs" \
+  -H "X-Api-Key: <token>"
+```
+
+Utilisez-le ensuite dans le chemin des autres endpoints. Par exemple, pour lister vos règles d'alerte :
+
+```bash
+curl -s "{{baseUrl}}/v1/orgs/<org>/alerts" \
+  -H "X-Api-Key: <token>"
+```
+
+Chaque page d'endpoint indique le rôle minimum nécessaire (**User**, **Editor** ou **Admin**).
+
+:::info
+
+Quelques endpoints (favoris, jetons) demandent une session utilisateur dans l'interface de Centreon Log Management et n'acceptent pas de jeton : ils ne peuvent pas être appelés depuis un script.
+
+:::
+
+## Configurer cette référence {#configure}
+
+Saisissez votre jeton pour envoyer des requêtes depuis cette référence avec **Envoyer la requête**. Le panneau de requête et les exemples de code de chaque page d'endpoint l'utilisent jusqu'à la fermeture de cet onglet du navigateur.
+
+<ApiConfiguration server={{{server}}} auth="{{auth}}" tokenLabel="Jeton (X-Api-Key)" />
+
+## Erreurs
+
+Une erreur renvoie un code de statut HTTP et un corps JSON qui l'explique. Les plus fréquentes :
+
+<ApiStatusList codes={[400, 401, 403, 404, 500]} />
+
+## Outils
+
+- **Définition OpenAPI** : téléchargez-la avec le bouton en haut de cette page, pour importer l'API dans Postman, Bruno ou Insomnia, ou pour générer un client.

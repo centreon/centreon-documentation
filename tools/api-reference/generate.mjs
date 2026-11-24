@@ -19,7 +19,7 @@
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
-import { APIS, REFERENCE_DIR, TARGETS } from './apis.mjs';
+import { APIS, REFERENCE_DIR, TARGETS, isOnPrem } from './apis.mjs';
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
 const INTROS_DIR = path.join(HERE, 'intros');
@@ -45,15 +45,15 @@ const lastVersion = allVersions.find((version) => builtVersions.includes(version
 // French translation of a documentation (the "Get started" pages only: the
 // endpoint pages come from the specs, in English).
 function frenchDocsOf(target) {
-  return target.docs === 'cloud'
-    ? path.join('i18n', 'fr', 'docusaurus-plugin-content-docs-cloud', 'current')
-    : target.docs.replace(/^versioned_docs\//, path.join('i18n', 'fr', 'docusaurus-plugin-content-docs') + '/');
+  return isOnPrem(target)
+    ? target.docs.replace(/^versioned_docs\//, path.join('i18n', 'fr', 'docusaurus-plugin-content-docs') + '/')
+    : path.join('i18n', 'fr', `docusaurus-plugin-content-docs-${target.docs}`, 'current');
 }
 
 // Route of a page of the API reference, from the root of the site.
 function routeOf(target, docId) {
-  if (target.docs === 'cloud') {
-    return `cloud/${docId}`;
+  if (!isOnPrem(target)) {
+    return `${target.docs}/${docId}`; // cloud/…, logmanagement/…
   }
   return target.version === lastVersion ? `docs/${docId}` : `docs/${target.version}/${docId}`;
 }
@@ -241,11 +241,19 @@ for (const target of TARGETS) {
     };
     const title = api.title;
     const source = fs.readFileSync(path.join(dir, infoFile), 'utf8');
+    // Base URL of the reference: up to /api/latest when the server of the
+    // spec has the API version (up to 25.10), the web root otherwise: the
+    // paths then start with /api/latest/ (26.10 and later).
+    const versionInServer = (spec.servers?.[0]?.url ?? '').includes('{version}');
+    const apiUrl = versionInServer ? `${target.values.baseUrl}/api/latest` : target.values.baseUrl;
     const languages = [
       {
         dir,
         templates: INTROS_DIR,
         label: 'Get started',
+        apiUrlNote: versionInServer
+          ? `\`latest\` targets the most recent API version of your platform. To pin a version, replace it with \`v${target.version}\`.`
+          : 'The path of each endpoint starts with `/api/`, most often followed by the API version: `latest`, the most recent API version of your platform.',
         description: api.description(target),
         mapScenario: target.values.mapDoc
           ? `- [Centreon MAP API](${target.values.mapDoc}): a complete scenario, from sign-in to adding a shape on a map.\n`
@@ -255,6 +263,9 @@ for (const target of TARGETS) {
         dir: path.join(frenchDocsOf(target), REFERENCE_DIR, apiDir),
         templates: path.join(INTROS_DIR, 'fr'),
         label: 'Démarrer',
+        apiUrlNote: versionInServer
+          ? `\`latest\` désigne la version d'API la plus récente de votre plateforme. Pour fixer une version, remplacez-le par \`v${target.version}\`.`
+          : "Le chemin de chaque endpoint commence par `/api/`, le plus souvent suivi de la version de l'API : `latest`, la version d'API la plus récente de votre plateforme.",
         description: api.descriptionFr(target),
         mapScenario: target.values.mapDoc
           ? `- [Automatiser MAP via l'API](${target.values.mapDoc}) : un scénario complet, de la connexion à l'ajout d'une forme sur une carte.\n`
@@ -266,7 +277,7 @@ for (const target of TARGETS) {
       if (!fs.existsSync(template)) {
         continue;
       }
-      const all = { ...values, mapScenario: language.mapScenario };
+      const all = { ...values, apiUrl, apiUrlNote: language.apiUrlNote, mapScenario: language.mapScenario };
       const body = fs.readFileSync(template, 'utf8').replace(/\{\{(\w+)\}\}/g, (match, key) => all[key] ?? match);
       const intro = source
         .replace(/^title: .*$/m, `title: ${JSON.stringify(title)}`)
@@ -277,7 +288,7 @@ for (const target of TARGETS) {
         .replace(
           /<span\s+className=\{"theme-doc-version-badge[^"]*"\}\s+children=\{"[^"]*"\}\s*>\s*<\/span>/,
           `import { ApiBadges } from "@site/src/components/ApiPage";\n\n<ApiBadges api={${JSON.stringify(api.badge)}}${
-            target.docs === 'cloud' ? '' : ` version={${JSON.stringify(`v${target.version}`)}}`
+            isOnPrem(target) ? ` version={${JSON.stringify(`v${target.version}`)}}` : ''
           } />`,
         );
       // Keep the front matter, the version badge and the title; replace the
@@ -293,7 +304,7 @@ for (const target of TARGETS) {
     const server = resolveServer(spec.servers?.[0]);
     const pageProps = {
       api: api.badge,
-      version: target.docs === 'cloud' ? null : `v${target.version}`,
+      version: isOnPrem(target) ? `v${target.version}` : null,
       baseUrl: server.url,
       auth: authOf(spec),
     };
@@ -307,7 +318,7 @@ for (const target of TARGETS) {
       content = layoutEndpointPage(content, {
         ...pageProps,
         prefix: server.path,
-        cloudNotice: target.docs === 'cloud' ? null : cloudReference,
+        cloudNotice: isOnPrem(target) ? cloudReference : null,
       });
       fs.writeFileSync(page, content);
     }
