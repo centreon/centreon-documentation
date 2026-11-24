@@ -1,6 +1,6 @@
 ---
 id: stm-zones-release-notes
-title: Internal probe release notes
+title: Internal probe (STM zones) release notes
 description: "Changes in each version of the internal probe that runs your private STM zones: new features, fixes and behaviour changes to check before you update."
 ---
 
