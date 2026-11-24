@@ -1118,6 +1118,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Fixed the **NTP** service, which did not work with an empty port: the port now defaults to 123 and the timeout matches the plugin default.
 - [26.09](../releases/release-notes.md#2026-09) - Enhancement: `centreon_plugins.exe` now supports the curl HTTP backend.
 - [26.09](../releases/release-notes.md#2026-09) - Bug fix: Fixed qwinsta parsing failures with specific languages in **sessions** mode.
 - [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added timeout macro to all native CMA checks.

@@ -372,3 +372,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=tracking \
 	--help
 ```
+
+## Changelog
+
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Removed a line break left in the command line of the **Blockchain-Parity-Ethpoller-Tracking** command.

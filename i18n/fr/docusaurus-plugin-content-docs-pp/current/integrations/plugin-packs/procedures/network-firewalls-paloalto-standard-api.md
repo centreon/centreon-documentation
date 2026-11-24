@@ -804,5 +804,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Fixed the command line of the **Panorama-Certificate** service (`--include-device-hostname`, `--exclude-device-hostname` and `EXTRAOPTIONS` macro) and a typo in a **Health** macro. Removed a line break left in the command line of the **Net-PaloAlto-Panorama-Api-Health** command.
 - [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added **certificates** and **health** modes and host discovery to handle Panorama.
 - [26.04](../releases/release-notes.md#2026-04) - New connector: Initial release.

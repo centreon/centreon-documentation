@@ -1542,6 +1542,7 @@ sudo -u telegraf /usr/lib/centreon/plugins/centreon_linux_local.pl \
 
 ## Changelog
 
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Removed a line break left in the command line of the **OS-Linux-Telegraf-Agent-Cpu** command.
 - [25.09](../releases/release-notes.md#2025-09) - Enhancement: Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
 - [24.11](../releases/release-notes.md#2024-11) - Breaking change: The default inherited templates are now passive.
 - [24.10](../releases/release-notes.md#2024-10) - Bug fix: Added an `--output-fields` option for some OSs in the **systemd-journal** mode, when journalctl is in version 236 or higher.

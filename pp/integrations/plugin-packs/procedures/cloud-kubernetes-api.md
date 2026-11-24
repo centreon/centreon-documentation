@@ -1651,6 +1651,7 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Fixed **resourcequota-status** mode: CPU quantities in millicores and hugepages quantities are now converted, which fixes usage percentages multiplied by 1000 and false CRITICAL alerts.
 - [26.09](../releases/release-notes.md#2026-09) - Enhancement: Added new **pod-usage** mode and the associated service discovery rule.
 - [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added **ResourceQuota-Status** service and enhanced **Deployment-Status** service with label filter, based on a community contribution [PR 5812](https://github.com/centreon/centreon-plugins/pull/5812).
 - [26.05](../releases/release-notes.md#2026-05) - Enhancement: Added `include-status` and `exclude-status` options in **node-usage** mode.

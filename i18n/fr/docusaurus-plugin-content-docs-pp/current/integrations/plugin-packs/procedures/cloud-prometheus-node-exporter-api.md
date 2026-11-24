@@ -536,4 +536,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Fixed **interfaces** mode with node_exporter versions older than 1.6.0: the admin status is now computed when the `adminstate` label is missing, which removes the `uninitialized value` warnings in the discovery and makes the default critical threshold work again.
 - [25.11](../releases/release-notes.md#2025-11) - Enhancement: Added **uptime** mode, **storage** mode and its discovery and **interfaces** mode and its discovery.

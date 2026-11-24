@@ -338,5 +338,6 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Removed a line break left in the command line of the **App-Jmeter-Scenario** command.
 - [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added `--command-path` option as macro in host template.
 - [24.12](../releases/release-notes.md#2024-12) - New connector: Initial release of JMeter.

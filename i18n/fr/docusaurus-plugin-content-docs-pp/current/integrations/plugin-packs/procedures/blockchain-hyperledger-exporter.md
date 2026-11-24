@@ -405,3 +405,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode=web \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Removed a line break left in the command line of the **Blockchain-Hyperledger-Exporter-Channels** command.

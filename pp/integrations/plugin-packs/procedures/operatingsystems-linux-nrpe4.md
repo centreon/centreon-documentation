@@ -1422,6 +1422,7 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Removed a line break left in the command line of the **OS-Linux-NRPE4-Cpu** and **OS-Linux-NRPE4-Traffic** commands.
 - [26.05](../releases/release-notes.md#2026-05) - Enhancement: Added EL10 and Debian13 prerequisites.
 - [25.09](../releases/release-notes.md#2025-09) - Enhancement: Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
 - [24.10](../releases/release-notes.md#2024-10) - Bug fix: Added an `--output-fields` option for some OSs in the **systemd-journal** mode, when journalctl is in version 236 or higher.

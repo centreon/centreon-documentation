@@ -445,4 +445,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Removed a line break left in the command line of the **App-Activemq-Jmx-Brokers-Discover** command.
 - [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.
