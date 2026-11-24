@@ -498,5 +498,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Fixed an authentication failure (HTTP 401) when the username and password are longer than 57 characters in total.
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Fixed an authentication failure (HTTP 401) that occurred when the username and password were longer than 57 characters in total.
 - [26.01](../releases/release-notes.md#2026-01) - New connector: Initial release ([Issue 5551](https://github.com/centreon/centreon-plugins/issues/5551)).

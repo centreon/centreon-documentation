@@ -905,7 +905,7 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.11](../releases/release-notes.md#2026-11) - Enhancement: Added native SNMP v3 host macros. Added the `auto` value to the `--space-reservation` option of **disk-usage** mode, to compute the real reserved space of each partition, based on community contribution [PR 6352](https://github.com/centreon/centreon-plugins/pull/6352).
+- [26.11](../releases/release-notes.md#2026-11) - Enhancement: Added native SNMP v3 host macros. Added the `auto` value to the `--space-reservation` option of the **disk-usage** mode, to compute the real reserved space of each partition. Based on community contribution [PR 6352](https://github.com/centreon/centreon-plugins/pull/6352).
 - [26.11](../releases/release-notes.md#2026-11) - Bug fix: Fixed the `--snmp-tls-trust-cert` option, which was silently ignored: SNMPv3 over TLS/DTLS checks relying on a trusted CA failed with `unable to get local issuer certificate`.
 - [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed **Disk-Usage-Cloud-Global** command.
 - [25.01](../releases/release-notes.md#2025-01) - Bug fix: Removed unrelated service templates.

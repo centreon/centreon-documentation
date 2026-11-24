@@ -534,7 +534,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Fixed an authentication failure (HTTP 401) when the username and password are longer than 57 characters in total.
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Fixed an authentication failure (HTTP 401) that occurred when the username and password were longer than 57 characters in total.
 - [26.10](../releases/release-notes.md#2026-10) - Bug fix: Discovery: the default template no longer maps the VM name to the host address when no IP is reported. This used to create hosts with invalid addresses that could not be edited or deleted.
 - [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added tags to host discovery.
 - [26.05](../releases/release-notes.md#2026-05) - Bug fix: Plugin can now recover from a corrupted cache.

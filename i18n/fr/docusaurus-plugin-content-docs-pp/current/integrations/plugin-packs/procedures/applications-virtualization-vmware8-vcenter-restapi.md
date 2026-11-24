@@ -474,7 +474,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Fixed an authentication failure (HTTP 401) when the username and password are longer than 57 characters in total.
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Fixed an authentication failure (HTTP 401) that occurred when the username and password were longer than 57 characters in total.
 - [26.07](../releases/release-notes.md#2026-07) - Bug fix: Removed 4000 VMs limit for `vm-count` counter.
 - [26.05](../releases/release-notes.md#2026-05) - Bug fix: Plugin can now recover from a corrupted cache.
 - [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed **Clusters** and **Datastores** discovery macros.
