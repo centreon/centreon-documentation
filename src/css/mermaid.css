@@ -1,0 +1,130 @@
+/*
+ * Mermaid diagrams (```mermaid code blocks, see src/theme/Mermaid).
+ *
+ * Diagrams only say what a node is, with a class: `central:::central`.
+ * The colors are set here, once for every diagram, in light and dark mode.
+ * Mermaid writes its theme in the SVG with an id selector, hence !important.
+ *
+ * Classes:
+ *   central   Central server        remote    Remote server
+ *   poller    Poller                database  Database server
+ *   question  Question (decision)   answer    Outcome (decision)
+ *   muted     Secondary element
+ */
+
+:root {
+  --mermaid-central-bg: #3102dd;
+  --mermaid-central-fg: #ffffff;
+  --mermaid-central-border: #24009f;
+  --mermaid-remote-bg: #e9e4fd;
+  --mermaid-remote-fg: #1d0a73;
+  --mermaid-remote-border: #3102dd;
+  --mermaid-poller-bg: #e3f8f1;
+  --mermaid-poller-fg: #0b5640;
+  --mermaid-poller-border: #1fa67f;
+  --mermaid-database-bg: #fff4dc;
+  --mermaid-database-fg: #6b4500;
+  --mermaid-database-border: #d99a1c;
+  --mermaid-question-bg: #ffffff;
+  --mermaid-question-fg: #1c1e21;
+  --mermaid-question-border: #8a8f98;
+  --mermaid-answer-bg: #f3f1fe;
+  --mermaid-answer-fg: #1d0a73;
+  --mermaid-answer-border: #9b88f0;
+  --mermaid-muted-bg: #f4f5f7;
+  --mermaid-muted-fg: #4a4f57;
+  --mermaid-muted-border: #c4c8cf;
+  --mermaid-edge: #6b7280;
+  --mermaid-edge-label-bg: var(--ifm-background-color);
+}
+
+html[data-theme='dark']:root {
+  --mermaid-central-bg: #37d6ae;
+  --mermaid-central-fg: #08261e;
+  --mermaid-central-border: #5ee6c4;
+  --mermaid-remote-bg: #1c2e3a;
+  --mermaid-remote-fg: #bfeee1;
+  --mermaid-remote-border: #37d6ae;
+  --mermaid-poller-bg: #1d2a24;
+  --mermaid-poller-fg: #b9e8c9;
+  --mermaid-poller-border: #5fbf86;
+  --mermaid-database-bg: #2e2716;
+  --mermaid-database-fg: #f5d99a;
+  --mermaid-database-border: #c9962e;
+  --mermaid-question-bg: #23252b;
+  --mermaid-question-fg: #e3e3e3;
+  --mermaid-question-border: #6b7280;
+  --mermaid-answer-bg: #1c2e3a;
+  --mermaid-answer-fg: #bfeee1;
+  --mermaid-answer-border: #37d6ae;
+  --mermaid-muted-bg: #23252b;
+  --mermaid-muted-fg: #b4b8bf;
+  --mermaid-muted-border: #4b5058;
+  --mermaid-edge: #8a8f98;
+}
+
+.theme-mermaid {
+  margin: 0 0 var(--ifm-leading);
+}
+
+.theme-mermaid .docusaurus-mermaid-container {
+  overflow-x: auto;
+  text-align: center;
+}
+
+.theme-mermaid svg {
+  height: auto;
+}
+
+/* Node colors, one block per class. */
+.theme-mermaid .node.central { --bg: var(--mermaid-central-bg); --fg: var(--mermaid-central-fg); --border: var(--mermaid-central-border); }
+.theme-mermaid .node.remote { --bg: var(--mermaid-remote-bg); --fg: var(--mermaid-remote-fg); --border: var(--mermaid-remote-border); }
+.theme-mermaid .node.poller { --bg: var(--mermaid-poller-bg); --fg: var(--mermaid-poller-fg); --border: var(--mermaid-poller-border); }
+.theme-mermaid .node.database { --bg: var(--mermaid-database-bg); --fg: var(--mermaid-database-fg); --border: var(--mermaid-database-border); }
+.theme-mermaid .node.question { --bg: var(--mermaid-question-bg); --fg: var(--mermaid-question-fg); --border: var(--mermaid-question-border); }
+.theme-mermaid .node.answer { --bg: var(--mermaid-answer-bg); --fg: var(--mermaid-answer-fg); --border: var(--mermaid-answer-border); }
+.theme-mermaid .node.muted { --bg: var(--mermaid-muted-bg); --fg: var(--mermaid-muted-fg); --border: var(--mermaid-muted-border); }
+
+.theme-mermaid .node:is(.central, .remote, .poller, .database, .question, .answer, .muted) :is(rect, circle, ellipse, polygon, path) {
+  fill: var(--bg) !important;
+  stroke: var(--border) !important;
+  stroke-width: 1.5px !important;
+}
+
+.theme-mermaid .node:is(.central, .remote, .poller, .database, .question, .answer, .muted) :is(.nodeLabel, .nodeLabel *, text) {
+  color: var(--fg) !important;
+  fill: var(--fg) !important;
+}
+
+.theme-mermaid .node.central .nodeLabel {
+  font-weight: 600;
+}
+
+/* Edges and their labels (Yes / No). */
+.theme-mermaid .flowchart-link {
+  stroke: var(--mermaid-edge) !important;
+}
+
+.theme-mermaid marker path {
+  fill: var(--mermaid-edge) !important;
+  stroke: var(--mermaid-edge) !important;
+}
+
+.theme-mermaid .edgeLabel,
+.theme-mermaid .edgeLabel :is(p, span, rect) {
+  background-color: var(--mermaid-edge-label-bg) !important;
+  fill: var(--mermaid-edge-label-bg) !important;
+  color: var(--ifm-color-emphasis-800) !important;
+}
+
+/* Groups (subgraph): a light frame with its title. */
+.theme-mermaid .cluster rect {
+  fill: transparent !important;
+  stroke: var(--ifm-color-emphasis-400) !important;
+  stroke-dasharray: 5 4;
+  rx: 8px;
+}
+
+.theme-mermaid .cluster-label :is(.nodeLabel, span, p) {
+  color: var(--ifm-color-emphasis-700) !important;
+}

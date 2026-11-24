@@ -30,3 +30,35 @@ Help us review your PRs more quickly by following these guidelines.
 
 Try not to have lines over 80 characters. Use your best judgment, and try to follow the example 
 set by the existing documentation.
+
+### Diagrams
+
+Draw diagrams as Mermaid code blocks rather than images: they can be reviewed
+and translated like text, they follow the light and dark themes, and their
+content stays readable by search engines and LLMs (the llms.txt export
+writes them as `mermaid` code blocks).
+
+````md
+```mermaid
+flowchart LR
+  accTitle: Example of a distributed architecture
+  accDescr: A central server with a remote server, which has a poller.
+
+  central["Central server"]:::central
+  remote1["Remote server 1"]:::remote
+  poller1(["Poller 1"]):::poller
+
+  central --- remote1
+  remote1 --- poller1
+```
+````
+
+* Give each node a class instead of colors: `central`, `remote`, `poller`,
+  `database`, `question`, `answer` or `muted`. Colors are set once for all
+  diagrams in `src/css/mermaid.css`.
+* Describe the diagram with `accTitle` and `accDescr`: screen readers read them.
+* Use readable node IDs (`central`, `remote1`), and keep the same IDs and
+  structure in the English and French versions: only labels are translated.
+* Prefer `flowchart LR` when a diagram has many nodes on one level: the page
+  column is narrow.
+* Preview diagrams with the [Mermaid live editor](https://mermaid.live).
