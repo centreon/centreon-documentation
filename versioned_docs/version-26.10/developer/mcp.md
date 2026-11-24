@@ -19,39 +19,39 @@ However, because the server uses a standard HTTP/MCP endpoint, any AI compatible
 
 The MCP server currently exposes 14 tools organized across four functional areas, and one ready-made prompt. Instead of one tool per object, a few generic tools take a `model_type` parameter that selects the kind of object to work on (for example `host`, `service_group` or `downtime`).
 
-| Area                | Tools                                                                                                                                        | Purpose                                                             |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| Resource Monitoring | `list_monitoring_resources`, `list_monitoring_entities`, `count_monitoring_resources_by_status`, `get_host_timeline`, `get_service_timeline` | Query, count, and inspect real-time monitoring data and topology    |
-| Configuration       | `list_configurations`, `create_configuration`, `update_configuration`, `delete_configurations`, `manage_monitoring_server_configurations`    | Manage configuration objects and apply them to pollers              |
-| Monitoring Actions  | `list_monitoring_actions`, `set_monitoring_actions`, `cancel_monitoring_actions`                                                             | Acknowledge alerts, schedule downtimes, comment, and trigger checks |
-| Metrics             | `get_service_metrics`                                                                                                                        | Read current metric values and thresholds                           |
+| Area                | Tools                                                                                                                                        | Purpose                                                              |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| Resource Monitoring | `list_monitoring_resources`, `list_monitoring_entities`, `count_monitoring_resources_by_status`, `get_host_timeline`, `get_service_timeline` | Query, count, and inspect real-time monitoring data and topology.    |
+| Configuration       | `list_configurations`, `create_configuration`, `update_configuration`, `delete_configurations`, `manage_monitoring_server_configurations`    | Manage configuration objects and apply them to pollers.              |
+| Monitoring Actions  | `list_monitoring_actions`, `set_monitoring_actions`, `cancel_monitoring_actions`                                                             | Acknowledge alerts, schedule downtimes, comment, and trigger checks. |
+| Metrics             | `get_service_metrics`                                                                                                                        | Read current metric values and thresholds.                           |
 
 ### Resource Monitoring
 
 **list_monitoring_resources** is the central tool for querying your real-time monitoring data. It lists hosts and services, and supports rich filtering across multiple dimensions simultaneously:
 
-- **By resource type**: filter on hosts only, services only, or both
-- **By status**: filter on UP, DOWN, UNREACHABLE, OK, WARNING, CRITICAL, UNKNOWN, or PENDING states
-- **By status type**: distinguish between HARD and SOFT states
-- **By name, alias, or parent name**: substring matching on resource identifiers
-- **By output/information content**: find resources whose check output contains (or does not contain) a given string — ideal for surfacing specific error messages across your infrastructure
-- **By scope**: filter by host group, service group, host category, service category, or monitoring server (poller) names
-- **Pagination and sorting**: results are paginated (50 per page by default) and sortable by host name, alias, address, or state
+- **By resource type**: filter on hosts only, services only, or both.
+- **By status**: filter on UP, DOWN, UNREACHABLE, OK, WARNING, CRITICAL, UNKNOWN, or PENDING states.
+- **By status type**: distinguish between HARD and SOFT states.
+- **By name, alias, or parent name**: substring matching on resource identifiers.
+- **By output/information content**: find resources whose check output contains (or does not contain) a given string — ideal for surfacing specific error messages across your infrastructure.
+- **By scope**: filter by host group, service group, host category, service category, or monitoring server (poller) names.
+- **Pagination and sorting**: results are paginated (50 per page by default) and sortable by host name, alias, address, or state.
 
 This combination of filters makes it possible to ask highly specific questions such as "Show me all CRITICAL services on hosts in the 'production' host group whose output mentions 'disk full'" and get precise, actionable results directly in the conversation. If you do not provide any filter, the assistant asks you for at least one, unless you explicitly want every resource.
 
 **list_monitoring_entities** lists the real-time monitoring entities used to scope other queries. The `model_type` parameter selects the kind of entity:
 
-- `host_group` — host groups, filterable by host name, alias, address, state, poller, or host group
-- `service_group` — service groups, filterable by host, service, host group, or poller attributes
-- `monitoring_server` — pollers, filterable by name, ID, or running status
+- `host_group` — host groups, filterable by host name, alias, address, state, poller, or host group.
+- `service_group` — service groups, filterable by host, service, host group, or poller attributes.
+- `monitoring_server` — pollers, filterable by name, ID, or running status.
 
 These results serve as natural building blocks: an AI assistant can look up the relevant groups and pollers first, then use their names or identifiers to scope its subsequent queries precisely.
 
 **count_monitoring_resources_by_status** returns the number of resources in each state without retrieving individual resources. Use it instead of `list_monitoring_resources` when only totals are needed. The `model_type` parameter selects what to count:
 
-- `host` — number of hosts in each state (UP, DOWN, UNREACHABLE, PENDING), optionally scoped to host groups or host categories
-- `service` — number of services in each state (OK, WARNING, CRITICAL, UNKNOWN, PENDING), optionally scoped by host name, host group, host category, service group, or service category
+- `host` — number of hosts in each state (UP, DOWN, UNREACHABLE, PENDING), optionally scoped to host groups or host categories.
+- `service` — number of services in each state (OK, WARNING, CRITICAL, UNKNOWN, PENDING), optionally scoped by host name, host group, host category, service group, or service category.
 
 The tool accepts several filter sets combined with OR logic, making it straightforward to answer questions like "How many hosts are DOWN across the 'production' and 'staging' groups?" in a single call.
 
@@ -82,8 +82,8 @@ If you do not provide any filter to **list_configurations**, the assistant asks 
 
 **manage_monitoring_server_configurations** applies configuration changes to your pollers. The `action` parameter selects the operation:
 
-- `generate` — generate the configuration files of the selected pollers
-- `reload` — reload the configuration of the selected pollers, pushing the generated files to the monitoring engines
+- `generate` — generate the configuration files of the selected pollers.
+- `reload` — reload the configuration of the selected pollers, pushing the generated files to the monitoring engines.
 
 Provide the poller IDs to target specific pollers. If no IDs are provided, the action applies to all pollers. When several IDs are given, the pollers are processed concurrently and the result reports success or failure for each of them.
 
@@ -97,9 +97,9 @@ Three tools let you act on alerts without leaving your conversation. The `model_
   - Acknowledgements can be sorted by ID, host, start time, entry time, etc.
   - Downtimes can be filtered by host name, alias, address, state, poller, and downtime properties (fixed, cancelled).
 - **set_monitoring_actions** — Apply an action to one or more hosts or services at once. Supported `model_type` values:
-  - `acknowledgement` — acknowledge resources with a comment, and configure options such as sticky acknowledgement, notifications, persistent comment, acknowledgement of the host services, and forced active checks
-  - `downtime` — schedule a downtime with start and end times, a duration, a comment, whether the downtime is fixed or flexible, and whether it also applies to the host services
-  - `comment` — attach a comment to a host or service, useful for leaving context notes on an ongoing incident directly from the AI assistant
+  - `acknowledgement` — acknowledge resources with a comment, and configure options such as sticky acknowledgement, notifications, persistent comment, acknowledgement of the host services, and forced active checks.
+  - `downtime` — schedule a downtime with start and end times, a duration, a comment, whether the downtime is fixed or flexible, and whether it also applies to the host services.
+  - `comment` — attach a comment to a host or service, useful for leaving context notes on an ongoing incident directly from the AI assistant.
   - `check` — trigger a check without waiting for the next polling cycle. This is useful right after a remediation action to confirm recovery in conversation. The `is_forced` flag (default `true`) controls whether the configured check interval is bypassed.
 - **cancel_monitoring_actions** — Cancel one or more acknowledgements (`acknowledgement`) or downtimes (`downtime`) by their IDs. The result reports success or failure for each ID.
 

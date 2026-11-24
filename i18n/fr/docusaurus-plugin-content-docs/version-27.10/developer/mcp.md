@@ -19,39 +19,39 @@ Cependant, étant donné que le serveur utilise un endpoint HTTP/MCP standard, t
 
 Le serveur MCP expose actuellement 14 outils répartis en quatre domaines fonctionnels, ainsi qu'un prompt prêt à l'emploi. Au lieu d'un outil par objet, quelques outils génériques acceptent un paramètre `model_type` qui sélectionne le type d'objet concerné (par exemple `host`, `service_group` ou `downtime`).
 
-| Domaine                    | Outils                                                                                                                                       | Objectif                                                                                          |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| Supervision des ressources | `list_monitoring_resources`, `list_monitoring_entities`, `count_monitoring_resources_by_status`, `get_host_timeline`, `get_service_timeline` | Interroger, compter et inspecter les données de supervision en temps réel et la topologie         |
-| Configuration              | `list_configurations`, `create_configuration`, `update_configuration`, `delete_configurations`, `manage_monitoring_server_configurations`    | Gérer les objets de configuration et les appliquer aux pollers                                    |
-| Actions de supervision     | `list_monitoring_actions`, `set_monitoring_actions`, `cancel_monitoring_actions`                                                             | Acquitter des alertes, planifier des plages de maintenance, commenter et déclencher des contrôles |
-| Métriques                  | `get_service_metrics`                                                                                                                        | Consulter les valeurs actuelles des métriques et leurs seuils                                     |
+| Domaine                    | Outils                                                                                                                                       | Objectif                                                                                           |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Supervision des ressources | `list_monitoring_resources`, `list_monitoring_entities`, `count_monitoring_resources_by_status`, `get_host_timeline`, `get_service_timeline` | Interroger, compter et inspecter les données de supervision en temps réel et la topologie.         |
+| Configuration              | `list_configurations`, `create_configuration`, `update_configuration`, `delete_configurations`, `manage_monitoring_server_configurations`    | Gérer les objets de configuration et les appliquer aux pollers.                                    |
+| Actions de supervision     | `list_monitoring_actions`, `set_monitoring_actions`, `cancel_monitoring_actions`                                                             | Acquitter des alertes, planifier des plages de maintenance, commenter et déclencher des contrôles. |
+| Métriques                  | `get_service_metrics`                                                                                                                        | Consulter les valeurs actuelles des métriques et leurs seuils.                                     |
 
 ### Supervision des ressources
 
 **list_monitoring_resources** est l'outil central pour interroger vos données de supervision en temps réel. Il liste les hôtes et les services, et permet d'appliquer plusieurs filtres simultanément, selon différents axes :
 
-- **Par type de ressource** : hôtes uniquement, services uniquement, ou les deux
-- **Par statut** : UP, DOWN, UNREACHABLE, OK, WARNING, CRITICAL, UNKNOWN ou PENDING
-- **Par type de statut** : distinction entre les états HARD et SOFT
-- **Par nom, alias ou nom du parent** : recherche par correspondance partielle sur les identifiants des ressources
-- **Par contenu de la sortie/des informations** : rechercher les ressources dont la sortie du contrôle contient (ou ne contient pas) une chaîne donnée — idéal pour repérer des messages d'erreur spécifiques dans toute votre infrastructure
-- **Par périmètre** : filtrage par nom de groupe d'hôtes, groupe de services, catégorie d'hôtes, catégorie de services ou serveur de supervision (poller)
-- **Pagination et tri** : les résultats sont paginés (50 par page par défaut) et triables par nom d'hôte, alias, adresse ou état
+- **Par type de ressource** : hôtes uniquement, services uniquement, ou les deux.
+- **Par statut** : UP, DOWN, UNREACHABLE, OK, WARNING, CRITICAL, UNKNOWN ou PENDING.
+- **Par type de statut** : distinction entre les états HARD et SOFT.
+- **Par nom, alias ou nom du parent** : recherche par correspondance partielle sur les identifiants des ressources.
+- **Par contenu de la sortie/des informations** : rechercher les ressources dont la sortie du contrôle contient (ou ne contient pas) une chaîne donnée — idéal pour repérer des messages d'erreur spécifiques dans toute votre infrastructure.
+- **Par périmètre** : filtrage par nom de groupe d'hôtes, groupe de services, catégorie d'hôtes, catégorie de services ou serveur de supervision (poller).
+- **Pagination et tri** : les résultats sont paginés (50 par page par défaut) et triables par nom d'hôte, alias, adresse ou état.
 
 Cette combinaison de filtres permet de poser des questions très précises telles que « Montre-moi tous les services en CRITICAL sur les hôtes du groupe d'hôtes 'production' dont la sortie mentionne 'disk full' » et d'obtenir des résultats précis et exploitables directement dans la conversation. Si vous ne fournissez aucun filtre, l'assistant vous demande d'en indiquer au moins un, sauf si vous souhaitez explicitement toutes les ressources.
 
 **list_monitoring_entities** liste les entités de supervision en temps réel qui servent à cibler d'autres requêtes. Le paramètre `model_type` sélectionne le type d'entité :
 
-- `host_group` — groupes d'hôtes, filtrables par nom d'hôte, alias, adresse, état, poller ou groupe d'hôtes
-- `service_group` — groupes de services, filtrables par les attributs de l'hôte, du service, du groupe d'hôtes ou du poller
-- `monitoring_server` — pollers, filtrables par nom, identifiant ou statut d'exécution
+- `host_group` — groupes d'hôtes, filtrables par nom d'hôte, alias, adresse, état, poller ou groupe d'hôtes.
+- `service_group` — groupes de services, filtrables par les attributs de l'hôte, du service, du groupe d'hôtes ou du poller.
+- `monitoring_server` — pollers, filtrables par nom, identifiant ou statut d'exécution.
 
 Ces résultats constituent des briques de base naturelles : un assistant IA peut d'abord identifier les groupes et pollers pertinents, puis utiliser leurs noms ou identifiants pour affiner précisément ses requêtes suivantes.
 
 **count_monitoring_resources_by_status** renvoie le nombre de ressources pour chaque état sans avoir à récupérer chaque ressource individuellement. Utilisez-le à la place de `list_monitoring_resources` lorsque seuls les totaux sont nécessaires. Le paramètre `model_type` sélectionne ce qui est compté :
 
-- `host` — nombre d'hôtes pour chaque état (UP, DOWN, UNREACHABLE, PENDING), avec la possibilité de filtrer par groupes d'hôtes ou catégories d'hôtes
-- `service` — nombre de services pour chaque état (OK, WARNING, CRITICAL, UNKNOWN, PENDING), avec la possibilité de filtrer par nom d'hôte, groupe d'hôtes, catégorie d'hôtes, groupe de services ou catégorie de services
+- `host` — nombre d'hôtes pour chaque état (UP, DOWN, UNREACHABLE, PENDING), avec la possibilité de filtrer par groupes d'hôtes ou catégories d'hôtes.
+- `service` — nombre de services pour chaque état (OK, WARNING, CRITICAL, UNKNOWN, PENDING), avec la possibilité de filtrer par nom d'hôte, groupe d'hôtes, catégorie d'hôtes, groupe de services ou catégorie de services.
 
 L'outil accepte plusieurs jeux de filtres combinés selon une logique OR, ce qui permet de répondre facilement à des questions comme « Combien d'hôtes sont en DOWN dans les groupes 'production' et 'staging' ? » en un seul appel.
 
@@ -82,8 +82,8 @@ Si vous ne fournissez aucun filtre à **list_configurations**, l'assistant vous 
 
 **manage_monitoring_server_configurations** applique les modifications de configuration à vos pollers. Le paramètre `action` sélectionne l'opération :
 
-- `generate` — génère les fichiers de configuration des pollers sélectionnés
-- `reload` — recharge la configuration des pollers sélectionnés, en poussant les fichiers générés vers les moteurs de supervision
+- `generate` — génère les fichiers de configuration des pollers sélectionnés.
+- `reload` — recharge la configuration des pollers sélectionnés, en poussant les fichiers générés vers les moteurs de supervision.
 
 Fournissez les identifiants des pollers pour cibler des pollers précis. Si aucun identifiant n'est fourni, l'action s'applique à tous les pollers. Lorsque plusieurs identifiants sont fournis, les pollers sont traités en parallèle et le résultat indique le succès ou l'échec pour chacun d'eux.
 
@@ -97,9 +97,9 @@ Trois outils permettent d'agir sur les alertes sans quitter votre conversation. 
   - Les acquittements peuvent être triés par ID, hôte, heure de début, heure de saisie, etc.
   - Les plages de maintenance sont filtrables par nom d'hôte, alias, adresse, état, poller et propriétés de la plage (fixe, annulée).
 - **set_monitoring_actions** — Applique une action à un ou plusieurs hôtes ou services en une seule fois. Valeurs de `model_type` prises en charge :
-  - `acknowledgement` — acquitte des ressources avec un commentaire, et permet de configurer des options telles que l'acquittement persistant (sticky), les notifications, le commentaire persistant, l'acquittement des services de l'hôte et les contrôles actifs forcés
-  - `downtime` — planifie une plage de maintenance avec des heures de début et de fin, une durée, un commentaire, en précisant si la plage est fixe ou flexible et si elle s'applique aussi aux services de l'hôte
-  - `comment` — ajoute un commentaire sur un hôte ou un service, utile pour laisser des notes de contexte sur un incident en cours directement depuis l'assistant IA
+  - `acknowledgement` — acquitte des ressources avec un commentaire, et permet de configurer des options telles que l'acquittement persistant (sticky), les notifications, le commentaire persistant, l'acquittement des services de l'hôte et les contrôles actifs forcés.
+  - `downtime` — planifie une plage de maintenance avec des heures de début et de fin, une durée, un commentaire, en précisant si la plage est fixe ou flexible et si elle s'applique aussi aux services de l'hôte.
+  - `comment` — ajoute un commentaire sur un hôte ou un service, utile pour laisser des notes de contexte sur un incident en cours directement depuis l'assistant IA.
   - `check` — déclenche un contrôle sans attendre le prochain cycle de contrôle planifié. Utile juste après une action de remédiation pour confirmer le rétablissement directement dans la conversation. Le paramètre `is_forced` (valeur par défaut `true`) détermine si l'intervalle de contrôle configuré est contourné.
 - **cancel_monitoring_actions** — Annule un ou plusieurs acquittements (`acknowledgement`) ou plages de maintenance (`downtime`) à partir de leurs identifiants. Le résultat indique le succès ou l'échec pour chaque identifiant.
 
