@@ -85,5 +85,11 @@ A probe writes its version in its logs when it starts.
 To update a probe:
 
 1. On your organization page, in the **Synthetic Monitoring Zones** tab, click **Associate a probe** to the right of your zone, and execute the Docker command to log in to the registry.
-2. On the machine that hosts the probe, stop and remove the container of the current probe.
-3. Execute the probe command again with your probe token, as in [step 4](#step-4-create-and-launch-the-probe). The latest version of the image is downloaded and started.
+2. On the machine that hosts the probe, download the latest version of the image. Use the image name that appears in the probe command:
+
+   ```shell
+   docker pull <probe image>
+   ```
+
+3. Stop and remove the container of the current probe.
+4. Execute the probe command again with your probe token, as in [step 4](#step-4-create-and-launch-the-probe). The probe starts with the latest version of the image.
