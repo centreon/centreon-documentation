@@ -93,7 +93,7 @@
   },
   "sidebar.experience-monitoring.doc.Internal probe (STM zones)": {
     "message": "Sonde interne (zones STM)",
-    "description": "The label for the doc item Internal probe (STM zones) in sidebar Experience Monitoring, linking to the doc internal-probe-release-notes"
+    "description": "The label for the doc item Internal probe (STM zones) in sidebar Experience Monitoring, linking to the doc stm-zones-release-notes"
   }
 }
 

@@ -166,7 +166,7 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'release-notes', label: 'Experience Monitoring' },
-        { type: 'doc', id: 'internal-probe-release-notes', label: 'Internal probe (STM zones)' },
+        { type: 'doc', id: 'stm-zones-release-notes', label: 'Internal probe (STM zones)' },
       ],
     },
     {

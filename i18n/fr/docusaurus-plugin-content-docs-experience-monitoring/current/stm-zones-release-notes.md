@@ -1,5 +1,5 @@
 ---
-id: internal-probe-release-notes
+id: stm-zones-release-notes
 title: Sonde interne - notes de release
 description: "Changements apportés par chaque version de la sonde interne de vos zones STM privées : nouveautés, corrections et changements de comportement à vérifier."
 ---

@@ -1,5 +1,5 @@
 ---
-id: internal-probe-release-notes
+id: stm-zones-release-notes
 title: Internal probe release notes
 description: "Changes in each version of the internal probe that runs your private STM zones: new features, fixes and behaviour changes to check before you update."
 ---
