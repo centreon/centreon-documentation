@@ -21,6 +21,10 @@ You can add or remove columns and sort by the column of your choice.
 
 ![image](../assets/alerts/resources-status/resources-status-listing-order.gif)
 
+:::note
+This animation may show an earlier version of the interface. The steps described remain valid.
+:::
+
 ### View by host or by service
 
 Use the **Display view** buttons above the list of resources to define how the list will be displayed. 
@@ -226,8 +230,6 @@ The search bar shows all applied criteria as text. Autocomplete helps you enter 
 Example:
     **s.description:ping h.name:linux**: the list displays all services whose name contains "ping", for all hosts whose name contains "linux".
 
-![image](../assets/alerts/resources-status/search_ping_linux.gif)
-
 ### Save your filter
 
 You may create some "complex" filters that set you in a specific
@@ -263,6 +265,10 @@ The host panel contains the following elements:
 
 ![image](../assets/alerts/resources-status/resources-status-panel-host.gif)
 
+:::note
+This animation may show an earlier version of the interface. The steps described remain valid.
+:::
+
 If an acknowledgment or downtime is set on the host, it will be displayed in
 the panel and the header will be colored accordingly.
 
@@ -279,6 +285,10 @@ The service panel contains the following elements:
 - Below the name of the service, the name of its parent host. Click it to open the host panel for the parent host.  
 
 ![image](../assets/alerts/resources-status/resources-status-panel-service.gif)
+
+:::note
+This animation may show an earlier version of the interface. The steps described remain valid.
+:::
 
 If an acknowledgment or downtime is set on the service, it will be displayed in
 the panel and the header will be colored accordingly.
@@ -297,7 +307,7 @@ The graph tab enables you to visually display how the metrics evolve for the sel
 
 Hovering over the metric curves will display the precise time under the graph's title and also display, within the legend, the different values for that same point in time.
 
-When the pointer is not hovering over curves, the legend displays Min, Max and Average values for each metric.
+When the pointer is not hovering over curves, the legend displays the name of each metric.
 
 ![image](../assets/alerts/resources-status/resources-status-values.png)
 
@@ -308,9 +318,11 @@ Use the legend to display or hide metrics:
 
 ![image](../assets/alerts/resources-status/resources-status-graph-select-only-metric.gif)
 
-You can also toggle the selection of individual metrics by Ctrl+Clicking (or Cmd+Clicking for Mac users) on the corresponding tile within the legend:
+:::note
+This animation may show an earlier version of the interface. The steps described remain valid.
+:::
 
-![image](../assets/alerts/resources-status/resources-status-graph-toggle-legends.gif)
+You can also toggle the selection of individual metrics by **Ctrl+click** (or **Cmd+click** for Mac users) on the corresponding tile within the legend.
 
 Graphs display metric evolution over a given period. This can be defined in the following ways:
 
@@ -321,23 +333,31 @@ Graphs display metric evolution over a given period. This can be defined in the 
 
 ![image](../assets/alerts/resources-status/resources-status-graph-time-selection.gif)
 
-The **Display events** toggle (available under the **gear** button) allows you to display some timeline events (downtime, acknowledgment, comment) directly on the graph, via annotations:
+:::note
+This animation may show an earlier version of the interface. The steps described remain valid.
+:::
+
+The **Display events** toggle (available next to the period selector) allows you to display some timeline events (downtime, acknowledgment, comment) directly on the graph, via annotations:
 
 ![image](../assets/alerts/resources-status/resources-status-graph-display-events.gif)
+
+:::note
+This animation may show an earlier version of the interface. The steps described remain valid.
+:::
 
 It is possible to add a comment directly on the graph by left-clicking anywhere at the time you want to add it, and then selecting **Add a comment** on the tooltip that appears:
 
 ![image](../assets/alerts/resources-status/resources-status-graph-add-comment.gif)
 
+:::note
+This animation may show an earlier version of the interface. The steps described remain valid.
+:::
+
 To delete a comment, go to **Monitoring > Downtimes > Comments**.
 
-By clicking the **Export** button, you can export a snapshot of the graph, which also includes the timeline events, if the switch is toggled. Note that only the selected metrics will be exported:
+By clicking the **Export** icon (download arrow) in the top right corner of the graph, you can export a snapshot of the graph, which also includes the timeline events, if the switch is toggled. Note that only the selected metrics will be exported.
 
-![image](../assets/alerts/resources-status/resources-status-graph-export-to-png.gif)
-
-To see a bigger version of the graph, click **Go to performance page** in the top right corner of the graph.
-
-![image](../assets/alerts/resources-status/graph-open.png)
+To see a bigger version of the graph, click the **Go to performance page** icon in the top right corner of the graph, to the left of the export icon.
 
 The graph opens on the **Monitoring > Performances > Graphs** page, allowing you to filter the graph more precisely.
 

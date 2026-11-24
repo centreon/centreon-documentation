@@ -139,7 +139,9 @@ La migration de la table est effectuée en utilisant l’option **-m** et en
 précisant le nom de la table à migrer :
 
 ```shell
+systemctl stop cbd
 /bin/php /usr/share/centreon/bin/centreon-partitioning.php -m data_bin
+systemctl start cbd
 ```
 
 Si la migration de la table est ok l’ancienne table peut être supprimée avec la

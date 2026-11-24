@@ -97,47 +97,35 @@ apt install centreon-plugin-operatingsystems-linux-snmp
 
 ### On the central server
 
-In the web interface, go to **Configuration > Connectors > Monitoring Connectors** and install the **Linux SNMP** Monitoring Connector:
-
-   ![image](../assets/getting-started/quick_start_linux_0.gif)
+In the web interface, go to **Configuration > Connectors > Monitoring Connectors**, search for **Linux SNMP**, then click the **+** icon on the Monitoring Connector's tile to install it.
 
 ## Configure the host and deploy the configuration
 
-1. Go to **Configuration > Hosts > Hosts** and click **Add**:
-
-   ![image](../assets/getting-started/quick_start_linux_1.gif)
+1. Go to **Configuration > Hosts > Hosts** and click **Add**.
 
 2. Input the following information:
 
-   * The name of the server (1)
-   * A description of the server (2)
-   * Its IP address (3)
-   * The SNMP version and community (4)
-   * Select the poller that will monitor your Linux server (keep "Central" if you have no other poller) (5)
+   * The name of the server in the **Name** field (1)
+   * A description of the server in the **Alias** field (2)
+   * Its IP address in the **Address** field (3)
+   * The SNMP community and version in the **SNMP Community & Version** fields (4)
+   * In the **Monitoring server** list, select the poller that will monitor your Linux server (keep "Central" if you have no other poller) (5)
 
 3. Click **+ Add a new entry** in the **Templates** field (6), then select the **OS-Linux-SNMP-custom** template (7) from the list:
 
    ![image](../assets/getting-started/quick_start_linux_2.png)
 
-4. Click **Save**(8). Your device has been added to the list of hosts:
-
-   ![image](../assets/getting-started/quick_start_linux_3.png)
+4. Click **Save**(8). Your device has been added to the list of hosts in **Configuration > Hosts > Hosts**.
 
 5. Go to **Configuration > Services > Services by host**. A set of indicators has been created automatically.
 
-   ![image](../assets/getting-started/quick_start_linux_4a.png)
-
-   You can also use the shortcut beside the host's name to go directly to **Configuration > Services > Services by host**. The list will be filtered by host name:
-
-   ![image](../assets/getting-started/quick_start_linux_4b.png)
+   You can also click the **Display all Services for this host** icon beside the host's name to go directly to **Configuration > Services > Services by host**. The list will be filtered by host name:
 
    ![image](../assets/getting-started/quick_start_linux_5.png)
 
 6. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
-7. Go to **Monitoring > Resources Status** and select **All** from the **Resource status** filter. At first, the resources appear with the status **Pending**, which means that no checks have been executed yet:
-
-   ![image](../assets/getting-started/quick_start_linux_6.png)
+7. Go to **Monitoring > Resources Status** and select **All** from the **Resource status** filter. At first, the resources appear with the status **Pending**, which means that no checks have been executed yet.
 
    After a few minutes, the first results of the monitoring appear:
 

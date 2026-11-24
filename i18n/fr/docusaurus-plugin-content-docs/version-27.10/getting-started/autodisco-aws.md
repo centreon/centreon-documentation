@@ -60,9 +60,7 @@ apt install centreon-pack-*
 
 7. Suivez [cette procédure](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2)
  (sections [Plugin dependencies](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#dépendances-du-plugin) et 
-[Setup](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#privilèges-aws)) pour finir d'installer le Plugin Pack. (Vous pouvez également accéder à la documentation d'un Plugin Pack en cliquant sur le `i`.)
-
-  ![image](../assets/getting-started/aws-doc.png)
+[Setup](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#privilèges-aws)) pour finir d'installer le Plugin Pack. (Vous pouvez également accéder à la documentation d'un Plugin Pack en cliquant sur l'icône **i** de la carte **Amazon EC2**.)
 
 ## Étape 2 : Configurer la tâche de découverte
 
@@ -91,8 +89,6 @@ puis cliquez sur **Confirmer**. Cliquez sur **Suivant**.
 
 8. Sélectionnez **Exécuter immédiatement** puis cliquez sur **Finir**. La tâche de découverte apparaît dans la liste des tâches.
     
-    ![image](../assets/getting-started/aws-listofjobs.png)
-
 ## Étape 3 : Sauvegarder les hôtes et les mettre en supervision
 
 1. Après quelques secondes, rafraîchissez la page. Une coche verte devrait apparaître dans la colonne **Statut**.

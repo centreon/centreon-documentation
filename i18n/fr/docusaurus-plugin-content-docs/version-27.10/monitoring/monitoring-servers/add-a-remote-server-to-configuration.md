@@ -248,9 +248,7 @@ redémarrez-le avec la commande suivante depuis le **serveur Central** :
 1. Sur le serveur central, revenez au menu **Configuration > Collecteurs > Collecteurs**, sélectionnez le serveur distant et cliquez sur
 **Exporter la configuration**.
 
-2. Cochez ensuite les trois premières cases et cliquez sur  **Exporter** :
-
-    ![image](../../assets/monitoring/monitoring-servers/remote-generate-config.png)
+2. Cochez ensuite les trois premières cases et cliquez sur  **Exporter**.
 
 3. Pour finir, depuis le serveur distant, démarrez/redémarrez les services de
 collecte :
@@ -261,8 +259,6 @@ collecte :
 
     Le moteur de supervision du Remote Server va alors démarrer et se connecter au
     Broker Central.
-
-    ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq-started.png)
 
 ## Premiers pas
 

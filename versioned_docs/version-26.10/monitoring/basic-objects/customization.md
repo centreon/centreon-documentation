@@ -25,9 +25,7 @@ Next time you connect to the interface, the mode you previously selected remains
 
 ## Change the user interface language
 
-On the banner, click the profile icon, then click **Edit profile**:
-
-![image](../../assets/getting-started/menu_edit_profile.png)
+On the banner, click the profile icon, then click **Edit profile**.
 
 In the language selection box, choose your language:
 

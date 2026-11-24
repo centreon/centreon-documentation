@@ -65,9 +65,7 @@ systemctl restart mariadb
 
 ## Configuration
 
-The data retention time is programmed in the **Administration > Parameters > Options** menu:
-
-![image](../assets/administration/partitioning-configuration.png)
+The data retention time is programmed in the **Administration > Parameters > Options** menu.
 
 The setting is as follows:
 

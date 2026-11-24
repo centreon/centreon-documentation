@@ -60,7 +60,7 @@ apt update && apt upgrade
 2. Download the script using the following command:
 
 ```shell
-curl -L https://download.centreon.com/24.10/unattended.sh --output /tmp/unattended.sh
+curl -L https://raw.githubusercontent.com/centreon/centreon/24.10-latest/centreon/unattended.sh --output /tmp/unattended.sh
 ```
 
 3. Run the following command as **root**:
@@ -79,7 +79,7 @@ bash /tmp/unattended.sh install -t central -v 24.10 -r stable -s -l DEBUG  2>&1 
 
 In both cases, you will get a full log file with all errors in your **tmp** folder, named **unattended(date).log**.
 
-> To get help on the script, use the following command: `bash unattended.sh -h`
+> To get help on the script, use the following command: `bash /tmp/unattended.sh -h`
 
 4. Configure Centreon
 

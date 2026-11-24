@@ -325,7 +325,7 @@ You can perform an unattended update of your platform using the **unattended.sh*
 1. Download the script using the following command:
 
 ```shell
-curl -L https://download.centreon.com/25.10/unattended.sh -O /tmp/unattended
+curl -L https://raw.githubusercontent.com/centreon/centreon/25.10-latest/centreon/unattended.sh --output /tmp/unattended.sh
 ```
 
 2. Run the script:
@@ -333,17 +333,17 @@ curl -L https://download.centreon.com/25.10/unattended.sh -O /tmp/unattended
 * For a central server:
 
 ```shell
-bash unattended.sh update -t central -v 25.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash /tmp/unattended.sh update -t central -v 25.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
 * For a remote server:
 
 ```shell
-bash unattended.sh update -t central -v 25.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash /tmp/unattended.sh update -t central -v 25.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
 * For a poller:
 
 ```shell
-bash unattended.sh update -t poller -v 25.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash /tmp/unattended.sh update -t poller -v 25.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```

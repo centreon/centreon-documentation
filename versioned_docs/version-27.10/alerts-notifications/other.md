@@ -42,9 +42,7 @@ There are two solutions to add a comment:
 </TabItem>
 </Tabs>
 
-The following window appears:
-
-![image](../assets/alerts/comment.png)
+In the window that appears:
 
 -   The **Host Name** field defines the host concerned by the comment.
 -   If you have chosen to add a comment to a service, the **Service**

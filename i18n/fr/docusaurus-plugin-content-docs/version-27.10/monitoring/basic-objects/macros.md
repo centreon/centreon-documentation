@@ -110,10 +110,8 @@ Pour ajouter une macro globale :
 * Renez-vous dans le menu **Configuration > Pollers > Resources**
 * Cliquez sur le bouton **Add**
 
-![image](../../assets/configuration/01globalmacros.png)
-
 * Le champ **Name** définit le nom de la macro globale. Exemple : $USER3$
-* Le champ **Expression** définit la valeur de la macro.
+* Le champ **Value** définit la valeur de la macro. Cochez la case **Password** pour masquer la valeur dans le formulaire.
 * La liste **Linked Instances** permet de définir quels seront les moteurs de supervision qui pourront accéder à cette
   macro.
 * Les champs **Status** et **Comment** permettent d'activer/désactiver la macro ou de la commenter.

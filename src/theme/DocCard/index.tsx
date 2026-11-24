@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 import { translate } from '@docusaurus/Translate';
+import { ThemeClassNames } from '@docusaurus/theme-common';
 import {
   findFirstSidebarItemLink,
   useDocById,
@@ -18,7 +19,7 @@ function CardContainer({
   return (
     <Link
       href={href}
-      className={clsx('card padding--lg', styles.cardContainer)}>
+      className={clsx('card padding--lg', styles.cardContainer, ThemeClassNames.docs.docCard.container)}>
       {children}
     </Link>
   );
@@ -35,12 +36,14 @@ function CardLayout({
 }): JSX.Element {
   return (
     <CardContainer href={href}>
-      <h2 className={clsx('text--truncate', styles.cardTitle)} title={title}>
+      <h2
+        className={clsx('text--truncate', styles.cardTitle, ThemeClassNames.docs.docCard.title)}
+        title={title}>
         {title}
       </h2>
       {description && (
         <p
-          className={clsx('text--truncate', styles.cardDescription)}
+          className={clsx('text--truncate', styles.cardDescription, ThemeClassNames.docs.docCard.description)}
           title={description}>
           {description}
         </p>

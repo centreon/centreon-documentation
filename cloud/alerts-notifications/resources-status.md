@@ -249,7 +249,7 @@ Depending on the type of resource, the detail panel displays different informati
 
 The host panel contains the following elements:
 
-- **Details** tab: Detailed information about the host's current status. You can drag and drop tiles to rearrange them.
+- **Details** tab: Detailed information about the host's current status. You can drag and drop tiles to rearrange them. There are also buttons to [**acknowledge an alert**](acknowledge.md), [**set downtime**](downtimes.md) and [**refresh the status**](#refresh-a-status) of the resource below the panel tabs.
 - **Services** tab: A listing of its attached services and their current status (as well as their graphs if the corresponding mode is selected)
 - **Timeline** tab: The timeline of events that occurred for this host
 - **Graph** tab: Graphs for the services for this host

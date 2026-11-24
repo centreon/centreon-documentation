@@ -57,6 +57,10 @@ To acknowledge an alert, there are several solutions:
 
         ![image](../assets/alerts/resources-status/ack-hover.gif)
 
+        :::note
+        This animation may show an earlier version of the interface. The steps described remain valid.
+        :::
+
     A window appears:
 
     -   The **Comment** field is generally used to provide the reason for the
@@ -82,9 +86,7 @@ To acknowledge an alert, there are several solutions:
 3.  In the **More actions** menu, click **Hosts: Acknowledge** or 
     **Services: Acknowledge**.
 
-    The following window appears:
-
-![image](../assets/alerts/acknowledged.png)
+    In the window that appears:
 
 -   If the **Sticky** box is checked, the acknowledgment will be
     maintained in case of a change of Not-OK status (e.g.: DOWN to
@@ -112,9 +114,7 @@ To acknowledge an alert, there are several solutions:
 From of the detail page of an object, click the icon |enabled| associated
 with the **Acknowledged** field in the **Options** frame.
 
-The following window appears:
-
-![image](../assets/alerts/acknowledged.png)
+In the window that appears:
 
 -   If the **Sticky** box is checked, the acknowledgment will be
     maintained in case of a change of Not-OK status (e.g.: DOWN to

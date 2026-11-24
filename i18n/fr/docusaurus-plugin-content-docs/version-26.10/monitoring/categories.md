@@ -23,8 +23,6 @@ Les criticités sont assignées depuis la page de configuration des catégories 
 
 Rendez-vous dans le menu **Configuration > Hôtes > Catégories** et cliquez sur **Ajouter**
 
-![image](../assets/configuration/08hostcategory.png)
-
 * Les champs **Nom** et **Alias** contiennent respectivement le nom et l’alias de la catégorie d’hôte.
 * La liste **Hôtes liés** permet d’ajouter des hôtes à la catégorie.
 * Si un modèle d’hôte est ajouté à **Lié au modèle d'hôte** alors tous les hôtes qui héritent de ce modèle appartiennent
@@ -37,10 +35,8 @@ Rendez-vous dans le menu **Configuration > Hôtes > Catégories** et cliquez sur
 
 Rendez-vous dans le menu **Configuration > Services > Catégories** et cliquez sur **Ajouter**
 
-![image](../assets/configuration/08servicecategory.png)
-
 * Les champs **Nom** et **Description** définissent le nom et la description de la catégorie de service.
-* Si un modèle de service appartient à **Service Template Descriptions** alors tous les services appartenant à ce modèle
+* Si un modèle de service appartient à **Linked Templates** alors tous les services appartenant à ce modèle
   de services font partie de cette catégorie.
 * La case **Type de criticité** peut être cochée pour assigner un niveau de criticité au service. Le niveau de criticité est un chiffre allant de 1 à 127. Le niveau de criticité le plus élevé est 1.
 * Les champs **Niveau** et **Icône** définissent respectivement un niveau de criticité et une icône associée.

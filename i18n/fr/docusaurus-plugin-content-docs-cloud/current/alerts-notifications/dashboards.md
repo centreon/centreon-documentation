@@ -89,6 +89,12 @@ Vous utilisez la fonctionnalité Tableaux de bord avec un profil de **viewer** o
 1. Cliquez sur le bouton **partager** en bas à droite du tableau de bord.
 2. Choisissez si vous allez partager le tableau de bord avec des contacts individuels ou des groupes de contacts.
 3. Dans la liste déroulante **Ajouter un contact** ou **Ajouter un groupe de contacts**, sélectionnez l'utilisateur ou groupe de contacts à ajouter.
+  > Si vous n'êtes pas administrateur des tableaux de bord (utilisateur ayant le rôle **Administrator** sur les tableaux de bord, ou membre du groupe d'accès **customer_admin_acl**), la liste affiche uniquement :
+  >
+  > - les contacts qui appartiennent à l'un de vos groupes de contacts,
+  > - les groupes de contacts auxquels vous appartenez.
+  >
+  > Les contacts doivent avoir accès au menu **Tableaux de bord** (rôle Viewer, Creator ou Administrator). Les contacts ayant le rôle Viewer ne peuvent recevoir que le profil **Viewer**.
 4. Sélectionnez le profil **Viewer** ou **Editor**.
 5. Cliquez sur le bouton **+** pour l'ajouter.
 6. Répétez l'action pour chaque utilisateur que vous souhaitez ajouter.
@@ -141,7 +147,12 @@ Le bandeau de contrôle vous permet de :
 
 ### Partager la liste de diffusion avec les utilisateurs de votre plateforme
 
-Vous pouvez partager votre liste de diffusion avec des contacts ayant accès à votre plateforme Centreon, et les droits de viewer sur les tableaux de bord.
+Vous pouvez partager votre liste de diffusion avec les contacts et groupes de contacts qui ont accès au menu **Tableaux de bord**. Si vous n'êtes pas administrateur des tableaux de bord (utilisateur ayant le rôle **Administrator** sur les tableaux de bord, ou membre du groupe d'accès **customer_admin_acl**), vous pouvez uniquement la partager avec :
+
+- les contacts qui appartiennent à l'un de vos groupes d'accès ou à l'un de vos groupes de contacts,
+- les groupes de contacts auxquels vous appartenez.
+
+Les contacts ayant le rôle Viewer ne peuvent recevoir que le profil **Viewer**.
 
 - Cliquez sur le bouton **Partager avec des contacts** à partir de la ligne de votre liste de diffusion.
 La fenêtre **Droits d'accès de la liste de diffusion** s'affiche.

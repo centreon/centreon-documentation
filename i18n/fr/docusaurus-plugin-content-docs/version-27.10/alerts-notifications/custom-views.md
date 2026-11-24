@@ -12,9 +12,7 @@ Les vues personnalisées sont des tableaux de bord, créés à l'aide de widgets
 
 2. Cliquez sur l'icône **Afficher/cacher le mode édition** en haut à droite de la page : ![image](../assets/alerts/edit_mode.png#thumbnail1)
 
-    La barre d'édition apparaît:
-
-    ![image](../assets/alerts/bar.png)
+    La barre d'édition apparaît, avec les boutons **Ajouter une vue**, **Éditer**, **Supprimer**, **Configurer par défaut**, **Partager la vue**, **Ajouter widget** et **Rotation**.
 
 3. Cliquez sur **Ajouter une vue** : une pop-up apparaît.
 
@@ -38,7 +36,7 @@ Les vues personnalisées sont des tableaux de bord, créés à l'aide de widgets
 
 ## Éditer une vue personnalisée
 
-Dans la barre d'édition, cliquez sur le bouton **Éditer**. ![image](../assets/alerts/view_edit.png)
+Dans la barre d'édition, cliquez sur le bouton **Éditer**. La fenêtre contient les mêmes champs que lors de la création d'une vue (nom, nombre de colonnes, **Public**).
 
 Vous pouvez renommer la vue, changer la disposition en colonnes, et [partager la vue](#partager-une-vue-personnalisée) en lecture seule avec d'autres utilisateurs. Vous pouvez également éditer ou déplacer les widgets.
 
@@ -77,9 +75,7 @@ Pour partager une vue avec des "locked"/"unlocked users" :
 
 1. À la page **Accueil > Vues personnalisées**, cliquez sur l'icône **Afficher/cacher le mode édition** en haut à droite de la page ![image](../assets/alerts/edit_mode.png#thumbnail1)
 
-    La barre d'édition apparaît :
-
-    ![image](../assets/alerts/bar.png)
+    La barre d'édition apparaît, avec les boutons **Ajouter une vue**, **Éditer**, **Supprimer**, **Configurer par défaut**, **Partager la vue**, **Ajouter widget** et **Rotation**.
 
 2. Cliquez sur **Ajouter une vue**, puis sélectionnez **À partir d'une vue existante**. Une liste déroulante propose toutes les vues partagées par d'autres utilisateurs.
 

@@ -359,10 +359,10 @@ Ajoutez des règles pour firewalld :
 > La liste des flux réseau nécessaires pour chaque type de serveur est définie
 > [ici](../installation/technical.md#tableaux-des-flux-réseau).
 
-<Tabs groupId="sync">
-<TabItem value="Central / Remote Server" label="Central / Remote Server">
-
 Exécutez les commandes suivantes (changez les numéros de port si vous avez personnalisé ceux-ci) :
+
+<Tabs groupId="sync">
+<TabItem value="Serveur central/Serveur distant" label="Serveur central/Serveur distant">
 
 ```shell
 # For default protocols
@@ -375,12 +375,16 @@ firewall-cmd --zone=public --add-service=snmptrap --permanent
 firewall-cmd --zone=public --add-port=5556/tcp --permanent
 # Centreon Broker
 firewall-cmd --zone=public --add-port=5669/tcp --permanent
+# MariaDB
+firewall-cmd --zone=public --add-port=3306/tcp --permanent
+# CMA
+firewall-cmd --zone=public --add-port=4317/tcp --permanent
+# MAP, if installed on the central server
+firewall-cmd --zone=public --add-port=5758/tcp --permanent
 ```
 
 </TabItem>
-<TabItem value="Poller" label="Poller">
-
-Exécutez les commandes suivantes :
+<TabItem value="Collecteurs" label="Collecteurs">
 
 ```shell
 # For default protocols
@@ -389,10 +393,31 @@ firewall-cmd --zone=public --add-service=snmp --permanent
 firewall-cmd --zone=public --add-service=snmptrap --permanent
 # Centreon Gorgone
 firewall-cmd --zone=public --add-port=5556/tcp --permanent
+# CMA
+firewall-cmd --zone=public --add-port=4317/tcp --permanent
+```
+
+</TabItem>
+<TabItem value="Serveur MAP" label="Serveur MAP">
+
+```shell
+# si HTTP
+firewall-cmd --zone=public --add-port=8081/tcp --permanent
+# si HTTPS
+firewall-cmd --zone=public --add-port=9443/tcp --permanent
+```
+
+</TabItem>
+<TabItem value="Serveur MBI" label="Serveur MBI">
+
+```shell
+firewall-cmd --zone=public --add-port=1234/tcp --permanent
 ```
 
 </TabItem>
 </Tabs>
+
+Si votre plateforme utilise Centreon HA, vous devez également [ouvrir les ports nécessaires au cluster](../installation/installation-of-centreon-ha/prerequisites.md).
 
 Une fois les règles ajoutées, rechargez firewalld:
 

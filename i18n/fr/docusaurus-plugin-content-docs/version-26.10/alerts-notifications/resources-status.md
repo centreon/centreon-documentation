@@ -24,6 +24,10 @@ exemple par statut ou encore par sévérité.
 
 ![image](../assets/alerts/resources-status/resources-status-listing-order.gif)
 
+:::note
+Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+:::
+
 ### Vue par hôte/par service
 
 Utilisez les boutons **Afficher la vue** au-dessus de la liste des ressources pour définir la façon dont la liste sera affichée. 
@@ -229,6 +233,10 @@ toutes les ressources de type services et métaservices.
 
   ![image](../assets/alerts/resources-status/search_tab.gif)
 
+  :::note
+  Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+  :::
+
 3. Séparez les critères de recherche par des espaces. Les critères s'additionnent 
 selon un critère "ET" : les résultats correspondront à tous les critères saisis.
 
@@ -239,8 +247,6 @@ selon un critère "ET" : les résultats correspondront à tous les critères sai
 
 Exemple :
     **s.description:ping h.name:linux** : la liste affiche tous les services dont le nom contient "ping", pour tous les hôtes dont le nom contient "linux".
-
-![image](../assets/alerts/resources-status/search_ping_linux.gif)
 
 ### Sauvegarder un filtre
 
@@ -277,6 +283,10 @@ Le panneau d'hôte contient les éléments suivants :
 
 ![image](../assets/alerts/resources-status/resources-status-panel-host.gif)
 
+:::note
+Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+:::
+
 Si l'hôte est acquitté ou en maintenance planifiée, des informations supplémentaires
 seront visibles sur le panneau.
 
@@ -294,6 +304,10 @@ Le panneau de service contient les éléments suivants :
 
 ![image](../assets/alerts/resources-status/resources-status-panel-service.gif)
 
+:::note
+Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+:::
+
 Si le service est acquitté ou en downtime, des informations supplémentaires
 seront visibles sur le panneau.
 
@@ -309,8 +323,7 @@ Vous pouvez exporter la liste complète des évènements au format CSV.
 
 L'onglet **Graphique** vous permet d’afficher de manière visuelle l'évolution des métriques dans le temps pour la ressource sélectionnée. Survolez les courbes avec la souris pour afficher l'heure exacte sous le titre du graphique, et dans la légende, les valeurs des différentes métriques correspondant à l'instant.
 
-Lorsque le curseur ne survole pas les courbes, la légende affiche les valeurs minimum, maximum et moyennes 
-pour chaque métrique.
+Lorsque le curseur ne survole pas les courbes, la légende affiche le nom de chaque métrique.
 
 ![image](../assets/alerts/resources-status/resources-status-values.png)
 
@@ -321,9 +334,11 @@ Utilisez la légende pour afficher ou masquer des métriques.
 
 ![image](../assets/alerts/resources-status/resources-status-graph-select-only-metric.gif)
 
-Vous pouvez également afficher plusieurs métriques en faisant Ctrl+clic (ou bien Cmd+clic pour les utilisateurs Mac) sur la légende correspondante :
+:::note
+Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+:::
 
-![image](../assets/alerts/resources-status/resources-status-graph-toggle-legends.gif)
+Vous pouvez également afficher plusieurs métriques en faisant **Ctrl+clic** (ou bien **Cmd+clic** pour les utilisateurs Mac) sur la légende correspondante.
 
 Les graphiques affichent l'évolution des métriques sur une période donnée. La période affichée peut être définie de différentes façons :
 
@@ -337,23 +352,31 @@ Les graphiques affichent l'évolution des métriques sur une période donnée. L
 
     ![image](../assets/alerts/resources-status/resources-status-graph-time-selection.gif)
 
+    :::note
+    Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+    :::
+
 La bascule **Afficher les évènements** permet d'afficher certains évènements de la chronologie de la ressource (plages de maintenance, acquittements, commentaires) directement sur le graphique, aux travers d'annotations :
 
 ![image](../assets/alerts/resources-status/resources-status-graph-display-events.gif)
+
+:::note
+Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+:::
 
 Il est possible d'ajouter un commentaire directement sur le graphique, en cliquant n’importe où, au niveau du temps souhaité, et ensuite en cliquant sur **Ajouter un commentaire** sur l'infobulle qui apparaît :
 
 ![image](../assets/alerts/resources-status/resources-status-graph-add-comment.gif)
 
+:::note
+Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+:::
+
 Pour supprimer un commentaire, allez à la page **Supervision > Planifier des plages de maintenance > Commentaires**.
 
-En cliquant sur le bouton **Exporter**, vous pouvez exporter une capture du graphique sous forme d'image PNG, qui va aussi inclure les évènements de la chronologie, si l'option correspondante est activée. Notez que seules les métriques sélectionnées seront exportées :
+En cliquant sur l'icône **Exporter** (flèche de téléchargement) en haut à droite du graphique, vous pouvez exporter une capture du graphique sous forme d'image PNG, qui va aussi inclure les évènements de la chronologie, si l'option correspondante est activée. Notez que seules les métriques sélectionnées seront exportées.
 
-![image](../assets/alerts/resources-status/resources-status-graph-export-to-png.gif)
-
-Pour voir une version plus grande du graphique, cliquez sur **Go to performance page** en haut à droite du graphique.
-
-![image](../assets/alerts/resources-status/graph-open.png)
+Pour voir une version plus grande du graphique, cliquez sur l'icône **Go to performance page** en haut à droite du graphique, à gauche de l'icône d'export.
 
 Le graphique s'ouvre dans la page **Supervision > Informations de performance > Graphiques**, vous permettant de filtrer celui-ci plus précisément.
 

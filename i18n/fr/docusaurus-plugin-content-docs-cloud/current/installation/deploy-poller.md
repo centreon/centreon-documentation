@@ -1,81 +1,38 @@
 ---
 id: deploy-poller
-title: Déployer un collecteur
-description: "Procédure étape par étape pour installer un collecteur dans votre infrastructure et exporter la configuration pour l'activer"
+title: À l'aide d'une commande générée automatiquement (VM ou machine physique)
+description: "Installer un collecteur sur une machine virtuelle ou physique à l'aide d'une commande générée dans l'interface Centreon"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+> La fonctionnalité décrite ici est en phase bêta.
 
-Avec Centreon Cloud, votre plateforme SaaS est déjà prête à l'emploi. Il ne vous reste qu'à installer un ou des collecteurs dans votre infrastructure, ce qui est très facile : exécutez un script, exportez la configuration et le collecteur est prêt.
+Une commande personnalisée pour installer un collecteur sur une machine virtuelle ou physique peut être générée depuis l'interface de votre serveur central.
 
-Avant de déployer un collecteur, assurez-vous que votre machine hôte répond aux [prérequis](prerequisites.md). Seuls les utilisateurs ayant les [rôles](../users/users.md#rôles-des-utilisateurs) **Administrator** ou **Editor** ont accès à la commande d'installation de collecteurs.
+## Prérequis
 
-## Étape 1 : Exécuter le script d'installation du collecteur
+* La machine sur laquelle vous allez installer le collecteur doit satisfaire les [prérequis d'installation d'un collecteur](prerequisites.md).
+* Vous devez disposer d'un jeton d'authentification de type collecteur (les plateformes Cloud en ont un par défaut, appelé **poller-default**).
 
-1. Connectez-vous en SSH au serveur qui deviendra un collecteur Centreon.
-2. Désactivez SELinux (ceci est recommandé afin d'obtenir une installation fluide. Des utilisateurs avancés peuvent activer SELinux en fonction de leur expertise de SELinux ou de leurs contraintes de sécurité, mais attention aux effets secondaires de ce paramétrage.)
-   
-   1. Éditez le fichier de configuration **/etc/sysconfig/selinux**.
-   2. Donnez au paramètre SELINUX la valeur "disabled" (**SELINUX=disabled**).
-   3. Sauvegardez le fichier et redémarrez le système pour appliquer les changements.
+## Étape 1 : Générer la commande d'installation
 
-3. Par défaut, le nom de l'hôte de la machine est également le nom du poller. Si vous souhaitez modifier le nom de d'hôte vous pouvez utiliser la commande suivante : `hostnamectl set-hostname your-hostname`.
+1. Sur l'interface du serveur central, cliquez sur la zone des collecteurs en haut à gauche de l'écran puis sur **Créer un collecteur**.
 
-4. [Dans votre interface utilisateur](../getting-started/interface.md#accéder-à-linterface-utilisateur), cliquez sur la flèche à côté de **Collecteurs** dans le bandeau en haut à gauche.
+   ![image](../assets/installation/create-poller-banner.png)
 
-5. Dans la pop-up qui apparaît, cliquez sur **Copy install command**. La commande est copiée dans votre presse-papiers.
+2. Remplissez le formulaire avec les informations concernant le collecteur :
 
-6. Sur le serveur qui deviendra un collecteur, dans le terminal, copiez la commande d'installation et exécutez-la (cela devrait prendre environ 10 minutes).
+   * **Nom du collecteur** : un nom unique pour ce collecteur. Il apparaîtra dans la liste des collecteurs.
+   * **Adresse du collecteur** : l'adresse de la machine hôte sur laquelle vous allez installer le collecteur.
+      > L'adresse du collecteur n'a aucune incidence sur la connectivité : Gorgone
+      > utilise PullWSS, c'est donc toujours le collecteur qui initie la connexion vers le
+      > serveur central, et non l'inverse.
 
-7. Dans l'interface utilisateur, allez à la page **Configuration > Collecteurs > Collecteurs**. Le nouveau collecteur apparaît dans la liste des collecteurs.
-   * Dans la colonne **Adresse IP**, l'adresse indiquée est celle du collecteur vu par la plateforme SaaS.
-   * Le collecteur n'est pas encore démarré (**Non** dans la colonne **En cours d'exécution?**).
+3. Sélectionnez **VM ou physique** comme environnement du collecteur.
 
-## Étape 2 : Exporter la configuration et redémarrer le collecteur
+4. Sélectionnez votre [jeton d'authentification](#prérequis).
 
-Exportez la configuration du collecteur :
+5. Dans la section **Générer la commande d'installation**, cliquez sur le bouton et patientez le temps que la commande soit générée.
 
-1. Dans l'interface utilisateur, allez à la page **Configuration > Collecteurs > Collecteurs**, puis sélectionnez le collecteur que vous venez de créer.
-2. Cliquez sur **Exporter la configuration**. Un nouvelle page s'ouvre :
-   * Sélectionnez les 4 premières options
-   * À côté de **Redémarrer l'ordonnanceur**, sélectionnez la méthode **Redémarrer**.
-3. Cliquez sur **Exporter**. Un log de l'export s'affiche : il ne devrait pas y avoir d'erreurs.
-4. Retournez à la page **Configuration > Collecteurs > Collecteurs** : le collecteur affiche **Oui** dans la colonne **En cours d'exécution?**. Votre collecteur est maintenant prêt à superviser des ressources.
+6. Copiez la commande à l'aide du bouton situé en haut à droite du bloc de code et exécutez-la sur votre machine hôte.
 
-## Réinstaller un collecteur
-
-Si, pour une raison quelconque, vous devez réinstaller un collecteur existant, procédez comme suit pour éviter tout conflit lors de l'enregistrement :
-
-1. Allez à la page **Configuration > Collecteurs > Collecteurs**.
-2. Supprimez le collecteur que vous souhaitez réinstaller.
-3. Exécutez le script d'installation : lorsque vous y êtes invité, sélectionnez l'option 2, **Reinstall the poller from scratch**. Vous pouvez également exécuter le script d'installation avec l'option **--reset** :
-
-   ```shell
-   bash registerPoller.sh install -t <token> -s <site> -o <organization> --reset
-   ```
-4. [Déployez la configuration et redémarrez le collecteur](#étape-2--exporter-la-configuration-et-redémarrer-le-collecteur).
-
-## Scénario de déploiement avancé : utilisation d'un dépôt privé
-
-Si vous ne pouvez pas vous connecter au dépôt public Centreon, vous pouvez désactiver l'installation automatique à partir de celui-ci et gérer l'installation des paquets d'une autre manière.
-
-1. Préparez le système d'exploitation afin qu'il puisse trouver les paquets nécessaires via un autre canal. Pour information, les dépôts nécessaires sont listés dans la
-[documentation Centreon OnPrem](/docs/installation/installation-of-a-central-server/using-packages#installer-les-dépôts).
-
-2. Suivez la procédure ci-dessus (étapes [1](#étape-1--exécuter-le-script-dinstallation-du-collecteur) et
-[2](#étape-2--exporter-la-configuration-et-redémarrer-le-collecteur)) : avant d'exécuter la commande d'installation que vous avez copiée depuis l'interface, modifiez-la et ajoutez l'option `--private-repo` après la commande `install`.
-
-<!--### Liste des paquets installés par la commande de déploiement
-
-* Alma / RHEL / Oracle Linux :
-
-```shell
-centreon-poller perl-Mojolicious jq
-```
-
-* Debian :
-
-```shell
-centreon-poller libmojolicious-perl jq
-```-->
+7. Cliquez sur le bouton **Exporter la configuration**. Le collecteur apparaît dans la liste des collecteurs.

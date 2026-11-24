@@ -42,9 +42,7 @@ Pour ajouter un commentaire, deux solutions sont possibles :
 </TabItem>
 </Tabs>
 
-La fenêtre suivante s'affiche :
-
-![image](../assets/alerts/comment.png)
+Dans la fenêtre qui s'affiche :
 
 -   Le champ **Host Name** définit l'hôte concerné par le commentaire
 -   Si vous avez choisi d'ajouter un commentaire pour un service, le

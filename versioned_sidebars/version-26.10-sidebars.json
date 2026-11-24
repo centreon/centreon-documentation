@@ -4,6 +4,7 @@
       "collapsed": true,
       "type": "category",
       "label": "Getting started with Centreon Infra Monitoring OnPrem",
+      "className": "sidebar-icon sidebar-icon--start",
       "link": {
         "type": "doc",
         "id": "getting-started/welcome"
@@ -85,6 +86,7 @@
     {
       "type": "category",
       "label": "Installation",
+      "className": "sidebar-icon sidebar-icon--install",
       "link": {
         "type": "generated-index"
       },
@@ -253,6 +255,7 @@
     {
       "type": "category",
       "label": "Secure your platform",
+      "className": "sidebar-icon sidebar-icon--security",
       "link": {
         "type": "generated-index"
       },
@@ -278,6 +281,7 @@
     {
       "type": "category",
       "label": "Monitoring resources",
+      "className": "sidebar-icon sidebar-icon--monitor",
       "link": {
         "type": "generated-index"
       },
@@ -499,6 +503,7 @@
     {
       "type": "category",
       "label": "Managing events and alerts",
+      "className": "sidebar-icon sidebar-icon--alert",
       "link": {
         "type": "generated-index"
       },
@@ -672,6 +677,7 @@
     {
       "type": "category",
       "label": "Managing Centreon users",
+      "className": "sidebar-icon sidebar-icon--users",
       "link": {
         "type": "generated-index"
       },
@@ -705,6 +711,7 @@
     {
       "type": "category",
       "label": "Service Mapping",
+      "className": "sidebar-icon sidebar-icon--dashboard",
       "link": {
         "type": "generated-index"
       },
@@ -776,6 +783,7 @@
     {
       "type": "category",
       "label": "Data Visualization",
+      "className": "sidebar-icon sidebar-icon--dashboard",
       "link": {
         "type": "generated-index"
       },
@@ -965,6 +973,7 @@
     {
       "type": "category",
       "label": "Reporting (MBI)",
+      "className": "sidebar-icon sidebar-icon--dashboard",
       "link": {
         "type": "generated-index"
       },
@@ -1115,6 +1124,7 @@
     {
       "type": "category",
       "label": "Administration",
+      "className": "sidebar-icon sidebar-icon--administer",
       "link": {
         "type": "generated-index"
       },
@@ -1252,6 +1262,7 @@
     {
       "type": "category",
       "label": "Update, Upgrade & Migrate",
+      "className": "sidebar-icon sidebar-icon--install",
       "link": {
         "type": "generated-index"
       },
@@ -1344,11 +1355,13 @@
     {
       "type": "link",
       "href": "/pp/integrations/plugin-packs/getting-started/introduction",
-      "label": "Monitoring Connectors"
+      "label": "Monitoring Connectors",
+      "className": "sidebar-icon sidebar-icon--connector"
     },
     {
       "type": "category",
       "label": "Centreon Monitoring Agent",
+      "className": "sidebar-icon sidebar-icon--send",
       "link": {
                 "type": "generated-index"
               },
@@ -1395,6 +1408,7 @@
     {
       "type": "category",
       "label": "Integrations",
+      "className": "sidebar-icon sidebar-icon--extend",
       "link": {
         "type": "doc",
         "id": "integrations/introduction-integrations"
@@ -1586,6 +1600,7 @@
     {
       "type": "category",
       "label": "Centreon mobile",
+      "className": "sidebar-icon sidebar-icon--mobile",
       "link": {
         "type": "generated-index"
       },
@@ -1599,6 +1614,7 @@
     {
       "type": "category",
       "label": "API",
+      "className": "sidebar-icon sidebar-icon--extend",
       "link": {
         "type": "generated-index"
       },
@@ -1648,6 +1664,7 @@
     {
       "type": "category",
       "label": "Developer resources",
+      "className": "sidebar-icon sidebar-icon--extend",
       "link": {
         "type": "generated-index"
       },
@@ -1721,6 +1738,7 @@
     {
       "type": "category",
       "label": "Centreon HA",
+      "className": "sidebar-icon sidebar-icon--install",
       "link": {
         "type": "doc",
         "id": "installation/installation-of-centreon-ha/centreon-ha"
@@ -1828,6 +1846,7 @@
     {
       "type": "category",
       "label": "Releases",
+      "className": "sidebar-icon sidebar-icon--reference",
       "link": {
         "type": "generated-index"
       },
@@ -1859,6 +1878,7 @@
     {
       "type": "category",
       "label": "Security",
+      "className": "sidebar-icon sidebar-icon--security",
       "link": {
         "type": "generated-index"
       },
@@ -1893,6 +1913,7 @@
     {
       "type": "category",
       "label": "Resources",
+      "className": "sidebar-icon sidebar-icon--reference",
       "link": {
         "type": "generated-index"
       },

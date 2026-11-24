@@ -70,7 +70,7 @@ This is useful when you need to install several central servers with identical s
 2. Download the script:
 
    ```shell
-   curl -L https://download.centreon.com/26.10/unattended.sh --output /tmp/unattended.sh
+   curl -L https://raw.githubusercontent.com/centreon/centreon/26.10-latest/centreon/unattended.sh --output /tmp/unattended.sh
    ```
 
 ## Installation
