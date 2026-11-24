@@ -23,8 +23,8 @@ Modèle pour une nouvelle version de la sonde (une entrée par image publiée, l
 Date de sortie : J mois AAAA. [Procédure de mise à jour](configuration/user-journey/stm-zones.md#mettre-à-jour-une-sonde).
 
 - **Amélioration** : ...
-- **Correction** : ...
 - **Correction, changement de comportement** : ... (dire ce qui se passait avant, ce qui se passe maintenant, et quels parcours sont concernés)
+- **Correction** : ...
 - **Maintenance** : ...
 
 Ne pas recopier la procédure de mise à jour dans l'entrée : mettre un lien.
@@ -35,9 +35,9 @@ Ne pas recopier la procédure de mise à jour dans l'entrée : mettre un lien.
 Date de sortie : 25 novembre 2026. [Procédure de mise à jour](configuration/user-journey/stm-zones.md#mettre-à-jour-une-sonde).
 
 - **Amélioration** : la sonde masque les valeurs de parcours marquées comme secrètes dans tout ce qu'elle envoie à la plateforme (logs, enregistrements réseau et résultats), quel que soit le nom de la valeur. Les captures d'écran ne sont pas masquées. Les sondes antérieures à la version 1.0.5 ignorent le marquage secret et ne masquent les valeurs que d'après leur nom : si vous utilisez des valeurs secrètes, mettez à jour vos sondes.
+- **Amélioration** : chaque image porte, en plus du tag `latest`, un tag correspondant à sa version (par exemple `1.0.5`) : vous pouvez ainsi figer une sonde sur une version précise. Les images portent aussi des labels standard (produit, éditeur, licence, version, date de build), lisibles avec `docker inspect`.
 - **Correction, changement de comportement** : une étape de formulaire échoue désormais immédiatement lorsqu'un de ses champs est introuvable, et l'incident indique le nom de ce champ. Jusqu'ici, le champ était ignoré, le formulaire était tout de même envoyé et le parcours échouait plus tard, sur une étape sans rapport. Les parcours qui reposaient sur un champ ignoré sans avertissement vont se mettre à échouer.
 - **Correction** : les logs de la sonde affichent le nom des parcours et des variables, et non plus leurs valeurs.
-- **Amélioration** : chaque image porte, en plus du tag `latest`, un tag correspondant à sa version (par exemple `1.0.5`) : vous pouvez ainsi figer une sonde sur une version précise. Les images portent aussi des labels standard (produit, éditeur, licence, version, date de build), lisibles avec `docker inspect`.
 - **Maintenance** : des composants tiers ont été mis à jour, dont l'environnement d'exécution Ruby (4.0.10).
 
 ## 1.0.4
