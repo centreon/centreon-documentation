@@ -29,9 +29,32 @@ and/or
 
 * One or more pollers to collect data.
 
-Example of distributed architecture with 3 remote servers and 6 pollers. Note that you can also attach a poller directly to the central server.
+Example of a distributed architecture with 3 remote servers and 7 pollers. A poller can be attached to a remote server or directly to the central server.
 
-![image](../assets/getting-started/archi.png)
+```mermaid
+flowchart LR
+  accTitle: Example of a distributed architecture
+  accDescr: A central server, with 3 remote servers and one poller attached to it. Each remote server has 2 pollers.
+
+  central["Central server"]:::central
+
+  remote1["Remote server 1"]:::remote
+  remote2["Remote server 2"]:::remote
+  remote3["Remote server 3"]:::remote
+
+  poller1(["Poller 1"]):::poller
+  poller2(["Poller 2"]):::poller
+  poller3(["Poller 3"]):::poller
+  poller4(["Poller 4"]):::poller
+  poller5(["Poller 5"]):::poller
+  poller6(["Poller 6"]):::poller
+  poller7(["Poller 7"]):::poller
+
+  central --- remote1 & remote2 & remote3 & poller7
+  remote1 --- poller1 & poller2
+  remote2 --- poller3 & poller4
+  remote3 --- poller5 & poller6
+```
 
 ### Architecture with remote DBMS
 
@@ -43,7 +66,38 @@ Your central server can have a remote DBMS. An architecture with a remote DBMS c
 
 ## What kind of architecture do you need?
 
-![image](../assets/installation/architecture_decision.png)
+**Do you need pollers?**
+
+```mermaid
+flowchart LR
+  accTitle: Do you need pollers?
+  accDescr: If you monitor segregated networks or distant sites, or 500 hosts or more, add pollers to the central server. Otherwise, a standalone central server is enough.
+
+  sites("Segregated networks or distant sites to monitor?"):::question
+  hosts("How many hosts to monitor?"):::question
+  withPollers["Central server + pollers"]:::answer
+  standalone["Standalone central server"]:::answer
+
+  sites -- Yes --> withPollers
+  sites -- No --> hosts
+  hosts -- "500 or more" --> withPollers
+  hosts -- "Fewer than 500" --> standalone
+```
+
+**Where to install the database?**
+
+```mermaid
+flowchart LR
+  accTitle: Where to install the database?
+  accDescr: Above 5,000 hosts, the database must be on a separate server. Otherwise, it can be on the central server.
+
+  volume("More than 5,000 hosts to monitor?"):::question
+  remoteDb[("Separate database server")]:::database
+  localDb[("Database on the central server")]:::answer
+
+  volume -- Yes --> remoteDb
+  volume -- No --> localDb
+```
 
 When designing your Centreon platform, bear the following considerations in mind:
 
