@@ -41,8 +41,6 @@ Les comparaisons multi-sites ne sont possibles qu'à partir des [tableaux de bor
 3. Cliquez sur **Créer un site**.
 4. Saisissez l'URL de la page d'accueil, puis cliquez sur **Créer** et confirmez. Le site apparaît dans la liste des sites de la page ainsi que dans le sélecteur de sites.
 
-Chaque organisation est liée à une licence, affichée dans l'onglet **Licences & Sites**. Les nouveaux sites sont créés sur cette licence. Les sites rattachés à d'autres licences restent listés, mais vous ne pouvez plus ajouter de sites à ces licences. Pour changer la licence de votre organisation, contactez votre commercial Centreon ou le [support Centreon](http://support.centreon.com/).
-
 ## Changer de module
 
 La barre de navigation horizontale (en haut à gauche) vous permet de basculer entre les modules d'Experience Monitoring ([**Parcours utilisateurs**](../../getting-started/synthetic-monitoring.md), [**Système**](../../getting-started/system-view.md), [**Real User Monitoring**](../../getting-started/real-user-monitoring.md), etc.).

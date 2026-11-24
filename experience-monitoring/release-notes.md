@@ -4,6 +4,20 @@ title: Centreon Experience Monitoring release notes
 description: "New features and improvements in each Centreon Experience Monitoring release, such as token management, internal probes and user journey actions."
 ---
 
+## November 25th, 2026
+
+**Secret credentials in user journeys**
+
+Journey variables, cookies and HTTP headers can now be made [secret](configuration/user-journey/create-a-scenario.md#keeping-credentials-secret). Once saved, a secret value is never displayed again, and the probes mask it in the logs, network recordings and results they upload.
+
+**Fill form action: missing fields now fail the step**
+
+A [**Fill form**](configuration/user-journey/create-a-scenario.md#possible-actions-in-a-user-journey) action now fails immediately when one of its fields cannot be found, and the incident names the missing field. Until now, the field was skipped and the journey failed later on an unrelated step. This applies to all probes, public and internal: journeys that relied on a missing field being skipped will start failing, so check them.
+
+**Internal probe 1.0.5**
+
+A new version of the internal probe is available. If you host [internal probes](configuration/user-journey/stm-zones.md), update them.
+
 ## November 9th, 2026
 
 **Quanta becomes Centreon Experience Monitoring**

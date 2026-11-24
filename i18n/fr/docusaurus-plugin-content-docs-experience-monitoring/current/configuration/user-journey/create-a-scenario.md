@@ -89,8 +89,6 @@ Vous pouvez également modifier la langue des recommandations.
 
 Si votre site (ou un environnement de staging) est protégé par une authentification HTTP Basic (parfois appelée protection `.htaccess`), saisissez les identifiants ici. Laissez les champs vides si aucune protection de ce type n'est utilisée.
 
-Le mot de passe est toujours [secret](#protéger-les-identifiants) : il n'est plus jamais affiché une fois enregistré. Pour conserver le mot de passe enregistré, laissez le champ vide lorsque vous modifiez le parcours. Le nom d'utilisateur reste visible.
-
 #### Cookies
 
 Ajoutez des cookies personnalisés pour stocker des données ou des sessions au démarrage du parcours. Un cookie peut être rendu [secret](#protéger-les-identifiants).
@@ -178,15 +176,12 @@ Les domaines suivants sont bloqués par défaut :
 
 Les variables, cookies et en-têtes HTTP d'un parcours peuvent être rendus secrets. Utilisez cette option pour les mots de passe, les jetons, les cookies de session et toute autre valeur qui ne doit pas être lisible dans l'interface.
 
-- Une fois enregistrée, une valeur secrète n'est plus jamais affichée, à personne, y compris aux propriétaires et aux administrateurs. L'éditeur affiche un cadenas à la place de la valeur, avec un bouton **Remplacer** pour saisir une nouvelle valeur.
+- Une fois enregistrée, une valeur secrète n'est plus jamais affichée.
 - Rendre une valeur secrète est irréversible. Pour ne plus utiliser une valeur secrète, supprimez-la et créez-en une nouvelle, non secrète.
-- Les cookies et en-têtes portant un nom d'identifiant courant, comme `Authorization`, `Cookie`, ou des noms de jetons et de cookies de session, sont automatiquement rendus secrets.
 - Le mot de passe de l'[authentification HTTP Basique](#authentification-http-basique) est toujours secret.
-- Lorsque vous exportez un parcours, les valeurs secrètes ne sont pas incluses : après l'avoir importé, saisissez-les à nouveau. Lorsque vous dupliquez un parcours, la copie conserve ses valeurs secrètes.
+- Lorsque vous dupliquez un parcours, la copie conserve ses valeurs secrètes.
 
 Les sondes masquent également les valeurs secrètes dans tout ce qu'elles envoient à Experience Monitoring : logs, enregistrements réseau (fichiers HAR) et résultats, y compris l'URL visitée. Les captures d'écran ne sont pas masquées : évitez les étapes où une valeur secrète s'affiche sur la page.
-
-> Si votre parcours s'exécute depuis une [zone STM privée](stm-zones.md), sa sonde doit être en version 1.0.5 ou supérieure pour masquer les valeurs secrètes. Les sondes plus anciennes ne masquent les valeurs qu'en fonction de leur nom. Voir [Mettre à jour une sonde interne](stm-zones.md#mettre-à-jour-une-sonde-interne).
 
 ## Configuration d'une étape ou d'une action
 

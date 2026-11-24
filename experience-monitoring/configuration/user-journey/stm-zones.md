@@ -75,21 +75,3 @@ Note that it takes up to 24 hours for the probe to gather enough data to start s
 After a short while, the probe will run its first check and your internal journey monitoring will be operational. You can analyze it just like a regular [user journey](../../how-to-articles/user-journey-screen.md).
 
 If you are running into any issues, try our [user journey troubleshooting guide](../../performance-analysis/errors-and-unavailability-front-end.md).
-
-## Updating an internal probe
-
-Centreon regularly publishes new versions of the probe image. To update a probe, pull the new image (`docker pull`), then recreate the probe with the probe command from **Associate a probe**.
-
-Each image is tagged with its version number (for example `1.0.5`) in addition to its usual tag. To pin a probe to a given version, replace the image tag with the version number in the probe command.
-
-To check which version a probe runs, read the labels of its image. The image carries standard OCI labels (product name, vendor, license, version, revision and build date):
-
-```shell
-docker inspect --format '{{ index .Config.Labels "org.opencontainers.image.version" }}' <probe container name>
-```
-
-### Version 1.0.5
-
-- The probe masks the values marked as [secret](create-a-scenario.md#keeping-credentials-secret) in everything it uploads: logs, network recordings and results, including the visited URL. Screenshots are not masked. Its log shows variable names, never their values.
-- A probe older than 1.0.5 ignores secret values and only masks values based on their name. If your journeys use secret values, update your probes.
-- A [**Fill form**](create-a-scenario.md#possible-actions-in-a-user-journey) action now fails immediately when one of its fields cannot be found. Journeys that relied on a missing field being skipped will start failing.

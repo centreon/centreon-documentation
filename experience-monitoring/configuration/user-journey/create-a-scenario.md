@@ -89,8 +89,6 @@ You can also change the language of the recommendations.
 
 If your site (or a staging environment) is protected by HTTP Basic authentication (sometimes called `.htaccess` protection), enter the credentials here. Leave the fields empty if no protection of this type is used.
 
-The password is always [secret](#keeping-credentials-secret): it is never displayed once saved. To keep the stored password, leave the field blank when you edit the journey. The username stays visible.
-
 #### Cookies
 
 Add custom cookies to store data or sessions at journey start. A cookie can be made [secret](#keeping-credentials-secret).
@@ -178,15 +176,12 @@ The following domains are blocked by default:
 
 Journey variables, cookies and HTTP headers can be made secret. Use this for passwords, tokens, session cookies and any other value that should not be readable in the interface.
 
-- Once saved, a secret value is never displayed again, to anyone, including Owners and Administrators. The editor shows a padlock instead of the value, with a **Replace** button to enter a new value.
+- Once saved, a secret value is never displayed again.
 - Making a value secret cannot be undone. To stop using a secret value, delete it and create a new, non-secret one.
-- Cookies and headers with a well-known credential name, such as `Authorization`, `Cookie`, or token and session cookie names, are made secret automatically.
 - The [HTTP Basic authentication](#http-basic-authentication) password is always secret.
-- When you export a journey, secret values are not included: after importing it, enter them again. When you duplicate a journey, the copy keeps its secret values.
+- When you duplicate a journey, the copy keeps its secret values.
 
 The probes also mask secret values in everything they upload to Experience Monitoring: logs, network recordings (HAR files) and results, including the visited URL. Screenshots are not masked, so avoid steps where a secret value is displayed on the page.
-
-> If your journey runs from a [private STM zone](stm-zones.md), its probe must run version 1.0.5 or later to mask secret values. Older probes only mask values based on their name. See [Updating an internal probe](stm-zones.md#updating-an-internal-probe).
 
 ## Step or Action configuration
 
