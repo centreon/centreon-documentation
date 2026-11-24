@@ -4,6 +4,8 @@ title: Sonde interne (zones STM) - notes de release
 description: "Changements apportés par chaque version de la sonde interne de vos zones STM privées : nouveautés, corrections et changements de comportement à vérifier."
 ---
 
+Changements apportés par chaque version de la sonde interne de vos zones STM privées.
+
 La sonde interne est la sonde que vous déployez dans votre propre infrastructure pour exécuter des parcours utilisateur depuis une [zone STM privée](configuration/user-journey/stm-zones.md). Les sondes internes ne sont pas mises à jour automatiquement, et seule la dernière version est prise en charge : [mettez à jour vos sondes](configuration/user-journey/stm-zones.md#mettre-à-jour-une-sonde) à chaque nouvelle version.
 
 Une sonde indique sa version dans ses logs au démarrage.
