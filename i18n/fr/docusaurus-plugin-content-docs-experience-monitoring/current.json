@@ -82,6 +82,18 @@
   "sidebar.experience-monitoring.category.Resources": {
     "message": "Ressources",
     "description": "The label for category Resources in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.category.Release notes": {
+    "message": "Notes de release",
+    "description": "The label for category Release notes in sidebar Experience Monitoring"
+  },
+  "sidebar.experience-monitoring.doc.Experience Monitoring": {
+    "message": "Experience Monitoring",
+    "description": "The label for the doc item Experience Monitoring in sidebar Experience Monitoring, linking to the doc release-notes"
+  },
+  "sidebar.experience-monitoring.doc.Internal probe (STM zones)": {
+    "message": "Sonde interne (zones STM)",
+    "description": "The label for the doc item Internal probe (STM zones) in sidebar Experience Monitoring, linking to the doc internal-probe-release-notes"
   }
 }
 

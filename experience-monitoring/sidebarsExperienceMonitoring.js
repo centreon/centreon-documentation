@@ -157,7 +157,18 @@ module.exports = {
     { type: 'doc', id: 'performance-analysis/network-tab-indicators' },
     { type: 'doc', id: 'how-to-articles/performing-load-tests' },
     { type: 'doc', id: 'performance-analysis/dashboards' },
-    { type: 'doc', id: 'release-notes' },
+    {
+      collapsed: true,
+      type: 'category',
+      label: 'Release notes',
+      link: {
+        type: 'generated-index',
+      },
+      items: [
+        { type: 'doc', id: 'release-notes', label: 'Experience Monitoring' },
+        { type: 'doc', id: 'internal-probe-release-notes', label: 'Internal probe (STM zones)' },
+      ],
+    },
     {
       collapsed: true,
       type: 'category',
