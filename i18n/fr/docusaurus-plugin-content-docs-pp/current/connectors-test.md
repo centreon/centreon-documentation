@@ -12,23 +12,28 @@ Le plugin doit déjà être installé sur le collecteur depuis lequel vous faite
 
 ## Exécuter un contrôle depuis la ligne de commande du collecteur
 
-1. Connectez-vous au collecteur en SSH.
+1. Connectez-vous au collecteur en SSH en tant que l'utilisateur **centreon-engine**.
+
+      ```bash
+      su - centreon-engine
+      ```
+
 2. Allez dans le répertoire des plugins :
 
-```bash
-   cd /usr/lib/centreon/plugins/
-```
+      ```bash
+      cd /usr/lib/centreon/plugins/
+      ```
 
 3. Exécutez le plugin avec les paramètres de la ressource à superviser. La commande exacte est donnée dans la procédure de supervision de chaque connecteur. Elle a la forme générale suivante :
 
-```bash
-   ./centreon_plugin.pl \
-     --plugin=<plugin::path> \
-     --mode=<mode> \
-     --hostname='<target>' \
-     [connection and credential options] \
-     [--warning=<value> --critical=<value>]
-```
+      ```bash
+         ./centreon_plugin.pl \
+         --plugin=<plugin::path> \
+         --mode=<mode> \
+         --hostname='<target>' \
+         [connection and credential options] \
+         [--warning=<value> --critical=<value>]
+      ```
 
 4. Lisez la sortie.
 

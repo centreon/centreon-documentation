@@ -9,7 +9,7 @@ description: "Learn what a Centreon Monitoring Connector is, what you can monito
 A Centreon Monitoring Connector is a combination of two elements used to monitor a specific type of IT resource:
 
 * a plugin : the script that runs the actual checks from a poller
-* a pack: the commands, host templates, and service templates, with default thresholds. Some connectors also include discovery elements: a host discovery provider (to find hosts) and/or service discovery rules (to find items to monitor on a host).
+* a pack: a file containing the commands, host templates, and service templates, with default thresholds. Some connectors also include discovery elements: a host discovery provider (to find hosts) and/or service discovery rules (to find items to monitor on a host).
 
 The two are installed separately but work together as the connector. (Formerly called a "Plugin Pack.")
 
@@ -53,7 +53,7 @@ Whatever the type, all Monitoring Connectors follow the same pattern: Centreon E
 
 * Plugin + pack only — the standard setup. The plugin runs the checks from the poller, the pack provides the templates. Nothing else needed.
 * Plugin + pack + a Connector — some require an extra Centreon Connector component (e.g. AS400, VMware).
-* Plugin + pack + an agent — some require an agent installed on the monitored host (e.g. Windows NRPE, or the Centreon Monitoring Agent / CMA).
+* Plugin + pack + an agent — some require an agent installed on the monitored host (e.g. NSClient++, or the Centreon Monitoring Agent / CMA).
 
 <!-- 
 old contents

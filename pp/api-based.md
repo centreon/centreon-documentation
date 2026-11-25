@@ -22,6 +22,8 @@ Authentication requirements vary from one service to another. You may need:
 * Sometimes a username and password, or a combination used to request a temporary access token.
 * For cloud providers, you may also need identifiers like a subscription ID, tenant ID, region, or account ID.
 
+> Note that some connectors support several authentication modes (see the documentation for each connector).
+
 ## What you're querying
 
 * The specific resource or object to monitor (e.g. a particular database, VM, or bucket).

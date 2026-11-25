@@ -21,9 +21,9 @@ The Centreon poller must be able to reach the device's UDP/161 SNMP port.
 * The SNMP version you'll use (e.g. 1, 2c, or 3).
 * Credentials, which depend on the version:
    * For SNMP v1/v2c: the community string.
-   * For SNMP v3: authentication parameters. When using SNMP v3, you use the SNMPEXTRAOPTIONS macro to add the specific authentication parameters (username, auth passphrase/protocol, privacy passphrase/protocol).
+   * For SNMP v3: authentication parameters. When using SNMP v3, use the dedicated host macros when available, or otherwise the SNMPEXTRAOPTIONS macro to add the specific authentication parameters (username, auth passphrase/protocol, privacy passphrase/protocol).
 
-Once the template is applied, you fill in these values through the connector's macros and can adjust warning/critical thresholds. We recommend that you [test the check from the poller's command line](./connectors-test.md) before deploying the configuration, to confirm that the device responds.
+Once the template is applied, you fill in these values through the connector's host macros and can adjust warning/critical thresholds. We recommend that you [test the check from the poller's command line](./connectors-test.md) before deploying the configuration, to confirm that the device responds.
 
 ## How SNMP works
 
@@ -31,9 +31,9 @@ SNMP (Simple Network Management Protocol) is a standard protocol used to monitor
 
 ### The main components
 
-Manager — the monitoring system (here, the Centreon poller). It requests information from devices and collects the responses.
-Agent — a small piece of software running on each monitored device. It knows the device's status and answers the manager's requests.
-MIB (Management Information Base) — a structured catalog of everything that can be monitored on a device. Each piece of data (CPU load, interface traffic, temperature, etc.) has a unique address called an OID (Object Identifier), written as a string of numbers like 1.3.6.1.2.1.1.3.0.
+- Manager — the monitoring system (here, the Centreon poller). It requests information from devices and collects the responses.
+- Agent — a small piece of software running on each monitored device. It knows the device's status and answers the manager's requests.
+- MIB (Management Information Base) — a structured catalog of everything that can be monitored on a device. Each piece of data (CPU load, interface traffic, temperature, etc.) has a unique address called an OID (Object Identifier), written as a string of numbers like 1.3.6.1.2.1.1.3.0.
 
 ### How the communication works
 
@@ -43,8 +43,8 @@ There's also a reverse direction called a trap (on UDP port 162): instead of wai
 
 ### Versions and security
 
-v1 / v2c — authenticate using a simple shared password called a community string (often "public" for read-only). It's sent in plain text, so it's not secure.
-v3 — adds real security: user-based authentication and encryption. This is why v3 needs extra parameters (username, auth passphrase/protocol, privacy passphrase/protocol).
+- v1 / v2c — authenticate using a simple shared password called a community string (often "public" for read-only). It's sent in plain text, so it's not secure.
+- v3 — adds real security: user-based authentication and encryption. This is why v3 needs extra parameters (username, auth passphrase/protocol, privacy passphrase/protocol).
 
 In short, the Centreon poller (manager) periodically asks each device's agent for values identified by OIDs, the agent answers, and Centreon turns those numbers into metrics, statuses, and alerts.
 
