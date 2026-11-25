@@ -9,7 +9,7 @@ Un connecteur à base d'API interroge l'API de la cible (en général une API RE
 ## Paramètres de connexion
 
 * Le point de terminaison de l'API : l'URL de base ou le nom d'hôte de l'API, et le port s'il n'est pas standard.
-* Le protocole : en général HTTPS, ce qui peut impliquer de gérer des certificats.
+* Le protocole : nous vous recommandons HTTPS, même ci cela peut impliquer de gérer des certificats.
 * La connectivité réseau : le collecteur Centreon doit pouvoir joindre le point de terminaison de l'API (ainsi que le proxy intermédiaire, s'il y en a un).
 
 ## Authentification
