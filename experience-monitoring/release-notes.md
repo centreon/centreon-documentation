@@ -8,7 +8,7 @@ description: "New features and improvements in each Centreon Experience Monitori
 
 **Secret credentials in user journeys**
 
-Journey variables, injected HTTP headers and cookies can now be marked as secret: once saved, a secret value is never displayed again and can only be replaced. The HTTP authentication password is always secret. The probes mask secret values in everything they upload. If you host [internal probes](configuration/user-journey/stm-zones.md), [update them](configuration/user-journey/stm-zones.md#update-a-probe) to version 1.0.5.
+Journey variables, injected HTTP headers and cookies can now be marked as [secret](configuration/user-journey/create-a-scenario.md#keeping-credentials-secret): once saved, a secret value is never displayed again and can only be replaced. The HTTP authentication password is always secret. The probes mask secret values in everything they upload. If you host [internal probes](configuration/user-journey/stm-zones.md), [update them](configuration/user-journey/stm-zones.md#update-a-probe) to version 1.0.5.
 
 **Form steps fail on a missing field**
 

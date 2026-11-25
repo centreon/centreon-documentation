@@ -8,7 +8,7 @@ title: Centreon Experience Monitoring - notes de release
 
 **Identifiants secrets dans les parcours utilisateurs**
 
-Les variables de parcours, ainsi que les en-têtes HTTP et cookies injectés, peuvent désormais être marqués comme secrets : une fois enregistrée, une valeur secrète n'est plus jamais affichée et peut seulement être remplacée. Le mot de passe d'authentification HTTP est toujours secret. Les sondes masquent les valeurs secrètes dans tout ce qu'elles envoient. Si vous hébergez des [sondes internes](configuration/user-journey/stm-zones.md), [mettez-les à jour](configuration/user-journey/stm-zones.md#mettre-à-jour-une-sonde) vers la version 1.0.5.
+Les variables de parcours, ainsi que les en-têtes HTTP et cookies injectés, peuvent désormais être marqués comme [secrets](configuration/user-journey/create-a-scenario.md#protéger-les-identifiants) : une fois enregistrée, une valeur secrète n'est plus jamais affichée et peut seulement être remplacée. Le mot de passe d'authentification HTTP est toujours secret. Les sondes masquent les valeurs secrètes dans tout ce qu'elles envoient. Si vous hébergez des [sondes internes](configuration/user-journey/stm-zones.md), [mettez-les à jour](configuration/user-journey/stm-zones.md#mettre-à-jour-une-sonde) vers la version 1.0.5.
 
 **Les étapes de formulaire échouent si un champ est introuvable**
 
