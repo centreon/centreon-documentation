@@ -162,7 +162,13 @@ Voir [section dédiée](cma-certificates.md) pour déterminer quels fichiers son
 
 ### Ajoutez les commandes CMA à vos listes blanches personnalisées
 
-Si vous utilisez des listes blanches sur votre collecteur, celles-ci doivent autoriser les commandes CMA.
+Si vous utilisez des listes blanches sur votre collecteur, celles-ci doivent autoriser les commandes CMA. Le comportement est le suivant :
+
+* Si le bloc **whitelist** est renseigné et le bloc **cma-whitelist** est absent, le moteur de collecte appliquera sa liste blanche (il n'autorisera que les commandes spécifiées) et CMA n'appliquera pas de liste blanche (toutes les commandes seront autorisées).
+* Si les blocs **whitelist** et **cma-whitelist** sont renseignés, le moteur de collecte appliquera le bloc **whitelist** et CMA appliquera le bloc **cma-whitelist** (ils n'autoriseront que les commandes spécifiées).
+* Si le bloc **whitelist** est absent et le bloc **cma-whitelist** est renseigné, le moteur de collecte n'appliquera pas de liste blanche (toutes les commandes seront autorisées) et CMA appliquera le bloc **cma-whitelist** (il n'autorisera que les commandes spécifiées).  
+* Si aucun bloc n'est renseigné, aucune liste blanche ne sera appliquée : toutes les commandes seront autorisées.
+* Si vous utilisez une liste blanche spécifique à un hôte, celle-ci remplacera la liste blanche par défaut. Vous devez manuellement reajouter les filtres de la liste blanche par défaut à votre liste personnalisée.
 
 Sur le collecteur, dans votre fichier personnalisé de liste blanche (par exemple, **/etc/centreon-engine-whitelist/my-whitelist.yml**), incluez les lignes suivantes dans le bloc **cma-whitelist** :
 
@@ -220,13 +226,6 @@ chmod 0640 /etc/centreon-engine-whitelist/my-whitelist.yml
 chown root:centreon-engine /etc/centreon-engine-whitelist
 chmod 750 /etc/centreon-engine-whitelist
 ```
-
-Le comportement est le suivant :
-
-* Si le bloc **whitelist** est renseigné et le bloc **cma-whitelist** est absent, le moteur de collecte appliquera sa liste blanche (il n'autorisera que les commandes spécifiées) et CMA n'appliquera pas de liste blanche (toutes les commandes seront autorisées).
-* Si les blocs **whitelist** et **cma-whitelist** sont renseignés, le moteur de collecte appliquera le bloc **whitelist** et CMA appliquera le bloc **cma-whitelist** (ils n'autoriseront que les commandes spécifiées).
-* Si le bloc **whitelist** est absent et le bloc **cma-whitelist** est renseigné, le moteur de collecte n'appliquera pas de liste blanche (toutes les commandes seront autorisées) et CMA appliquera le bloc **cma-whitelist** (il n'autorisera que les commandes spécifiées).  
-* Si aucun bloc n'est renseigné, aucune liste blanche ne sera appliquée : toutes les commandes seront autorisées.
 
 ## Étape 3 : Préparez l'hôte
 
