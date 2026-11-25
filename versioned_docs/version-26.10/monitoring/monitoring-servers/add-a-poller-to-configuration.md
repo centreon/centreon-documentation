@@ -28,15 +28,14 @@ poller to the Centreon platform.
 
 If the poller your are adding will be used in reverse flow, you must now export the configuration of your central server. In the top left of your screen, click on **Pollers**, then click on **Export configuration**.
 
-4. Type in the name, the address of the new poller (IP or FQDN), and the IP address of the central
-Server. Click **Next**:
+4. Fill in the **Server Name**, the **Server address** of the new poller (IP or FQDN), and the **Centreon Central address, as seen by this server**. Click **Next**:
 
 ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
 
- > The address of the poller is the IP address or the FQDN used to access this
+ > The **Server address** is the IP address or the FQDN used to access this
  > poller from the central server.
  >
- > The IP address of the central server is the IP address or the FQDN used to
+ > The **Centreon Central address, as seen by this server** is the IP address or the FQDN used to
  > access the central server from the poller.
 
 5. Link the poller to the central server or to a remote server:
@@ -52,6 +51,10 @@ Server. Click **Next**:
     > Broker communication flow** checkbox. In this case, it will be necessary to
     > export the configuration of the poller as well as the server to which it
     > will be attached.
+
+    > If you want the poller to initiate the Gorgone connection to the central server
+    > (PullWSS), check the **Advanced: gorgone - poller connects to the central** checkbox.
+    > The central server must first be [configured to accept PullWSS connections](../../installation/installation-of-a-poller/pollers-containers-prerequisites.md).
 
     In a few seconds the wizard will configure your new poller.
 

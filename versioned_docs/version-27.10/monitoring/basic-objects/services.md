@@ -22,7 +22,7 @@ To create a service manually, go to **Configuration \> Services > Services by ho
 
 * **Custom Macros**: add customized macros.
 
-   - The **macro name** and **macro value** fields allow us to define the name and value of the macro. The **Password** box
+   - The **Name** and **Value** fields allow us to define the name and value of the macro. The **Password** box
 can be used to hide the value of the macro.
 
    - To reinitialize to the default value (defined in template) click ![image](../../assets/configuration/common/undo.png#thumbnail1)

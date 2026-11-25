@@ -41,7 +41,7 @@ sélectionnez votre serveur, puis saisissez les informations demandées :
       passe de l'utilisateur ayant accès à la base de données** sont les accès aux
       bases de données Centreon définis durant l'installation de votre serveur distant.
 
-    Le champ **Adresse IP du serveur** est de la forme : [(http|https)://]@IP[:(port)].
+    Le champ **Server address** est de la forme : [(http|https)://]@IP[:(port)].
       Si votre serveur distant est accessible en HTTPS, il est nécessaire de préciser
       la méthode d'accès et le port si celui-ci n'est pas par défaut.
 
