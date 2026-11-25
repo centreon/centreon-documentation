@@ -6,7 +6,7 @@ description: "Changements apportés par chaque version de la sonde interne de vo
 
 La sonde interne est la sonde que vous déployez dans votre propre infrastructure pour exécuter des parcours utilisateur depuis une [zone STM privée](configuration/user-journey/stm-zones.md). Les sondes internes ne sont pas mises à jour automatiquement, et seule la dernière version est prise en charge : [mettez à jour vos sondes](configuration/user-journey/stm-zones.md#mettre-à-jour-une-sonde) à chaque nouvelle version.
 
-Une sonde indique sa version dans ses logs au démarrage.
+Pour savoir dans quelle version sont vos sondes et quelle est la politique de support, consultez [Versions de la sonde interne](configuration/user-journey/stm-zones-versions.md).
 
 Les versions sont classées de la plus récente à la plus ancienne. La date de sortie est celle à laquelle la version a été intégrée pour la release : l'image publique a pu être publiée plus tard. Chaque changement porte l'un des libellés suivants :
 
