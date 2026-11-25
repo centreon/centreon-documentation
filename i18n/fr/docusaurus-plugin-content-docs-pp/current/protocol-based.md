@@ -20,7 +20,7 @@ Un connecteur à base de protocole se connecte directement à un service ou exé
 
 Dans tous les cas, vous renseignez ces valeurs dans les macros d'hôte du connecteur après avoir appliqué son modèle. Nous vous recommandons de [tester le contrôle en ligne de commande depuis le collecteur](./connectors-test.md) avant de déployer la configuration.
 
-Certains contrôles de bases de données ou d'applications nécessitent un pilote ou une bibliothèque cliente supplémentaire sur le collecteur. Dans ce cas, la procédure de supervision du connecteur indique lequel installer.
+Certains contrôles de bases de données ou d'applications nécessitent un pilote ou une bibliothèque cliente supplémentaire sur le collecteur. Dans ce cas, la procédure de supervision du connecteur indique comment installer le nécessaire.
 
 ## Résoudre les problèmes des connecteurs à base de protocole
 

@@ -42,8 +42,8 @@ Le plugin doit déjà être installé sur le collecteur depuis lequel vous faite
 Le plugin renvoie une ligne qui commence par un mot-clé de statut, éventuellement suivie de données de performance après un `|` :
 
 * **OK** : le contrôle a réussi et les valeurs sont dans les seuils.
-* **ALERTE** / **CRITIQUE** : le contrôle a réussi, mais une valeur a dépassé le seuil que vous avez défini.
-* **INCONNU** : le contrôle n'a pas pu aboutir. Cela indique en général un problème de configuration : hôte injoignable, mauvais port, identifiants incorrects ou option manquante.
+* **WARNING** / **CRITICAL** : le contrôle a réussi, mais une valeur a dépassé le seuil que vous avez défini.
+* **UNKNOWN** : le contrôle n'a pas pu aboutir. Cela indique en général un problème de configuration : hôte injoignable, mauvais port, identifiants incorrects ou option manquante.
 
 Une exécution réussie ressemble à ceci :
 
@@ -55,13 +55,13 @@ Le texte avant le `|` est le statut lisible par un humain. Tout ce qui suit corr
 
 ## Si le contrôle échoue
 
-Un résultat INCONNU, ou une erreur à la place d'une ligne de statut, vient presque toujours de la connexion et non du plugin lui-même. Vérifiez les causes habituelles :
+Un résultat UNKNOWN, ou une erreur à la place d'une ligne de statut, vient presque toujours de la connexion et non du plugin lui-même. Vérifiez les causes habituelles :
 
 * Le collecteur ne peut pas joindre la cible sur le port requis (vérifiez les chemins réseau et les pare-feux).
 * Les identifiants sont incorrects, ou le compte n'a pas les droits dont le connecteur a besoin.
 * Un paramètre obligatoire est manquant ou mal saisi.
 * Un prérequis n'est pas rempli : certains connecteurs ont besoin d'un composant ou d'un agent supplémentaire sur la cible, comme l'indique leur procédure de supervision.
 
-Ajoutez `--verbose` à la commande pour obtenir plus de détails, et utilisez `--help` pour afficher toutes les options disponibles pour le plugin et le mode que vous testez. Une fois que la commande renvoie le résultat attendu en ligne de commande, vous pouvez appliquer le modèle du connecteur à un hôte et déployer la configuration en sachant que le contrôle fonctionnera.
+Ajoutez `--debug` à la commande pour obtenir plus de détails, et utilisez `--help` pour afficher toutes les options disponibles pour le plugin et le mode que vous testez. Une fois que la commande renvoie le résultat attendu en ligne de commande, vous pouvez appliquer le modèle du connecteur à un hôte et déployer la configuration en sachant que le contrôle fonctionnera.
 
 Voir aussi : [Dépanner les erreurs des plugins](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md).

@@ -8,7 +8,7 @@ Les connecteurs à base d'agent se répartissent en plusieurs types.
 
 ## Agent CMA (Centreon Monitoring Agent)
 
-L'agent de Centreon. Il présente plusieurs avantages par rapport à NSClient++ et NRPE : de meilleures performances, une sécurité renforcée par défaut (chiffrement TLS, jeton d'authentification) et une supervision par contrôles passifs. Les connecteurs qui l'utilisent portent généralement le suffixe « CMA » (par exemple Windows CMA, Hyper-V 2012 CMA).
+L'agent de Centreon. Récemment développé pour remplacer les agents NSClient++ et le protocole NRPE, il présente plusieurs avantages : de meilleures performances et une sécurité renforcée par défaut (chiffrement TLS, jeton d'authentification). Il est important de préciser que CMA propose une supervision par contrôles passifs. Les connecteurs qui l'utilisent portent généralement le suffixe « CMA » (par exemple Windows CMA, Hyper-V 2012 CMA).
 
 ## NSClient++ NRPE
 
@@ -22,7 +22,7 @@ Ces connecteurs utilisent l'agent NSClient++, mais communiquent via son API REST
 
 Le protocole NRPE standard, principalement pour les serveurs Linux (par exemple Linux NRPE4). NRPE4 utilise la version 4 du protocole NRPE, plus récente, et remplace le connecteur NRPE3, désormais obsolète.
 
-> Centreon recommande de migrer les installations NSClient++ et NRPE vers l'agent CMA. De nombreux connecteurs NSClient++ et NRPE existants ont désormais un équivalent CMA.
+> Centreon recommande de migrer les installations NSClient++ et NRPE vers l'agent CMA. L'ensemble des connecteurs NSClient++ et NRPE existants ont désormais un équivalent CMA.
 
 ## Résoudre les problèmes des connecteurs à base d'agent
 

@@ -43,7 +43,7 @@ Certains connecteurs de supervision nécessitent aussi un connecteur (par exempl
 | ---------- | --------------------------------------------------------------------------------------------------- |
 | NRPE       | Serveur NRPE, packagé par Centreon, avec les correctifs nécessaires pour fonctionner avec les connecteurs de supervision |
 | NSClient++ | NSClient++, packagé par Centreon, prêt à l'emploi avec les plugins Centreon intégrés                |
-| VMWare     | Démon Perl qui utilise le SDK VMware pour superviser les plateformes VMware                          |
+| VMWare     | Démon Perl qui utilise le SDK perl VMware pour superviser les plateformes VMware                          |
 | AS400      | Connecteur Java qui permet d'exécuter des contrôles sur un AS400                                     |
 
 ## Installer un connecteur de supervision
@@ -96,7 +96,7 @@ Vous pouvez aussi cliquer sur le connecteur de supervision pour afficher plus de
 
 ![image](assets/install_pp_2.png)
 
-Une fois le pack installé, il est entouré de vert et porte une coche verte.
+Une fois le pack installé, il est entouré et porte une coche verte.
 
 | **Avant l'installation**                                          | **Après l'installation**                                          |
 | ---------------------------------------------------------------- | --------------------------------------------------------------- |

@@ -9,7 +9,7 @@ Un connecteur à base d'API interroge l'API de la cible (en général une API RE
 ## Paramètres de connexion
 
 * Le point de terminaison de l'API : l'URL de base ou le nom d'hôte de l'API, et le port s'il n'est pas standard.
-* Le protocole : en général HTTPS, ce qui peut impliquer de gérer des certificats.
+* Le protocole : nous vous recommandons HTTPS, même ci cela peut impliquer de gérer des certificats.
 * La connectivité réseau : le collecteur Centreon doit pouvoir joindre le point de terminaison de l'API (ainsi que le proxy intermédiaire, s'il y en a un).
 
 ## Authentification
@@ -33,7 +33,7 @@ Les exigences d'authentification varient d'un service à l'autre. Vous pouvez av
 * Les limites de requêtes : certaines API limitent la fréquence des requêtes, ce qui influe sur l'intervalle de contrôle.
 * Le besoin éventuel d'un proxy pour accéder à Internet (courant lorsque le collecteur est derrière un pare-feu).
 
-Vous renseignez ces valeurs dans les macros du connecteur après avoir appliqué son modèle. Nous vous recommandons de [tester le contrôle en ligne de commande depuis le collecteur](./connectors-test.md) avant de déployer la configuration. La procédure de supervision du connecteur liste les identifiants et les paramètres requis par son API.
+Vous renseignez ces valeurs dans les macros d'hôte du connecteur après avoir appliqué son modèle. Nous vous recommandons de [tester le contrôle en ligne de commande depuis le collecteur](./connectors-test.md) avant de déployer la configuration. La procédure de supervision du connecteur liste les identifiants et les paramètres requis par son API.
 
 ## Résoudre les problèmes des connecteurs à base d'API
 
