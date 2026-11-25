@@ -91,11 +91,11 @@ If your site (or a staging environment) is protected by HTTP Basic authenticatio
 
 #### Cookies
 
-Add custom cookies to store data or sessions at journey start.
+Add custom cookies to store data or sessions at journey start. A cookie can be made [secret](#keeping-credentials-secret).
 
 #### HTTP Headers
 
-You can add custom HTTP headers.
+You can add custom HTTP headers. A header can be made [secret](#keeping-credentials-secret).
 
 </TabItem>
 <TabItem value="Simulation" label="Simulation">
@@ -148,6 +148,8 @@ Variables are particularly useful when you need different values in different co
 
 > Variables are fixed per journey configuration. To use different values, you will need separate variable definitions per context (monitoring vs. load test).
 
+Make a variable [secret](#keeping-credentials-secret) when its value is a password, a token or any other credential.
+
 </TabItem>
 <TabItem value="Blocked URLs" label="Blocked URLs">
 
@@ -169,6 +171,17 @@ The following domains are blocked by default:
 
 </TabItem>
 </Tabs>
+
+### Keeping credentials secret
+
+Journey variables, cookies and HTTP headers can be made secret. Use this for passwords, tokens, session cookies and any other value that should not be readable in the interface.
+
+- Once saved, a secret value is never displayed again.
+- Making a value secret cannot be undone. To stop using a secret value, delete it and create a new, non-secret one.
+- The [HTTP Basic authentication](#http-basic-authentication) password is always secret.
+- When you duplicate a journey, the copy keeps its secret values.
+
+The probes also mask secret values in everything they upload to Experience Monitoring: logs, network recordings (HAR files) and results, including the visited URL. Screenshots are not masked, so avoid steps where a secret value is displayed on the page.
 
 ## Step or Action configuration
 
@@ -258,7 +271,9 @@ Necessary if the page contains multiple forms, this option will limit the probe 
 **Fill the input named**: fields can be selected by their names, their placeholder text, their label text, or by CSS selectors.
 **by**: the text that the probe will input in the field.
 
-Click **Add a field** for each field that the probe must fill
+Click **Add a field** for each field that the probe must fill.
+
+If the probe cannot find one of the fields, the step fails immediately, and the incident names the missing field. Make sure every field you add is always present on the page when the step runs.
 
 By default, Experience Monitoring submits the form once filled. You can click the pencil icon below **Add a field** to choose to:
 
