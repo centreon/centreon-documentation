@@ -1,6 +1,6 @@
 ---
 id: stm-zones-versions
-title: Versions de la sonde interne
+title: Versions de la sonde interne (zones STM)
 description: "Comment connaître la version de votre sonde interne, quelle version utiliser, ce qui se passe si vous ne la mettez pas à jour, et à quelle fréquence Centreon publie des mises à jour."
 ---
 

@@ -1,6 +1,6 @@
 ---
 id: stm-zones-versions
-title: Internal probe versions
+title: Internal probe versions (STM zones)
 description: "How to check your internal probe's version, which version to use, what happens if you don't update, and how often Centreon publishes internal probe updates."
 ---
 
