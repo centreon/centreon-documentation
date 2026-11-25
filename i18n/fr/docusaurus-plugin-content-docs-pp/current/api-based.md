@@ -33,7 +33,7 @@ Les exigences d'authentification varient d'un service à l'autre. Vous pouvez av
 * Les limites de requêtes : certaines API limitent la fréquence des requêtes, ce qui influe sur l'intervalle de contrôle.
 * Le besoin éventuel d'un proxy pour accéder à Internet (courant lorsque le collecteur est derrière un pare-feu).
 
-Vous renseignez ces valeurs dans les macros du connecteur après avoir appliqué son modèle. Nous vous recommandons de [tester le contrôle en ligne de commande depuis le collecteur](./connectors-test.md) avant de déployer la configuration. La procédure de supervision du connecteur liste les identifiants et les paramètres requis par son API.
+Vous renseignez ces valeurs dans les macros d'hôte du connecteur après avoir appliqué son modèle. Nous vous recommandons de [tester le contrôle en ligne de commande depuis le collecteur](./connectors-test.md) avant de déployer la configuration. La procédure de supervision du connecteur liste les identifiants et les paramètres requis par son API.
 
 ## Résoudre les problèmes des connecteurs à base d'API
 
