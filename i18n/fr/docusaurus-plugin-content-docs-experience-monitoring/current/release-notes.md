@@ -4,6 +4,16 @@ description: "Nouveautés et améliorations de chaque version de Centreon Experi
 title: Centreon Experience Monitoring - notes de release
 ---
 
+## 25 novembre 2026
+
+**Identifiants secrets dans les parcours utilisateurs**
+
+Les variables de parcours, ainsi que les en-têtes HTTP et cookies injectés, peuvent désormais être marqués comme secrets : une fois enregistrée, une valeur secrète n'est plus jamais affichée et peut seulement être remplacée. Le mot de passe d'authentification HTTP est toujours secret. Les sondes masquent les valeurs secrètes dans tout ce qu'elles envoient. Si vous hébergez des [sondes internes](configuration/user-journey/stm-zones.md), [mettez-les à jour](configuration/user-journey/stm-zones.md#mettre-à-jour-une-sonde) vers la version 1.0.5.
+
+**Notes de release des sondes internes (zones STM)**
+
+Les changements de chaque version de la sonde interne sont désormais listés dans les [notes de release des sondes internes](stm-zones-release-notes.md).
+
 ## 9 novembre 2026
 
 **Quanta devient Centreon Experience Monitoring**
