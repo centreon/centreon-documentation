@@ -10,6 +10,10 @@ description: "New features and improvements in each Centreon Experience Monitori
 
 Journey variables, injected HTTP headers and cookies can now be marked as secret: once saved, a secret value is never displayed again and can only be replaced. The HTTP authentication password is always secret. The probes mask secret values in everything they upload. If you host [internal probes](configuration/user-journey/stm-zones.md), [update them](configuration/user-journey/stm-zones.md#update-a-probe) to version 1.0.5.
 
+**Form steps fail on a missing field**
+
+On public and internal probes, a form step now fails immediately when one of its fields cannot be found, instead of failing later on an unrelated step. Journeys that relied on a field being silently skipped will start failing.
+
 **Release notes for internal probes (STM zones)**
 
 Changes in each internal probe version are now listed in the [internal probe release notes](stm-zones-release-notes.md).
