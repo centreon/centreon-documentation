@@ -1,6 +1,7 @@
 ---
 id: network-stormshield-snmp
 title: Stormshield SNMP
+description: "Supervisez les pare-feux Stormshield via SNMP : CPU, mémoire, disque, charge, matériel, QoS, VPN et trafic des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -30,8 +31,8 @@ Le connecteur apporte les modèles de service suivants
 | Auto-Update     | Net-Stormshield-Auto-Update-SNMP-custom     | Contrôle l'état des mises à jour automatiques et web services. Vérifie si les mises à jour sont en état failed, broken ou partially failed, et remonte leurs statuts             |
 | Connections     | Net-Stormshield-Connections-SNMP-custom     | Contrôle le nombre de connexions TCP/UDP                                                                                                                                           |
 | Cpu-Detailed    | Net-Stormshield-Cpu-Detailed-SNMP-custom    | Contrôle du taux d'utilisation détaillé CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
-| Disk-Global     | Net-Stormshield-Disk-Global-SNMP-custom     | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le point de montage des disques ("                                                         |
-| Ha-cluster      | Net-Stormshield-Ha-Cluster-SNMP-custom      | Contrôle status global du cluster haute disponibilité                                                                                                                              |
+| Disk-Global     | Net-Stormshield-Disk-Global-SNMP-custom     | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le point de montage des disques                                                      |
+| Ha-cluster      | Net-Stormshield-Ha-Cluster-SNMP-custom      | Contrôle le statut global du cluster haute disponibilité                                                                                                                              |
 | Hardware        | Net-Stormshield-Hardware-SNMP-custom        | Contrôle le matériel                                                                                                                                                               |
 | Health          | Net-Stormshield-Health-SNMP-custom          | Contrôle l'état de santé                                                                                                                                                           |
 | Licenses        | Net-Stormshield-Licenses-SNMP-custom        | Contrôle la licence Stormshield et sa date d'expiration. Supporte les clusters hautement disponibles en détectant les nœuds présents dans le cluster                                |
