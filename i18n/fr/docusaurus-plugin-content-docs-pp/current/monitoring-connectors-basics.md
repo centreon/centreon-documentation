@@ -53,7 +53,7 @@ Quel que soit leur type, tous les connecteurs de supervision fonctionnent sur le
 
 * Plugin + pack uniquement : c'est le cas standard. Le plugin exécute les contrôles depuis le collecteur et le pack fournit les modèles. Rien d'autre n'est nécessaire.
 * Plugin + pack + un connecteur : certains connecteurs de supervision nécessitent un composant supplémentaire, un connecteur Centreon (par exemple pour AS400 ou VMware).
-* Plugin + pack + un agent : certains nécessitent un agent installé sur l'hôte supervisé (par exemple Windows NRPE, ou l'agent CMA).
+* Plugin + pack + un agent : certains nécessitent un agent installé sur l'hôte supervisé (par exemple NSclient, ou l'agent CMA).
 
 <!-- 
 old contents
