@@ -96,7 +96,7 @@ Vous pouvez aussi cliquer sur le connecteur de supervision pour afficher plus de
 
 ![image](assets/install_pp_2.png)
 
-Une fois le pack installé, il est entouré de vert et porte une coche verte.
+Une fois le pack installé, il est entouré et porte une coche verte.
 
 | **Avant l'installation**                                          | **Après l'installation**                                          |
 | ---------------------------------------------------------------- | --------------------------------------------------------------- |
