@@ -4,20 +4,6 @@ description: "Nouveautés et améliorations de chaque version de Centreon Experi
 title: Centreon Experience Monitoring - notes de release
 ---
 
-## 25 novembre 2026
-
-**Identifiants secrets dans les parcours utilisateur**
-
-Les variables, cookies et en-têtes HTTP d'un parcours peuvent désormais être rendus [secrets](configuration/user-journey/create-a-scenario.md#protéger-les-identifiants). Une fois enregistrée, une valeur secrète n'est plus jamais affichée, et les sondes la masquent dans les logs, enregistrements réseau et résultats qu'elles envoient.
-
-**Action Remplir un formulaire : un champ manquant fait échouer l'étape**
-
-Une action [**Remplir un formulaire**](configuration/user-journey/create-a-scenario.md#actions-possibles-dans-un-parcours-utilisateur) échoue désormais immédiatement lorsque l'un de ses champs est introuvable, et l'incident indique le champ manquant. Jusqu'ici, le champ était ignoré et le parcours échouait plus tard, sur une étape sans rapport. Ce changement concerne toutes les sondes, publiques et internes : les parcours qui reposaient sur un champ manquant ignoré vont se mettre à échouer. Vérifiez-les.
-
-**Sonde interne 1.0.5**
-
-Une nouvelle version de la sonde interne est disponible. Si vous hébergez des [sondes internes](configuration/user-journey/stm-zones.md), mettez-les à jour.
-
 ## 9 novembre 2026
 
 **Quanta devient Centreon Experience Monitoring**
