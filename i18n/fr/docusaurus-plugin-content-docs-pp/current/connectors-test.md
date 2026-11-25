@@ -57,6 +57,6 @@ Un résultat UNKNOWN, ou une erreur à la place d'une ligne de statut, vient pre
 * Un paramètre obligatoire est manquant ou mal saisi.
 * Un prérequis n'est pas rempli : certains connecteurs ont besoin d'un composant ou d'un agent supplémentaire sur la cible, comme l'indique leur procédure de supervision.
 
-Ajoutez `--verbose` à la commande pour obtenir plus de détails, et utilisez `--help` pour afficher toutes les options disponibles pour le plugin et le mode que vous testez. Une fois que la commande renvoie le résultat attendu en ligne de commande, vous pouvez appliquer le modèle du connecteur à un hôte et déployer la configuration en sachant que le contrôle fonctionnera.
+Ajoutez `--debug` à la commande pour obtenir plus de détails, et utilisez `--help` pour afficher toutes les options disponibles pour le plugin et le mode que vous testez. Une fois que la commande renvoie le résultat attendu en ligne de commande, vous pouvez appliquer le modèle du connecteur à un hôte et déployer la configuration en sachant que le contrôle fonctionnera.
 
 Voir aussi : [Dépanner les erreurs des plugins](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md).
