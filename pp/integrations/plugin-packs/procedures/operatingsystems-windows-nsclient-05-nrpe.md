@@ -1132,6 +1132,7 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Fixed the **NTP** service, which did not work with an empty port: the port now defaults to 123 and the timeout matches the plugin default.
 - [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.
 - [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed an issue in the **ntp** mode, causing zombie processes of `centreon_plugins.exe`.
 - [25.02](../releases/release-notes.md#2025-02) - Enhancement: Changed pack display name to make it clear that it uses the NRPE protocol.

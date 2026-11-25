@@ -505,6 +505,7 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
+- [26.11](../releases/release-notes.md#2026-11) - Breaking change: Host discovery: VM tags are now handled as a single string, as returned by the Proxmox API, instead of a list. Filtering on a tag now requires only one mapper condition, whatever the position of the tag. Existing discovery mappers based on tag positions must be updated.
 - [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added tags to host discovery, from a [community idea](https://thewatch.centreon.com/ideas/proxmox-ve-tags-support-5602).
 - [26.07](../releases/release-notes.md#2026-07) - Bug fix: Fixed authentication failures and caching issues.
 - [25.09](../releases/release-notes.md#2025-09) - Enhancement: Added option `include-node-name` in **vm-usage** mode, from community contribution [Issue 5642](https://github.com/centreon/centreon-plugins/issues/5642).

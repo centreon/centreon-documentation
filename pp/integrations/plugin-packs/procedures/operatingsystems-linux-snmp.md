@@ -1305,6 +1305,8 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
+- [26.11](../releases/release-notes.md#2026-11) - Enhancement: Added the **Disk-Usage** service template and its service discovery rule. Added the `auto` value to the `--space-reservation` option of the **disk-usage** mode, to compute the real reserved space of each partition. Based on community contribution [PR 6352](https://github.com/centreon/centreon-plugins/pull/6352).
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Fixed the `--snmp-tls-trust-cert` option, which was silently ignored: SNMPv3 over TLS/DTLS checks relying on a trusted CA failed with `unable to get local issuer certificate`.
 - [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
 - [26.04](../releases/release-notes.md#2026-04) - Enhancement: Added `--force-rfc` option to allow choosing a specific RFC in **tcpcon** mode (issue [#5693](https://github.com/centreon/centreon-plugins/issues/5693)).
 - [24.10](../releases/release-notes.md#2024-10) - Enhancement: Added an option `force-64bits-counters` to switch to 64-bit counters for **memory** mode.

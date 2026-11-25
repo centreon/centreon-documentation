@@ -578,6 +578,7 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Fixed an authentication failure (HTTP 401) that occurred when the username and password were longer than 57 characters in total.
 - [26.05](../releases/release-notes.md#2026-05) - Bug fix: Plugin can now recover from a corrupted cache.
 - [25.10](../releases/release-notes.md#2025-10) - Enhancement: Enhanced performance by implementing cache, and handled pagination for **acq-specs**.
 - [25.10](../releases/release-notes.md#2025-10) - Breaking change: Changed threshold options and metric names for **power** mode. Changed the way credentials are configured in Host Discovery.

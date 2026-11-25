@@ -1295,6 +1295,7 @@ sudo -u centreon-monitoring-agent /usr/lib/centreon/plugins/centreon_linux_local
 
 ## Changelog
 
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Removed a line break left in the command line of the **OS-Linux-Centreon-Monitoring-Agent-Cpu** command.
 - [26.05](../releases/release-notes.md#2026-05) - Enhancement: Added EL 10 and Debian 13 support.
 - [26.02](../releases/release-notes.md#2026-02) - Enhancement: Added a **Custom-Script** service template to run custom commands.
 - [25.12](../releases/release-notes.md#2025-12) - Enhancement: All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.

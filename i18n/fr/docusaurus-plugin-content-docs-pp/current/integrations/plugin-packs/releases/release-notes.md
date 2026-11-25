@@ -9,6 +9,72 @@ import TabItem from '@theme/TabItem';
 
 ## 2026
 
+### Novembre {#2026-11}
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Veritas NetBackup Appliance SSH**](../procedures/hardware-storage-veritas-nba-ssh.md) - Initial release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Dell OS10 SNMP**](../procedures/network-dell-os10-snmp.md) - Added native SNMP v3 host macros. Added the `auto` value to the `--space-reservation` option of the **disk-usage** mode, to compute the real reserved space of each partition. Based on community contribution [PR 6352](https://github.com/centreon/centreon-plugins/pull/6352).
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - Added native SNMP v3 host macros to the commands that were missing them.
+- [**Linux SNMP**](../procedures/operatingsystems-linux-snmp.md) - Added the **Disk-Usage** service template and its service discovery rule. Added the `auto` value to the `--space-reservation` option of the **disk-usage** mode, to compute the real reserved space of each partition. Based on community contribution [PR 6352](https://github.com/centreon/centreon-plugins/pull/6352).
+- [**Panzura SNMP**](../procedures/hardware-storage-panzura-snmp.md) - Added native SNMP v3 host macros. Added the `auto` value to the `--space-reservation` option of the **disk-usage** mode, to compute the real reserved space of each partition. Based on community contribution [PR 6352](https://github.com/centreon/centreon-plugins/pull/6352).
+- [**Stormshield SNMP**](../procedures/network-stormshield-snmp.md) - Added the **Network-Stats** and **Router-Objects** service templates and their service discovery rules. Added `--include-*` and `--exclude-*` filtering options to the **ha-nodes**, **health**, **qos** and **vpn-status** modes (the former `--filter-*` options still work but are deprecated).
+- [**Ubiquiti UniFi SNMP**](../procedures/network-ubiquiti-unifi-snmp.md) - Added the `auto` value to the `--space-reservation` option of the **disk-usage** mode, to compute the real reserved space of each partition. Based on community contribution [PR 6352](https://github.com/centreon/centreon-plugins/pull/6352).
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Efficient IP SNMP**](../procedures/network-efficientip-snmp.md) - The misspelled `WARGNINGSTATUS` service macro of the **Status** service is renamed `WARNINGSTATUS`: if you had customized the warning threshold, set it again in `WARNINGSTATUS` after the update.
+- [**Proxmox VE**](../procedures/virtualization-proxmox-ve-restapi.md) - Host discovery: VM tags are now handled as a single string, as returned by the Proxmox API, instead of a list. Filtering on a tag now requires only one mapper condition, whatever the position of the tag. Existing discovery mappers based on tag positions must be updated.
+- [**Stormshield SNMP**](../procedures/network-stormshield-snmp.md) - The **qos** mode now reports actual traffic rates in b/s: values and graphs will drop to their real level after the update. The **ha-nodes** mode metrics are renamed (`dead_nodes` becomes `ha.dead_nodes.count`, `health_<serial>` becomes `<serial>#ha.node.health.percentage`): graphs based on the old names will be split. The **memory-detailed** mode no longer reports the total memory usage metric (`memory.usage.percentage`), which added up independent memory pools and was meaningless: the `--warning-total` and `--critical-total` options are now ignored.
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Activemq JMX**](../procedures/applications-activemq-jmx.md) - Removed a line break left in the command line of the **App-Activemq-Jmx-Brokers-Discover** command.
+- [**Azure App Service**](../procedures/cloud-azure-web-appservice.md) - Removed a line break left in the command line of the **Cloud-Azure-Web-AppService-Api-Gc-Usage** command.
+- [**Azure Functions**](../procedures/cloud-azure-compute-functions.md) - Removed a line break left in the command line of the **Cloud-Azure-Compute-Functions-Api-Gc-Usage** command.
+- [**Bind9 Web**](../procedures/applications-bind9-web.md) - Fixed an issue where the **memory-usage** mode returned no values (`OK: usage : skipped (no value(s))`) with BIND 9.20 and later, since the memory statistic was renamed.
+- [**Dell OS10 SNMP**](../procedures/network-dell-os10-snmp.md) - Fixed the `--snmp-tls-trust-cert` option, which was silently ignored: SNMPv3 over TLS/DTLS checks relying on a trusted CA failed with `unable to get local issuer certificate`.
+- [**Efficient IP SNMP**](../procedures/network-efficientip-snmp.md) - Fixed **status** mode returning `UNKNOWN: No data!` when a SOLIDserver member had a role or a status unknown to the connector (e.g. **remote managed**): such values are now reported as `unknown`, and a new `UNKNOWNSTATUS` service macro is available. Fixed the `--snmp-tls-trust-cert` option, which was silently ignored: SNMPv3 over TLS/DTLS checks relying on a trusted CA failed with `unable to get local issuer certificate`.
+- [**Ethpoller API**](../procedures/blockchain-parity-ethpoller-restapi.md) - Removed a line break left in the command line of the **Blockchain-Parity-Ethpoller-Tracking** command.
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - Fixed the `--snmp-tls-trust-cert` option, which was silently ignored: SNMPv3 over TLS/DTLS checks relying on a trusted CA failed with `unable to get local issuer certificate`.
+- [**Hyperledger API**](../procedures/blockchain-hyperledger-exporter.md) - Removed a line break left in the command line of the **Blockchain-Hyperledger-Exporter-Channels** command.
+- [**JMeter**](../procedures/applications-jmeter.md) - Removed a line break left in the command line of the **App-Jmeter-Scenario** command.
+- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - Fixed **resourcequota-status** mode: CPU quantities in millicores and hugepages quantities are now converted, which fixes usage percentages multiplied by 1000 and false CRITICAL alerts.
+- [**Linux CMA**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - Removed a line break left in the command line of the **OS-Linux-Centreon-Monitoring-Agent-Cpu** command.
+- [**Linux NRPE4**](../procedures/operatingsystems-linux-nrpe4.md) - Removed a line break left in the command line of the **OS-Linux-NRPE4-Cpu** and **OS-Linux-NRPE4-Traffic** commands.
+- [**Linux SNMP**](../procedures/operatingsystems-linux-snmp.md) - Fixed the `--snmp-tls-trust-cert` option, which was silently ignored: SNMPv3 over TLS/DTLS checks relying on a trusted CA failed with `unable to get local issuer certificate`.
+- [**Linux Telegraf Agent**](../procedures/operatingsystems-linux-telegraf-agent.md) - Removed a line break left in the command line of the **OS-Linux-Telegraf-Agent-Cpu** command.
+- [**Maltem Insight Performance Rest API**](../procedures/applications-monitoring-mip-restapi.md) - Removed a line break left in the command line of the **App-Monitoring-Mip-Restapi-Scenarios** command.
+- [**Mulesoft Anypoint**](../procedures/applications-mulesoft-restapi.md) - Removed a line break left in the command line of the **App-Mulesoft-Restapi-Messages-Global** command.
+- [**Netdata RestAPI**](../procedures/applications-monitoring-netdata-restapi.md) - Removed a line break left in the command line of the **App-Monitoring-Netdata-Restapi-Memory** and **App-Monitoring-Netdata-Restapi-Cpu** commands.
+- [**Node Exporter Linux Metrics**](../procedures/applications-monitoring-node-exporter-linux.md) - Removed a line break left in the command line of the **App-Monitoring-Node-Exporter-Linux-Load** command.
+- [**Node Exporter w/ Prometheus API**](../procedures/cloud-prometheus-node-exporter-api.md) - Fixed the **interfaces** mode with node_exporter versions older than 1.6.0: the admin status is now computed when the `adminstate` label is missing, which removes the `uninitialized value` warnings in the discovery and makes the default critical threshold work again.
+- [**Palo Alto firewall API**](../procedures/network-firewalls-paloalto-standard-api.md) - Fixed the command line of the **Panorama-Certificate** service (`--include-device-hostname`, `--exclude-device-hostname` and `EXTRAOPTIONS` macros) and a typo in the **Health** macro. Removed a line break left in the command line of the **Net-PaloAlto-Panorama-Api-Health** command.
+- [**Panzura SNMP**](../procedures/hardware-storage-panzura-snmp.md) - Fixed the `--snmp-tls-trust-cert` option, which was silently ignored: SNMPv3 over TLS/DTLS checks relying on a trusted CA failed with `unable to get local issuer certificate`.
+- [**Parity API**](../procedures/blockchain-parity-restapi.md) - Removed a line break left in the command line of the **Blockchain-Parity-Restapi-Parity** command.
+- [**Stormshield SNMP**](../procedures/network-stormshield-snmp.md) - Fixed the **hardware** mode that returned `CRITICAL: No components are checked.` on HA clusters running SNS 4.7.x. CPUs reported at 0 °C are now ignored in the average temperature. Fixed the **health** mode, where services with no value are now skipped instead of being evaluated. In **hardware** mode, a disk with no name now uses its instance label instead of an empty name. Fixed the status variables listed in the help of the **vpn-status** mode (`%{ipSrc}` and `%{ipDst}`). Fixed the `--snmp-tls-trust-cert` option, which was silently ignored: SNMPv3 over TLS/DTLS checks relying on a trusted CA failed with `unable to get local issuer certificate`.
+- [**Ubiquiti UniFi SNMP**](../procedures/network-ubiquiti-unifi-snmp.md) - Fixed the `--snmp-tls-trust-cert` option, which was silently ignored: SNMPv3 over TLS/DTLS checks relying on a trusted CA failed with `unable to get local issuer certificate`.
+- [**Veeam Backup Enterprise Manager Rest API**](../procedures/applications-veeam-vbem-restapi.md) - Fixed an error in the **repositories** mode when the `--filter-name` option was used, from community contribution [PR 6506](https://github.com/centreon/centreon-plugins/pull/6506).
+- [**Versa Director Restapi**](../procedures/network-versa-director-restapi.md) - Removed a line break left in the command line of the **Net-Versa-Director-Restapi-HostDiscovery-devices** command.
+- [**VMware8 ESX REST API**](../procedures/application-virtualization-vmware8-esx-restapi.md) - Fixed an authentication failure (HTTP 401) that occurred when the username and password were longer than 57 characters in total.
+- [**VMware8 vCenter REST API**](../procedures/applications-virtualization-vmware8-vcenter-restapi.md) - Fixed an authentication failure (HTTP 401) that occurred when the username and password were longer than 57 characters in total.
+- [**VMware8 VCSA REST API**](../procedures/applications-virtualization-vmware8-vcsa-restapi.md) - Fixed an authentication failure (HTTP 401) that occurred when the username and password were longer than 57 characters in total.
+- [**VMware8 VM REST API**](../procedures/applications-virtualization-vmware8-vm-restapi.md) - Fixed an authentication failure (HTTP 401) that occurred when the username and password were longer than 57 characters in total.
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Fixed the **NTP** service, which did not work with an empty port: the port now defaults to 123 and the timeout matches the plugin default.
+- [**Windows NSClient 0.5 NRPE**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Fixed the **NTP** service, which did not work with an empty port: the port now defaults to 123 and the timeout matches the plugin default.
+- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - Fixed the **NTP** service, which did not work with an empty port: the port now defaults to 123 and the timeout matches the plugin default.
+- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - Fixed the **NTP** service, which did not work with an empty port: the port now defaults to 123 and the timeout matches the plugin default.
+
+</TabItem>
+</Tabs>
+
 ### Octobre {#2026-10}
 
 <Tabs groupId="sync">

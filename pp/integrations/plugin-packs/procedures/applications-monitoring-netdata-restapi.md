@@ -613,3 +613,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=traffic \
 	--help
 ```
+
+## Changelog
+
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Removed a line break left in the command line of the **App-Monitoring-Netdata-Restapi-Memory** and **App-Monitoring-Netdata-Restapi-Cpu** commands.
