@@ -50,7 +50,7 @@ Le texte avant le `|` est le statut lisible par un humain. Tout ce qui suit corr
 
 ## Si le contrôle échoue
 
-Un résultat INCONNU, ou une erreur à la place d'une ligne de statut, vient presque toujours de la connexion et non du plugin lui-même. Vérifiez les causes habituelles :
+Un résultat UNKNOWN, ou une erreur à la place d'une ligne de statut, vient presque toujours de la connexion et non du plugin lui-même. Vérifiez les causes habituelles :
 
 * Le collecteur ne peut pas joindre la cible sur le port requis (vérifiez les chemins réseau et les pare-feux).
 * Les identifiants sont incorrects, ou le compte n'a pas les droits dont le connecteur a besoin.
