@@ -38,7 +38,7 @@ Le plugin renvoie une ligne qui commence par un mot-clé de statut, éventuellem
 
 * **OK** : le contrôle a réussi et les valeurs sont dans les seuils.
 * **WARNING** / **CRITICAL** : le contrôle a réussi, mais une valeur a dépassé le seuil que vous avez défini.
-* **INCONNU** : le contrôle n'a pas pu aboutir. Cela indique en général un problème de configuration : hôte injoignable, mauvais port, identifiants incorrects ou option manquante.
+* **UNKNOWN** : le contrôle n'a pas pu aboutir. Cela indique en général un problème de configuration : hôte injoignable, mauvais port, identifiants incorrects ou option manquante.
 
 Une exécution réussie ressemble à ceci :
 
