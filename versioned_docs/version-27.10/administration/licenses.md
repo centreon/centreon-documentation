@@ -73,6 +73,10 @@ Make sure your Centreon platform is allowed to reach the internet:
 
     The **Add token** button changes to become a **View license** button.
 
+#### Migrate your license
+
+Licenses can only be 
+
 </TabItem>
 <TabItem value="Offline licenses" label="Offline licenses">
 
@@ -187,3 +191,7 @@ To restore normal module behavior:
 * If the host limit is exceeded, either:
    * Delete or remove unused hosts (including disabled ones) to bring the total below the license limit.
    * Upgrade your license to a higher host limit by contacting your sales representative.
+
+### Error when trying to unlink your license
+
+You can only unlink your license once per month. If you need to unlink your license again before this delay, [please contact our support team](https://support.centreon.com/).

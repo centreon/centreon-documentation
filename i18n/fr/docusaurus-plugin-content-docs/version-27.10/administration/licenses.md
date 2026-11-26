@@ -185,3 +185,7 @@ Pour rétablir le fonctionnement normal des modules :
 * Si la limite d'hôtes est dépassée, vous pouvez :
    * Supprimer les hôtes inutilisés (y compris ceux qui sont désactivés) afin de ramener le total sous la limite de la licence.
    * Mettre à niveau votre licence vers une limite d'hôtes supérieure en contactant votre représentant commercial.
+
+### Erreur lorsque vous tentez de délier votre licence
+
+Vous ne pouvez délier votre licence qu'une fois par mois. Si vous avez à nouveau besoin de délier votre licence avant que ce délai soit écoulé, [contactez le support Centreon](https://support.centreon.com/).
