@@ -82,6 +82,8 @@ Debian 11 n'est plus supporté depuis la version 24.10. Si vous utilisiez Debian
 
 ### Installer les nouveaux dépôts
 
+> Centreon 22.04 est arrivé en fin de vie : ses paquets se trouvent désormais dans les dépôts archivés. Si les commandes ci-dessous ne fonctionnent pas pour votre OS, consultez [Dépôts des versions archivées](archived-repos.md) pour trouver le dépôt correspondant à votre version et à votre OS.
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 

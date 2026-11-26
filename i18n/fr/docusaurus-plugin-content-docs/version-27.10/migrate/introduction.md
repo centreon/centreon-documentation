@@ -19,4 +19,4 @@ Pour passer d'une ancienne version de Centreon à Centreon 27.10, votre platefor
 ## Cas particuliers
 
 * Si vous utilisez la haute disponibilité (HA) sur votre plateforme, contactez votre représentant commercial Centreon pour discuter des scénarios de migration possibles.
-* Si vous souhaitez migrer depuis une version très ancienne de Centreon (par exemple, Centreon 3.4), [contactez le support](https://support.centreon.com/).
+* Si vous souhaitez migrer depuis une version très ancienne de Centreon (par exemple, Centreon 3.4), [contactez le support](https://support.centreon.com/). Consultez aussi [Dépôts des versions archivées](../upgrade/archived-repos.md).

@@ -11,6 +11,14 @@ import Link from '@docusaurus/Link';
 
 ### Étape 1 : Installer les nouveaux dépôts
 
+{props.repo && props.repo.startsWith('archives') && (
+<>
+
+> Centreon {props.oldCentreonVersion} est arrivé en fin de vie : ses paquets se trouvent désormais dans les dépôts archivés. Si les commandes ci-dessous ne fonctionnent pas pour votre OS, consultez [Dépôts des versions archivées](archived-repos.md) pour trouver le dépôt correspondant à votre version et à votre OS.
+
+</>
+)}
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 

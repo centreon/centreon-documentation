@@ -19,4 +19,4 @@ To move from an older version of Centreon to Centreon 26.10, your platform must 
 ## Special cases
 
 * If you have HA on your platform, contact your Centreon sales representative to discuss any migration scenario.
-* If you want to migrate from a very old Centreon version (e.g., Centreon 3.4), [please contact our support team](https://support.centreon.com/).
+* If you want to migrate from a very old Centreon version (e.g., Centreon 3.4), [please contact our support team](https://support.centreon.com/). See also [Repositories for archived versions](../upgrade/archived-repos.md).

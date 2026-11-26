@@ -78,6 +78,8 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 
 ### Installation du nouveau dépôt Centreon
 
+> Centreon 22.10 est arrivé en fin de vie : ses paquets se trouvent désormais dans les dépôts archivés. Si les commandes ci-dessous ne fonctionnent pas pour votre OS, consultez [Dépôts des versions archivées](archived-repos.md) pour trouver le dépôt correspondant à votre version et à votre OS.
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
