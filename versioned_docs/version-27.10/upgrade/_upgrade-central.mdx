@@ -3,6 +3,9 @@ import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import Link from '@docusaurus/Link';
 
+{/* Shows its content only on pages that upgrade from an archived (end-of-life) version. */}
+export const ArchivedReposNote = ({show, children}) => (show ? <>{children}</> : null);
+
 ## Upgrade the Centreon Central server
 
 > When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
@@ -11,13 +14,11 @@ import Link from '@docusaurus/Link';
 
 ### Step 1: Install the new repositories
 
-{props.repo && props.repo.startsWith('archives') && (
-<>
+<ArchivedReposNote show={Boolean(props.repo && props.repo.startsWith('archives'))}>
 
 > Centreon {props.oldCentreonVersion} has reached its end of life: its packages are now in the archived repositories. If the commands below do not work for your OS, see [Repositories for archived versions](archived-repos.md) to find the repository for your version and OS.
 
-</>
-)}
+</ArchivedReposNote>
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
