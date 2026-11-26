@@ -1,7 +1,7 @@
 ---
 id: create-custom-view
 title: Créer une vue personnalisée
-description: "Créez votre première vue personnalisée depuis le menu Accueil > Vues personnalisées de Centreon, choisissez le nombre de colonnes et ajoutez des widgets."
+description: "Créez votre première vue personnalisée (legacy) dans Centreon, choisissez le nombre de colonnes et ajoutez des widgets."
 ---
 
 ## Qu'est-ce qu'une vue personnalisée?
@@ -10,7 +10,7 @@ Les [vues personnalisées](../alerts-notifications/custom-views.md) sont des tab
 
 ## Créez votre première vue personnalisée
 
-Rendez-vous au menu **Accueil > Vues personnalisées** et cliquez sur l'icône crayon situé tout à droite de l'interface pour activer
+Les vues personnalisées (legacy) ne sont plus accessibles depuis le menu **Accueil**. Pour y accéder, rendez-vous à l'adresse `http://<adresse-du-serveur-centreon>/centreon/main.php?p=103`, puis cliquez sur l'icône crayon situé tout à droite de l'interface pour activer
 le mode d'édition.
 
 Cliquez sur le bouton **+ Ajouter une vue** pour créer votre première vue personnalisée, puis saisissez **Ma vue** dans le champ **Nom**

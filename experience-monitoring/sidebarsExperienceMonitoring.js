@@ -84,6 +84,7 @@ module.exports = {
         { type: 'doc', id: 'how-to-articles/user-journey-screen' },
         { type: 'doc', id: 'configuration/user-journey/user-journey-notifications' },
         { type: 'doc', id: 'configuration/user-journey/stm-zones' },
+        { type: 'doc', id: 'configuration/user-journey/stm-zones-versions' },
         { type: 'doc', id: 'configuration/user-journey/user-journey-improve' },
         { type: 'doc', id: 'performance-analysis/errors-and-unavailability-front-end' },
         { type: 'doc', id: 'configuration/advanced-configuration/enable-disable-scenario-or-alert-via-api' },
@@ -157,7 +158,18 @@ module.exports = {
     { type: 'doc', id: 'performance-analysis/network-tab-indicators' },
     { type: 'doc', id: 'how-to-articles/performing-load-tests' },
     { type: 'doc', id: 'performance-analysis/dashboards' },
-    { type: 'doc', id: 'release-notes' },
+    {
+      collapsed: true,
+      type: 'category',
+      label: 'Release notes',
+      link: {
+        type: 'generated-index',
+      },
+      items: [
+        { type: 'doc', id: 'release-notes', label: 'Experience Monitoring' },
+        { type: 'doc', id: 'stm-zones-release-notes', label: 'Internal probe (STM zones)' },
+      ],
+    },
     {
       collapsed: true,
       type: 'category',

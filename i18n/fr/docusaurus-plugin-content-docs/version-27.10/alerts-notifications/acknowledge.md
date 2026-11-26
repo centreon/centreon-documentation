@@ -58,6 +58,10 @@ Pour acquitter une alerte, plusieurs solutions sont possibles :
 
     ![image](../assets/alerts/resources-status/ack-hover.gif)
 
+    :::note
+    Cette animation peut montrer une version antérieure de l'interface. Les étapes décrites restent valables.
+    :::
+
     Une fenêtre apparaît :
 
     - Le champ **Commentaire** est généralement utilisé pour fournir la raison de l'acquittement et est obligatoire.

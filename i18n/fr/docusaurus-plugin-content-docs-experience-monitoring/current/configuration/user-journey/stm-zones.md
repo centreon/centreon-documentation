@@ -75,3 +75,22 @@ Notez qu'il faut attendre jusqu'à 24 heures pour que la sonde ait assez de donn
 Après un bref délai, la sonde aura réalisé son premier contrôle et votre supervision de parcours interne sera alors opérationnelle. Vous pouvez étudier ce parcours de la même manière qu'un [parcours utilisateur](../../how-to-articles/user-journey-screen.md) normal.
 
 Si vous rencontrez des soucis, essayez notre [guide de dépannage pour parcours utilisateurs](../../performance-analysis/errors-and-unavailability-front-end.md).
+
+## Mettre à jour une sonde
+
+Les sondes internes ne sont pas mises à jour automatiquement, et seule la dernière version est prise en charge. Consultez les [notes de release de la sonde interne](../../stm-zones-release-notes.md) pour connaître les changements de chaque version, en particulier les changements de comportement qui peuvent faire échouer un parcours existant.
+
+Pour savoir dans quelle version sont vos sondes, consultez [Versions de la sonde interne](stm-zones-versions.md).
+
+Pour mettre à jour une sonde :
+
+1. Sur la page de votre organisation, dans l'onglet **Zones de Monitoring Synthétique**, cliquez sur **Associer une sonde** à droite de votre zone, puis exécutez la commande Docker de connexion au registre.
+2. Sur la machine qui héberge la sonde, téléchargez la dernière version de l'image. Utilisez le nom de l'image qui figure dans la commande de la sonde :
+
+   ```shell
+   docker pull <image de la sonde>
+   ```
+
+3. Arrêtez et supprimez le conteneur de la sonde actuelle.
+4. Exécutez à nouveau la commande de la sonde avec votre jeton de sonde, comme à l'[étape 4](#étape-4--créer-et-démarrer-la-sonde). La sonde démarre avec la dernière version de l'image.
+

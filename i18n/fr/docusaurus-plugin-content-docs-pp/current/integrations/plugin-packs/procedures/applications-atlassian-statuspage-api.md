@@ -76,7 +76,7 @@ Pour vérifier qu'une page de statut est compatible, ouvrez
 `https://<nom de domaine de la page de statut>/api/v2/components.json` dans un
 navigateur : l'adresse doit renvoyer la liste de ses composants au format
 JSON. De nombreuses pages de statut publiques utilisent Atlassian Statuspage,
-par exemple celles de GitHub, Discord, Reddit, Datadog, Jira et Confluence.
+par exemple celles de GitHub, Discord, Reddit, Dropbox, Jira et Confluence.
 
 ## Installer le connecteur de supervision
 

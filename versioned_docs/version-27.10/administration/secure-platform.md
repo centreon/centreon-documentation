@@ -357,10 +357,10 @@ Then add rules for firewalld:
 > The list of network flows required for each type of server is defined
 > [here](../installation/technical.md#tables-of-network-flows).
 
+Execute the following commands (change the port numbers if you have customized them):
+
 <Tabs groupId="sync">
 <TabItem value="Central / Remote Server" label="Central / Remote Server">
-
-Execute the following commands (change the port numbers if you have customized them):
 
 ```shell
 # For default protocols
@@ -373,12 +373,16 @@ firewall-cmd --zone=public --add-service=snmptrap --permanent
 firewall-cmd --zone=public --add-port=5556/tcp --permanent
 # Centreon Broker
 firewall-cmd --zone=public --add-port=5669/tcp --permanent
+# MariaDB
+firewall-cmd --zone=public --add-port=3306/tcp --permanent
+# CMA
+firewall-cmd --zone=public --add-port=4317/tcp --permanent
+# MAP, if installed on the central server
+firewall-cmd --zone=public --add-port=5758/tcp --permanent
 ```
 
 </TabItem>
-<TabItem value="Poller" label="Poller">
-
-Execute the following commands:
+<TabItem value="Pollers" label="Pollers">
 
 ```shell
 # For default protocols
@@ -387,10 +391,31 @@ firewall-cmd --zone=public --add-service=snmp --permanent
 firewall-cmd --zone=public --add-service=snmptrap --permanent
 # Centreon Gorgone
 firewall-cmd --zone=public --add-port=5556/tcp --permanent
+# CMA
+firewall-cmd --zone=public --add-port=4317/tcp --permanent
+```
+
+</TabItem>
+<TabItem value="MAP server" label="MAP server">
+
+```shell
+# if HTTP
+firewall-cmd --zone=public --add-port=8081/tcp --permanent
+# if HTTPS
+firewall-cmd --zone=public --add-port=9443/tcp --permanent
+```
+
+</TabItem>
+<TabItem value="MBI server" label="MBI server">
+
+```shell
+firewall-cmd --zone=public --add-port=1234/tcp --permanent
 ```
 
 </TabItem>
 </Tabs>
+
+If your platform uses Centreon HA, you must also [open the ports required by the cluster](../installation/installation-of-centreon-ha/prerequisites.md).
 
 Once the rules have been added, reload firewalld:
 

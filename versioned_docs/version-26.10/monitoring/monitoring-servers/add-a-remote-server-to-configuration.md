@@ -37,7 +37,7 @@ Remote Server on the Centreon platform.
       The **Database username** and **Database password** are the credentials defined
       during the installation of the Remote Server.
 
-      The **Server IP address** field has the following form:
+      The **Server address** field has the following form:
       [(http|https)://]@IP[:(port)]. If your Remote Server is only available on
       HTTPS, it is mandatory to define the HTTP method and the TCP port if it is
        not the default one.
@@ -244,9 +244,7 @@ it with the following command from the **Central server**:
 1. On the central server, return to the **Configuration > Pollers > Pollers** menu, select the remote server and click **Export
 configuration**.
 
-2. Then check the first three boxes and click **Export**:
-
-    ![image](../../assets/monitoring/monitoring-servers/remote-generate-config.png)
+2. Then check the first three boxes and click **Export**.
 
 3. Finally, from the Remote Server, start/restart the collect processes:
 
@@ -256,8 +254,6 @@ configuration**.
 
     The Remote Server's Broker and Engine will then start and connect to the
     Central Broker.
-
-    ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq-started.png)
 
 ## Getting started
 

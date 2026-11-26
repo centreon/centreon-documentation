@@ -34,6 +34,8 @@ Depuis la page **Configuration de l'organisation**, cliquez sur l'onglet **Compt
 
 Les utilisateurs existants sont listés selon leur rôle.
 
+> Si votre organisation est liée à Centreon Hub, ses utilisateurs sont gérés dans Centreon Hub : l'onglet **Comptes utilisateurs** affiche à la place un lien vers Centreon Hub, et seuls les propriétaires de l'organisation peuvent y accéder.
+
 - Pour ajouter un utilisateur, cliquez sur l'icône d'ajout dans la colonne du rôle que vous souhaitez attribuer et saisissez l'adresse e-mail du nouvel utilisateur. S'il ne possède pas encore de compte Experience Monitoring, il sera automatiquement invité à en créer un.
 - Pour modifier les permissions d'un utilisateur existant, faites-le glisser dans la colonne correspondant au rôle que vous souhaitez lui attribuer.
 - Pour supprimer les permissions d'un utilisateur, cliquez sur la croix à côté de son nom.

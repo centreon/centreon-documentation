@@ -47,6 +47,10 @@ There are several ways to define downtime:
 
         ![image](../assets/alerts/resources-status/dt-hover.gif)
 
+        :::note
+        This animation may show an earlier version of the interface. The steps described remain valid.
+        :::
+
     The following window appears:
 
     ![image](../assets/alerts/resources-status/dt-popup.png)
@@ -171,7 +175,7 @@ To add a recurrent downtime period, go into the
 
 #### Configuration of Downtime periods
 
--   The **Name** and **Description** fields are used to give a name and
+-   The **Name** and **Alias** fields are used to give a name and
     describe the recurrent downtime period.
 -   The **Enable** field is used to enable or disable the downtime
     period.

@@ -47,8 +47,6 @@ send anonymous information for **Centreon Customer Experience Improvement**
 
 The proxy configuration is mandatory when using the Centreon IT Edition.
 
-![image](../../assets/administration/proxy_configuration.png)
-
 Define the required information:
 
 - **Proxy URL** (the URL must include the protocol, http:// or https://)

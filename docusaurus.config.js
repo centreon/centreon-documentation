@@ -106,11 +106,21 @@ const config = {
   trailingSlash: true,
 
   headTags: [
+  // Reader preferences (text size, content width) are applied before the page
+  // renders, so that there is no visible jump. See src/theme/Navbar/ReaderSettings.
   {
     tagName: 'script',
     attributes: { type: 'text/javascript' },
     innerHTML:
-      `!function(){if(!window.QTABMR||!window.QTABMR.version&&!window.QTABMR.snippetExecuted){window.QTABMR=window.QTABMR||{};window.QTABMR.snippetStart=(new Date).getTime();window.QTABMR.snippetExecuted=!0;window.QTABMR.snippetVersion=12;QTABMR_URL="https://appstatic.quanta.io/rum/10876/quanta-rum-v2.0.0.min.js";window.QTABMR_BEACON_URL="https://rum-metrics.quanta.io/33aa5a76a5d0b04ecc3606fa62b00d1d765f3fcec233401911/beacon.gif";window.QTABMR.jserr=0;window.addEventListener("error",function(){window.QTABMR.jserr++},!1);var s=document.currentScript||document.getElementsByTagName("script")[0],c=!1,e=document.createElement("link");if(e.relList&&"function"==typeof e.relList.supports&&e.relList.supports("preload")&&"as"in e){window.QTABMR.snippetMethod="p";e.href=QTABMR_URL;e.rel="preload";e.as="script";e.addEventListener("load",function o(){if(!c){var e=document.createElement("script");e.id="boomr-scr-as";e.src=QTABMR_URL;e.async=!0;s.parentNode.appendChild(e);c=!0}});e.addEventListener("error",function(){t(!0)});setTimeout(function(){c||t(!0)},3e3);QTABMR_lstart=(new Date).getTime();s.parentNode.appendChild(e)}else t(!1);window.addEventListener?window.addEventListener("load",n,!1):window.attachEvent&&window.attachEvent("onload",n)}function t(e){c=!0;var t,n,o,i,d=document,a=window;window.QTABMR.snippetMethod=e?"if":"i";n=function(e,t){var n=d.createElement("script");n.id=t||"boomr-if-as";n.src=QTABMR_URL;QTABMR_lstart=(new Date).getTime();(e=e||d.body).appendChild(n)};if(!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./)){window.QTABMR.snippetMethod="s";n(s.parentNode,"boomr-async")}else{(o=document.createElement("IFRAME")).src="about:blank";o.title="";o.role="presentation";o.loading="eager";(i=(o.frameElement||o).style).width=0;i.height=0;i.border=0;i.display="none";s.parentNode.appendChild(o);try{a=o.contentWindow;d=a.document.open()}catch(r){t=document.domain;o.src="javascript:var d=document.open();d.domain='"+t+"';void 0;";a=o.contentWindow;d=a.document.open()}if(t){d._boomrl=function(){this.domain=t;n()};d.write("")}else{a._boomrl=function(){n()};a.addEventListener?a.addEventListener("load",a._boomrl,!1):a.attachEvent&&a.attachEvent("onload",a._boomrl)}d.close()}}function n(e){window.QTABMR_onload=e&&e.timeStamp||(new Date).getTime()}}();`
+      `try{var p=JSON.parse(localStorage.getItem('reader-preferences')||'{}');var r=document.documentElement;if(p.font)r.setAttribute('data-reader-font',p.font);if(p.width)r.setAttribute('data-reader-width',p.width)}catch(e){}`,
+  },
+  {
+    tagName: 'script',
+    attributes: { type: 'text/javascript' },
+    innerHTML:
+      // Technical measurement, exempt from consent: loaded unless switched off
+      // in the cookie preferences (src/plugins/cookie-consent).
+      `(function(){try{var c=JSON.parse(localStorage.getItem('cookie-consent-v2')||'null');if(c&&c.measurement===false)return;}catch(e){}window.__quantaLoaded=true;!function(){if(!window.QTABMR||!window.QTABMR.version&&!window.QTABMR.snippetExecuted){window.QTABMR=window.QTABMR||{};window.QTABMR.snippetStart=(new Date).getTime();window.QTABMR.snippetExecuted=!0;window.QTABMR.snippetVersion=12;QTABMR_URL="https://appstatic.quanta.io/rum/10876/quanta-rum-v2.0.0.min.js";window.QTABMR_BEACON_URL="https://rum-metrics.quanta.io/33aa5a76a5d0b04ecc3606fa62b00d1d765f3fcec233401911/beacon.gif";window.QTABMR.jserr=0;window.addEventListener("error",function(){window.QTABMR.jserr++},!1);var s=document.currentScript||document.getElementsByTagName("script")[0],c=!1,e=document.createElement("link");if(e.relList&&"function"==typeof e.relList.supports&&e.relList.supports("preload")&&"as"in e){window.QTABMR.snippetMethod="p";e.href=QTABMR_URL;e.rel="preload";e.as="script";e.addEventListener("load",function o(){if(!c){var e=document.createElement("script");e.id="boomr-scr-as";e.src=QTABMR_URL;e.async=!0;s.parentNode.appendChild(e);c=!0}});e.addEventListener("error",function(){t(!0)});setTimeout(function(){c||t(!0)},3e3);QTABMR_lstart=(new Date).getTime();s.parentNode.appendChild(e)}else t(!1);window.addEventListener?window.addEventListener("load",n,!1):window.attachEvent&&window.attachEvent("onload",n)}function t(e){c=!0;var t,n,o,i,d=document,a=window;window.QTABMR.snippetMethod=e?"if":"i";n=function(e,t){var n=d.createElement("script");n.id=t||"boomr-if-as";n.src=QTABMR_URL;QTABMR_lstart=(new Date).getTime();(e=e||d.body).appendChild(n)};if(!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./)){window.QTABMR.snippetMethod="s";n(s.parentNode,"boomr-async")}else{(o=document.createElement("IFRAME")).src="about:blank";o.title="";o.role="presentation";o.loading="eager";(i=(o.frameElement||o).style).width=0;i.height=0;i.border=0;i.display="none";s.parentNode.appendChild(o);try{a=o.contentWindow;d=a.document.open()}catch(r){t=document.domain;o.src="javascript:var d=document.open();d.domain='"+t+"';void 0;";a=o.contentWindow;d=a.document.open()}if(t){d._boomrl=function(){this.domain=t;n()};d.write("")}else{a._boomrl=function(){n()};a.addEventListener?a.addEventListener("load",a._boomrl,!1):a.attachEvent&&a.attachEvent("onload",a._boomrl)}d.close()}}function n(e){window.QTABMR_onload=e&&e.timeStamp||(new Date).getTime()}}();})();`
   },
 ],
 
@@ -121,10 +131,10 @@ const config = {
     locales: ['en', 'fr'],
     localeConfigs: {
       en: {
-        label: '🇬🇧 English',
+        label: 'English',
       },
       fr: {
-        label: '🇫🇷 Français',
+        label: 'Français',
         // Same as the inferred value, but explicit so that `build --locale fr`
         // alone (one job per locale) still serves and writes fr under fr/.
         baseUrl: `${baseUrl}fr/`,
@@ -158,7 +168,7 @@ const config = {
             return versions.reduce(
               (accumulator, currentValue) => {
                 accumulator[currentValue] = {
-                  label: Object.keys(accumulator).length === 0 ? `⭐ ${currentValue}` : currentValue,
+                  label: currentValue,
                   banner: currentValue === '24.04' ? 'unmaintained' : 'none'
                 }
 
@@ -176,10 +186,6 @@ const config = {
         },
         theme: {
           customCss: ['./src/css/custom.css'],
-        },
-        gtag: {
-          trackingID: 'G-BGL69N5GPJ',
-          anonymizeIP: true,
         },
       }),
     ],
@@ -262,6 +268,16 @@ const config = {
         },
       ],
       'docusaurus-plugin-image-zoom',
+      // Cookie banner and Google Analytics after consent, as on www.centreon.com
+      // (replaces the gtag option of the preset, which did not ask).
+      ['./src/plugins/cookie-consent', { gaId: 'G-BGL69N5GPJ' }],
+      // Writes the llms.txt files (https://llmstxt.org) of each locale build.
+      // The root one comes from src/plugins/llms-txt/editorial/; on-prem pages
+      // are indexed for the latest version only ('all' for every built one).
+      // Also publishes each doc of these versions as Markdown, unlisted ones
+      // excepted: /docs/foo/ gives /docs/foo.md.
+      // Joins them into llms-full.txt files, one per index and a root one.
+      ['./src/plugins/llms-txt', { onPremVersions: 'latest', markdown: true, full: true }],
     ];
 
     if (cloud) {
@@ -381,7 +397,7 @@ const config = {
 
       docs: {
         sidebar: {
-          hideable: true,
+          hideable: false,
         },
       },
 
@@ -421,7 +437,7 @@ const config = {
               type: 'doc',
               docId: defaultPageId,
               position: 'left',
-              label: 'Infra Monitoring OnPrem'
+              label: 'OnPrem'
             },
           ];
 
@@ -430,7 +446,7 @@ const config = {
               ...items,
               {
                 to: '/cloud/getting-started/welcome',
-                label: 'Infra Monitoring Cloud',
+                label: 'Cloud',
                 position: 'left',
                 activeBaseRegex: '/cloud/',
               },
@@ -441,8 +457,8 @@ const config = {
             items = [
               ...items,
               {
-                to: '/pp/integrations/plugin-packs/getting-started/introduction',
-                label: 'Monitoring Connectors',
+                to: '/pp/integrations/plugin-packs/welcome',
+                label: 'Connectors',
                 position: 'left',
                 activeBaseRegex: '/pp/',
               },
@@ -482,6 +498,7 @@ const config = {
             {
               type: 'docsVersionDropdown',
               position: 'right',
+              className: 'navbar-version',
               dropdownActiveClassDisabled: true,
               dropdownItemsAfter: [
                 {
@@ -516,36 +533,54 @@ const config = {
       },
 
       footer: {
-        links: [
-          {
+        links: (() => {
+          const community = {
+            title: 'Community',
             items: [
               {
-                label: 'Corporate Website',
-                href: 'https://www.centreon.com/en/',
+                label: 'The Watch',
+                href: 'https://thewatch.centreon.com/',
               },
-            ],
-          },
-          {
-            items: [
               {
-                label: 'Blog',
-                href: 'https://www.centreon.com/en/blog/',
+                label: 'Support',
+                href: 'https://support.centreon.com/',
               },
-            ],
-          },
-          {
-            items: [
               {
                 label: 'Download',
                 href: 'https://download.centreon.com/',
               },
             ],
-          },
-        ],
-        logo: {
-          alt: 'Centreon Open Source Logo',
-          src: 'img/logo_centreon.png',
-        },
+          };
+
+          // Archived builds only contain one on-premises version.
+          if (archivedVersion) {
+            return [community];
+          }
+
+          const products = [
+            { label: 'Infra Monitoring', to: '/docs/getting-started/welcome' },
+            ...(experienceMonitoring
+              ? [{ label: 'Experience Monitoring', to: '/experience-monitoring/getting-started/welcome' }]
+              : []),
+            ...(logmanagement
+              ? [{ label: 'Log Management', to: '/logmanagement/getting-started/welcome' }]
+              : []),
+          ];
+
+          return [
+            { title: 'Products', items: products },
+            {
+              title: 'Resources',
+              items: [
+                { label: 'Release notes', to: '/docs/releases/introduction' },
+                { label: 'Compatibility', to: '/docs/installation/compatibility' },
+                { label: 'REST API', to: '/docs/api/rest-api-v2' },
+                { label: 'Glossary', to: '/docs/resources/glossary' },
+              ],
+            },
+            community,
+          ];
+        })(),
         copyright: `Copyright © 2005 - 2026 Centreon`,
       },
     }),

@@ -137,10 +137,6 @@ You can also click the Monitoring Connector to display more details and click th
 
 Once the pack is installed, it has a green outline and a green check mark.
 
-| **Before installation**                                          | **After installation**                                          |
-| ---------------------------------------------------------------- | --------------------------------------------------------------- |
-| ![image](../assets/configuration/pluginpacks/before_install.png) | ![image](../assets/configuration/pluginpacks/after_install.png) |
-
 ### Managing dependencies
 
 During installation, some objects in the pack may not be installed. These objects are often additional configuration
@@ -255,18 +251,12 @@ or click the Monitoring Connector to display more details, and then click the ar
 
 Confirm the update.
 
-![image](../assets/configuration/pluginpacks/update_confirm.png)
-
 Your pack is up to date. You can now [update the plugin](#updating-the-plugins).
-
-![image](../assets/configuration/pluginpacks/update_finish.png)
 
 **To update all packs:**
 
 You can also update all the packs at the same time: when pack updates are available, an **Update all** button appears.
 Note that you will still have to [update the plugins](#updating-the-plugins). 
-
-![image](../assets/configuration/pluginpacks/update_all.png)
 
 ### Updating the plugins
 
@@ -312,21 +302,11 @@ option must be set to **Restart**.
 ## Uninstalling Monitoring Connectors
 
 As with installation, you can remove a pack either by hovering over the desired pack in the UI and clicking on the red
-cross:
-
-![image](../assets/configuration/pluginpacks/uninstall.png)
-
-or by clicking first the pack and then the red cross:
-
-![image](../assets/configuration/pluginpacks/uninstall_2.png)
+cross, or by clicking first the pack and then the red cross.
 
 Confirm the uninstallation.
 
-![image](../assets/configuration/pluginpacks/uninstall_confirm.png)
-
 Your Monitoring Connector is now uninstalled.
-
-![image](../assets/configuration/pluginpacks/uninstall_3.png)
 
 #### Managing dependencies
 

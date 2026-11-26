@@ -8,13 +8,13 @@ description: "Créez des services passifs pour superviser des traps SNMP dans Ce
 
 Rendez-vous dans le menu **Configuration > Services > Services by host** et cliquez sur **Add**.
 
-* Définir une description du service
-* Sélectionnez l'hôte auquel attacher ce service
-* Sélectionnez le modèle de service **generic-passive-service-custom**
+* Dans le champ **Name**, saisissez un nom pour le service
+* Dans le champ **Hosts**, sélectionnez l'hôte auquel attacher ce service
+* Dans le champ **Template**, sélectionnez le modèle de service **generic-passive-service-custom**
 
 ![image](../../assets/configuration/06createpassiveservice.png)
 
-* Rendez-vous dans l'onglet **Relation** et sélectionnez les traps SNMP
+* Rendez-vous dans l'onglet **Relations** et sélectionnez les traps SNMP
 
 ![image](../../assets/configuration/06servicetrapsrelation.png)
 

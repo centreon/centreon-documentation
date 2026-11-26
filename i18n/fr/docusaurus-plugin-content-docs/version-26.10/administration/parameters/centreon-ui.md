@@ -58,8 +58,6 @@ Improvement**
 
 La configuraiton du proxy est nécessaire pour bénéficier de l'offre Centreon IT Edition.
 
-![image](../../assets/administration/proxy_configuration.png)
-
 Renseigner les différents champs:
 
 - **URL du proxy web** (l'URL doit inclure le protocole, http:// ou https://)

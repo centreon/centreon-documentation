@@ -16,8 +16,6 @@ Tout changement de configuration doit se faire et s'exporter via l'interface uti
 
 2.  Sélectionnez le serveur central, le serveur distant ou le collecteur dont la configuration a changé.
 
-    ![image](../../assets/monitoring/monitoring-servers/export_conf.png)
-
 3.  Cliquez sur **Exporter la configuration**.
 
 4.  Cochez les cases suivantes (voir la section [**Options d'export**](#options-dexport)) :

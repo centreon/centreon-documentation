@@ -136,10 +136,6 @@ de l’installer.
 
 Une fois le pack installé, il apparaîtra avec un contour vert et une coche indiquant qu’il est installé.
 
-| **Avant installation**                                           | **Après installation**                                          |
-|------------------------------------------------------------------|-----------------------------------------------------------------|
-| ![image](../assets/configuration/pluginpacks/before_install.png) | ![image](../assets/configuration/pluginpacks/after_install.png) |
-
 #### Gestion des dépendances
 
 Il se peut que durant l’installation, certains objets du pack ne soient pas installés. Ces objets sont souvent des
@@ -253,18 +249,12 @@ permettant de le mettre à jour. Cliquez sur la flèche pour lancer la mise à j
 
 Confirmez la mise à jour.
 
-![image](../assets/configuration/pluginpacks/update_confirm.png)
-
 Votre pack est maintenant à jour. Vous pouvez maintenant [mettre à jour les plugins](#mettre-à-jour-les-plugins).
-
-![image](../assets/configuration/pluginpacks/update_finish.png)
 
 **Pour mettre à jour tous les packs :**
 
 Vous pouvez également mettre à jour tous les packs en une seule fois : lorsque des mises à jour de packs sont disponibles, un bouton **Tout mettre à jour** apparaît.
 Attention, vous devrez quand même [mettre à jour les plugins](#mettre-à-jour-les-plugins). 
-
-![image](../assets/configuration/pluginpacks/update_all.png)
 
 ### Mettre à jour les plugins
 
@@ -312,22 +302,14 @@ apt-get --only-upgrade install centreon-plugin\*
 ## Désinstaller un connecteur de supervision
 
 Comme pour l’installation, la désinstallation du pack peut se faire soit en survolant le pack souhaité puis en cliquant
-sur la croix rouge :
-
-![image](../assets/configuration/pluginpacks/uninstall.png)
+sur la croix rouge.
 
 Ou alors en cliquant sur le pack, s’ouvre un pop-up affichant le nom, la version et la description du pack, ainsi qu’une
-croix permettant la désinstallation :
-
-![image](../assets/configuration/pluginpacks/uninstall_2.png)
+croix permettant la désinstallation.
 
 Confirmez la désinstallation.
 
-![image](../assets/configuration/pluginpacks/uninstall_confirm.png)
-
 Votre connecteur de supervision est désinstallé.
-
-![image](../assets/configuration/pluginpacks/uninstall_3.png)
 
 #### Gestion des dépendances
 

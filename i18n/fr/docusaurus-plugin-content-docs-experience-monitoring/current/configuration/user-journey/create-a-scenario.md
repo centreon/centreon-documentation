@@ -91,11 +91,11 @@ Si votre site (ou un environnement de staging) est protégé par une authentific
 
 #### Cookies
 
-Ajoutez des cookies personnalisés pour stocker des données ou des sessions au démarrage du parcours.
+Ajoutez des cookies personnalisés pour stocker des données ou des sessions au démarrage du parcours. Un cookie peut être rendu [secret](#protéger-les-identifiants).
 
 #### En-têtes HTTP
 
-Vous pouvez ajouter des en-têtes HTTP personnalisés.
+Vous pouvez ajouter des en-têtes HTTP personnalisés. Un en-tête peut être rendu [secret](#protéger-les-identifiants).
 
 </TabItem>
 <TabItem value="Simulation" label="Simulation">
@@ -148,6 +148,8 @@ Les variables sont particulièrement utiles lorsque vous avez besoin de valeurs 
 
 > Les variables sont fixes par configuration de parcours. Pour utiliser des valeurs différentes, vous devrez définir des variables séparées par contexte (surveillance vs. test de charge).
 
+Rendez une variable [secrète](#protéger-les-identifiants) lorsque sa valeur est un mot de passe, un jeton ou tout autre identifiant.
+
 </TabItem>
 <TabItem value="URLs bloquées" label="URLs bloquées">
 
@@ -169,6 +171,17 @@ Les domaines suivants sont bloqués par défaut :
 
 </TabItem>
 </Tabs>
+
+### Protéger les identifiants
+
+Les variables, cookies et en-têtes HTTP d'un parcours peuvent être rendus secrets. Utilisez cette option pour les mots de passe, les jetons, les cookies de session et toute autre valeur qui ne doit pas être lisible dans l'interface.
+
+- Une fois enregistrée, une valeur secrète n'est plus jamais affichée.
+- Rendre une valeur secrète est irréversible. Pour ne plus utiliser une valeur secrète, supprimez-la et créez-en une nouvelle, non secrète.
+- Le mot de passe de l'[authentification HTTP Basique](#authentification-http-basique) est toujours secret.
+- Lorsque vous dupliquez un parcours, la copie conserve ses valeurs secrètes.
+
+Les sondes masquent également les valeurs secrètes dans tout ce qu'elles envoient à Experience Monitoring : logs, enregistrements réseau (fichiers HAR) et résultats, y compris l'URL visitée. Les captures d'écran ne sont pas masquées : évitez les étapes où une valeur secrète s'affiche sur la page.
 
 ## Configuration d'une étape ou d'une action
 
@@ -259,6 +272,8 @@ Nécessaire si la page contient plusieurs formulaires, cette option limitera la 
 **avec** : le texte que la sonde saisira dans le champ.
 
 Cliquez sur **Ajouter un champ** pour chaque champ que la sonde doit remplir.
+
+Si la sonde ne trouve pas l'un des champs, l'étape échoue immédiatement, et l'incident indique le champ manquant. Assurez-vous que chaque champ ajouté est toujours présent sur la page lorsque l'étape s'exécute.
 
 Par défaut, Experience Monitoring soumet le formulaire une fois rempli. Vous pouvez cliquer sur l'icône crayon sous **Ajouter un champ** pour choisir de :
 

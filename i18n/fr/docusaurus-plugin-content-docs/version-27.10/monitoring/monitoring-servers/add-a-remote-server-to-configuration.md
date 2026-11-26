@@ -41,7 +41,7 @@ sélectionnez votre serveur, puis saisissez les informations demandées :
       passe de l'utilisateur ayant accès à la base de données** sont les accès aux
       bases de données Centreon définis durant l'installation de votre serveur distant.
 
-    Le champ **Adresse IP du serveur** est de la forme : [(http|https)://]@IP[:(port)].
+    Le champ **Server address** est de la forme : [(http|https)://]@IP[:(port)].
       Si votre serveur distant est accessible en HTTPS, il est nécessaire de préciser
       la méthode d'accès et le port si celui-ci n'est pas par défaut.
 
@@ -248,9 +248,7 @@ redémarrez-le avec la commande suivante depuis le **serveur Central** :
 1. Sur le serveur central, revenez au menu **Configuration > Collecteurs > Collecteurs**, sélectionnez le serveur distant et cliquez sur
 **Exporter la configuration**.
 
-2. Cochez ensuite les trois premières cases et cliquez sur  **Exporter** :
-
-    ![image](../../assets/monitoring/monitoring-servers/remote-generate-config.png)
+2. Cochez ensuite les trois premières cases et cliquez sur  **Exporter**.
 
 3. Pour finir, depuis le serveur distant, démarrez/redémarrez les services de
 collecte :
@@ -261,8 +259,6 @@ collecte :
 
     Le moteur de supervision du Remote Server va alors démarrer et se connecter au
     Broker Central.
-
-    ![image](../../assets/monitoring/monitoring-servers/remote-list-zmq-started.png)
 
 ## Premiers pas
 
