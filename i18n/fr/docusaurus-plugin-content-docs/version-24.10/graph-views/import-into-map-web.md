@@ -6,7 +6,7 @@ description: "Passez de MAP Legacy à Centreon MAP : installez MAP, mettez à j
 
 Cette page décrit comment passer de Centreon MAP (Legacy) à Centreon MAP en important vos anciennes cartes dans le module MAP.
 
-> **À partir de Centreon 24.10, MAP Legacy n'est plus disponible.** Si vous utilisiez toujours MAP Legacy, consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/fr/docs/graph-views/map-legacy-eol/).
+> **À partir de Centreon 24.10, MAP Legacy n'est plus disponible.** Si vous utilisiez toujours MAP Legacy, consultez la page [Fin de vie de MAP Legacy](map-legacy-eol.md).
 
 ## Prérequis
 

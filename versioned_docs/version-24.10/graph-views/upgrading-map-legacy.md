@@ -6,7 +6,7 @@ description: "Before migrating to MAP, upgrade Centreon MAP Legacy to 24.10: bac
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> **From Centreon 24.10, MAP Legacy is no longer available.**  If you are still using MAP Legacy, you will need to migrate to MAP. However, a final upgrade to version 24.10 is necessary before you can uninstall it. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+> **From Centreon 24.10, MAP Legacy is no longer available.**  If you are still using MAP Legacy, you will need to migrate to MAP. However, a final upgrade to version 24.10 is necessary before you can uninstall it. See [MAP Legacy end of life](map-legacy-eol.md).
 
 This chapter describes how to upgrade your Centreon MAP (Legacy) extension. This
 is done by upgrading the four main components:

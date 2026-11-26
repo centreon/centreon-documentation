@@ -7,7 +7,7 @@ description: "Avant de migrer vers MAP, montez MAP Legacy en 24.10 : sauvegarde
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> **À partir de Centreon 24.10, MAP Legacy n'est plus disponible.** Si vous utilisez encore MAP Legacy, il vous faut migrer vers MAP. Cependant, il sera nécessaire d'effectuer une dernière montée de version en 24.10 avant de désinstaller MAP Legacy. Consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/fr/docs/graph-views/map-legacy-eol/).
+> **À partir de Centreon 24.10, MAP Legacy n'est plus disponible.** Si vous utilisez encore MAP Legacy, il vous faut migrer vers MAP. Cependant, il sera nécessaire d'effectuer une dernière montée de version en 24.10 avant de désinstaller MAP Legacy. Consultez la page [Fin de vie de MAP Legacy](map-legacy-eol.md).
 
 Ce chapitre décrit comment monter de version votre extension Centreon MAP. Pour ce faire, vous devez mettre à niveau les quatre principaux composants :
 

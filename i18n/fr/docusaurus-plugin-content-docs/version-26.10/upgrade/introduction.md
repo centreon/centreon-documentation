@@ -16,7 +16,7 @@ Pour les OS et versions de Centreon plus anciens qui ne sont plus supportés, co
 
 Avant de monter Centreon de version, pensez à réaliser une sauvegarde de votre plateforme.
 
-> Utilisateurs de la Business edition : MAP Legacy n'est plus disponible dans Centreon 26.10. Si vous utilisez toujours MAP Legacy, vous devez migrer vers MAP. Consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/docs/24.10/graph-views/map-legacy-eol/).
+> Utilisateurs de la Business edition : MAP Legacy n'est plus disponible dans Centreon 26.10. Si vous utilisez toujours MAP Legacy, vous devez migrer vers MAP. Consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/fr/docs/24.10/graph-views/map-legacy-eol/).
 
 > Si vous utilisez au moins un des modules BAM, MAP ou MBI, vous devez installer
 > leur nouveau dépôt afin d'éviter les problèmes de dépendances.
