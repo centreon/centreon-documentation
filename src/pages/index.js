@@ -151,7 +151,7 @@ function getProducts(docsPath, version) {
         {
           icon: 'discover',
           label: translate({ id: 'home.product.connectors.task.start', message: 'Get started with connectors' }),
-          href: '/pp/integrations/plugin-packs/getting-started/introduction/',
+          href: '/pp/welcome/',
         },
         {
           icon: 'connector',
