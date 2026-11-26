@@ -3,11 +3,9 @@ import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit comment monter votre plateforme Centreon de la version {props.oldCentreonVersion} à la version 26.10.
 
-La montée de version n'est possible que si votre OS actuel est RHEL/Oracle/AlmaLinux 9. [Les autres OS ne sont plus supportés](upgrade-matrix.mdx) : si votre OS actuel est EL8 ou Debian, suivez une [procédure de migration](../migrate/introduction.md) pour passer à un OS supporté. Si votre plateforme Centreon utilise la HA, contactez votre représentant commercial Centreon pour discuter des scénarios de migration possibles.
+## Quand puis-je passer à la version 26.10 ?
 
-* Lorsque vous montez de version votre serveur central, veillez à monter également de version tous vos serveurs distants et tous vos collecteurs.
-* Tous les serveurs de votre architecture doivent utiliser la même version de Centreon.
-* De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo-switch-versions.md).
+La montée de version n'est possible que si votre OS actuel est RHEL/Oracle/AlmaLinux 9. [Les autres OS ne sont plus supportés](upgrade-matrix.mdx) : si votre OS actuel est EL8 ou Debian, suivez une [procédure de migration](../migrate/introduction.md) pour passer à un OS supporté. Si votre plateforme Centreon utilise la HA, contactez votre représentant commercial Centreon pour discuter des scénarios de migration possibles.
 
 {props.showMapLegacyWarning && (
 <>
@@ -41,6 +39,10 @@ La montée de version n'est possible que si votre OS actuel est RHEL/Oracle/Alma
 | Base de données | <ul><li>{props.oldMariadbVersion}</li><li>{props.oldMysqlVersion}</li></ul> | <ul><li>MariaDB 11.8</li><li>MySQL 8.4</li></ul> |
 
 ## Prérequis
+
+* Lorsque vous montez de version votre serveur central, veillez à monter également de version tous vos serveurs distants et tous vos collecteurs.
+* Tous les serveurs de votre architecture doivent utiliser la même version de Centreon.
+* De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo-switch-versions.md).
 
 ### Réaliser une sauvegarde
 

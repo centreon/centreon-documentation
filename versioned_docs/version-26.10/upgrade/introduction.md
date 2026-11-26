@@ -3,6 +3,8 @@ id: introduction
 title: Introduction to upgrade
 description: "Upgrade Centreon from one major version to another: check that your OS is supported, back up your platform and update the BAM, MAP or MBI repositories."
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## What is an upgrade?
 
