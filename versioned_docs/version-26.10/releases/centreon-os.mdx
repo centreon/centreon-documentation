@@ -14,14 +14,35 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 | Component | Releases |
 |----------|----------|
 | **Centreon Web** | [26.10.1 (November 19, 2026)](#centreon-web-26101)<br/>[26.10.0 (October 20, 2026)](#centreon-web-26100) |
-| **Centreon Collect** | [26.10.1 (November 19, 2026)](#centreon-collect-26101)<br/>[26.10.0 (October 20, 2026)](#centreon-collect-26100) |
+| **Centreon Collect** | [26.10.2 (November 26, 2026)](#centreon-collect-26102)<br/>[26.10.1 (November 19, 2026)](#centreon-collect-26101)<br/>[26.10.0 (October 20, 2026)](#centreon-collect-26100) |
 | **Centreon Common** | [26.10.1 (November 19, 2026)](#centreon-common-26101) |
-| **Centreon Gorgone** | [26.10.1 (November 19, 2026)](#centreon-gorgone-26101)<br/>[26.10.0 (October 20, 2026)](#centreon-gorgone-26100) |
+| **Centreon Gorgone** | [26.10.2 (November 26, 2026)](#centreon-gorgone-26102)<br/>[26.10.1 (November 19, 2026)](#centreon-gorgone-26101)<br/>[26.10.0 (October 20, 2026)](#centreon-gorgone-26100) |
 | **Centreon Monitoring Agent** | [26.10.1 (November 19, 2026)](#centreon-monitoring-agent-26101)<br/>[26.10.0 (October 20, 2026)](#centreon-monitoring-agent-26100) |
 | **Centreon Open Tickets** | [26.10.1 (November 19, 2026)](#centreon-open-tickets-26101)<br/>[26.10.0 (October 20, 2026)](#centreon-open-tickets-26100) |
 | **Centreon AWIE** | [26.10.0 (October 20, 2026)](#centreon-awie-26100) |
 | **Centreon DSM** | [26.10.0 (October 20, 2026)](#centreon-dsm-26100) |
 | **Centreon High Availability** | [26.10.0 (October 20, 2026)](#centreon-high-availability-26100) |
+
+</details>
+
+## November 26, 2026
+
+### Centreon Collect 26.10.2
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a crash in Centreon Engine. The crash could happen during a host check, after a reload that removed services. It only affected setups with environment macros enabled.
+- [Centreon Engine]: When a poller has a UID, external commands on the BAM virtual host now work whether they use the UID or the poller_id. Business Activities inherit downtimes from their indicators again.
+
+</details>
+
+### Centreon Gorgone 26.10.2
+
+<details>
+  <summary>Security fixes</summary>
+
+- This release contains security fixes. Details will be available soon on [The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
 
 </details>
 
