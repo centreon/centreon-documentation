@@ -73,10 +73,6 @@ Make sure your Centreon platform is allowed to reach the internet:
 
     The **Add token** button changes to become a **View license** button.
 
-#### Migrate your license
-
-Licenses can only be 
-
 </TabItem>
 <TabItem value="Offline licenses" label="Offline licenses">
 
