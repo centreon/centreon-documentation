@@ -843,7 +843,7 @@ Lors de l'installation du serveur Centreon MAP Engine, Java (OpenJDK 17) sera au
 
 ### Étape 4 : vérifier la configuration de la base de données
 
-Assurez-vous que la base de données qui stocke les données MAP de Centreon est optimisée (automatiquement ajoutée par le RPM dans **/etc/my.cnf.d/map.cnf** ou dans **/etc/mysql/map.cnf** pour Debian) :
+Assurez-vous que la base de données qui stocke les données MAP de Centreon est optimisée (paramètres ajoutés automatiquement par le paquet dans **/etc/my.cnf.d/map.cnf** sous Alma/RHEL/Oracle Linux, ou dans **/etc/mysql/conf.d/map.cnf** sous Debian, que la base soit MariaDB ou MySQL) :
 
 ```text
 max_allowed_packet = 20M

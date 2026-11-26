@@ -856,7 +856,7 @@ Installing the MAP server also installs Java (OpenJDK 25) if needed.
 ### Step 4: Check the database configuration
 
 Make sure the database that stores Centreon MAP data is optimized
-(automatically added by the RPM in **/etc/my.cnf.d/map.cnf** or in **/etc/mysql/map.cnf** for Debian):
+(settings automatically added by the package in **/etc/my.cnf.d/map.cnf** on Alma/RHEL/Oracle Linux, or in **/etc/mysql/conf.d/map.cnf** on Debian, for both MariaDB and MySQL):
 
 ```text
 max_allowed_packet = 20M
