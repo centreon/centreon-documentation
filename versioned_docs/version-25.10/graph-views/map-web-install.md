@@ -851,7 +851,7 @@ When installing Centreon MAP Engine server, it will automatically install Java
 ### Step 4: Check the database configuration
 
 Make sure the database that stores Centreon MAP data is optimized
-(settings automatically added by the package in **/etc/my.cnf.d/map.cnf**. On Debian, the file can be either **/etc/mysql/map.cnf** or **/etc/my.cnf.d/map.cnf**):
+(settings automatically added by the package in **/etc/my.cnf.d/map.cnf** on Alma/RHEL/Oracle Linux, or in **/etc/mysql/conf.d/map.cnf** on Debian, for both MariaDB and MySQL):
 
 ```text
 max_allowed_packet = 20M
