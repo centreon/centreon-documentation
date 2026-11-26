@@ -624,11 +624,12 @@ yum install centreon-plugin-Network-Efficientip-Snmp
 </TabItem>
 <TabItem value="SOLID-Server-status" label="SOLID-Server-status">
 
-| Macro          | Description                                                                                                                                      | Valeur par défaut                                                  | Obligatoire |
-|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:-----------:|
-| WARGNINGSTATUS | Define the conditions to match for the status to be WARNING. Can be used with special variables like: %\{status\}, %\{role\}                     | %\{status\} =~ /upgrading\|split-brain/                            |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. Can be used with special variables like: %\{status\}, %\{role\}                    | %\{status\} =~ /invalid credentials\|replication stopped\|timeout/ |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                                                    |             |
+| Macro          | Description                                                                                                                                                                                                   | Valeur par défaut                                                  | Obligatoire |
+|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:-----------:|
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /upgrading\|split-brain/') Can be used with special variables like: %\{status\}, %\{role\}                             | %\{status\} =~ /upgrading\|split-brain/                            |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. (default: '%\{status\} =~ /invalid credentials\|replication stopped\|timeout/') Can be used with special variables like: %\{status\}, %\{role\} | %\{status\} =~ /invalid credentials\|replication stopped\|timeout/ |             |
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. (default: '%\{status\} =~ /not configured\|unknown/') Can be used with special variables like: %\{status\}, %\{role\}                            | %\{status\} =~ /not configured\|unknown/                           |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                              |                                                                    |             |
 
 </TabItem>
 </Tabs>
@@ -837,6 +838,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --warning-status  | Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /upgrading\|split-brain/') Can be used with special variables like: %\{status\}, %\{role\}                             |
 | --critical-status | Define the conditions to match for the status to be CRITICAL. (default: '%\{status\} =~ /invalid credentials\|replication stopped\|timeout/') Can be used with special variables like: %\{status\}, %\{role\} |
+| --unknown-status  | Define the conditions to match for the status to be UNKNOWN. (default: '%\{status\} =~ /not configured\|unknown/') Can be used with special variables like: %\{status\}, %\{role\}                            |
 
 </TabItem>
 </Tabs>
@@ -853,4 +855,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
+- [26.11](../releases/release-notes.md#2026-11) - Breaking change: The misspelled `WARGNINGSTATUS` service macro of the **Status** service is renamed `WARNINGSTATUS`: if you had customized the warning threshold, set it again in `WARNINGSTATUS` after the update.
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Fixed **status** mode returning `UNKNOWN: No data!` when a SOLIDserver member had a role or a status unknown to the connector (e.g. **remote managed**): such values are now reported as `unknown`, and a new `UNKNOWNSTATUS` service macro is available. Fixed the `--snmp-tls-trust-cert` option, which was silently ignored: SNMPv3 over TLS/DTLS checks relying on a trusted CA failed with `unable to get local issuer certificate`.
 - [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added SOLID server service template.

@@ -572,6 +572,8 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
+- [26.11](../releases/release-notes.md#2026-11) - Enhancement: Added native SNMP v3 host macros to the commands that were missing them.
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Fixed the `--snmp-tls-trust-cert` option, which was silently ignored: SNMPv3 over TLS/DTLS checks relying on a trusted CA failed with `unable to get local issuer certificate`.
 - [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added service template for **response-time** mode and added native SNMP v3 host macro.
 - [25.03](../releases/release-notes.md#2025-03) - Bug fix: Added missing mandatory parameter in SNMP collection discovery command.
 - [25.03](../releases/release-notes.md#2025-03) - Bug fix: Fixed an unsafe eval for unknown status option in **collection** mode, based on community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).

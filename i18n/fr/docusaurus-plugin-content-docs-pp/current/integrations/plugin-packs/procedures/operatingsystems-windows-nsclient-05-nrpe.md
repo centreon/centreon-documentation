@@ -443,6 +443,8 @@ dnf install nagios-plugins-nrpe
 | Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | NTPADDR      | Set the ntp hostname (if not set, we try to find it with w32tm command)                                                                  |                   |             |
+| NTPPORT      | Set the NTP port                                                                                                                         | 123               |             |
+| TIMEOUT      | Set timeout time for 'w32tm' command execution                                                                                           | 30                |             |
 | WARNING      | Warning threshold                                                                                                                        | -1:1              |             |
 | CRITICAL     | Critical threshold                                                                                                                       | -2:2              |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
@@ -1132,6 +1134,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Fixed the **NTP** service, which did not work with an empty port: the port now defaults to 123 and the timeout matches the plugin default.
 - [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.
 - [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed an issue in the **ntp** mode, causing zombie processes of `centreon_plugins.exe`.
 - [25.02](../releases/release-notes.md#2025-02) - Enhancement: Changed pack display name to make it clear that it uses the NRPE protocol.

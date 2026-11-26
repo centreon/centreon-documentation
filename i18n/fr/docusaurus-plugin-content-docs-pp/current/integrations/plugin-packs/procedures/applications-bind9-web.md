@@ -441,3 +441,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=zone-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Fixed an issue where the **memory-usage** mode returned no values (`OK: usage : skipped (no value(s))`) with BIND 9.20 and later, since the memory statistic was renamed.

@@ -616,10 +616,10 @@ CRITICAL= 0
 | Macro          | Description                                                                                                                                                          | Valeur par défaut | Obligatoire |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | NTPHOSTNAME    | Set the NTP server to use (if not set, we try to find it with w32tm command).                                                                                        |                   |             |
-| NTPPORT        | Set the NTP port (default: 123).                                                                                                                                     |                   |             |
+| NTPPORT        | Set the NTP port                                                                                                                                                     | 123               |             |
 | WARNINGOFFSET  | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds.   | -1:1              |             |
 | CRITICALOFFSET | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. | -2:2              |             |
-| TIMEOUT        | Set timeout time for 'w32tm' command execution (default: 30 sec).                                                                                                    | 10                |             |
+| TIMEOUT        | Set timeout time for 'w32tm' command execution                                                                                                                       | 30                |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                             |                   |             |
 
 </TabItem>
@@ -1118,6 +1118,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Fixed the **NTP** service, which did not work with an empty port: the port now defaults to 123 and the timeout matches the plugin default.
 - [26.09](../releases/release-notes.md#2026-09) - Enhancement: `centreon_plugins.exe` now supports the curl HTTP backend.
 - [26.09](../releases/release-notes.md#2026-09) - Bug fix: Fixed qwinsta parsing failures with specific languages in **sessions** mode.
 - [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added timeout macro to all native CMA checks.

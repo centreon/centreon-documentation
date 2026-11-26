@@ -446,6 +446,8 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 | Macro        | Description                                                                                                                            | Default value | Mandatory |
 |:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
 | NTPADDR      | Set the ntp hostname (if not set, we try to find it with w32tm command)                                                                |               |           |
+| NTPPORT      | Set the NTP port                                                                                                                       | 123           |             |
+| TIMEOUT      | Set timeout time for 'w32tm' command execution                                                                                         | 30            |           |
 | WARNING      | Warning threshold                                                                                                                      | -1:1          |           |
 | CRITICAL     | Critical threshold                                                                                                                     | -2:2          |           |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#available-options) |               |           |
@@ -1184,6 +1186,7 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
+- [26.11](../releases/release-notes.md#2026-11) - Bug fix: Fixed the **NTP** service, which did not work with an empty port: the port now defaults to 123 and the timeout matches the plugin default.
 - [26.09](../releases/release-notes.md#2026-09) - Enhancement: `centreon_plugins.exe` now supports the curl HTTP backend.
 - [26.09](../releases/release-notes.md#2026-09) - Bug fix: Fixed qwinsta parsing failures with specific languages in **sessions** mode.
 - [26.02](../releases/release-notes.md#2026-02) - Breaking change: This connector is now compatible with NSClient++ 0.11.8, which is currently available as a pre-release [here](https://github.com/centreon/centreon-nsclient-build/releases). A breaking change occurs if you update NSClient++ without updating the connector. Updating the connector alone is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
