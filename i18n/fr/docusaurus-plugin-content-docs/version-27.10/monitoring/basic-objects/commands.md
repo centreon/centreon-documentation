@@ -61,6 +61,31 @@ Une fois votre commande personnalisée créée :
 3. [Déployez la configuration](../monitoring-servers/deploying-a-configuration.md). L'hôte ou le service apparaît à la page **Statut des ressources**. Vous pouvez voir la commande personnalisée dans le panneau de détails de l'hôte ou du service, avec les valeurs correctes pour les macros. Une fois le contrôle exécuté, vous pouvez également voir le message de sortie à cet endroit.
 4. Ajoutez la commande à la [liste blanche de commandes](#liste-blanche-de-commandes) du poller qui exécutera le contrôle.
 
+## Caractères spéciaux dans les lignes de commande
+
+Lorsqu'une ligne de commande contient des antislashs (par exemple pour échapper des parenthèses, des guillemets ou des slashs dans une expression régulière), le nombre d'antislashs nécessaires dépend de l'endroit où vous saisissez la commande :
+
+* **Dans un shell sur le collecteur** (par exemple, lorsque vous testez la commande en tant qu'utilisateur **centreon-engine**) : utilisez un antislash par caractère spécial, comme dans n'importe quel shell.
+* **Dans le champ Ligne de commande de l'interface web** : utilisez deux antislashs par caractère spécial.
+
+En effet, une commande configurée dans l'interface web est traitée par des composants de Centreon (Gorgone, puis Centreon Engine) avant d'être transmise au plugin, et un niveau d'antislashs est supprimé au passage. Une commande qui fonctionne lorsque vous l'exécutez sur le collecteur peut donc échouer si vous la copiez telle quelle dans l'interface web.
+
+Exemple : la commande suivante supervise le service Windows nommé `SQL Server (MSSQLSERVER)`. Les parenthèses du nom du service doivent être échappées dans l'expression régulière.
+
+* Commande exécutée dans un shell sur le collecteur :
+
+  ```shell
+  /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin --mode=service --hostname=10.0.0.1 --snmp-version='2c' --snmp-community='public' --filter-name='^(SQL Server \(MSSQLSERVER\)$)'
+  ```
+
+* Même commande saisie dans l'interface web :
+
+  ```shell
+  /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin --mode=service --hostname=10.0.0.1 --snmp-version='2c' --snmp-community='public' --filter-name='^(SQL Server \(MSSQLSERVER\)$)'
+  ```
+
+> N'échappez que les caractères qui doivent être interprétés littéralement. Dans cet exemple, la première et la dernière parenthèses délimitent un groupe dans l'expression régulière : elles ne sont donc pas échappées.
+
 ## Liste blanche de commandes
 
 Pour des raisons de sécurité, vous pouvez restreindre les commandes que le moteur de supervision d'un collecteur (et l'agent de supervision Centreon) est autorisé à exécuter, en définissant une liste blanche de commandes. Par défaut, Centreon n'applique aucune liste blanche : toutes les commandes sont autorisées.
