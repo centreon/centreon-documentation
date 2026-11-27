@@ -41,13 +41,9 @@ products and go to the **Administration > Extensions > Manager** page.
  up to date before updating the **Auto Discovery** module.
 
 4. Click the update icon corresponding to the **Auto Discovery**
-module:
+module.
 
-  ![image](../../assets/monitoring/discovery/update.png)
-
-  The module is now updated:
-
-  ![image](../../assets/monitoring/discovery/install-after.png)
+  The module is now updated.
 
 ## Uninstallation
 
@@ -58,17 +54,11 @@ module:
 products and go to the **Administration > Extensions > Manager** page.
 
 2. Click the delete icon corresponding to the **Auto Discovery**
-module:
+module.
 
-  ![image](../../assets/monitoring/discovery/install-after.png)
+3. A confirmation popup will appear. Confirm the action.
 
-3. A confirmation popup will appear. Confirm the action:
-
-    ![image](../../assets/monitoring/discovery/uninstall-popin.png)
-
-    The module is now uninstalled:
-
-    ![image](../../assets/monitoring/discovery/install-before.png)
+    The module is now uninstalled.
 
 ## Gorgone module configuration
 

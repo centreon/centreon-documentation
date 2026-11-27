@@ -41,9 +41,7 @@ products and go to the **Administration > Extensions > Manager** menu.
  up to date before installing the **Auto Discovery** module.
 
 4. Click the Installation icon corresponding to the **Auto Discovery** module.
-    The module is now installed:
-
-    ![image](../../assets/monitoring/discovery/install-after.png)
+    The module is now installed.
 
 5. To get ready-to-use discovery rules, go to the **Configuration > Plugin
 Packs** page and [install the Monitoring Connectors](../pluginpacks.md#installing-the-pack) for the 

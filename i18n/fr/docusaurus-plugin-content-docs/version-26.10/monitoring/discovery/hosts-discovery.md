@@ -33,9 +33,7 @@ Vous pouvez dupliquer des tâches de découverte : survolez la tâche désirée 
 
     ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-1.png)
 
-    La barre de recherche permet de chercher un fournisseur spécifique :
-
-    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-2.png)
+    La barre de recherche permet de chercher un fournisseur spécifique.
 
 3. Cliquez sur **Suivant**. 
 
@@ -178,20 +176,18 @@ Plusieurs actions peuvent être réalisées sur les tâches :
 
 2. Sélectionnez les hôtes que vous souhaitez ajouter à la liste des hôtes supervisés et cliquez sur le bouton **Sauvegarder**. Cliquez ensuite sur le bouton **Retour** pour revenir à la page **Découverte**.
 
-3. Si vous le souhaitez, vous pouvez éditer les [modificateurs](#comment-utiliser-les-modificateurs) liés à la tâche. Cliquez sur la tâche pour afficher ses paramètres. Dans la section **Modificateurs**, modifiez le modificateur en cliquant sur le bouton d'édition : ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
+3. Si vous le souhaitez, vous pouvez éditer les [modificateurs](#comment-utiliser-les-modificateurs) liés à la tâche. Cliquez sur la tâche pour afficher ses paramètres. Dans la section **Modificateurs**, modifiez le modificateur en cliquant sur le bouton d'édition.
 
     Les changements seront appliqués directement à la liste des résultats lorsque vous cliquerez sur l'icône **Sauvegarder** en haut à droite du panneau.
     
     Si vous aviez sélectionné **Analyse automatique** et **Modifier les hôtes existants** à l'étape 5 de l'assistant, les hôtes seront mis à jour quand vous réexécuterez la tâche (voir [Éditer une tâche de découverte](#éditer-une-tâche-de-découverte)).
 
 4. Si vous avez sélectionné **Analyse manuelle** à l'étape 5 de l'assistant, sélectionnez les hôtes que vous voulez ajouter ou mettre à jour dans la configuration, puis cliquez
-sur le bouton d'enregistrement : ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.png#thumbnail1)
+sur le bouton d'enregistrement.
 
   Les hôtes sont alors créés ainsi que les services liés à leurs modèles d'hôte.
 
 5. Allez à la page **Configuration > Hôtes > Hôtes** : les hôtes que vous venez de créer apparaissent dans la liste.
-
-  ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
 
   Si les hôtes que vous aviez sélectionnés ne sont pas visibles dans la
 liste, retournez à la liste des tâches et regardez si une erreur est
@@ -229,7 +225,7 @@ de la tâche désirée. Un panneau apparaît à droite.
 
   Si le module d'autodécouverte découvre un hôte avec un nom déjà existant, ayant été créé manuellement à la page **Configuration > Hôtes > Hôtes**, cet hôte sera également mis à jour par le module d'autodécouverte, même s'il n'a pas été créé par autodécouverte.
 
-2. Cliquez sur l'icône de sauvegarde en haut à droite du panneau : ![image](../../assets/monitoring/discovery/host-discovery-save.png#thumbnail2)
+2. Cliquez sur l'icône de sauvegarde en haut à droite du panneau.
 
 ## Comment utiliser les modificateurs
 

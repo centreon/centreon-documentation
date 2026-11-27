@@ -12,29 +12,21 @@ Centreon web interface.
 Go to the **Configuration > Services > Scan** menu.
 
 Start to write the name of the host and the web interface automatically completes the
-name:
+name.
 
-![image](../../assets/configuration/autodisco/manual_scan_select_host.png)
-
-Select the discovery command to run from the list that has just appeared:
-
-![image](../../assets/configuration/autodisco/manual_scan_select_command.png)
+Select the discovery command to run from the list that has just appeared.
 
 > If the list is empty, it means that your host doesn't use a host template
 > linked to a discovery rule.
 
-Click the **Scan** button and wait during the discovery:
-
-![image](../../assets/configuration/autodisco/manual_scan_wait.png)
+Click the **Scan** button and wait during the discovery.
 
 The result is displayed. Select items to add to the monitoring and click the
 **Save** button:
 
 ![image](../../assets/configuration/autodisco/manual_scan_result.png)
 
-The items were added and it is no longer possible to select them:
-
-![image](../../assets/configuration/autodisco/manual_scan_added.png)
+The items were added and it is no longer possible to select them.
 
 > It is possible that some items in the list of results cannot be selected. This
 > indicates that they are already part of the configuration.

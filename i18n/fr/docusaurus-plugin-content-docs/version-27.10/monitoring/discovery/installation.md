@@ -42,9 +42,7 @@ Extensions > Gestionnaire**.
  avant de procéder à l'installation du module **Auto Discovery**.
 
 4. Cliquez sur l’icône d’installation correspondant au module **Centreon Auto
-Discovery**. Le module est maintenant installé :
-
-  ![image](../../assets/monitoring/discovery/install-after.png)
+Discovery**. Le module est maintenant installé.
 
 5. Rendez-vous dans le menu **Configuration > Connecteurs > Connecteurs de supervision** et [installez les connecteurs de supervision
 ](../pluginpacks.md#installer-le-pack) correspondant aux fournisseurs de découverte désirés.
