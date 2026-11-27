@@ -4,6 +4,9 @@ title: Enable SNMP Traps
 description: "Enable SNMP traps in Centreon: see how the central server or a poller processes traps, and configure snmptrapd, centreontrapdforward, and centreontrapd."
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## Description
 
 SNMP traps are information sent using the SNMP protocol from monitored resources to a poller server. This information
@@ -75,10 +78,45 @@ Successive actions by the centreontrapd process are:
 
 To call the ‘centreontrapdfoward’ script, the file **/etc/snmp/snmptrapd.conf** must contain the following lines:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
 ``` shell
 disableAuthorization yes
 traphandle default su -l centreon -c "/usr/share/centreon/bin/centreontrapdforward"
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+disableAuthorization yes
+traphandle default su -l centreon -c "/usr/share/centreon/bin/centreontrapdforward"
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+snmptrapd runs as the **Debian-snmp** user, which cannot use `su`, so traps are forwarded through `sudo`:
+
+``` shell
+disableAuthorization yes
+traphandle default /usr/bin/sudo -n -u centreon /usr/share/centreon/bin/centreontrapdforward
+```
+
+The **centreon-trap** package writes this line and allows it in **/etc/sudoers.d/centreon-trap**:
+
+``` shell
+Defaults!/usr/share/centreon/bin/centreontrapdforward env_reset
+Debian-snmp ALL = (centreon) NOPASSWD: /usr/share/centreon/bin/centreontrapdforward ""
+```
+
+> The `""` at the end of the rule forbids any argument. Keep it if you write the rule yourself.
+
+If you edited the `traphandle` line yourself (the package then prints a warning when it is installed or upgraded), replace it with the line above, then restart snmptrapd: `systemctl restart snmptrapd`.
+
+</TabItem>
+</Tabs>
 
 You can optimize the performance of snmptrapd by using the following options:
 
