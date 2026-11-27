@@ -152,7 +152,15 @@ See the [dedicated section](cma-certificates.md) to determine which files are re
 
 ### Add CMA commands to your custom whitelists
 
-If you are using whitelists on the poller, these must allow CMA commands. On the poller, in your custom whitelist file (e.g., **/etc/centreon-engine-whitelist/my-whitelist.yml**), include the following lines in the **cma-whitelist** block:
+If you are using whitelists on the poller, these must allow CMA commands. The behavior is as follows:
+
+* If the **whitelist** block is filled in and the **cma-whitelist** block is absent, the monitoring engine will apply its whitelist (it will only allow the specified commands) and CMA will not apply a whitelist (all commands will be allowed).
+* If both the **whitelist** and **cma-whitelist** blocks are filled in, the monitoring engine will apply the **whitelist** block and CMA will apply the **cma-whitelist** block (they will only allow the specified commands).
+* If the **whitelist** block is absent and the **cma-whitelist** block is filled in, the monitoring engine will not apply a whitelist (all commands will be allowed) and CMA will apply the **cma-whitelist** block (it will only allow specified commands).
+* If no block is filled in, no whitelist will be applied: all commands will be allowed.
+* If you are using a host-specific whitelist, it will replace the default whitelist. You must manually re-add the filters of the default whitelist to this custom one.
+
+On the poller, in your custom whitelist file (e.g., **/etc/centreon-engine-whitelist/my-whitelist.yml**), include the following lines in the **cma-whitelist** block:
 
 ```text
 whitelist:
@@ -208,13 +216,6 @@ chmod 0640 /etc/centreon-engine-whitelist/my-whitelist.yml
 chown root:centreon-engine /etc/centreon-engine-whitelist
 chmod 750 /etc/centreon-engine-whitelist
 ```
-
-The behavior is as follows:
-
-* If the **whitelist** block is filled in and the **cma-whitelist** block is absent, the monitoring engine will apply its whitelist (it will only allow the specified commands) and CMA will not apply a whitelist (all commands will be allowed).
-* If both the **whitelist** and **cma-whitelist** blocks are filled in, the monitoring engine will apply the **whitelist** block and CMA will apply the **cma-whitelist** block (they will only allow the specified commands).
-* If the **whitelist** block is absent and the **cma-whitelist** block is filled in, the monitoring engine will not apply a whitelist (all commands will be allowed) and CMA will apply the **cma-whitelist** block (it will only allow specified commands).  
-* If no block is filled in, no whitelist will be applied: all commands will be allowed.
 
 ## Step 3: Prepare the host
 
