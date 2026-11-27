@@ -334,9 +334,7 @@ indicators at once:
 > or indicators using another calculation method, go back to the Business
 > Activity page.
 
-There are several ways to create an indicator:
-
-![image](../assets/service-mapping/guide/add_kpi_types.png)
+There are several ways to create an indicator.
 
 #### Add an indicator
 

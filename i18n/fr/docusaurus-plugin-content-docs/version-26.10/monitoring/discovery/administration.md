@@ -41,13 +41,9 @@ Extensions > Gestionnaire**.
 3. Assurez-vous que les modules **License Manager** et **Gestionnaire de connecteurs de supervision**
   sont à jour avant de procéder à la mise à jour du module **Auto Discovery**
 
-3. Cliquez sur l’icône de mise à jour correspondant au module **Auto Discovery** :
+3. Cliquez sur l’icône de mise à jour correspondant au module **Auto Discovery**.
 
-    ![image](../../assets/monitoring/discovery/update.png)
-
-    Le module est maintenant à jour :
-
-    ![image](../../assets/monitoring/discovery/install-after.png)
+    Le module est maintenant à jour.
 
 ## Désinstallation
 
@@ -59,17 +55,11 @@ Extensions > Gestionnaire**.
 droit d’installer des modules et rendez-vous dans le menu **Administration >
 Extensions > Gestionnaire**.
 
-2. Cliquez sur l’icône de suppression correspondant au module **Auto Discovery** :
+2. Cliquez sur l’icône de suppression correspondant au module **Auto Discovery**.
 
-    ![image](../../assets/monitoring/discovery/install-after.png)
+3. Une fenêtre de confirmation apparaît. Confirmez l’action.
 
-3. Une fenêtre de confirmation apparaît. Confirmez l’action :
-
-    ![image](../../assets/monitoring/discovery/uninstall-popin.png)
-
-    Le module est maintenant désinstallé :
-
-    ![image](../../assets/monitoring/discovery/install-before.png)
+    Le module est maintenant désinstallé.
 
 ## Configuration du module Gorgone
 

@@ -330,9 +330,7 @@ indicateurs à la fois :
 
 ### Création d'un indicateur (KPI)
 
-Il existe plusieurs façons d'ajouter des indicateurs:
-
-![image](../assets/service-mapping/guide/add_kpi_types.png)
+Il existe plusieurs façons d'ajouter des indicateurs.
 
 #### Ajouter un indicateur
 

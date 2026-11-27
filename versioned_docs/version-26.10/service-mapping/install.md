@@ -68,9 +68,7 @@ button for the following modules:
 - Business Activity Monitoring
 
 Once the module is installed and the license added, the module card displays
-the license expiry date:
-
-![image](../assets/service-mapping/installation/install-web-step-2.png)
+the license expiry date.
 
 > If you are using replication for your monitoring databases,
 > installing Centreon BAM generates a view. You need to exclude it from

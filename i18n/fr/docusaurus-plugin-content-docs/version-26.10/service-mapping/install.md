@@ -68,9 +68,7 @@ sur le bouton d'installation des modules suivants :
 - Business Activity Monitoring
 
 Une fois le module installé et la licence ajoutée, la carte du module affiche
-la date d'expiration de la licence :
-
-![image](../assets/service-mapping/installation/install-web-step-2.png)
+la date d'expiration de la licence.
 
 > Si vous utilisez une réplication MariaDB pour vos bases de données de
 > **monitoring**, lors de l'installation de Centreon BAM, une vue est

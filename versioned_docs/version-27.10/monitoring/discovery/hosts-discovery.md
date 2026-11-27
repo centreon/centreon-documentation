@@ -32,9 +32,7 @@ You can duplicate discovery jobs: hover over the job and then click **Duplicate*
 
     ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-1.png)
 
-    The search bar allows you to search for a specific provider:
-
-    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-2.png)
+    The search bar allows you to search for a specific provider.
 
 3. Click **Next**.
 
@@ -167,20 +165,18 @@ next to the status of a **Finished** job to view the results.
 
 2. Select the hosts you want to add to the list of monitored hosts and click the **Save** button. Then click the **Back** button to return to the **Discovery** page.
 
-3. If you want, you can edit the mappers linked to this job. Click the job to display its settings.  In the **Mappers** section, edit the mapper with its **Edit** icon: ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
+3. If you want, you can edit the mappers linked to this job. Click the job to display its settings.  In the **Mappers** section, edit the mapper with its **Edit** icon.
 
   The results will be updated automatically in the preview once you click the **Save** icon at the top right of the panel.
   
   If the job was set to **Automatic analysis** at step 5 of the wizard and **Update existing hosts** was selected, the hosts will be updated when you re-run the job (see [Edit a discovery job](#edit-a-discovery-job)).
 
 4. If your job was set to **Manual analysis** at step 5 of the wizard, select the hosts you want to add or update in the configuration and click the **Save**
-button: ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.png#thumbnail1)
+button.
 
   The hosts are created as well as the services linked to their host templates.
 
 5. Go to the **Configuration > Hosts** page: the newly created hosts appear in the list.
-
-  ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
 
   If the hosts you selected are not visible in the configuration, go back to the
 list of jobs and see if an error occurred during the saving task.
@@ -218,7 +214,7 @@ Some discovery jobs can be edited:
 
   If the autodiscovery module discovers hosts whose names are already used by hosts that have previously been created manually on the **Configuration > Hosts > Hosts** page or with the API or CLAPI, those existing hosts will also be updated by the autodiscovery module.
 
-3. Click the **Save** icon at the top right of the panel: ![image](../../assets/monitoring/discovery/host-discovery-save.png#thumbnail2)
+3. Click the **Save** icon at the top right of the panel.
 
 ## How to use mappers
 
