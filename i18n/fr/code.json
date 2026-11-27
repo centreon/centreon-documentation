@@ -917,5 +917,633 @@
   "navbar.version.archived": {
     "message": "Versions archivées",
     "description": "navbar.version.archived"
+  },
+  "api.page.badge.reference": {
+    "message": "Référence API",
+    "description": "api.page.badge.reference"
+  },
+  "api.page.cloudNotice": {
+    "message": "Cet endpoint se comporte différemment sur Centreon Cloud.",
+    "description": "api.page.cloudNotice"
+  },
+  "api.page.cloudNotice.link": {
+    "message": "Doc API Cloud",
+    "description": "api.page.cloudNotice.link"
+  },
+  "api.page.access.auth": {
+    "message": "Authentification",
+    "description": "api.page.access.auth"
+  },
+  "api.page.access.none": {
+    "message": "Aucune",
+    "description": "api.page.access.none"
+  },
+  "api.page.access.or": {
+    "message": "ou",
+    "description": "api.page.access.or"
+  },
+  "api.page.access.header": {
+    "message": "En-tête",
+    "description": "api.page.access.header"
+  },
+  "api.page.access.scheme": {
+    "message": "schéma",
+    "description": "api.page.access.scheme"
+  },
+  "api.page.access.baseUrl": {
+    "message": "URL de base",
+    "description": "api.page.access.baseUrl"
+  },
+  "api.page.copy": {
+    "message": "Copier",
+    "description": "api.page.copy"
+  },
+  "api.page.copied": {
+    "message": "Copié",
+    "description": "api.page.copied"
+  },
+  "api.page.params.path": {
+    "message": "Paramètres de chemin",
+    "description": "api.page.params.path"
+  },
+  "api.page.params.query": {
+    "message": "Paramètres de requête",
+    "description": "api.page.params.query"
+  },
+  "api.page.params.header": {
+    "message": "Paramètres d'en-tête",
+    "description": "api.page.params.header"
+  },
+  "api.page.params.cookie": {
+    "message": "Paramètres de cookie",
+    "description": "api.page.params.cookie"
+  },
+  "api.page.responseExample": {
+    "message": "Réponse {code} — exemple",
+    "description": "api.page.responseExample"
+  },
+  "theme.openapi.auth.bearerToken": {
+    "message": "Jeton Bearer",
+    "description": "theme.openapi.auth.bearerToken"
+  },
+  "theme.openapi.auth.password": {
+    "message": "Mot de passe",
+    "description": "theme.openapi.auth.password"
+  },
+  "theme.openapi.auth.securityScheme": {
+    "message": "Schéma de sécurité",
+    "description": "theme.openapi.auth.securityScheme"
+  },
+  "theme.openapi.auth.username": {
+    "message": "Nom d'utilisateur",
+    "description": "theme.openapi.auth.username"
+  },
+  "theme.openapi.body.exampleFromSchema": {
+    "message": "Exemple (d'après le schéma)",
+    "description": "theme.openapi.body.exampleFromSchema"
+  },
+  "theme.openapi.export.button": {
+    "message": "Exporter",
+    "description": "theme.openapi.export.button"
+  },
+  "theme.openapi.export.openapiSpec": {
+    "message": "Spécification OpenAPI",
+    "description": "theme.openapi.export.openapiSpec"
+  },
+  "theme.openapi.form.fieldRequired": {
+    "message": "Ce champ est obligatoire",
+    "description": "theme.openapi.form.fieldRequired"
+  },
+  "theme.openapi.formFileUpload.clearButton": {
+    "message": "Effacer",
+    "description": "theme.openapi.formFileUpload.clearButton"
+  },
+  "theme.openapi.paramArray.addItem": {
+    "message": "Ajouter un élément",
+    "description": "theme.openapi.paramArray.addItem"
+  },
+  "theme.openapi.paramOptions.hideOptional": {
+    "message": "Masquer les paramètres facultatifs",
+    "description": "theme.openapi.paramOptions.hideOptional"
+  },
+  "theme.openapi.paramOptions.showOptional": {
+    "message": "Afficher les paramètres facultatifs",
+    "description": "theme.openapi.paramOptions.showOptional"
+  },
+  "theme.openapi.paramsDetails.parametersTitle": {
+    "message": "Paramètres {type}",
+    "description": "theme.openapi.paramsDetails.parametersTitle"
+  },
+  "theme.openapi.request.accept.title": {
+    "message": "Accept",
+    "description": "theme.openapi.request.accept.title"
+  },
+  "theme.openapi.request.auth.title": {
+    "message": "Auth",
+    "description": "theme.openapi.request.auth.title"
+  },
+  "theme.openapi.request.baseUrl.title": {
+    "message": "URL de base",
+    "description": "theme.openapi.request.baseUrl.title"
+  },
+  "theme.openapi.request.body.title": {
+    "message": "Body",
+    "description": "theme.openapi.request.body.title"
+  },
+  "theme.openapi.request.collapseAll": {
+    "message": "Tout replier",
+    "description": "theme.openapi.request.collapseAll"
+  },
+  "theme.openapi.request.connectionFailed": {
+    "message": "Échec de la connexion",
+    "description": "theme.openapi.request.connectionFailed"
+  },
+  "theme.openapi.request.error.cors": {
+    "message": "La requête a été bloquée, sans doute par une restriction CORS. Vérifiez que le serveur accepte les requêtes de cette origine, ou utilisez un proxy.",
+    "description": "theme.openapi.request.error.cors"
+  },
+  "theme.openapi.request.error.network": {
+    "message": "Impossible de joindre le serveur. Vérifiez votre connexion réseau et l'URL du serveur. Si le serveur fonctionne, il peut s'agir d'une restriction CORS.",
+    "description": "theme.openapi.request.error.network"
+  },
+  "theme.openapi.request.error.timeout": {
+    "message": "Le serveur n'a pas répondu à temps. Réessayez. Si le problème persiste, utilisez un autre client (curl, par exemple) avec un délai plus long.",
+    "description": "theme.openapi.request.error.timeout"
+  },
+  "theme.openapi.request.error.unknown": {
+    "message": "Une erreur inattendue s'est produite pendant la requête. Réessayez.",
+    "description": "theme.openapi.request.error.unknown"
+  },
+  "theme.openapi.request.expandAll": {
+    "message": "Tout déplier",
+    "description": "theme.openapi.request.expandAll"
+  },
+  "theme.openapi.request.fetchingMessage": {
+    "message": "Envoi en cours…",
+    "description": "theme.openapi.request.fetchingMessage"
+  },
+  "theme.openapi.request.parameters.title": {
+    "message": "Paramètres",
+    "description": "theme.openapi.request.parameters.title"
+  },
+  "theme.openapi.request.requiredLabel": {
+    "message": "requis",
+    "description": "theme.openapi.request.requiredLabel"
+  },
+  "theme.openapi.request.sendButton": {
+    "message": "Envoyer la requête",
+    "description": "theme.openapi.request.sendButton"
+  },
+  "theme.openapi.request.title": {
+    "message": "Requête",
+    "description": "theme.openapi.request.title"
+  },
+  "theme.openapi.response.clear": {
+    "message": "Effacer",
+    "description": "theme.openapi.response.clear"
+  },
+  "theme.openapi.response.headersTab": {
+    "message": "En-têtes",
+    "description": "theme.openapi.response.headersTab"
+  },
+  "theme.openapi.response.title": {
+    "message": "Réponse",
+    "description": "theme.openapi.response.title"
+  },
+  "theme.openapi.responseExamples.autoExample": {
+    "message": "Exemple (auto)",
+    "description": "theme.openapi.responseExamples.autoExample"
+  },
+  "theme.openapi.responseExamples.example": {
+    "message": "Exemple",
+    "description": "theme.openapi.responseExamples.example"
+  },
+  "theme.openapi.schema.expansion.all": {
+    "message": "Tout",
+    "description": "theme.openapi.schema.expansion.all"
+  },
+  "theme.openapi.schema.expansion.button": {
+    "message": "Profondeur d'affichage du schéma",
+    "description": "theme.openapi.schema.expansion.button"
+  },
+  "theme.openapi.schema.expansion.depthOption": {
+    "message": "Déplier jusqu'au niveau {depth}",
+    "description": "theme.openapi.schema.expansion.depthOption"
+  },
+  "theme.openapi.schema.expansion.menu": {
+    "message": "Options de profondeur d'affichage du schéma",
+    "description": "theme.openapi.schema.expansion.menu"
+  },
+  "theme.openapi.schema.noSchema": {
+    "message": "Aucun schéma",
+    "description": "theme.openapi.schema.noSchema"
+  },
+  "theme.openapi.schemaItem.anyOf": {
+    "message": "anyOf",
+    "description": "theme.openapi.schemaItem.anyOf"
+  },
+  "theme.openapi.schemaItem.constantValue": {
+    "message": "Valeur constante :",
+    "description": "theme.openapi.schemaItem.constantValue"
+  },
+  "theme.openapi.schemaItem.defaultValue": {
+    "message": "Valeur par défaut :",
+    "description": "theme.openapi.schemaItem.defaultValue"
+  },
+  "theme.openapi.schemaItem.deprecated": {
+    "message": "obsolète",
+    "description": "theme.openapi.schemaItem.deprecated"
+  },
+  "theme.openapi.schemaItem.description": {
+    "message": "Description :",
+    "description": "theme.openapi.schemaItem.description"
+  },
+  "theme.openapi.schemaItem.enumDescription": {
+    "message": "Description",
+    "description": "theme.openapi.schemaItem.enumDescription"
+  },
+  "theme.openapi.schemaItem.enumValue": {
+    "message": "Valeur",
+    "description": "theme.openapi.schemaItem.enumValue"
+  },
+  "theme.openapi.schemaItem.example": {
+    "message": "Exemple :",
+    "description": "theme.openapi.schemaItem.example"
+  },
+  "theme.openapi.schemaItem.examples": {
+    "message": "Exemples :",
+    "description": "theme.openapi.schemaItem.examples"
+  },
+  "theme.openapi.schemaItem.nullable": {
+    "message": "nullable",
+    "description": "theme.openapi.schemaItem.nullable"
+  },
+  "theme.openapi.schemaItem.oneOf": {
+    "message": "oneOf",
+    "description": "theme.openapi.schemaItem.oneOf"
+  },
+  "theme.openapi.schemaItem.required": {
+    "message": "requis",
+    "description": "theme.openapi.schemaItem.required"
+  },
+  "theme.openapi.securitySchemes.authorization": {
+    "message": "Autorisation :",
+    "description": "theme.openapi.securitySchemes.authorization"
+  },
+  "theme.openapi.securitySchemes.bearerFormat": {
+    "message": "bearerFormat :",
+    "description": "theme.openapi.securitySchemes.bearerFormat"
+  },
+  "theme.openapi.securitySchemes.description": {
+    "message": "description :",
+    "description": "theme.openapi.securitySchemes.description"
+  },
+  "theme.openapi.securitySchemes.flows": {
+    "message": "flows :",
+    "description": "theme.openapi.securitySchemes.flows"
+  },
+  "theme.openapi.securitySchemes.in": {
+    "message": "in :",
+    "description": "theme.openapi.securitySchemes.in"
+  },
+  "theme.openapi.securitySchemes.name": {
+    "message": "name :",
+    "description": "theme.openapi.securitySchemes.name"
+  },
+  "theme.openapi.securitySchemes.openIdConnectUrl": {
+    "message": "openIdConnectUrl :",
+    "description": "theme.openapi.securitySchemes.openIdConnectUrl"
+  },
+  "theme.openapi.securitySchemes.scheme": {
+    "message": "scheme :",
+    "description": "theme.openapi.securitySchemes.scheme"
+  },
+  "theme.openapi.securitySchemes.scopes": {
+    "message": "scopes :",
+    "description": "theme.openapi.securitySchemes.scopes"
+  },
+  "theme.openapi.securitySchemes.type": {
+    "message": "type :",
+    "description": "theme.openapi.securitySchemes.type"
+  },
+  "theme.openapi.server.editButton": {
+    "message": "Modifier",
+    "description": "theme.openapi.server.editButton"
+  },
+  "theme.openapi.server.hideButton": {
+    "message": "Masquer",
+    "description": "theme.openapi.server.hideButton"
+  },
+  "theme.openapi.statusCodes.responseHeaders": {
+    "message": "En-têtes de réponse",
+    "description": "theme.openapi.statusCodes.responseHeaders"
+  },
+  "theme.openapi.statusCodes.schemaTitle": {
+    "message": "Schéma",
+    "description": "theme.openapi.statusCodes.schemaTitle"
+  },
+  "theme.openapi.tabs.responses.label": {
+    "message": "Réponses",
+    "description": "theme.openapi.tabs.responses.label"
+  },
+  "api.page.status.200.title": {
+    "message": "Succès",
+    "description": "api.page.status.200.title"
+  },
+  "api.page.status.200.text": {
+    "message": "La requête a abouti. Le corps de la réponse contient les données demandées.",
+    "description": "api.page.status.200.text"
+  },
+  "api.page.status.201.title": {
+    "message": "Ressource créée",
+    "description": "api.page.status.201.title"
+  },
+  "api.page.status.201.text": {
+    "message": "La ressource a été créée. Le corps de la réponse la décrit.",
+    "description": "api.page.status.201.text"
+  },
+  "api.page.status.202.title": {
+    "message": "Requête acceptée",
+    "description": "api.page.status.202.title"
+  },
+  "api.page.status.202.text": {
+    "message": "La requête a été acceptée et sera traitée plus tard.",
+    "description": "api.page.status.202.text"
+  },
+  "api.page.status.204.title": {
+    "message": "Succès, sans contenu",
+    "description": "api.page.status.204.title"
+  },
+  "api.page.status.204.text": {
+    "message": "La requête a abouti. La réponse n'a pas de corps.",
+    "description": "api.page.status.204.text"
+  },
+  "api.page.status.302.title": {
+    "message": "Redirection",
+    "description": "api.page.status.302.title"
+  },
+  "api.page.status.302.text": {
+    "message": "La ressource se trouve temporairement à une autre URL, indiquée dans l'en-tête Location.",
+    "description": "api.page.status.302.text"
+  },
+  "api.page.status.304.title": {
+    "message": "Non modifiée",
+    "description": "api.page.status.304.title"
+  },
+  "api.page.status.304.text": {
+    "message": "La ressource n'a pas changé depuis votre dernière requête : utilisez la copie que vous avez déjà.",
+    "description": "api.page.status.304.text"
+  },
+  "api.page.status.400.title": {
+    "message": "Requête non valide",
+    "description": "api.page.status.400.title"
+  },
+  "api.page.status.400.text": {
+    "message": "Un paramètre est manquant ou mal formé, ou le corps ne respecte pas le schéma. Le corps de la réponse indique le problème.",
+    "description": "api.page.status.400.text"
+  },
+  "api.page.status.401.title": {
+    "message": "Non authentifié",
+    "description": "api.page.status.401.title"
+  },
+  "api.page.status.401.text": {
+    "message": "Le token est absent, non valide ou expiré. Obtenez un nouveau token et renvoyez la requête.",
+    "description": "api.page.status.401.text"
+  },
+  "api.page.status.403.title": {
+    "message": "Accès refusé",
+    "description": "api.page.status.403.title"
+  },
+  "api.page.status.403.text": {
+    "message": "Vous êtes authentifié, mais votre utilisateur n'a pas les droits (ACL) nécessaires pour cette action.",
+    "description": "api.page.status.403.text"
+  },
+  "api.page.status.404.title": {
+    "message": "Introuvable",
+    "description": "api.page.status.404.title"
+  },
+  "api.page.status.404.text": {
+    "message": "La ressource n'existe pas, ou votre utilisateur n'est pas autorisé à la voir.",
+    "description": "api.page.status.404.text"
+  },
+  "api.page.status.409.title": {
+    "message": "Conflit",
+    "description": "api.page.status.409.title"
+  },
+  "api.page.status.409.text": {
+    "message": "La requête est en conflit avec l'état actuel de la ressource, par exemple un nom déjà utilisé. Le corps de la réponse donne le détail.",
+    "description": "api.page.status.409.text"
+  },
+  "api.page.status.422.title": {
+    "message": "Données non valides",
+    "description": "api.page.status.422.title"
+  },
+  "api.page.status.422.text": {
+    "message": "La requête est bien formée, mais ses données enfreignent une règle métier. Le corps de la réponse donne le détail.",
+    "description": "api.page.status.422.text"
+  },
+  "api.page.status.500.title": {
+    "message": "Erreur du serveur",
+    "description": "api.page.status.500.title"
+  },
+  "api.page.status.500.text": {
+    "message": "Une erreur inattendue s'est produite sur le serveur. Si elle persiste, consultez les journaux de Centreon ou contactez le support.",
+    "description": "api.page.status.500.text"
+  },
+  "api.page.status.2xx.title": {
+    "message": "Succès",
+    "description": "api.page.status.2xx.title"
+  },
+  "api.page.status.3xx.title": {
+    "message": "Redirection",
+    "description": "api.page.status.3xx.title"
+  },
+  "api.page.status.4xx.title": {
+    "message": "Requête refusée",
+    "description": "api.page.status.4xx.title"
+  },
+  "api.page.status.5xx.title": {
+    "message": "Erreur du serveur",
+    "description": "api.page.status.5xx.title"
+  },
+  "api.page.search.op.eq": {
+    "message": "égal à",
+    "description": "api.page.search.op.eq"
+  },
+  "api.page.search.op.neq": {
+    "message": "différent de",
+    "description": "api.page.search.op.neq"
+  },
+  "api.page.search.op.lt": {
+    "message": "inférieur à",
+    "description": "api.page.search.op.lt"
+  },
+  "api.page.search.op.le": {
+    "message": "inférieur ou égal à",
+    "description": "api.page.search.op.le"
+  },
+  "api.page.search.op.gt": {
+    "message": "supérieur à",
+    "description": "api.page.search.op.gt"
+  },
+  "api.page.search.op.ge": {
+    "message": "supérieur ou égal à",
+    "description": "api.page.search.op.ge"
+  },
+  "api.page.search.op.lk": {
+    "message": "ressemble à (% est un joker)",
+    "description": "api.page.search.op.lk"
+  },
+  "api.page.search.op.nk": {
+    "message": "ne ressemble pas à (% est un joker)",
+    "description": "api.page.search.op.nk"
+  },
+  "api.page.search.op.in": {
+    "message": "dans une liste de valeurs",
+    "description": "api.page.search.op.in"
+  },
+  "api.page.search.op.ni": {
+    "message": "hors d'une liste de valeurs",
+    "description": "api.page.search.op.ni"
+  },
+  "api.page.search.op.rg": {
+    "message": "correspond à une expression régulière",
+    "description": "api.page.search.op.rg"
+  },
+  "api.page.search.lead": {
+    "message": "Renvoie uniquement les données qui correspondent à une expression JSON : une propriété et sa valeur, ou des conditions combinées avec des opérateurs.",
+    "description": "api.page.search.lead"
+  },
+  "api.page.search.syntax": {
+    "message": "Syntaxe de recherche",
+    "description": "api.page.search.syntax"
+  },
+  "api.page.search.aggregators": {
+    "message": "Combiner des conditions",
+    "description": "api.page.search.aggregators"
+  },
+  "api.page.search.and": {
+    "message": "toutes les conditions sont vraies",
+    "description": "api.page.search.and"
+  },
+  "api.page.search.or": {
+    "message": "au moins une condition est vraie",
+    "description": "api.page.search.or"
+  },
+  "api.page.search.andNote": {
+    "message": "$and sur une même propriété avec deux valeurs différentes ne renvoie jamais rien : utilisez $or pour obtenir les ressources qui correspondent à l'une ou l'autre valeur.",
+    "description": "api.page.search.andNote"
+  },
+  "api.page.search.operators": {
+    "message": "Comparer des valeurs",
+    "description": "api.page.search.operators"
+  },
+  "api.page.search.examples": {
+    "message": "Exemples",
+    "description": "api.page.search.examples"
+  },
+  "api.page.search.nested": {
+    "message": "Avec des agrégateurs imbriqués :",
+    "description": "api.page.search.nested"
+  },
+  "api.setup.required": {
+    "message": "Obligatoire.",
+    "description": "api.setup.required"
+  },
+  "api.setup.port": {
+    "message": "Un nombre entre 1 et 65535.",
+    "description": "api.setup.port"
+  },
+  "api.setup.label.protocol": {
+    "message": "Protocole",
+    "description": "api.setup.label.protocol"
+  },
+  "api.setup.label.server": {
+    "message": "Serveur",
+    "description": "api.setup.label.server"
+  },
+  "api.setup.label.port": {
+    "message": "Port",
+    "description": "api.setup.label.port"
+  },
+  "api.setup.label.version": {
+    "message": "Version de l'API",
+    "description": "api.setup.label.version"
+  },
+  "api.setup.label.organization": {
+    "message": "Organisation",
+    "description": "api.setup.label.organization"
+  },
+  "api.setup.label.region": {
+    "message": "Région",
+    "description": "api.setup.label.region"
+  },
+  "api.setup.label.instance": {
+    "message": "Instance",
+    "description": "api.setup.label.instance"
+  },
+  "api.setup.optional": {
+    "message": "(facultatif)",
+    "description": "api.setup.optional"
+  },
+  "api.setup.hide": {
+    "message": "Masquer",
+    "description": "api.setup.hide"
+  },
+  "api.setup.show": {
+    "message": "Afficher",
+    "description": "api.setup.show"
+  },
+  "api.setup.baseUrl": {
+    "message": "URL de base",
+    "description": "api.setup.baseUrl"
+  },
+  "api.setup.save": {
+    "message": "Enregistrer",
+    "description": "api.setup.save"
+  },
+  "api.setup.reset": {
+    "message": "Réinitialiser",
+    "description": "api.setup.reset"
+  },
+  "api.setup.saved": {
+    "message": "Enregistré. Le panneau de requête et les exemples de code de chaque page d'endpoint les utilisent désormais, jusqu'à la fermeture de cet onglet.",
+    "description": "api.setup.saved"
+  },
+  "api.setup.resetDone": {
+    "message": "Valeurs par défaut rétablies.",
+    "description": "api.setup.resetDone"
+  },
+  "api.setup.invalid": {
+    "message": "Vérifiez les champs en rouge.",
+    "description": "api.setup.invalid"
+  },
+  "api.setup.storageError": {
+    "message": "Votre navigateur ne permet pas à cette page de les enregistrer.",
+    "description": "api.setup.storageError"
+  },
+  "api.setup.note": {
+    "message": "Votre jeton reste dans cet onglet du navigateur : il n'est envoyé qu'à votre serveur, et seulement quand vous cliquez sur {send}.",
+    "description": "api.setup.note"
+  },
+  "api.setup.note.send": {
+    "message": "Envoyer la requête",
+    "description": "api.setup.note.send"
+  },
+  "api.download.title": {
+    "message": "Importez cette API dans Postman, Bruno ou Insomnia",
+    "description": "api.download.title"
+  },
+  "api.download.text": {
+    "message": "Téléchargez sa définition OpenAPI et importez-la dans votre client d'API, ou utilisez-la pour générer un client dans votre langage.",
+    "description": "api.download.text"
+  },
+  "api.download.ariaLabel": {
+    "message": "Télécharger la définition OpenAPI de {name}",
+    "description": "api.download.ariaLabel"
+  },
+  "api.download.button": {
+    "message": "Télécharger OpenAPI (JSON)",
+    "description": "api.download.button"
   }
 }

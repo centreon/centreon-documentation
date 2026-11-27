@@ -1,0 +1,61 @@
+import { ApiConfiguration, ApiDownload } from '@site/src/components/ApiSetup';
+import { ApiStatusList } from '@site/src/components/ApiPage';
+
+The Centreon Autodiscovery REST API lets your scripts and tools automate host discovery: list the discovery providers of your connectors, manage their credentials, create and schedule discovery jobs, read the hosts they find, and add them to your configuration with mappers.
+
+<ApiDownload spec="{{spec}}" name="Centreon Autodiscovery REST API" />
+
+## Get started in 3 steps
+
+### 1. Find your API URL
+
+The Autodiscovery API is served by your Centreon platform, with the rest of the Centreon REST API. Endpoints are relative to:
+
+```text
+{{baseUrl}}/api/latest/auto-discovery
+```
+
+:::tip Use your platform in this reference
+
+Enter its address in [Set up this reference](#configure), below: the request panel and the code samples of every endpoint page then use it.
+
+:::
+
+### 2. Get a token
+
+Create an **API token** in **Administration > Authentication tokens** (see [Authentication tokens]({{tokensDoc}})). It belongs to a user and stays valid until it expires or is revoked. The same token works with the Centreon Web REST API.
+
+### 3. Call the API
+
+Send the token in the `X-AUTH-TOKEN` header of every request. For example, to list your discovery jobs:
+
+```bash
+curl -s "{{baseUrl}}/api/latest/auto-discovery/jobs" \
+  -H "X-AUTH-TOKEN: <token>"
+```
+
+Each call runs with the rights of the user the token belongs to.
+
+## How discovery works
+
+1. A **provider** discovers hosts of one kind (VMware, AWS, SNMP…). It comes with the monitoring connector you installed: `GET /providers`.
+2. A **credential** holds what the provider needs to connect (login, password, API key…): `/provider-types/{type_id}/credentials`.
+3. A **job** runs a provider with its parameters, once or on a schedule: `/jobs`.
+4. The **discovered hosts** of a job are listed with their attributes: `GET /jobs/{job_id}/discovered-hosts`.
+5. **Mappers** turn the attributes into the configuration of the hosts (name, address, templates…), and the hosts you choose are saved in the configuration: `POST /jobs/{job_id}/discovered-hosts/save`.
+
+## Set up this reference {#configure}
+
+Enter the address of your platform, and your token to send requests from this reference with **Send API Request**. The request panel and the code samples of every endpoint page use them until you close this browser tab. You can also change them on any endpoint page, with **Edit** next to the base URL.
+
+<ApiConfiguration server={{{server}}} auth="{{auth}}" tokenLabel="API token" />
+
+## Errors
+
+An error returns an HTTP status code and a JSON body with a `code` and a `message` that explain it. The most common:
+
+<ApiStatusList codes={[400, 401, 403, 404, 500]} />
+
+## Tools
+
+- **OpenAPI definition**: download it with the button at the top of this page, to import the API into Postman, Bruno or Insomnia, or to generate a client.

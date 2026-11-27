@@ -1,0 +1,60 @@
+import { ApiConfiguration, ApiDownload } from '@site/src/components/ApiSetup';
+import { ApiStatusList } from '@site/src/components/ApiPage';
+
+The Centreon Log Management REST API lets your scripts and tools work with your logs and traces: search them, manage alert rules, acknowledgements and downtimes, dashboards, notification channels and the settings of your organization.
+
+<ApiDownload spec="{{spec}}" name="Centreon Log Management REST API" />
+
+## Get started in 3 steps
+
+### 1. Find your API URL
+
+Every endpoint of this reference is relative to the URL of the Log Management API:
+
+```text
+{{baseUrl}}
+```
+
+### 2. Get a token
+
+Create a token in **Administration > Token management**: click **Add**, enter a name, then click **Generate token** (see [Managing authentication tokens]({{tokensDoc}})). The token is displayed only once: store it securely.
+
+### 3. Call the API
+
+Send the token in the `X-Api-Key` header of every request. Most endpoints act on an organization: first get the ID of yours.
+
+```bash
+curl -s "{{baseUrl}}/v1/orgs" \
+  -H "X-Api-Key: <token>"
+```
+
+Then use it in the path of the other endpoints. For example, to list your alert rules:
+
+```bash
+curl -s "{{baseUrl}}/v1/orgs/<org>/alerts" \
+  -H "X-Api-Key: <token>"
+```
+
+Each endpoint page gives the minimum role it requires (**User**, **Editor** or **Admin**).
+
+:::info
+
+A few endpoints (bookmarks, tokens) need a user session in the Centreon Log Management interface, and do not accept a token: they cannot be called from a script.
+
+:::
+
+## Set up this reference {#configure}
+
+Enter your token to send requests from this reference with **Send API Request**. The request panel and the code samples of every endpoint page use it until you close this browser tab.
+
+<ApiConfiguration server={{{server}}} auth="{{auth}}" tokenLabel="Token (X-Api-Key)" />
+
+## Errors
+
+An error returns an HTTP status code and a JSON body that explains it. The most common:
+
+<ApiStatusList codes={[400, 401, 403, 404, 500]} />
+
+## Tools
+
+- **OpenAPI definition**: download it with the button at the top of this page, to import the API into Postman, Bruno or Insomnia, or to generate a client.

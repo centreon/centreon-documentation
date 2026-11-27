@@ -1,0 +1,2665 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Centreon Auto Discovery API",
+    "description": "# Authentication\nThere are two modes of authentication:\n* By token: after identification with your login credentials\n* By cookie: by reusing a valid session ID\n",
+    "contact": {
+      "name": "Centreon",
+      "url": "https://www.centreon.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "26.10",
+    "x-source": {
+      "repo": "centreon/centreon-modules",
+      "path": "centreon-autodiscovery/doc/API/centreon-autodiscovery-api.yaml",
+      "ref": "release-onprem-20261001-26.10",
+      "commit": "52a96d5e1d71d3c9d1074dc803a00fab86e78a63"
+    }
+  },
+  "externalDocs": {
+    "description": "You can contact us on our community platform The Watch",
+    "url": "https://thewatch.centreon.com/"
+  },
+  "servers": [
+    {
+      "url": "{protocol}://{server}:{port}/centreon/api/{version}/auto-discovery",
+      "variables": {
+        "protocol": {
+          "enum": [
+            "https",
+            "http"
+          ],
+          "default": "https",
+          "description": "HTTP scheme"
+        },
+        "server": {
+          "default": "your-centreon-server",
+          "description": "IP address or hostname of your Centreon central server"
+        },
+        "port": {
+          "default": "443",
+          "description": "Port of the web server"
+        },
+        "version": {
+          "enum": [
+            "latest",
+            "v26.10"
+          ],
+          "default": "latest",
+          "description": "API version: latest (the most recent version of your platform), or v26.10 to pin it"
+        }
+      }
+    }
+  ],
+  "tags": [
+    {
+      "name": "Credential"
+    },
+    {
+      "name": "Job"
+    },
+    {
+      "name": "Mapper"
+    },
+    {
+      "name": "Provider",
+      "description": "This API allows to:\n* Display the list of provider in plugin packs\n"
+    },
+    {
+      "name": "Scheduling",
+      "description": "This API is used by the job scheduler (Gorgone)\n"
+    }
+  ],
+  "security": [
+    {
+      "Token": []
+    }
+  ],
+  "paths": {
+    "/credentials": {
+      "get": {
+        "tags": [
+          "Credential"
+        ],
+        "summary": "List the credentials parameters",
+        "description": "Returns all credentials parameters.\n\nThe available parameters to **search** / **sort_by** are:\n\n* id\n* name\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/sortBy"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "array",
+                      "items": {
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/Credential"
+                          }
+                        ]
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/credentials/{credential_id}": {
+      "get": {
+        "tags": [
+          "Credential"
+        ],
+        "summary": "Get credential parameters",
+        "parameters": [
+          {
+            "name": "credential_id",
+            "in": "path",
+            "description": "Id of credential parameters",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Credential"
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Credential"
+        ],
+        "summary": "Delete credential parameters",
+        "parameters": [
+          {
+            "name": "credential_id",
+            "in": "path",
+            "description": "Id of the credential parameters to be deleted",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Credential deleted"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Credential"
+        ],
+        "summary": "Update credential parameters",
+        "parameters": [
+          {
+            "name": "credential_id",
+            "in": "path",
+            "description": "Id of the credential parameters",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Credential parameters",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Credential.update"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Credential updated"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/jobs": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "summary": "List all discovery jobs",
+        "description": "Returns all discovery jobs\n\nThe available parameters to **search** / **sort_by** are:\n\n* id\n* creation_date\n* status\n* duration\n* last_execution\n* discovered_items\n* alias\n* provider\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/sortBy"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "array",
+                      "items": {
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/DiscoveryJob.short"
+                          }
+                        ]
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Job"
+        ],
+        "summary": "Add discovery job",
+        "requestBody": {
+          "description": "Discovery job parameters",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiscoveryJob.add"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Credential added"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/jobs/{job_id}": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "summary": "Get discovery job",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "description": "Id of discovery job",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DiscoveryJob.full"
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Job"
+        ],
+        "summary": "Delete discovery job",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "description": "Id of discovery job to be deleted",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Discovery job deleted"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Job"
+        ],
+        "summary": "Update discovery jobs",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "description": "Id of discovery job to be updated",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Discovery job parameters",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiscoveryJob.add"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Discovery job updated"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Job"
+        ],
+        "summary": "Partial update of a discovery job",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "description": "Id of discovery job to be updated",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Discovery job parameters",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiscoveryJob.partialUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Discovery job updated"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/jobs/{job_id}/discovered-hosts/{discovered_host_id}": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "summary": "Retrieve the raw results of the discovered host",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "description": "Id of discovery job",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "discovered_host_id",
+            "in": "path",
+            "description": "Id of the discovery host for which we want to retrieve the raw results of the discovery",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DiscoveredHost.raw"
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/jobs/{job_id}/discovered-hosts": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "summary": "List all discovered hosts for a job",
+        "description": "Returns all discovered hosts for a job\n\nThe available parameters to **search** / **sort_by** are:\n\n* id\n* host.name\n* host.alias\n* host.ip_address\n",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "description": "Id of discovery job",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/sortBy"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "description": "Id of the discovered host"
+                          },
+                          "host": {
+                            "allOf": [
+                              {
+                                "$ref": "#/components/schemas/DiscoveredHost.simulate"
+                              }
+                            ]
+                          },
+                          "host_name_already_used": {
+                            "type": "boolean",
+                            "description": "Indicates whether the discovered host name is already used in Centreon"
+                          },
+                          "error_messages": {
+                            "type": "object"
+                          }
+                        }
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/jobs/{job_id}/discovered-hosts/save": {
+      "post": {
+        "tags": [
+          "Job"
+        ],
+        "summary": "Saving discovered hosts in host configuration",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "description": "Job id associated to the discovered hosts to be saved",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiscoveredHost.save"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Discovered hosts saved"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/jobs/{job_id}/mappers": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "summary": "Find mappers of a discovery jobs",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "description": "Id of discovery job",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "order": {
+                        "type": "integer",
+                        "description": "Mapper execution order",
+                        "example": 1,
+                        "minimum": 1
+                      },
+                      "type": {
+                        "type": "string",
+                        "description": "Type of the mapper",
+                        "example": "property"
+                      },
+                      "parameters": {
+                        "type": "array",
+                        "items": {
+                          "allOf": [
+                            {
+                              "$ref": "#/components/schemas/MapperParameter"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Job"
+        ],
+        "summary": "Update mappers of a discovery job",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "description": "Id of the discovery job for which mappers need to be updated",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "List of mappers",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Mapper"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Mappers updated"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/jobs/{job_id}/schedule": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "summary": "Schedule a discovery job",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "description": "Id of discovery job to schedule",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Discovery job scheduled"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/mappers/simulate": {
+      "post": {
+        "tags": [
+          "Mapper"
+        ],
+        "summary": "Simulate the mappers according to the host template of the provider",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "credential_id": {
+                    "type": "integer",
+                    "description": "Id of the credential"
+                  },
+                  "provider_id": {
+                    "type": "integer",
+                    "description": "Id of the provider"
+                  },
+                  "mappers": {
+                    "type": "array",
+                    "items": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/Mapper"
+                        }
+                      ]
+                    }
+                  },
+                  "job_parameters": {
+                    "type": "array",
+                    "items": {
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/JobParameter.short"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "host": {
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/DiscoveredHost.simulate"
+                          }
+                        ]
+                      },
+                      "error_messages": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/provider-types/{type_id}/credentials": {
+      "get": {
+        "tags": [
+          "Credential"
+        ],
+        "summary": "List the credentials parameters according to the provider type",
+        "description": "Returns all credentials parameters according to the provider type.\n\nThe available parameters to **search** / **sort_by** are:\n\n* id\n* name\n",
+        "parameters": [
+          {
+            "name": "type_id",
+            "in": "path",
+            "description": "Type's id of the provider linked to the credential parameters",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "array",
+                      "items": {
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/Credential"
+                          }
+                        ]
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Credential"
+        ],
+        "summary": "Add a credential parameters according to a provider",
+        "parameters": [
+          {
+            "name": "type_id",
+            "in": "path",
+            "description": "Type id of the provider linked to the credential parameters",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Credential parameters",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Credential.add"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Credential added"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/provider-types/{type_id}/credentials-templates": {
+      "get": {
+        "tags": [
+          "Credential"
+        ],
+        "summary": "List the credentials templates for a provider",
+        "parameters": [
+          {
+            "name": "type_id",
+            "in": "path",
+            "description": "Type's id of the provider to which the credentials templates are linked",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/CredentialParameter"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/providers": {
+      "get": {
+        "tags": [
+          "Provider"
+        ],
+        "summary": "List the providers in plugin packs",
+        "description": "Returns all providers in plugin packs.\n\nThe available parameters to **search** / **sort_by** are:\n\n* id\n* name\n* description\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/sortBy"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "array",
+                      "items": {
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/Provider"
+                          }
+                        ]
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/providers/{provider_id}/attributes": {
+      "get": {
+        "tags": [
+          "Provider"
+        ],
+        "summary": "List of available attributes of provider",
+        "description": "Returns all available attributes of provider used by mappers.\n",
+        "parameters": [
+          {
+            "name": "provider_id",
+            "in": "path",
+            "description": "Provider id",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Provider.attributes"
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/scheduling/jobs": {
+      "get": {
+        "tags": [
+          "Scheduling"
+        ],
+        "summary": "List all discovery jobs with details specific to the job scheduler",
+        "description": "Returns all discovery jobs\n\nThe available parameters to **search** / **sort_by** are:\n  - creation_date\n  - status\n  - duration\n  - last_execution\n  - discovered_items\n  - alias\n  - provider\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/page"
+          },
+          {
+            "$ref": "#/components/parameters/sortBy"
+          },
+          {
+            "$ref": "#/components/parameters/search"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "array",
+                      "items": {
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/DiscoveryJob.gorgone"
+                          }
+                        ]
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "responses": {
+      "Unauthorized": {
+        "description": "Unauthorized",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Forbidden": {
+        "description": "Forbidden",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "format": "int64",
+                  "example": 403
+                },
+                "message": {
+                  "type": "string",
+                  "example": "You are not authorized to access this resource"
+                }
+              }
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "Not Found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "InternalServerError": {
+        "description": "Internal Server Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "format": "int64",
+                  "example": 500
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Internal Server Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "limit": {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "description": "Max items per pages",
+        "schema": {
+          "$ref": "#/components/schemas/RequestParameters.limit"
+        }
+      },
+      "page": {
+        "in": "query",
+        "name": "page",
+        "required": false,
+        "description": "Number of the page requested",
+        "schema": {
+          "$ref": "#/components/schemas/RequestParameters.page"
+        }
+      },
+      "sortBy": {
+        "in": "query",
+        "name": "sort_by",
+        "required": false,
+        "description": "Used to sort the request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/RequestParameters.sortBy"
+            }
+          }
+        }
+      },
+      "search": {
+        "in": "query",
+        "name": "search",
+        "required": false,
+        "description": "Used to search with specifics parameters",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/RequestParameters.search"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Credential": {
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "Id of the credential"
+              },
+              "type_id": {
+                "type": "integer",
+                "description": "Id of the provider to which this credential is linked"
+              }
+            }
+          },
+          {
+            "$ref": "#/components/schemas/Credential.add"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "parameters": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/CredentialParameter"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Credential.short": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id of the credential"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the credential"
+          },
+          "type_id": {
+            "type": "integer",
+            "description": "If d of the credential type"
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/CredentialParameter"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Credential.add": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the credential"
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/CredentialParameter.add"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Credential.update": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the credential"
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/CredentialParameter.update"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "CredentialParameter": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the credential parameter"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the credential parameter"
+          },
+          "value": {
+            "type": "string",
+            "description": "Value of the credential parameter"
+          },
+          "is_hidden": {
+            "type": "boolean",
+            "description": "Indicates whether the credential parameter should be hidden from the user"
+          },
+          "is_locked": {
+            "type": "boolean",
+            "description": "Indicates whether the credential parameter can be updated by the user"
+          },
+          "is_mandatory": {
+            "type": "boolean",
+            "description": "Indicates whether the credential parameter is mandatory"
+          },
+          "is_password": {
+            "type": "boolean",
+            "description": "Indicates whether the credential parameter is a password. If yes, the value of the credential parameter will never be displayed"
+          }
+        }
+      },
+      "CredentialParameter.add": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CredentialParameter.update"
+          }
+        ]
+      },
+      "CredentialParameter.update": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the credential parameter"
+          },
+          "value": {
+            "type": "string",
+            "description": "Value of the credential parameter"
+          }
+        }
+      },
+      "DiscoveredHost.raw": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Host discovered id",
+            "nullable": false
+          },
+          "job_id": {
+            "type": "integer",
+            "description": "Discovery job id",
+            "nullable": false
+          },
+          "discovery_result": {
+            "type": "object",
+            "description": "Object representing discovered host data",
+            "nullable": false
+          }
+        }
+      },
+      "DiscoveredHost.simulate": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Host id"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of host"
+          },
+          "alias": {
+            "type": "string",
+            "description": "Alias of host"
+          },
+          "ip_address": {
+            "type": "string",
+            "description": "IP address of host"
+          },
+          "monitoring_server": {
+            "type": "object",
+            "description": "Monitoring server where the discovered host will be deployed",
+            "properties": {
+              "name": {
+                "type": "string",
+                "nullable": false,
+                "description": "Name of the monitoring server"
+              }
+            }
+          },
+          "templates": {
+            "type": "array",
+            "description": "Template that will be associated with the host during its deployment",
+            "minItems": 0,
+            "items": {
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "nullable": false,
+                  "description": "Name of the template"
+                }
+              }
+            }
+          },
+          "extended_host": {
+            "$ref": "#/components/schemas/ExtendedHost"
+          },
+          "categories": {
+            "type": "array",
+            "description": "Host categories that will be associated with the host during its deployment",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Name of the host category"
+                }
+              }
+            }
+          },
+          "groups": {
+            "type": "array",
+            "description": "Host groups that will be associated with the host during its deployment",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Name of the host groups"
+                }
+              }
+            }
+          },
+          "severity": {
+            "type": "object",
+            "description": "Host severity that will be associated with the host during its deployment",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "Id of the host severity"
+              },
+              "name": {
+                "type": "string",
+                "description": "Name of the host severity"
+              }
+            }
+          }
+        }
+      },
+      "ExtendedHost": {
+        "type": "object",
+        "properties": {
+          "notes": {
+            "type": "string",
+            "description": "Define an optional string of notes pertaining to the host"
+          },
+          "notesUrl": {
+            "type": "string",
+            "description": "Define an optional URL that can be used to provide more actions to be performed on the host"
+          },
+          "actionUrl": {
+            "type": "string",
+            "description": "Define an optional URL that can be used to provide more actions to be performed on the host"
+          }
+        }
+      },
+      "DiscoveryJob.short": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Job id"
+          },
+          "alias": {
+            "type": "string",
+            "description": "Job alias"
+          },
+          "credential_id": {
+            "type": "integer",
+            "description": "Credential id"
+          },
+          "provider": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "Id of the provider"
+              },
+              "name": {
+                "type": "string",
+                "description": "Name of the provider"
+              },
+              "is_need_proxy": {
+                "type": "boolean",
+                "description": "Indicates whether the connection should use a proxy"
+              }
+            }
+          },
+          "monitoring_server_id": {
+            "type": "integer",
+            "description": "Id of monitoring server"
+          },
+          "creation_date": {
+            "type": "string",
+            "description": "Date of job creation"
+          },
+          "last_execution": {
+            "type": "string",
+            "description": "Date of the last execution of the job"
+          },
+          "status": {
+            "type": "integer",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "description": "Job status:\n * `0` - STATUS_SCHEDULED\n * `1` - STATUS_FINISH\n * `2` - STATUS_FAILED\n * `3` - STATUS_RUNNING\n * `4` - STATUS_SAVE_RUNNING\n * `5` - STATUS_SAVE_FINISH\n * `6` - STATUS_SAVE_WARNING\n"
+          },
+          "execution_mode": {
+            "type": "integer",
+            "description": "Execution mode:\n  * `0` - IMMEDIATE_EXECUTION\n  * `1` - SCHEDULED_EXECUTION\n  * `2` - PAUSED_SCHEDULE\n",
+            "enum": [
+              0,
+              1,
+              2
+            ]
+          },
+          "analysis_mode": {
+            "type": "integer",
+            "description": "Analysis mode:\n  * `0` - MANUAL_ANALYSIS\n  * `1` - AUTOMATIC_ANALYSIS\n",
+            "enum": [
+              0,
+              1
+            ]
+          },
+          "save_mode": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 63,
+            "nullable": false,
+            "description": "save_mode:\n  * `1` - ADD_HOST\n  * `2` - DISABLE_HOST\n  * `4` - ENABLE_HOST\n  * `8` - ENABLE_EXPORT_RELOAD\n  * `16`- UPDATE_HOST\n  * `32`- DO_NOT_APPLY_DEFAULT_TEMPLATE\n\nThis property is only mandatory when the analysis_mode is equal to 1 (AUTOMATIC_ANALYSIS).\n\nTo select more than one option, you have to add up their values.\n\nExample: *If I select the options ADD_HOST and ENABLE_HOST => save_mode=5 (1+4)*\n"
+          },
+          "cron_expression": {
+            "type": "string",
+            "description": "Represents the cron expression.\n\nSee [https://en.wikipedia.org/wiki/Cron]\n"
+          },
+          "duration": {
+            "type": "integer",
+            "description": "Duration of discovery job"
+          },
+          "number_of_hosts_discovered": {
+            "type": "integer",
+            "description": "Number of hosts discovered during the discovery process"
+          },
+          "message": {
+            "type": "string",
+            "description": "Error message"
+          }
+        }
+      },
+      "DiscoveryJob.full": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Job id"
+          },
+          "alias": {
+            "type": "string",
+            "description": "Job alias"
+          },
+          "credential": {
+            "$ref": "#/components/schemas/Credential.short"
+          },
+          "provider": {
+            "$ref": "#/components/schemas/Provider.short"
+          },
+          "monitoring_server": {
+            "$ref": "#/components/schemas/MonitoringServer.short"
+          },
+          "creation_date": {
+            "type": "string",
+            "description": "Date of job creation"
+          },
+          "last_execution": {
+            "type": "string",
+            "description": "Date of the last execution of the job"
+          },
+          "status": {
+            "type": "integer",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "description": "Job status:\n * `0` - STATUS_SCHEDULED\n * `1` - STATUS_FINISH\n * `2` - STATUS_FAILED\n * `3` - STATUS_RUNNING\n * `4` - STATUS_SAVE_RUNNING\n * `5` - STATUS_SAVE_FINISH\n * `6` - STATUS_SAVE_WARNING\n"
+          },
+          "execution_mode": {
+            "type": "integer",
+            "description": "Execution mode:\n  * `0` - IMMEDIATE_EXECUTION\n  * `1` - SCHEDULED_EXECUTION\n  * `2` - PAUSED_SCHEDULE\n",
+            "enum": [
+              0,
+              1,
+              2
+            ]
+          },
+          "analysis_mode": {
+            "type": "integer",
+            "description": "Analysis mode:\n  * `0` - MANUAL_ANALYSIS\n  * `1` - AUTOMATIC_ANALYSIS\n",
+            "enum": [
+              0,
+              1
+            ]
+          },
+          "save_mode": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 63,
+            "nullable": false,
+            "description": "save_mode:\n  * `1` - ADD_HOST\n  * `2` - DISABLE_HOST\n  * `4` - ENABLE_HOST\n  * `8` - ENABLE_EXPORT_RELOAD\n  * `16`- UPDATE_HOST\n  * `32`- DO_NOT_APPLY_DEFAULT_TEMPLATE\n\nThis property is only mandatory when the analysis_mode is equal to 1 (AUTOMATIC_ANALYSIS).\n\nTo select more than one option, you have to add up their values.\n\nExample: *If I select the options ADD_HOST and ENABLE_HOST => save_mode=5 (1+4)*\n"
+          },
+          "scheduling": {
+            "$ref": "#/components/schemas/DiscoveryJob.scheduling"
+          },
+          "duration": {
+            "type": "integer",
+            "description": "Duration of discovery job"
+          },
+          "number_of_hosts_discovered": {
+            "type": "integer",
+            "description": "Number of hosts discovered during the discovery process"
+          },
+          "message": {
+            "type": "string",
+            "description": "Error message"
+          },
+          "proxy": {
+            "$ref": "#/components/schemas/Proxy"
+          },
+          "job_parameters": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/JobParameter"
+                }
+              ]
+            }
+          },
+          "mappers_to_apply": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "order": {
+                  "type": "integer",
+                  "description": "Mapper execution order",
+                  "example": 1,
+                  "minimum": 1
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Type of the mapper",
+                  "example": "property"
+                },
+                "parameters": {
+                  "type": "array",
+                  "items": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/MapperParameter"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "DiscoveryJob.add": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DiscoveryJob.partialUpdate"
+          }
+        ],
+        "required": [
+          "credential_id",
+          "provider_id",
+          "monitoring_server_id",
+          "execution_mode",
+          "analysis_mode",
+          "proxy",
+          "alias",
+          "mappers",
+          "job_parameters"
+        ]
+      },
+      "DiscoveryJob.gorgone": {
+        "type": "object",
+        "properties": {
+          "job_id": {
+            "type": "integer",
+            "description": "Job id"
+          },
+          "target": {
+            "type": "integer",
+            "description": "Id of the monitoring server"
+          },
+          "status": {
+            "type": "integer",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "description": "Job status:\n  * `0` - STATUS_SCHEDULED\n  * `1` - STATUS_FINISH\n  * `2` - STATUS_FAILED\n  * `3` - STATUS_RUNNING\n  * `4` - STATUS_SAVE_RUNNING\n  * `5` - STATUS_SAVE_FINISH\n  * `6` - STATUS_SAVE_WARNING\n"
+          },
+          "last_execution": {
+            "type": "string",
+            "description": "Date of last execution of the discovery job by the scheduler (Gorgone)",
+            "nullable": true
+          },
+          "token": {
+            "type": "string",
+            "description": "Token used by the job scheduler (Gorgone)"
+          },
+          "uuid_attributes": {
+            "type": "array",
+            "description": "List of attributes used to generate the uuid",
+            "example": [
+              "hostname",
+              "ip"
+            ],
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "command_line": {
+            "type": "string",
+            "description": "Command line that the job scheduler must run to discover hosts"
+          },
+          "plugins": {
+            "type": "object",
+            "description": "Plugin name and version required to be installed for the jobs",
+            "example": "{ \"centreon-plugin-Cloud-Aws-Ec2-Api\": 20220727 }"
+          },
+          "post_execution": {
+            "type": "object",
+            "properties": {
+              "commands": {
+                "type": "array",
+                "maxItems": 0,
+                "description": "Commands that will be executed at the end of the discovery job",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string",
+                      "description": "Action type",
+                      "example": "COMMAND"
+                    },
+                    "command_line": {
+                      "type": "string",
+                      "description": "Command line to execute"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "execution": {
+            "type": "object",
+            "properties": {
+              "mode": {
+                "type": "integer",
+                "description": "Execution mode:\n  * `0` - IMMEDIATE_EXECUTION\n  * `1` - SCHEDULED_EXECUTION\n"
+              },
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "cron_definition": {
+                    "type": "string",
+                    "description": "Cron expression",
+                    "example": "* * * * *"
+                  },
+                  "is_paused": {
+                    "type": "boolean",
+                    "description": "true if the job is on paused"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "DiscoveryJob.partialUpdate": {
+        "type": "object",
+        "properties": {
+          "alias": {
+            "type": "string",
+            "description": "Alias of the discovery job",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "credential_id": {
+            "type": "integer",
+            "description": "Credential id",
+            "nullable": true
+          },
+          "provider_id": {
+            "type": "integer",
+            "description": "Provider id"
+          },
+          "monitoring_server_id": {
+            "type": "integer",
+            "description": "Id of monitoring server"
+          },
+          "execution_mode": {
+            "type": "integer",
+            "description": "Execution mode:\n  * `0` - IMMEDIATE_EXECUTION\n  * `1` - SCHEDULED_EXECUTION\n  * `2` - PAUSED_SCHEDULE\n",
+            "enum": [
+              0,
+              1,
+              2
+            ]
+          },
+          "analysis_mode": {
+            "type": "integer",
+            "description": "Analysis mode:\n  * `0` - MANUAL_ANALYSIS\n  * `1` - AUTOMATIC_ANALYSIS\n",
+            "enum": [
+              0,
+              1
+            ]
+          },
+          "save_mode": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 63,
+            "nullable": false,
+            "description": "save_mode:\n  * `1` - ADD_HOST\n  * `2` - DISABLE_HOST\n  * `4` - ENABLE_HOST\n  * `8` - ENABLE_EXPORT_RELOAD\n  * `16`- UPDATE_HOST\n  * `32`- DO_NOT_APPLY_DEFAULT_TEMPLATE\n\nThis property is only mandatory when the analysis_mode is equal to 1 (AUTOMATIC_ANALYSIS).\n\nTo select more than one option, you have to add up their values.\n\nExample: *If I select the options ADD_HOST and ENABLE_HOST => save_mode=5 (1+4)*\n"
+          },
+          "scheduling": {
+            "$ref": "#/components/schemas/DiscoveryJob.scheduling"
+          },
+          "proxy": {
+            "$ref": "#/components/schemas/Proxy"
+          },
+          "mappers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Mapper"
+            }
+          },
+          "job_parameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JobParameter.short"
+            }
+          }
+        }
+      },
+      "DiscoveredHost.save": {
+        "type": "object",
+        "description": "**Only hosts discovered without a mapping error will be saved.**\n* When all = true, we will save all discovered hosts except those given by ids.\n* When all = false, we will save the discovered hosts based on the given ids.\n",
+        "properties": {
+          "ids": {
+            "description": "List of discovered host ids to be saved",
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "all": {
+            "type": "boolean"
+          }
+        },
+        "example": {
+          "ids": [
+            1,
+            2
+          ],
+          "all": false
+        }
+      },
+      "DiscoveryJob.scheduling": {
+        "type": "object",
+        "nullable": false,
+        "description": "Allows you to define the scheduling of the task.\n\nEither the cron expression is directly defined or you just have to complete the properties\nminutes, hours, days, months and weekdays.\n",
+        "properties": {
+          "cron_expression": {
+            "type": "string",
+            "description": "Represents the cron expression.\n\nSee [https://en.wikipedia.org/wiki/Cron]\n"
+          },
+          "minutes": {
+            "$ref": "#/components/schemas/DiscoveryJob.scheduling.properties"
+          },
+          "hours": {
+            "$ref": "#/components/schemas/DiscoveryJob.scheduling.properties"
+          },
+          "days": {
+            "$ref": "#/components/schemas/DiscoveryJob.scheduling.properties"
+          },
+          "months": {
+            "$ref": "#/components/schemas/DiscoveryJob.scheduling.properties"
+          },
+          "weekdays": {
+            "type": "string",
+            "description": "**Represent the days of the week.**\n* `0` - Sunday\n* `1` - Monday\n* `2` - Tuesday\n* `3` - Wednesday\n* `4` - Thursday\n* `5` - Friday\n* `6` - Saturday\n* `7` - Sunday\n\n**Exemples of allowed values:**\n* To represent a single value: 5\n* To represent several values: 1,5,9,51\n* To represent a range of values: 4-15\n* To represent all possible values: \\*\n"
+          }
+        }
+      },
+      "DiscoveryJob.scheduling.properties": {
+        "type": "object",
+        "required": [
+          "values"
+        ],
+        "properties": {
+          "values": {
+            "type": "string",
+            "description": "**Examples of allowed values:**\n* To represent a single value: 5\n* To represent several values: 1,5,9,51\n* To represent a range of values: 4-15\n* To represent all possible values: \\*\n"
+          },
+          "every": {
+            "type": "integer"
+          }
+        }
+      },
+      "Mapper": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type of the mapper",
+            "example": "property"
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/MapperParameter"
+          }
+        }
+      },
+      "MapperParameter": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "array",
+            "description": "All source values will be concatenated in the order of display",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "string",
+                    "discovery",
+                    "host_group",
+                    "host_category",
+                    "host_severity"
+                  ],
+                  "description": "Source name where to take the value"
+                },
+                "values": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "description": "Value of the source",
+                      "example": "Hello world"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "description": "Id of the source"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "conditions": {
+            "type": "array",
+            "description": "Conditions validating the copy of the value from the source to the destination (except for condition mappers)",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/MapperCondition"
+                }
+              ]
+            }
+          },
+          "value": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "nullable": true,
+            "description": "Value to set (only for condition mappers)"
+          },
+          "operator": {
+            "type": "string",
+            "description": "Operator to use to set the value (only for condition mappers)\n"
+          },
+          "destination": {
+            "type": "string",
+            "description": "Destination where to put the value (only macro and property mappers)"
+          },
+          "is_password": {
+            "type": "boolean",
+            "description": "Indicates whether the property is a password (only for macro mappers)"
+          }
+        }
+      },
+      "MapperCondition": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Source whose value is to be compared to the value of this condition"
+          },
+          "value": {
+            "type": "string",
+            "description": "Value to compare"
+          },
+          "operator": {
+            "type": "string",
+            "description": "Comparison operator:\n\n  * `equal` ===\n  * `notequal` !==\n  * `contain` /value/\n  * `notcontain` ^((?!value).)*$\n",
+            "example": "equal"
+          }
+        }
+      },
+      "MonitoringServer.short": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Id of the monitoring server"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the monitoring server"
+          },
+          "address": {
+            "type": "string",
+            "description": "Ip address of the monitoring server"
+          },
+          "is_localhost": {
+            "type": "boolean",
+            "description": "Indicates whether it's the localhost server"
+          },
+          "is_activate": {
+            "type": "boolean",
+            "description": "Indicates whether the server configuration is activated"
+          }
+        }
+      },
+      "Meta": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "description": "Number of the pagined page"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Number of items per page"
+          },
+          "search": {
+            "type": "object",
+            "description": "Search parameter pass to url"
+          },
+          "sort_by": {
+            "type": "object",
+            "description": "Sort parameter pass to url"
+          },
+          "total": {
+            "type": "integer",
+            "description": "Number of items found"
+          }
+        }
+      },
+      "Provider.attributes": {
+        "type": "object",
+        "properties": {
+          "attributes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "string",
+                    "integer",
+                    "array"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                },
+                "properties": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "example": [
+                    "key",
+                    "value"
+                  ]
+                }
+              }
+            },
+            "example": [
+              {
+                "type": "string",
+                "name": "discovery.results.desc"
+              },
+              {
+                "type": "string",
+                "name": "discovery.results.hostname"
+              },
+              {
+                "type": "string",
+                "name": "discovery.results.ip"
+              },
+              {
+                "type": "string",
+                "name": "discovery.results.snmp_community"
+              },
+              {
+                "type": "integer",
+                "name": "discovery.results.snmp_port"
+              },
+              {
+                "type": "string",
+                "name": "discovery.results.snmp_version"
+              },
+              {
+                "type": "array",
+                "name": "discovery.results.tags",
+                "properties": [
+                  "key",
+                  "value"
+                ]
+              },
+              {
+                "type": "string",
+                "name": "discovery.results.type"
+              }
+            ]
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "string",
+                    "integer",
+                    "array"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "example": [
+              {
+                "type": "string",
+                "name": "discovery.parameters.LOCATION"
+              },
+              {
+                "type": "string",
+                "name": "discovery.parameters.TIMEOUT"
+              }
+            ]
+          },
+          "credentials": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "string",
+                    "integer",
+                    "array"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "example": [
+              {
+                "type": "string",
+                "name": "discovery.credentials.AZURESUBSCRIPTION"
+              },
+              {
+                "type": "string",
+                "name": "discovery.credentials.AZURETENANT"
+              },
+              {
+                "type": "string",
+                "name": "discovery.credentials.AZURECLIENTID"
+              },
+              {
+                "type": "string",
+                "name": "discovery.credentials.AZURECLIENTSECRET"
+              }
+            ]
+          }
+        }
+      },
+      "Proxy": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Username used to connect to the proxy"
+          },
+          "password": {
+            "type": "string",
+            "description": "Password used to connect to the proxy"
+          },
+          "url": {
+            "type": "string",
+            "description": "Proxy connection URL"
+          },
+          "port": {
+            "type": "integer",
+            "description": "Proxy connection port"
+          }
+        }
+      },
+      "RequestParameters.limit": {
+        "type": "integer",
+        "minimum": 1,
+        "example": 20
+      },
+      "RequestParameters.page": {
+        "type": "integer",
+        "minimum": 1,
+        "example": 1
+      },
+      "RequestParameters.sortBy": {
+        "type": "object",
+        "example": {
+          "id": "ASC"
+        }
+      },
+      "RequestParameters.search": {
+        "type": "object",
+        "example": {
+          "name": "localhost"
+        }
+      },
+      "ForbiddenApiResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "ErrorApiResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "JobParameter": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/JobParameter.short"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "group": {
+                "type": "string",
+                "description": "Group of job parameter"
+              },
+              "description": {
+                "type": "string",
+                "description": "Description of job parameter"
+              },
+              "is_hidden": {
+                "type": "boolean",
+                "description": "Indicates whether the job parameter should be hidden from the user"
+              },
+              "is_locked": {
+                "type": "boolean",
+                "description": "Indicates whether the job parameter can be updated by the user"
+              },
+              "is_mandatory": {
+                "type": "boolean",
+                "description": "Indicates whether the job parameter is mandatory"
+              }
+            }
+          }
+        ]
+      },
+      "JobParameter.short": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the job parameter"
+          },
+          "value": {
+            "type": "string",
+            "description": "Value of the job parameter"
+          }
+        }
+      },
+      "Provider": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Id of the provider"
+          },
+          "plugin_pack_id": {
+            "type": "integer",
+            "description": "Id of the plugin-pack"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the provider"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the provider"
+          },
+          "icon": {
+            "type": "string",
+            "description": "Binary of the icon"
+          },
+          "is_need_proxy": {
+            "type": "boolean",
+            "description": "Indicates whether the connection should use a proxy"
+          },
+          "type": {
+            "$ref": "#/components/schemas/ProviderType"
+          },
+          "host_template": {
+            "$ref": "#/components/schemas/ProviderHostTemplate"
+          },
+          "job_parameters_template": {
+            "type": "array",
+            "description": "List of job parameters template",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/JobParameter"
+                }
+              ]
+            }
+          },
+          "mappers_examples": {
+            "type": "array",
+            "description": "Examples of mapper rules to be applied",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Mapper"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Provider.short": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Id of the provider"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the provider"
+          },
+          "type": {
+            "$ref": "#/components/schemas/ProviderType"
+          },
+          "is_need_proxy": {
+            "type": "boolean",
+            "description": "Indicates whether the connection should use a proxy"
+          },
+          "host_template": {
+            "$ref": "#/components/schemas/ProviderHostTemplate"
+          }
+        }
+      },
+      "ProviderHostTemplate": {
+        "type": "object",
+        "description": "Host template used to provide the default host template for each discovery result",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Id of the host template"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the host template"
+          }
+        }
+      },
+      "ProviderType": {
+        "type": "object",
+        "description": "Provider type",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Id of the provider type"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the provider type"
+          }
+        }
+      },
+      "AuthenticationRequest": {
+        "type": "object",
+        "properties": {
+          "security": {
+            "type": "object",
+            "properties": {
+              "credentials": {
+                "type": "object",
+                "properties": {
+                  "login": {
+                    "type": "string",
+                    "description": "Login"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "Password"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "LoginAuthenticationResponse": {
+        "type": "object",
+        "properties": {
+          "contact": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "Contact id"
+              },
+              "name": {
+                "type": "string",
+                "description": "Contact name"
+              },
+              "alias": {
+                "type": "string",
+                "description": "Alias of the contact"
+              },
+              "email": {
+                "type": "string",
+                "format": "email",
+                "description": "Email of the contact"
+              },
+              "is_admin": {
+                "type": "boolean",
+                "description": "Indicates whether it is an admin user or not"
+              }
+            }
+          },
+          "security": {
+            "type": "object",
+            "properties": {
+              "token": {
+                "type": "string",
+                "description": "Security authentication token"
+              }
+            }
+          }
+        }
+      },
+      "LogoutAuthenticationResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Token": {
+        "description": "API token, sent in the X-AUTH-TOKEN header. Create it in Administration > Authentication tokens.",
+        "type": "apiKey",
+        "name": "X-AUTH-TOKEN",
+        "in": "header"
+      }
+    }
+  }
+}

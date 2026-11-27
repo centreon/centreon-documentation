@@ -1,0 +1,58 @@
+import { ApiConfiguration, ApiDownload } from '@site/src/components/ApiSetup';
+
+L'API REST Centreon MAP permet à vos scripts et à vos outils de créer et de mettre à jour des cartes : créer des cartes et des vues, y placer des ressources, et gérer les vues géographiques et les droits d'accès.
+
+<ApiDownload spec="{{spec}}" name="Centreon MAP REST API" />
+
+## Démarrer en 3 étapes
+
+### 1. Trouvez l'URL de l'API
+
+L'API MAP est servie par le serveur MAP :
+
+```text
+https://<map-server>:9443/centreon-map/api/latest
+```
+
+Sans TLS, utilisez `http://<map-server>:8081/centreon-map/api/latest`.
+
+:::tip Utilisez votre serveur MAP dans cette référence
+
+Saisissez son adresse dans [Configurer cette référence](#configure), plus bas : le panneau de requête et les exemples de code de chaque page d'endpoint l'utilisent alors.
+
+:::
+
+### 2. Obtenez un jeton
+
+Connectez-vous avec un utilisateur Centreon. Chaque appel MAP a aussi besoin de l'en-tête `X-Client-Version`, avec la version de votre serveur MAP :
+
+```bash
+curl -s -X POST "https://<map-server>:9443/centreon-map/api/latest/auth/sign-in" \
+  -H "Content-Type: application/json" \
+  -H "X-Client-Version: 26.10.0" \
+  -d '{"login": "<login>", "password": "<password>"}'
+```
+
+La réponse contient un `jwtToken`. Vous pouvez aussi utiliser un [jeton d'API]({{tokensDoc}}) Centreon à la place.
+
+### 3. Appelez l'API
+
+Envoyez le jeton dans l'en-tête `Authorization` (ou un jeton d'API Centreon dans `X-AUTH-TOKEN`). Par exemple, pour lister les cartes :
+
+```bash
+curl -s "https://<map-server>:9443/centreon-map/api/latest/maps" \
+  -H "X-Client-Version: 26.10.0" \
+  -H "Authorization: Bearer <jwtToken>"
+```
+
+Chaque appel s'exécute avec les droits de l'utilisateur : droits de création de cartes, et droits d'édition sur les cartes que vous modifiez.
+
+## Configurer cette référence {#configure}
+
+Saisissez l'adresse de votre serveur MAP, et votre jeton pour envoyer des requêtes depuis cette référence avec **Envoyer la requête**. Le panneau de requête et les exemples de code de chaque page d'endpoint les utilisent jusqu'à la fermeture de cet onglet du navigateur. Vous pouvez aussi les modifier sur n'importe quelle page d'endpoint, avec **Modifier** à côté de l'URL de base.
+
+<ApiConfiguration server={{{server}}} auth="{{auth}}" tokenLabel="Jeton d'API Centreon (X-AUTH-TOKEN)" />
+
+## Aller plus loin
+
+{{mapScenario}}- **Définition OpenAPI** : téléchargez-la avec le bouton en haut de cette page, pour importer l'API dans Postman, Bruno ou Insomnia, ou pour générer un client.

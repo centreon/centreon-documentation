@@ -1,0 +1,4112 @@
+{
+  "openapi": "3.2.0",
+  "info": {
+    "title": "Centreon BAM API",
+    "description": "# Authentication\nThere are two modes of authentication:\n* By token: after identification with your login credentials\n* By cookie: by reusing a valid session ID\n",
+    "contact": {
+      "name": "Centreon",
+      "url": "https://www.centreon.com"
+    },
+    "version": "cloud",
+    "x-source": {
+      "repo": "centreon/centreon-modules",
+      "path": "centreon-bam/doc/API/centreon-bam-api.yaml",
+      "ref": "develop",
+      "commit": "e2c548713c1a7094df8c57c9345f671dcf8cf0eb"
+    }
+  },
+  "externalDocs": {
+    "description": "You can contact us on our community platform The Watch",
+    "url": "https://thewatch.centreon.com/"
+  },
+  "servers": [
+    {
+      "url": "{protocol}://{server}:{port}/centreon",
+      "variables": {
+        "protocol": {
+          "enum": [
+            "https",
+            "http"
+          ],
+          "default": "https",
+          "description": "HTTP scheme"
+        },
+        "server": {
+          "default": "your-centreon-server",
+          "description": "IP address or hostname of your Centreon central server"
+        },
+        "port": {
+          "default": "443",
+          "description": "Port of the web server"
+        }
+      }
+    }
+  ],
+  "security": [
+    {
+      "Token": []
+    }
+  ],
+  "paths": {
+    "/api/latest/bam/configuration/business-views": {
+      "get": {
+        "tags": [
+          "Business Views"
+        ],
+        "summary": "List the business views",
+        "description": "Available since : `20.10.0`\n\nReturns all business views.\n\nThe available parameters to **search** / **sort_by** are:\n* id\n* name\n* description\n* is_enabled\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Page"
+          },
+          {
+            "$ref": "#/components/parameters/Search"
+          },
+          {
+            "$ref": "#/components/parameters/SortBy"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "array",
+                      "items": {
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/ListBusinessViewsResponse"
+                          }
+                        ]
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/api/latest/bam/configuration/business-activities/{id}": {
+      "delete": {
+        "tags": [
+          "Business Activities"
+        ],
+        "summary": "Delete a business activity",
+        "description": "Delete a business activity\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/BusinessActivityId"
+          }
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/NoContent"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Business Activities"
+        ],
+        "summary": "Find a business activity",
+        "description": "Find a business activity\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/BusinessActivityId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FindBusinessActivityResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/api/latest/bam/configuration/indicators": {
+      "get": {
+        "tags": [
+          "Indicators"
+        ],
+        "summary": "List all available indicators",
+        "description": "Available since : `23.04.0`\n\nReturns all available indicators.\n\nThe available parameters to **search** / **sort_by** are:\n* name\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Page"
+          },
+          {
+            "$ref": "#/components/parameters/Search"
+          },
+          {
+            "$ref": "#/components/parameters/SortBy"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "array",
+                      "items": {
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/ListIndicatorsResponse"
+                          }
+                        ]
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/api/latest/bam/configuration/impacts": {
+      "get": {
+        "tags": [
+          "Impacts"
+        ],
+        "summary": "List all impacts",
+        "description": "Returns all impacts configurations.\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Page"
+          },
+          {
+            "$ref": "#/components/parameters/Limit"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListImpactsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/api/latest/bam/monitoring/business-activities/{id}/tree": {
+      "get": {
+        "tags": [
+          "Business Activities"
+        ],
+        "summary": "List a business activity KPI's tree",
+        "description": "Available since : `24.04.0`\n\nReturns A Business Activity with its KPIs.\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/BusinessActivityId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessActivityTreeResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/api/latest/bam/monitoring/business-views": {
+      "get": {
+        "tags": [
+          "Business Views"
+        ],
+        "summary": "List Business Views from the real time",
+        "description": "Available since : `24.10.0`\n\nReturns the list of business views from real time context\n\nThe available parameters to **search** / **sort_by** are:\n\n* id\n* name\n",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/FindBusinessViewsResponse"
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/api/latest/bam/monitoring/business-activities": {
+      "get": {
+        "tags": [
+          "Business Activities"
+        ],
+        "summary": "List Business Activities from the real time",
+        "description": "Available since : `24.10.0`\n\nReturns the list of Business Activities from the real time context\n\nThe available parameters to **search** / **sort_by** are:\n\n* id\n* name\n* status\n* business_view.name\n",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "array",
+                      "items": {
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/FindBusinessActivitiesResponse"
+                          }
+                        ]
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/api/latest/bam/monitoring/business-activities/indicators": {
+      "get": {
+        "tags": [
+          "Indicators"
+        ],
+        "summary": "List indicators from the real time",
+        "description": "Available since : `24.10.0`\n\nReturns the list of indicators linked to Business Activities from the real time context\n\nThe available parameters to **search** / **sort_by** are:\n\n* name\n* status\n* business_activity.name\n* business_view.name\n",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "array",
+                      "items": {
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/FindRealTimeIndicatorsResponse"
+                          }
+                        ]
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/api/latest/bam/monitoring/business-activities/statuses": {
+      "get": {
+        "tags": [
+          "Business Activities"
+        ],
+        "summary": "List Business Activities statuses from the real time",
+        "description": "Available since : `24.10.0`\n\nReturns the list of Business Activities statuses from the real time context\n\nThe available parameters to **search** / **sort_by** are:\n\n* id\n* name\n* status\n* business_view.name\n",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FindBusinessActivityStatusesResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/api/latest/bam/monitoring/business-activities/indicators/statuses": {
+      "get": {
+        "tags": [
+          "Indicators"
+        ],
+        "summary": "List indicator statuses from the real time",
+        "description": "Available since : `24.10.0`\n\nReturns the list of indicator statuses linked to Business Activities from the real time context\n\nThe available parameters to **search** / **sort_by** are:\n\n* name\n* status\n* business_activity.name\n",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FindRealTimeIndicatorStatusesResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/api/latest/bam/monitoring/business-activities/{id}": {
+      "get": {
+        "tags": [
+          "Business Activities"
+        ],
+        "summary": "Get Business Activity detail from real time context",
+        "description": "Available since : `24.10.0`\n\nReturns the detail of a Business Activity from the real time context\nwith associated indicators\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/BusinessActivityId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FindBusinessActivityResponse-2"
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/api/latest/bam/monitoring/business-activities/{businessActivityId}/indicators/impact": {
+      "get": {
+        "tags": [
+          "Business Activities"
+        ],
+        "summary": "Get impacting indicators of a Business Activity from real time context",
+        "description": "Available since : `24.10.0`\n\nReturns the impacting indicators of a Business Activity from the real time context\n",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "businessActivityId",
+            "required": true,
+            "description": "Business activity ID",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "example": 1
+            }
+          },
+          {
+            "in": "query",
+            "name": "start",
+            "required": true,
+            "description": "Start date of indicator timeline",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2024-09-10T12:45:00.000Z"
+            }
+          },
+          {
+            "in": "query",
+            "name": "end",
+            "required": true,
+            "description": "End date of indicator timeline",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "example": "2024-09-10T13:45:00.000Z"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "array",
+                      "items": {
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/FindBusinessActivityImpactingIndicatorsResponse"
+                          }
+                        ]
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/Meta"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/api/latest/bam/monitoring/indicators/boolean-rules/{id}": {
+      "get": {
+        "tags": [
+          "Indicators"
+        ],
+        "summary": "Get boolean rule detailed information from real time context",
+        "description": "Available since : `24.10.0`\n\nReturns the detailed information of boolean rule from the real time context\n",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "description": "Boolean rule ID",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FindBooleanRuleDetailsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/api/latest/bam/monitoring/business-activities/{id}/timeline": {
+      "get": {
+        "tags": [
+          "Business Activities"
+        ],
+        "summary": "Get Business Activity's timeline",
+        "description": "Available since : `24.10.0`\n\nReturns the timeline of a Business Activity status\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/BusinessActivityId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FindBusinessActivityTimelineResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        }
+      }
+    },
+    "/api/bam/configuration/business-activities": {
+      "get": {
+        "operationId": "api_bamconfigurationbusiness-activities_get_collection",
+        "tags": [
+          "BusinessActivity"
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessActivity collection",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "type": "object",
+                  "description": "BusinessActivity.jsonld collection.",
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/HydraCollectionBaseSchema"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "member"
+                      ],
+                      "properties": {
+                        "member": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/BusinessActivity.jsonld"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BusinessActivity"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to list Business Activities"
+          }
+        },
+        "summary": "List the Business Activities",
+        "description": "Returns the paginated list of Business Activities the user is allowed to see. Admins and users with the all_business_views grant see every BA; other users only see the BAs reachable through their business views. Searchable / sortable fields: id, name, description, is_enabled.",
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Filter by field and operator, e.g. ?name[lk]=foo, ?id[eq]=1, ?is_enabled[eq]=true. Allowed operators: eq, neq, lk, nlk, in, nin.",
+            "required": false,
+            "deprecated": false,
+            "schema": {
+              "type": "object"
+            },
+            "style": "form",
+            "explode": true
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort by field and direction, e.g. ?sort[name]=ASC.",
+            "required": false,
+            "deprecated": false,
+            "schema": {
+              "type": "object"
+            },
+            "style": "form",
+            "explode": true
+          },
+          {
+            "name": "show_only_top_level",
+            "in": "query",
+            "description": "When true, only top-level Business Activities (roots and orphans) are returned; BAs referenced as a child of another (accessible) BA are hidden. Absent or false keeps every accessible BA.",
+            "required": false,
+            "deprecated": false,
+            "schema": {
+              "type": "boolean"
+            },
+            "style": "form",
+            "explode": true
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The collection page number",
+            "required": false,
+            "deprecated": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            },
+            "style": "form",
+            "explode": true
+          },
+          {
+            "name": "itemsPerPage",
+            "in": "query",
+            "description": "The number of items per page. Values above 100 are capped to 100. Defaults to the \"Limit per page\" platform setting, or to 30 when it is not set or invalid.",
+            "required": false,
+            "deprecated": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "style": "form",
+            "explode": true
+          }
+        ]
+      }
+    },
+    "/api/bam/monitoring/business-activities/{baId}/timeline": {
+      "get": {
+        "operationId": "api_bammonitoringbusiness-activities_baIdtimeline_get_collection",
+        "tags": [
+          "Timeline"
+        ],
+        "responses": {
+          "200": {
+            "description": "Timeline collection",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Timeline.jsonld collection.",
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/HydraCollectionBaseSchemaNoPagination"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "member"
+                      ],
+                      "properties": {
+                        "member": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Timeline.jsonld"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Timeline"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid BAM license"
+          },
+          "403": {
+            "description": "You are not allowed to access this Business Activity timeline"
+          },
+          "404": {
+            "description": "Business Activity not found (for a user who can access all Business Activities; a restricted user gets a 403 on an inaccessible or unknown Business Activity)"
+          },
+          "422": {
+            "description": "Invalid parameters (window larger than 30 days, start >= end, end provided without start, end in the future, or a non-integer start/end)"
+          },
+          "500": {
+            "description": "The reporting history contains an event that cannot be processed (server-side data corruption)"
+          }
+        },
+        "summary": "Get the status timeline of a Business Activity",
+        "description": "Returns the contiguous status bands of a Business Activity over a time window, read from the reporting history (mod_bam_reporting_ba_events, populated by the Broker BAM reporting output; without it the collection is empty) and clipped to the window. A band reopens on every change of status, downtime or level, so several bands may share the same status. The ongoing band has `end: null` and `is_ongoing: true`, but its `duration` is still returned, measured from the band start to the window end. Timestamps are Unix seconds. By default the window covers the last 24 hours; `start`/`end` are optional and the window is capped at 30 days. An `end` in the future is rejected with a 422. The response is not paginated.",
+        "parameters": [
+          {
+            "name": "baId",
+            "in": "path",
+            "description": "Business Activity identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "integer"
+            },
+            "style": "simple",
+            "explode": false
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Window start, Unix seconds. Optional. When omitted with no `end`, the last 24 hours are returned. When provided alone, `end` defaults to now.",
+            "required": false,
+            "deprecated": false,
+            "schema": {
+              "type": "integer"
+            },
+            "style": "form",
+            "explode": true
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "Window end, Unix seconds. Optional, but requires `start`; providing `end` alone is rejected. Must satisfy start < end, end - start <= 30 days, and end <= now (a future end is rejected).",
+            "required": false,
+            "deprecated": false,
+            "schema": {
+              "type": "integer"
+            },
+            "style": "form",
+            "explode": true
+          }
+        ]
+      }
+    },
+    "/api/bam/configuration/business-activities/{id}/tree": {
+      "get": {
+        "operationId": "api_bamconfigurationbusiness-activities_idtree_get",
+        "tags": [
+          "Tree"
+        ],
+        "responses": {
+          "200": {
+            "description": "Tree returned successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tree"
+                },
+                "example": {
+                  "@context": "/centreon/api/contexts/Tree",
+                  "@id": "/centreon/api/bam/configuration/business-activities/1/tree",
+                  "@type": "Tree",
+                  "id": 1,
+                  "name": "Netflix - Frontend",
+                  "description": "Frontend journey business activity",
+                  "calculation_method": {
+                    "id": 1,
+                    "name": "Best Status",
+                    "is_percentage": false,
+                    "warning_threshold": null,
+                    "critical_threshold": null
+                  },
+                  "downtime_inheritance_mode": 1,
+                  "icon": null,
+                  "indicators": [
+                    {
+                      "id": 100,
+                      "type": "service",
+                      "resource_id": 10,
+                      "name": "HTTP",
+                      "impact": {
+                        "type": "value",
+                        "warning": 25,
+                        "critical": 50,
+                        "unknown": 75
+                      },
+                      "parent_resource_id": 5,
+                      "parent_resource_name": "web-server-01",
+                      "icon": {
+                        "name": "http",
+                        "url": "img/media/icons/http.png"
+                      }
+                    },
+                    {
+                      "id": 101,
+                      "type": "business-activity",
+                      "resource_id": 12,
+                      "name": "Payment - Backend",
+                      "impact": {
+                        "type": "word",
+                        "warning": 2,
+                        "critical": 4,
+                        "unknown": 1
+                      },
+                      "calculation_method": {
+                        "id": 2,
+                        "name": "Worst Status",
+                        "is_percentage": false
+                      },
+                      "downtime_inheritance_mode": 2,
+                      "icon": null,
+                      "indicators": [],
+                      "acl_restricted": true
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied to this Business Activity",
+            "content": {
+              "application/json": {
+                "example": {
+                  "code": 0,
+                  "message": "Access denied to Business Activity #1."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Business Activity not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "code": 0,
+                  "message": "Business Activity #999999 not found."
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The Business Activity tree carries an unsupported legacy value that cannot be processed (server-side data corruption)"
+          }
+        },
+        "summary": "Get the full tree of a Business Activity",
+        "description": "Returns the complete recursive tree structure of a BA with all its indicators. BA children outside the user's ACL scope are visible (name + impact) but not expandable; they carry `acl_restricted: true` on the indicator node so the front can render them greyed and forbid editing. In-scope BA nodes carry `acl_restricted: false`. The field is absent for non-Business-Activity indicators.\n\n**Supersedes a legacy path.** This endpoint replaces `/api/latest/configuration/business-activities/{id}/tree`, which stays reachable for cloud clients released before the `bam/` migration but is **deprecated and scheduled for removal**. That legacy path is intentionally omitted from this documentation; new integrations must use the `/bam/...` path described here.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Tree identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple",
+            "explode": false
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "api_bamconfigurationbusiness-activities_idtree_patch",
+        "tags": [
+          "Tree"
+        ],
+        "responses": {
+          "204": {
+            "description": "Tree updated successfully",
+            "links": {}
+          },
+          "400": {
+            "description": "Malformed request rejected before domain validation — a `BadRequestHttpException`. On the canonical `/api/bam` path this covers the non-`ValidationException` cases only: calculation-method threshold coherence (e.g. warning above critical, percentage above 100) and camelCase keys instead of snake_case. Payload schema / constraint violations return `422` here (see below); they are downgraded to `400` only on the deprecated `/api/latest` alias.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "code": 0,
+                  "message": "Property \"calculationMethod\" must be in snake_case."
+                }
+              }
+            },
+            "links": {}
+          },
+          "403": {
+            "description": "Access denied to this Business Activity",
+            "content": {
+              "application/json": {
+                "example": {
+                  "code": 0,
+                  "message": "You are not allowed to update this Business Activity tree"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Business Activity not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "code": 0,
+                  "message": "Business Activity #999999 not found."
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Cyclic dependency detected",
+            "content": {
+              "application/json": {
+                "example": {
+                  "code": 0,
+                  "message": "Adding Business Activity #42 as an indicator of #7 would create a cyclic dependency."
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation rejection. Two sources, both `422` on `/api/bam`: payload schema / constraint violations on the input DTOs (`ValidationException` — wrong indicator type, missing required field such as `parent_resource_id`, `calculation_method.value` shape, unknown impact id), and business-rule violations needing database context (`UnprocessableEntityHttpException` from `UpdateTreeInputValidator` — BA does not exist, is not part of the current tree, name already used by another BA, referenced resource/host does not resolve). On the deprecated `/api/latest` alias the `ValidationException` subset is downgraded to `400`.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "code": 0,
+                  "message": "[business_activities[0].name] Business Activity name \"Foo\" is already used.\n"
+                }
+              }
+            },
+            "links": {}
+          },
+          "500": {
+            "description": "The Business Activity tree carries an unsupported legacy value that cannot be processed (server-side data corruption)"
+          }
+        },
+        "summary": "Update a Business Activity tree",
+        "description": "Partially updates a Business Activity tree. All sections (`business_activities`, `indicators_added`, `indicators_updated`, `indicators_removed`) are optional. Mutations targeting Business Activities outside the user's ACL scope are silently ignored (no info leak on the existence of unauthorised resources). The companion GET `acl_restricted: true` flag tells the front which BA nodes to filter out of the payload client-side; the back-side silent-drop remains as defense-in-depth.\n\n**Indicator references — kpi_id or uuid:** entries in `indicators_removed` and the `id` field of `indicators_updated` accept either the kpi_id (positive integer) or the uuid string from `GET /tree` (`<shortType><resourceId>`, optionally prefixed with `h<host>-` for host-scoped types). The uuid form is stable across the legacy `centreon_business_activity` PUT that drops and re-inserts kpi rows on every save — clients that may interleave that PUT with this PATCH should reference indicators by uuid to avoid stale kpi_id lookups. A single uuid resolves to every kpi_id matching it (duplicate-link case), so the action applies to every matching row.\n\n**Silent-drop on unknown indicator references:** by design, an `id` in `indicators_updated` or `indicators_removed` that does not resolve to anything in the loaded tree — truly unknown, stale kpi_id, unknown uuid, or belonging to a tree the user cannot access — is dropped without error. The endpoint still returns 204. This extends the ACL anti-probing policy to indicator identity: response codes must not reveal whether an unknown id corresponds to a real resource. Clients relying on feedback about their own mistakes (typoed field names, stale ids) must validate client-side.\n\n**Validation errors — 400 vs 422:** on the canonical `/api/bam` path, both payload validation (`ValidationException` on the input DTOs) and business-rule violations (`UnprocessableEntityHttpException`) return `422`; only requests rejected earlier (`BadRequestHttpException` — threshold coherence, camelCase keys) return `400`. The deprecated `/api/latest` alias keeps the previously released contract: the `ValidationException` subset is downgraded to `400` by the core `LegacyValidationStatusListener` for backward compatibility.\n\n**Supersedes a legacy path.** This endpoint replaces `/api/latest/configuration/business-activities/{id}/tree`, which stays reachable for cloud clients released before the `bam/` migration but is **deprecated and scheduled for removal**. That legacy path is intentionally omitted from this documentation; new integrations must use the `/bam/...` path described here.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Tree identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple",
+            "explode": false
+          }
+        ],
+        "requestBody": {
+          "description": "The updated Tree resource",
+          "content": {
+            "application/merge-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tree.UpdateTreeInput.jsonMergePatch"
+              }
+            }
+          },
+          "required": true
+        }
+      }
+    },
+    "/api/bam/monitoring/business-activities/{baId}/kpis": {
+      "get": {
+        "operationId": "api_bammonitoringbusiness-activities_baIdkpis_get_collection",
+        "tags": [
+          "Kpi"
+        ],
+        "responses": {
+          "200": {
+            "description": "Kpi collection",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Kpi.jsonld collection.",
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/HydraCollectionBaseSchema"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "member"
+                      ],
+                      "properties": {
+                        "member": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Kpi.jsonld"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Kpi"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid BAM license"
+          },
+          "403": {
+            "description": "You are not allowed to access the KPIs of this Business Activity"
+          },
+          "404": {
+            "description": "Business Activity not found (for a user who can access all Business Activities; a restricted user gets a 403 on an inaccessible or unknown Business Activity)"
+          },
+          "422": {
+            "description": "Invalid `at` parameter (not an integer, not positive, in the future, or older than 31 days)"
+          },
+          "500": {
+            "description": "The reporting history contains a KPI event that cannot be processed (server-side data corruption)"
+          }
+        },
+        "summary": "List the KPI states of a Business Activity",
+        "description": "Returns the first-level KPIs of a Business Activity with their state, either now or at a past instant (`at`), one member per KPI, sorted by `since` (the start of the active state: a change of status, downtime or impact), most recent first. The state is read from the reporting history: at an instant, each KPI is in the state of its event active at that instant, however old. The instant may not be older than 31 days. Without `at`, only the KPIs currently configured and enabled are listed. With `at`, a KPI deleted or disabled since (absent from the BAM reporting dimension) is still listed when the reporting links one of its events to a Business Activity event that started at or before `at` and ended within the last 31 days or is still running; its `name` is then unknown (null), and its `type` too once it is deleted from the configuration. A configured KPI with no reporting event yet is not listed. The check output and the current attempt come from the latest service alert at the instant, kept only when its status is the KPI status; with `at`, else the first alert of that status logged after `at` and at most 5 minutes after the state start. The output therefore always matches the status; when no such alert is found (e.g. purged logs), `output.available` is false. The labels and the configured impacts are those of the configuration applied at the last reload (a saved but not yet applied change is not reflected); for a KPI absent from the BAM reporting dimension, the type and impacts come from the saved configuration. The maximum check attempts are those of the monitored resource as last known; `attempt` is null for a business-activity or boolean-rule KPI, or when the type is unknown. Timestamps are Unix seconds.",
+        "parameters": [
+          {
+            "name": "baId",
+            "in": "path",
+            "description": "Business Activity identifier",
+            "required": true,
+            "deprecated": false,
+            "schema": {
+              "type": "integer"
+            },
+            "style": "simple",
+            "explode": false
+          },
+          {
+            "name": "at",
+            "in": "query",
+            "description": "Instant of the KPI states, Unix seconds. Optional: the current states are returned when omitted. Must satisfy now - 31 days <= at <= now.",
+            "required": false,
+            "deprecated": false,
+            "schema": {
+              "type": "integer"
+            },
+            "style": "form",
+            "explode": true
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The collection page number",
+            "required": false,
+            "deprecated": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            },
+            "style": "form",
+            "explode": true
+          },
+          {
+            "name": "itemsPerPage",
+            "in": "query",
+            "description": "The number of items per page. Values above 100 are capped to 100. Defaults to the \"Limit per page\" platform setting, or to 30 when it is not set or invalid.",
+            "required": false,
+            "deprecated": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "style": "form",
+            "explode": true
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "Token": {
+        "description": "The use of the API requires a security token.\n\nTo retrieve it, you will need to authenticate yourself with your login credentials.\n\nThe token will be deleted if it has not been used for more than one hour.\n",
+        "type": "apiKey",
+        "name": "X-AUTH-TOKEN",
+        "in": "header"
+      }
+    },
+    "schemas": {
+      "CalculationMethodOutput": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "is_percentage": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ImpactOutput": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "description": "\"word\" (id_impact from mod_bam_impacts) or \"value\" (raw float)",
+            "type": "string"
+          },
+          "warning": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "integer"
+              }
+            ]
+          },
+          "critical": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "integer"
+              }
+            ]
+          },
+          "unknown": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "integer"
+              }
+            ]
+          }
+        }
+      },
+      "KpiOutput": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "uuid": {
+            "description": "Home-made identifier consumed by the front to key tree nodes (e.g. `h7-s42`, `ba12`). Not an RFC UUID.",
+            "type": "string"
+          },
+          "type": {
+            "description": "Service | MetaService | Business Activity | Boolean Rule | Anomaly Detection",
+            "type": "string"
+          },
+          "resource_id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "impact": {
+            "$ref": "#/components/schemas/ImpactOutput"
+          },
+          "parent_resource_id": {
+            "description": "Present only for types Service and Anomaly Detection",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "parent_resource_name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "calculation_method": {
+            "description": "Present only when type = Business Activity",
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Tree.CalculationMethodOutput"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "icon": {
+            "description": "Icon configured on the monitored resource. Present for types Service,\nAnomaly Detection, and Business Activity; `null` when absent or not\napplicable to the kpi type.",
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Tree.IconOutput"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "downtime_inheritance_mode": {
+            "description": "Downtime inheritance mode of the child BA (mod_bam.inherit_kpi_downtimes).",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "indicators": {
+            "description": "Present only when type = Business Activity; empty [] when BA is outside ACL scope",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KpiOutput"
+            }
+          },
+          "acl_restricted": {
+            "description": "Set only when type = Business Activity. `true` when the child BA is\noutside the user's ACL perimeter — the front renders the node greyed,\nnon-expandable, non-editable, and must not include it in\n`indicators_removed` on a subsequent PATCH. `false` when the BA is in\nscope. `null` (absent) for non-BA indicators and for BA nodes the\nbuilder could not classify (missing-from-tree path).",
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        }
+      },
+      "BusinessActivityInput": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "minimum": 0,
+            "exclusiveMinimum": 0,
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "calculation_method": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CalculationMethodInput"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "downtime_inheritance_mode": {
+            "enum": [
+              0,
+              1,
+              2
+            ],
+            "description": "How planned downtime on this BA's KPIs influences it\n(mod_bam.inherit_kpi_downtimes). null = field not modified by this PATCH.",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        }
+      },
+      "CalculationMethodInput": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "description": "0 = Impact, 1 = Best Status, 2 = Worst Status, 3 = Ratio percentage, 4 = Ratio number",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "warning_threshold": {
+            "minimum": 0,
+            "description": "Warning-level threshold (mod_bam.level_w). Required for Ratio; must not be\nsent for Best Status and Worst Status. On the same method, kept from storage\nwhen omitted; on a method change, the stored value is not carried over.",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "critical_threshold": {
+            "minimum": 0,
+            "description": "Critical-level threshold (mod_bam.level_c). Optional; must not be sent for\nBest Status and Worst Status. On the same method, kept from storage when\nomitted; on a method change, the stored value is not carried over.",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        }
+      },
+      "ImpactInput": {
+        "type": "object",
+        "required": [
+          "type",
+          "warning",
+          "critical",
+          "unknown"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "word",
+              "value"
+            ],
+            "default": "value",
+            "type": "string"
+          },
+          "warning": {
+            "minimum": 0,
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "critical": {
+            "minimum": 0,
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "unknown": {
+            "minimum": 0,
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      },
+      "KpiToAddInput": {
+        "type": "object",
+        "required": [
+          "ba_id",
+          "type",
+          "resource_id",
+          "impact"
+        ],
+        "properties": {
+          "ba_id": {
+            "minimum": 0,
+            "exclusiveMinimum": 0,
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "type": {
+            "enum": [
+              "service",
+              "meta-service",
+              "business-activity",
+              "boolean",
+              "anomaly-detection"
+            ],
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "resource_id": {
+            "minimum": 0,
+            "exclusiveMinimum": 0,
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "parent_resource_id": {
+            "minimum": 0,
+            "exclusiveMinimum": 0,
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "impact": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImpactInput"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      },
+      "KpiToUpdateInput": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "description": "Either a kpi_id (positive integer) or a uuid (non-empty string of\nthe form `<shortType><resourceId>` or `h<host>-<shortType><resourceId>`).",
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "impact": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImpactInput"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      },
+      "HydraCollectionBaseSchema": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HydraCollectionBaseSchemaNoPagination"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "view": {
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "type": "string",
+                    "format": "iri-reference"
+                  },
+                  "@type": {
+                    "type": "string"
+                  },
+                  "first": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "iri-reference"
+                  },
+                  "last": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "iri-reference"
+                  },
+                  "previous": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "iri-reference"
+                  },
+                  "next": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "iri-reference"
+                  }
+                },
+                "example": {
+                  "@id": "string",
+                  "@type": "string",
+                  "first": "string",
+                  "last": "string",
+                  "previous": "string",
+                  "next": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BusinessActivity.jsonld": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HydraItemBaseSchema"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "description": "Name of the Business Activity",
+                "type": "string",
+                "example": "Netflix - Frontend"
+              },
+              "description": {
+                "description": "Description of the Business Activity",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "is_enabled": {
+                "description": "Whether the Business Activity is enabled",
+                "type": "boolean"
+              },
+              "level_warning": {
+                "description": "Warning threshold (null when the calculation method has none)",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "level_critical": {
+                "description": "Critical threshold (null when the calculation method has none)",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "calculation_method": {
+                "$ref": "#/components/schemas/CalculationMethodOutput.jsonld"
+              },
+              "icon": {
+                "description": "Icon attached to the Business Activity, null when none is set",
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/IconOutput.jsonld"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "description": "Paginated Business Activities configuration listing. It lives at the same\npath as the removed legacy listing endpoint\n(/bam/configuration/business-activities), so it replaces it seamlessly.\nSearch and sort accept the legacy fields: id, name, description, is_enabled.\nPagination uses the shared page / itemsPerPage parameters; the response is the\nstandard Hydra collection (member / totalItems)."
+      },
+      "BusinessActivity": {
+        "type": "object",
+        "description": "Paginated Business Activities configuration listing. It lives at the same\npath as the removed legacy listing endpoint\n(/bam/configuration/business-activities), so it replaces it seamlessly.\nSearch and sort accept the legacy fields: id, name, description, is_enabled.\nPagination uses the shared page / itemsPerPage parameters; the response is the\nstandard Hydra collection (member / totalItems).",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "description": "Name of the Business Activity",
+            "type": "string",
+            "example": "Netflix - Frontend"
+          },
+          "description": {
+            "description": "Description of the Business Activity",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "is_enabled": {
+            "description": "Whether the Business Activity is enabled",
+            "type": "boolean"
+          },
+          "level_warning": {
+            "description": "Warning threshold (null when the calculation method has none)",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "level_critical": {
+            "description": "Critical threshold (null when the calculation method has none)",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "calculation_method": {
+            "$ref": "#/components/schemas/CalculationMethodOutput"
+          },
+          "icon": {
+            "description": "Icon attached to the Business Activity, null when none is set",
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/IconOutput"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      },
+      "HydraCollectionBaseSchemaNoPagination": {
+        "type": "object",
+        "properties": {
+          "totalItems": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "search": {
+            "type": "object",
+            "properties": {
+              "@type": {
+                "type": "string"
+              },
+              "template": {
+                "type": "string"
+              },
+              "variableRepresentation": {
+                "type": "string"
+              },
+              "mapping": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "@type": {
+                      "type": "string"
+                    },
+                    "variable": {
+                      "type": "string"
+                    },
+                    "property": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "required": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "HydraItemBaseSchema": {
+        "type": "object",
+        "properties": {
+          "@context": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "@vocab": {
+                    "type": "string"
+                  },
+                  "hydra": {
+                    "type": "string",
+                    "enum": [
+                      "http://www.w3.org/ns/hydra/core#"
+                    ]
+                  }
+                },
+                "required": [
+                  "@vocab",
+                  "hydra"
+                ],
+                "additionalProperties": true
+              }
+            ]
+          },
+          "@id": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@id",
+          "@type"
+        ]
+      },
+      "CalculationMethodOutput.jsonld": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "is_percentage": {
+            "type": "boolean"
+          }
+        }
+      },
+      "IconOutput.jsonld": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "IconOutput": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "Tree.CalculationMethodOutput": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "is_percentage": {
+            "type": "boolean"
+          },
+          "warning_threshold": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "critical_threshold": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        }
+      },
+      "Tree.IconOutput": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "Timeline.jsonld": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HydraItemBaseSchema"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "ba_event_id": {
+                "description": "Reporting event identifier of the band",
+                "type": "integer"
+              },
+              "start": {
+                "description": "Band start, Unix seconds, clipped to the window",
+                "type": "integer"
+              },
+              "end": {
+                "description": "Band end, Unix seconds, clipped to the window; null when the band is ongoing",
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "duration": {
+                "description": "Band duration in seconds within the window; always set, including for an ongoing band (measured up to the window end)",
+                "type": "integer"
+              },
+              "status": {
+                "$ref": "#/components/schemas/StatusOutput.jsonld"
+              },
+              "in_downtime": {
+                "description": "Whether the Business Activity was in downtime during the band",
+                "type": "boolean"
+              },
+              "first_level": {
+                "description": "Business Activity level at the band start; null when not applicable",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "is_ongoing": {
+                "description": "Whether the band is still open: no end recorded in the reporting (the BA is still in this state), independent of the window. A closed band whose end is after the window is instead clipped to the window end with is_ongoing false",
+                "type": "boolean"
+              }
+            }
+          }
+        ],
+        "description": "One status band of a Business Activity timeline. The GetCollection is\nserved on the bare /api prefix only and reads from the reporting history\n(mod_bam_reporting_ba_events, subject to the configured reporting retention)\ninstead of the RRD graph status. It\ncohabits with the legacy /api/latest/.../timeline endpoint, kept until the\nfront is migrated off it. The window defaults to the last 24 h and is capped\nat 30 days; the series is not paginated."
+      },
+      "Timeline": {
+        "type": "object",
+        "description": "One status band of a Business Activity timeline. The GetCollection is\nserved on the bare /api prefix only and reads from the reporting history\n(mod_bam_reporting_ba_events, subject to the configured reporting retention)\ninstead of the RRD graph status. It\ncohabits with the legacy /api/latest/.../timeline endpoint, kept until the\nfront is migrated off it. The window defaults to the last 24 h and is capped\nat 30 days; the series is not paginated.",
+        "properties": {
+          "ba_event_id": {
+            "description": "Reporting event identifier of the band",
+            "type": "integer"
+          },
+          "start": {
+            "description": "Band start, Unix seconds, clipped to the window",
+            "type": "integer"
+          },
+          "end": {
+            "description": "Band end, Unix seconds, clipped to the window; null when the band is ongoing",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "duration": {
+            "description": "Band duration in seconds within the window; always set, including for an ongoing band (measured up to the window end)",
+            "type": "integer"
+          },
+          "status": {
+            "$ref": "#/components/schemas/StatusOutput"
+          },
+          "in_downtime": {
+            "description": "Whether the Business Activity was in downtime during the band",
+            "type": "boolean"
+          },
+          "first_level": {
+            "description": "Business Activity level at the band start; null when not applicable",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "is_ongoing": {
+            "description": "Whether the band is still open: no end recorded in the reporting (the BA is still in this state), independent of the window. A closed band whose end is after the window is instead clipped to the window end with is_ongoing false",
+            "type": "boolean"
+          }
+        }
+      },
+      "StatusOutput.jsonld": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "severity_code": {
+            "type": "integer"
+          }
+        }
+      },
+      "StatusOutput": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "severity_code": {
+            "type": "integer"
+          }
+        }
+      },
+      "Tree": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "description": "Business Activity name",
+            "type": "string"
+          },
+          "description": {
+            "description": "Business Activity description",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "calculation_method": {
+            "description": "Calculation method of the BA",
+            "$ref": "#/components/schemas/Tree.CalculationMethodOutput"
+          },
+          "downtime_inheritance_mode": {
+            "description": "Downtime inheritance mode of the BA: 0 = Ignore the downtime, 1 = Inherit the downtime on the Business Activity, 2 = Ignore the indicator in the calculation",
+            "type": "integer"
+          },
+          "icon": {
+            "description": "Icon configured on this BA, null when none is configured",
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Tree.IconOutput"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "indicators": {
+            "description": "Indicators attached to this BA (recursive for BA-type indicators)",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KpiOutput"
+            }
+          }
+        }
+      },
+      "Tree.UpdateTreeInput.jsonMergePatch": {
+        "type": "object",
+        "properties": {
+          "business_activities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BusinessActivityInput"
+            }
+          },
+          "indicators_added": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KpiToAddInput"
+            }
+          },
+          "indicators_updated": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KpiToUpdateInput"
+            }
+          },
+          "indicators_removed": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Kpi.jsonld": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HydraItemBaseSchema"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "kpi_id": {
+                "description": "KPI identifier",
+                "type": "integer"
+              },
+              "name": {
+                "description": "Label of the KPI, as written by the BAM reporting (e.g. \"<host> <service>\" for a service KPI); null for a KPI absent from the BAM reporting dimension (deleted or disabled since)",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "type": {
+                "description": "KPI type; null when it cannot be determined any more (KPI deleted from the configuration and absent from the BAM reporting dimension)",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "enum": [
+                  "service",
+                  "meta-service",
+                  "business-activity",
+                  "boolean-rule",
+                  "anomaly-detection",
+                  null
+                ]
+              },
+              "ba_target_id": {
+                "description": "Targeted Business Activity of a business-activity KPI; null for any other type",
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "status": {
+                "$ref": "#/components/schemas/KpiStatusOutput.jsonld"
+              },
+              "in_downtime": {
+                "description": "Whether the KPI is in downtime (or was, at `at`), from the active reporting event",
+                "type": "boolean"
+              },
+              "impact": {
+                "$ref": "#/components/schemas/KpiImpactOutput.jsonld"
+              },
+              "is_impacting": {
+                "description": "Whether the KPI impacts its Business Activity (applied impact > 0)",
+                "type": "boolean"
+              },
+              "attempt": {
+                "description": "Check attempt; null for a business-activity or boolean-rule KPI, or when the type is unknown",
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/CheckAttemptOutput.jsonld"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "output": {
+                "$ref": "#/components/schemas/CheckResultOutput.jsonld"
+              },
+              "since": {
+                "description": "Start of the active reporting event, Unix seconds",
+                "type": "integer"
+              }
+            }
+          }
+        ],
+        "description": "State of one first-level KPI of a Business Activity, now or at a past instant.\nComplements the Business Activity timeline, which gives the status of the BA:\nthis resource gives the status of its KPIs. Read from the BAM reporting\nhistory and the check logs."
+      },
+      "Kpi": {
+        "type": "object",
+        "description": "State of one first-level KPI of a Business Activity, now or at a past instant.\nComplements the Business Activity timeline, which gives the status of the BA:\nthis resource gives the status of its KPIs. Read from the BAM reporting\nhistory and the check logs.",
+        "properties": {
+          "kpi_id": {
+            "description": "KPI identifier",
+            "type": "integer"
+          },
+          "name": {
+            "description": "Label of the KPI, as written by the BAM reporting (e.g. \"<host> <service>\" for a service KPI); null for a KPI absent from the BAM reporting dimension (deleted or disabled since)",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "description": "KPI type; null when it cannot be determined any more (KPI deleted from the configuration and absent from the BAM reporting dimension)",
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "service",
+              "meta-service",
+              "business-activity",
+              "boolean-rule",
+              "anomaly-detection",
+              null
+            ]
+          },
+          "ba_target_id": {
+            "description": "Targeted Business Activity of a business-activity KPI; null for any other type",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "status": {
+            "$ref": "#/components/schemas/KpiStatusOutput"
+          },
+          "in_downtime": {
+            "description": "Whether the KPI is in downtime (or was, at `at`), from the active reporting event",
+            "type": "boolean"
+          },
+          "impact": {
+            "$ref": "#/components/schemas/KpiImpactOutput"
+          },
+          "is_impacting": {
+            "description": "Whether the KPI impacts its Business Activity (applied impact > 0)",
+            "type": "boolean"
+          },
+          "attempt": {
+            "description": "Check attempt; null for a business-activity or boolean-rule KPI, or when the type is unknown",
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CheckAttemptOutput"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "output": {
+            "$ref": "#/components/schemas/CheckResultOutput"
+          },
+          "since": {
+            "description": "Start of the active reporting event, Unix seconds",
+            "type": "integer"
+          }
+        }
+      },
+      "KpiStatusOutput.jsonld": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "severity_code": {
+            "type": "integer"
+          }
+        }
+      },
+      "KpiImpactOutput.jsonld": {
+        "type": "object",
+        "properties": {
+          "applied": {
+            "description": "Impact level historised on the active reporting event; null when not recorded",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "configured": {
+            "$ref": "#/components/schemas/ConfiguredImpactOutput.jsonld"
+          }
+        }
+      },
+      "CheckAttemptOutput.jsonld": {
+        "type": "object",
+        "properties": {
+          "current": {
+            "description": "Check attempt, from the service alert of the KPI status (see output); null when no such alert is found",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "max": {
+            "description": "Maximum check attempts of the monitored resource, as last known (not historised); null when the resource cannot be resolved (KPI absent from the BAM reporting dimension, or service unknown to the realtime database)",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        }
+      },
+      "CheckResultOutput.jsonld": {
+        "type": "object",
+        "properties": {
+          "available": {
+            "description": "Whether the check output is available",
+            "type": "boolean"
+          },
+          "text": {
+            "description": "Check output; null when not available",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "state_type": {
+            "description": "State type of the check result; null when not available or not recorded",
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "SOFT",
+              "HARD",
+              null
+            ]
+          },
+          "reason": {
+            "description": "Why the check output is not available: \"not_applicable\" for a business-activity or boolean-rule KPI, \"resource_not_found\" when the monitored resource of the KPI cannot be resolved (unknown type, KPI absent from the BAM reporting dimension, or service unknown to the realtime database), \"not_retained\" when no service alert of the KPI status is found (purged logs, or latest alert of another status); null when available",
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "not_applicable",
+              "resource_not_found",
+              "not_retained",
+              null
+            ]
+          }
+        }
+      },
+      "KpiStatusOutput": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "severity_code": {
+            "type": "integer"
+          }
+        }
+      },
+      "KpiImpactOutput": {
+        "type": "object",
+        "properties": {
+          "applied": {
+            "description": "Impact level historised on the active reporting event; null when not recorded",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "configured": {
+            "$ref": "#/components/schemas/ConfiguredImpactOutput"
+          }
+        }
+      },
+      "CheckAttemptOutput": {
+        "type": "object",
+        "properties": {
+          "current": {
+            "description": "Check attempt, from the service alert of the KPI status (see output); null when no such alert is found",
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "max": {
+            "description": "Maximum check attempts of the monitored resource, as last known (not historised); null when the resource cannot be resolved (KPI absent from the BAM reporting dimension, or service unknown to the realtime database)",
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        }
+      },
+      "CheckResultOutput": {
+        "type": "object",
+        "properties": {
+          "available": {
+            "description": "Whether the check output is available",
+            "type": "boolean"
+          },
+          "text": {
+            "description": "Check output; null when not available",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "state_type": {
+            "description": "State type of the check result; null when not available or not recorded",
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "SOFT",
+              "HARD",
+              null
+            ]
+          },
+          "reason": {
+            "description": "Why the check output is not available: \"not_applicable\" for a business-activity or boolean-rule KPI, \"resource_not_found\" when the monitored resource of the KPI cannot be resolved (unknown type, KPI absent from the BAM reporting dimension, or service unknown to the realtime database), \"not_retained\" when no service alert of the KPI status is found (purged logs, or latest alert of another status); null when available",
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "not_applicable",
+              "resource_not_found",
+              "not_retained",
+              null
+            ]
+          }
+        }
+      },
+      "ConfiguredImpactOutput.jsonld": {
+        "type": "object",
+        "properties": {
+          "warning": {
+            "description": "Impact applied when the KPI is WARNING, in the configuration applied at the last reload; null for a boolean rule",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "critical": {
+            "description": "Impact applied when the KPI is CRITICAL, in the configuration applied at the last reload; for a boolean rule, its single impact (Boolean Business Impact), applied when its expression returns the configured state",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "unknown": {
+            "description": "Impact applied when the KPI is UNKNOWN, in the configuration applied at the last reload; null for a boolean rule",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        }
+      },
+      "ConfiguredImpactOutput": {
+        "type": "object",
+        "properties": {
+          "warning": {
+            "description": "Impact applied when the KPI is WARNING, in the configuration applied at the last reload; null for a boolean rule",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "critical": {
+            "description": "Impact applied when the KPI is CRITICAL, in the configuration applied at the last reload; for a boolean rule, its single impact (Boolean Business Impact), applied when its expression returns the configured state",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "unknown": {
+            "description": "Impact applied when the KPI is UNKNOWN, in the configuration applied at the last reload; null for a boolean rule",
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        }
+      },
+      "ListBusinessViewsResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Id of the business view",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "name of the business view",
+            "example": "BV1"
+          },
+          "description": {
+            "type": "string",
+            "description": "description of the business view",
+            "example": "bv 1"
+          },
+          "is_enabled": {
+            "type": "boolean",
+            "description": "if the business view is enabled",
+            "example": true
+          }
+        }
+      },
+      "Meta": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "description": "Number of the paginated page",
+            "example": 1
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Number of items per page",
+            "example": 10
+          },
+          "search": {
+            "type": "object",
+            "description": "Search parameter passed to URL"
+          },
+          "sort_by": {
+            "type": "object",
+            "description": "Sort parameter passed to URL"
+          },
+          "total": {
+            "type": "integer",
+            "description": "Number of items found",
+            "example": 1
+          }
+        }
+      },
+      "FindBusinessActivityResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Id of the business activity",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "name of the business activity",
+            "example": "BA1"
+          },
+          "is_activated": {
+            "type": "boolean",
+            "description": "if the business activity is enabled",
+            "example": true
+          },
+          "description": {
+            "type": "string",
+            "description": "description of the business activity",
+            "example": "ba 1"
+          },
+          "icon": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "Id of the icon",
+                "example": 1
+              },
+              "name": {
+                "type": "string",
+                "description": "name of the icon",
+                "example": "linux.png"
+              },
+              "url": {
+                "type": "string",
+                "description": "url of the icon",
+                "example": "/centreon/img/media/ppm/linux.png"
+              }
+            }
+          },
+          "business_views": {
+            "type": "array",
+            "description": "business views linked to the business activity",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Id of the business view",
+                  "example": 1
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name of the business view",
+                  "example": "BV-name"
+                }
+              }
+            }
+          },
+          "monitoring_servers": {
+            "type": "array",
+            "description": "monitoring servers linked to the business activity",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Id of the monitoring servers",
+                  "example": 1
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name of the monitoring servers",
+                  "example": "monitoring-server-name"
+                }
+              }
+            }
+          },
+          "geo_coordinates": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Geographic coordinates of the business view",
+            "example": "48.10,12.5"
+          },
+          "map_view": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Associated infrastructure view name",
+            "example": "map-view-name"
+          },
+          "notification": {
+            "type": "object",
+            "properties": {
+              "is_activated": {
+                "type": "boolean",
+                "description": "if the notifications are activated for this business activity",
+                "example": true
+              },
+              "options": {
+                "type": "integer",
+                "description": "Events to notifiy as a bit flag.\n\nThe value is the sum of all the values of the selected options.\n\n* `1` - RECOVERY\n* `2` - WARNING\n* `4` - CRITICAL\n* `8` - FLAPPING\n\nexample: A value equal to 5 corresponds to the selected options CRITICAL and RECOVERY\n",
+                "example": 12
+              },
+              "interval": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "description": "Notification interval (* 60 seconds)",
+                "example": 5
+              },
+              "timeperiod": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": "Id of the timeperiod",
+                    "example": 1
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "name of the timeperiod",
+                    "example": "24x7"
+                  }
+                }
+              },
+              "first_delay": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "description": "First notification delay (*60 seconds)",
+                "example": 5
+              },
+              "recovery_delay": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "description": "Recovery notification delay (*60 seconds)",
+                "example": 5
+              },
+              "contact_groups": {
+                "type": "array",
+                "description": "contact groups to notify",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Id of the contact group",
+                      "example": 1
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name of the contact group",
+                      "example": "Supervisor"
+                    }
+                  }
+                }
+              },
+              "escalations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Id of the notification",
+                      "example": 1
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name of the notification",
+                      "example": "escalation-name"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "reporting": {
+            "type": "object",
+            "properties": {
+              "service_level_agreement": {
+                "type": "object",
+                "properties": {
+                  "percentage": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "description": "SLA percentage",
+                    "example": 80
+                  },
+                  "duration": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "description": "SLA duration",
+                    "example": 90
+                  }
+                }
+              },
+              "service_level_objective": {
+                "type": "object",
+                "properties": {
+                  "percentage": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "description": "SLO percentage",
+                    "example": 90
+                  },
+                  "duration": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "description": "SLO duration",
+                    "example": 120
+                  }
+                }
+              },
+              "timeperiods": {
+                "type": "object",
+                "properties": {
+                  "default": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "Id of the timeperiod",
+                        "example": 1
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name of the timeperiod",
+                        "example": "24x7"
+                      }
+                    }
+                  },
+                  "extra": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "description": "Id of the timeperiod",
+                          "example": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name of the timeperiod",
+                          "example": "24x7"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "event_handler": {
+            "type": "object",
+            "properties": {
+              "is_activated": {
+                "type": "boolean",
+                "description": "if the event handler is activated for thi business activity",
+                "example": true
+              },
+              "command": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "description": "Event handler command",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "description": "Id of the command",
+                    "example": 1
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "name of the command",
+                    "example": "command-name"
+                  }
+                }
+              }
+            }
+          },
+          "indicator": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "calculation_method": {
+                    "type": "integer",
+                    "description": "Calculation method for the indicators\n\nOne of the following value:\n  * 1 - BestStatus\n  * 2 - WorstStatus\n",
+                    "example": 1
+                  },
+                  "downtime_option": {
+                    "type": "integer",
+                    "description": "Indicates how planned downtimes should by handled\n\nOne of the following value:\n  * 0 - Downtime is ignored\n  * 1 - Downtime is inherited\n  * 2 - Indicator is ignored in the calculation\n",
+                    "example": 1
+                  },
+                  "indicators": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "uuid": {
+                          "type": "string",
+                          "description": "Uuid of the indicator",
+                          "example": "h13-s56"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name of the indicator",
+                          "example": "Centreon-Server - Ping"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "calculation_method": {
+                    "type": "integer",
+                    "description": "Calculation method for the indicators\n\nOne of the following value:\n  * 3 - Ratio (by percentage)\n  * 4 - Ratio (by number)\n",
+                    "example": 3
+                  },
+                  "is_percentage": {
+                    "type": "boolean",
+                    "description": "if the calculation method use percentage",
+                    "example": true
+                  },
+                  "downtime_option": {
+                    "type": "integer",
+                    "description": "Indicates how planned downtimes should by handled\n\nOne of the following value:\n  * 0 - Downtime is ignored\n  * 1 - Downtime is inherited\n  * 2 - Indicator is ignored in the calculation\n",
+                    "example": 1
+                  },
+                  "indicators": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "uuid": {
+                          "type": "string",
+                          "description": "Uuid of the indicator",
+                          "example": "h13-s56"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name of the indicator",
+                          "example": "Centreon-Server - Ping"
+                        }
+                      }
+                    }
+                  },
+                  "threshold": {
+                    "type": "object",
+                    "properties": {
+                      "warning": {
+                        "type": "number",
+                        "description": "Warning threshold value",
+                        "example": 70
+                      },
+                      "critical": {
+                        "type": "number",
+                        "description": "Critical threshold value",
+                        "example": 80
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "calculation_method": {
+                    "type": "integer",
+                    "description": "Calculation method for the indicators\n\nOne of the following value:\n  * 0 - Impact\n",
+                    "example": 0
+                  },
+                  "downtime_option": {
+                    "type": "integer",
+                    "description": "Indicates how planned downtimes should by handled\n\nOne of the following value:\n  * 0 - Downtime is ignored\n  * 1 - Downtime is inherited\n  * 2 - Indicator is ignored in the calculation\n",
+                    "example": 1
+                  },
+                  "indicators": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "uuid": {
+                          "type": "string",
+                          "description": "Uuid of the indicator",
+                          "example": "h13-s56"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "name of the indicator",
+                          "example": "Centreon-Server - Ping"
+                        }
+                      }
+                    }
+                  },
+                  "threshold": {
+                    "type": "object",
+                    "properties": {
+                      "warning": {
+                        "type": "number",
+                        "description": "Warning threshold value",
+                        "example": 70
+                      },
+                      "critical": {
+                        "type": "number",
+                        "description": "Critical threshold value",
+                        "example": 80
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "ListIndicatorsResponse": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "description": "Unique identifier of the indicator",
+            "example": "h10-s20"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the indicator",
+            "example": "Centreon-Server - Ping"
+          },
+          "type": {
+            "type": "string",
+            "description": "Long version of the indicator type name",
+            "example": "service"
+          },
+          "short_type": {
+            "type": "string",
+            "description": "Short version of the indicator type name",
+            "example": "s"
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "Indicates if the indicator is enabled in the configuration",
+            "example": true
+          },
+          "resource": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "ID of the resource behind the indicator",
+                "example": 20
+              },
+              "parent_id": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "description": "ID of the parent resource behind the indicator",
+                "example": 10
+              }
+            }
+          }
+        }
+      },
+      "ListImpactsResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "boolean",
+            "example": true
+          },
+          "result": {
+            "type": "object",
+            "properties": {
+              "entitities": {
+                "type": "array",
+                "description": "List of impacts",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "impact Id",
+                      "example": 1
+                    },
+                    "impact": {
+                      "type": "string",
+                      "description": "impact value (percentage)",
+                      "example": 75
+                    },
+                    "color": {
+                      "type": "string",
+                      "description": "impact color in hexadecimal format",
+                      "example": "#ff0000"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "impact name",
+                      "example": "Blocking"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "pagination": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer",
+                "description": "Total number of impacts",
+                "example": 5
+              },
+              "offset": {
+                "type": "integer",
+                "description": "Offset of the impacts list (page -1)",
+                "example": 0
+              },
+              "limit": {
+                "type": "integer",
+                "description": "Number of element per page",
+                "example": 10
+              }
+            }
+          }
+        }
+      },
+      "BusinessActivityTreeResponse": {
+        "type": "object",
+        "required": [],
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "Business Activity"
+            ],
+            "example": "Business Activity"
+          },
+          "calculation_method": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "is_percentage": {
+                "type": "boolean"
+              },
+              "value": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          },
+          "indicators": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "host_id",
+                "calculation_method",
+                "indicators"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "Business Activity",
+                    "Service",
+                    "Meta Service",
+                    "Boolean Rule",
+                    "Anomaly Detection"
+                  ],
+                  "description": "Type of the indicator",
+                  "example": "Service"
+                },
+                "id": {
+                  "type": "number",
+                  "description": "ID of the indicator"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name of the indicator"
+                },
+                "status": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "description": "Status of the indicator"
+                },
+                "host_id": {
+                  "type": "number",
+                  "description": "property only for type \"Service\", ID of the Parent Host"
+                },
+                "host_name": {
+                  "type": "string",
+                  "description": "property only for type \"Service\", Name of the Parent Host"
+                },
+                "calculation_method": {
+                  "type": "object",
+                  "description": "optional property, only for type \"Business Activity\", calculation method of the Business Activity",
+                  "properties": {
+                    "id": {
+                      "type": "number",
+                      "description": "ID of the calculation method"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Name of the calculation method"
+                    },
+                    "is_percentage": {
+                      "type": "boolean",
+                      "description": "Is the result of the calculation is in percentage or not"
+                    },
+                    "value": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "description": "Value of the calculation method"
+                    }
+                  }
+                },
+                "indicators": {
+                  "type": "array",
+                  "description": "optional property, only for type \"Business Activity\", same properties as parent indicators"
+                }
+              }
+            }
+          }
+        }
+      },
+      "FindBusinessViewsResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Business View ID",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Business View name",
+            "example": "Applications - France"
+          }
+        }
+      },
+      "FindBusinessActivitiesResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Business View ID",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Business View name",
+            "example": "Applications - France"
+          },
+          "status": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "integer",
+                "description": "Status of the Business Activity",
+                "example": 0
+              },
+              "name": {
+                "type": "string",
+                "description": "Human readable status for Business Activity",
+                "example": "OK"
+              },
+              "severity_code": {
+                "type": "integer",
+                "description": "Severity of the Business Activity status",
+                "example": 1
+              }
+            }
+          },
+          "business_views": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "ID of the Business View",
+                "example": 1
+              },
+              "name": {
+                "type": "string",
+                "description": "Name of the Business View",
+                "example": "Business-View1"
+              }
+            }
+          }
+        }
+      },
+      "FindRealTimeIndicatorsResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Indicator ID",
+            "example": 1
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of indicator",
+            "example": "Service"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the indicator",
+            "example": "Ping"
+          },
+          "impact": {
+            "type": "integer",
+            "description": "Impact of the indicator",
+            "example": 50
+          },
+          "details": {
+            "type": "string",
+            "description": "Output of the indicator",
+            "example": "(Execute command failed)\\n"
+          },
+          "is_in_downtime": {
+            "type": "boolean",
+            "description": "Indicates if the indicator is in downtime",
+            "example": false
+          },
+          "is_acknowledged": {
+            "type": "boolean",
+            "description": "Indicates if the indicator is acknowledged",
+            "example": false
+          },
+          "status": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "integer",
+                "description": "Status of the indicator",
+                "example": 0
+              },
+              "name": {
+                "type": "string",
+                "description": "Human readable status for the indicator",
+                "example": "OK"
+              },
+              "severity_code": {
+                "type": "integer",
+                "description": "Severity of the indicator status",
+                "example": 1
+              }
+            }
+          },
+          "business_activity": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "ID of the Business Activity",
+                "example": 1
+              },
+              "name": {
+                "type": "string",
+                "description": "Name of the Business Activity",
+                "example": "BA1"
+              }
+            }
+          },
+          "resource": {
+            "type": "object",
+            "description": "Centreon resource including boolean rules",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "ID of the resource associated to the indicator",
+                "example": 1
+              },
+              "name": {
+                "type": "string",
+                "description": "Name of the resource associated to the indicator",
+                "example": "Ping"
+              },
+              "parent_id": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "description": "Name of the parent of the resource associated to the indicator",
+                "example": 10
+              },
+              "parent_name": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "ID of the parent of the resource associated to the indicator",
+                "example": "Central-Server"
+              }
+            }
+          }
+        }
+      },
+      "FindBusinessActivityStatusesResponse": {
+        "type": "object",
+        "properties": {
+          "critical": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer"
+              }
+            }
+          },
+          "unknown": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer"
+              }
+            }
+          },
+          "ok": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer"
+              }
+            }
+          },
+          "down": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer"
+              }
+            }
+          },
+          "pending": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer"
+              }
+            }
+          },
+          "total": {
+            "type": "integer"
+          }
+        }
+      },
+      "FindRealTimeIndicatorStatusesResponse": {
+        "type": "object",
+        "properties": {
+          "ok": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer"
+              }
+            }
+          },
+          "warning": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer"
+              }
+            }
+          },
+          "critical": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer"
+              }
+            }
+          },
+          "unknown": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer"
+              }
+            }
+          },
+          "pending": {
+            "type": "object",
+            "properties": {
+              "total": {
+                "type": "integer"
+              }
+            }
+          },
+          "total": {
+            "type": "integer"
+          }
+        }
+      },
+      "FindBusinessActivityResponse-2": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "ID of the Business Activity",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the Business Activity",
+            "example": "BA1"
+          },
+          "status": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the status",
+                "example": "OK"
+              },
+              "code": {
+                "type": "integer",
+                "description": "Code of the status",
+                "example": 0
+              },
+              "severity_code": {
+                "type": "integer",
+                "description": "Severity code of the status",
+                "example": 5
+              }
+            }
+          },
+          "infrastructure_view": {
+            "type": "string",
+            "description": "Name of the infrastructure view that contains the Business Activity",
+            "example": "Geoview1"
+          },
+          "calculation_method": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number",
+                "description": "ID of the calculation method",
+                "example": 1
+              },
+              "name": {
+                "type": "string",
+                "description": "Name of the calculation method",
+                "example": "Ratio"
+              },
+              "is_percentage": {
+                "type": "boolean",
+                "description": "Indicates if the thresholds are expressed as percentage",
+                "example": false
+              },
+              "critical_threshold": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "example": 70
+              },
+              "health": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "example": 70
+              },
+              "warning_threshold": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "example": 80
+              }
+            }
+          },
+          "current_level": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "example": 0
+          },
+          "inherit_kpi_downtimes": {
+            "type": "integer",
+            "example": 1
+          },
+          "indicators": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Indicator ID",
+                  "example": 1
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Type of indicator",
+                  "example": "Service"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Name of the indicator",
+                  "example": "Ping"
+                },
+                "status": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer",
+                      "description": "Status of the indicator",
+                      "example": 0
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Human readable status for the indicator",
+                      "example": "OK"
+                    },
+                    "severity_code": {
+                      "type": "integer",
+                      "description": "Severity of the indicator status",
+                      "example": 1
+                    }
+                  }
+                },
+                "impact": {
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "warning": {
+                      "type": "number",
+                      "description": "Affecting percentage for an indicator warning status"
+                    },
+                    "critical": {
+                      "type": "number",
+                      "description": "Affecting percentage for an indicator critical status"
+                    },
+                    "unknown": {
+                      "type": "number",
+                      "description": "Affecting percentage for an indicator unknown status"
+                    }
+                  }
+                },
+                "resource": {
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "ID of the resource associated to the indicator",
+                      "example": 1
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Name of the resource associated to the indicator",
+                      "example": "Ping"
+                    },
+                    "parent_id": {
+                      "type": "integer",
+                      "description": "Name of the parent of the resource associated to the indicator",
+                      "example": 10
+                    },
+                    "parent_name": {
+                      "type": "string",
+                      "description": "ID of the parent of the resource associated to the indicator",
+                      "example": "Central-Server"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "FindBusinessActivityImpactingIndicatorsResponse": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "Indicator ID",
+              "example": 3
+            },
+            "type": {
+              "type": "string",
+              "description": "Indicator type",
+              "example": "Service"
+            },
+            "name": {
+              "type": "string",
+              "description": "Name or label of the indicator",
+              "example": "testba1"
+            },
+            "impact": {
+              "type": "number",
+              "description": "Impact value or percentage",
+              "example": 75
+            },
+            "details": {
+              "type": "string",
+              "description": "Additional info or details/output about the indicator",
+              "example": "(Execute command failed)"
+            },
+            "is_in_downtime": {
+              "type": "boolean",
+              "description": "Indicates if the indicator is in downtime",
+              "example": false
+            },
+            "is_acknowledged": {
+              "type": "boolean",
+              "description": "Indicates if the indicator is acknowledged",
+              "example": false
+            },
+            "status": {
+              "type": "object",
+              "description": "Current status information for the indicator",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "description": "Numeric status code",
+                  "example": 3
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Human-readable name for the status",
+                  "example": "UNKNOWN"
+                },
+                "severity_code": {
+                  "type": "integer",
+                  "description": "Numeric severity code",
+                  "example": 3
+                }
+              }
+            },
+            "business_activity": {
+              "type": "object",
+              "description": "Minimal information about the related business activity",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Business activity ID",
+                  "example": 2
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Business activity name",
+                  "example": "testba2"
+                }
+              }
+            },
+            "resource": {
+              "type": "object",
+              "description": "Information about the linked resource",
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Resource ID",
+                  "example": 1
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Resource name",
+                  "example": "testba1"
+                },
+                "parent_id": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Parent resource ID if any",
+                  "example": null
+                },
+                "parent_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "Name of the parent resource if any",
+                  "example": null
+                }
+              }
+            }
+          }
+        }
+      },
+      "FindBooleanRuleDetailsResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "ID of the boolean rule",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the boolean rule",
+            "example": "boolean-rule-1"
+          },
+          "status": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "integer",
+                "description": "Status of the boolean rule",
+                "example": 0
+              },
+              "name": {
+                "type": "string",
+                "description": "Human readable status for the boolean rule",
+                "example": "OK"
+              },
+              "severity_code": {
+                "type": "integer",
+                "description": "Severity of the boolean rule status",
+                "example": 1
+              }
+            }
+          },
+          "is_impacting_when_expression_true": {
+            "type": "boolean",
+            "description": "Indicates which expression status will impact the Business Activity",
+            "example": true
+          },
+          "expression_status": {
+            "type": "boolean",
+            "description": "Indicates the boolean rule expression status",
+            "example": true
+          }
+        }
+      },
+      "FindBusinessActivityTimelineResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Business Activity ID",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Business Activity name",
+            "example": "Marketing Web App"
+          },
+          "timeline": {
+            "type": "array",
+            "description": "List of events within the specified time period",
+            "items": {
+              "type": "object",
+              "properties": {
+                "critical": {
+                  "type": "object",
+                  "properties": {
+                    "start": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Start timestamp for the event",
+                      "example": "2023-10-01T12:00:00+02:00"
+                    },
+                    "end": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "End timestamp for the event",
+                      "example": "2023-10-01T12:30:00+02:00"
+                    }
+                  }
+                },
+                "unknown": {
+                  "type": "object",
+                  "properties": {
+                    "start": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Start timestamp for the event",
+                      "example": "2023-10-01T13:30:00+02:00"
+                    },
+                    "end": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "End timestamp for the event",
+                      "example": "2023-10-01T14:00:00+02:00"
+                    }
+                  }
+                },
+                "ok": {
+                  "type": "object",
+                  "properties": {
+                    "start": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Start timestamp for the event",
+                      "example": "2023-10-01T14:00:00+02:00"
+                    },
+                    "end": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "End timestamp for the event",
+                      "example": "2023-10-01T14:30:00+02:00"
+                    }
+                  }
+                },
+                "down": {
+                  "type": "object",
+                  "properties": {
+                    "start": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Start timestamp for the event",
+                      "example": "2023-10-01T14:30:00+02:00"
+                    },
+                    "end": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "End timestamp for the event",
+                      "example": "2023-10-01T15:00:00+02:00"
+                    }
+                  }
+                },
+                "pending": {
+                  "type": "object",
+                  "properties": {
+                    "start": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Start timestamp for the event",
+                      "example": "2023-10-01T15:00:00+02:00"
+                    },
+                    "end": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "End timestamp for the event",
+                      "example": "2023-10-01T15:30:00+02:00"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "Limit": {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "description": "Number of items per page",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 10,
+          "example": 20
+        }
+      },
+      "Page": {
+        "in": "query",
+        "name": "page",
+        "required": false,
+        "description": "Number of the requested page",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 1,
+          "example": 4
+        }
+      },
+      "Search": {
+        "in": "query",
+        "name": "search",
+        "required": false,
+        "schema": {
+          "type": "string"
+        },
+        "description": "Retrieve only data matching the defined search value.\nA simple search can be done like in the following example ``` search={\"host.name\":\"Central\"} ```\nA complex search can be done with aggregators and operators.\nAvailable search aggregators are:\n  * `$or`\n  * `$and`\n\nAvailable search operators are:\n  * `$eq` → equal\n  * `$neq` → not equal\n  * `$lt` → less than\n  * `$le` → less or equal than\n  * `$gt` → greater than\n  * `$ge` → greater or equal than\n  * `$lk` → like\n  * `$nk` → not like\n  * `$in` → in\n  * `$ni` → not in\n  * `$rg` → regex\n\nExamples without nested aggregators:\n  ```\n  search={\n    \"$or\":[\n      {\"host.name\":{\"$eq\":\"name_1\"}},\n      {\"host.name\":{\"$eq\":\"name_2\"}}\n    ]\n  }\n  ```\n  ```\n  search={\n    \"$and\":[\n      {\"host.address\":{\"$rg\":\"^10\\.0\\.0\\.\\d+$\"}},\n      {\"host.name\":{\"$lk\":\"fr%\"}}\n    ]\n  }\n  ```\n\nExample with nested aggregators:\n  ```\n  search={\n    \"$or\":[\n      {\n        \"$and\":[\n          {\"host.address\":{\"$rg\":\"^10\\.0\\.0\\.\\d+$\"}},\n          {\"host.name\":{\"$lk\":\"fr%\"}}\n        ]\n      },\n      {\n        \"$and\":[\n          {\"host.address\":{\"$rg\":\"^192\\.168\\.0\\.\\d+$\"}},\n          {\"host.name\":{\"$lk\":\"us%\"}}\n        ]\n      }\n    ]\n  }\n  ```\n"
+      },
+      "SortBy": {
+        "in": "query",
+        "name": "sort_by",
+        "required": false,
+        "description": "Sort the resulting data by its properties",
+        "schema": {
+          "type": "string",
+          "example": "{\"host.name\":\"ASC\"}"
+        }
+      },
+      "BusinessActivityId": {
+        "in": "path",
+        "name": "id",
+        "required": true,
+        "description": "Business activity ID",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "example": 1
+        }
+      }
+    },
+    "responses": {
+      "Forbidden": {
+        "description": "Forbidden",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "format": "int64",
+                  "example": 403
+                },
+                "message": {
+                  "type": "string",
+                  "example": "You are not authorized to access this resource"
+                }
+              }
+            }
+          }
+        }
+      },
+      "InternalServerError": {
+        "description": "Internal Server Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "format": "int64",
+                  "example": 500
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Internal Server Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "Indicates that the server did not find the target resource.\n",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "integer",
+                  "format": "int64",
+                  "example": 404
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Service not found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "NoContent": {
+        "description": "Indicates that the server has successfully fulfilled the request and that there is no additional content to send \nin the response payload body.\n"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "BusinessActivity",
+      "description": "Paginated Business Activities configuration listing. It lives at the same\npath as the removed legacy listing endpoint\n(/bam/configuration/business-activities), so it replaces it seamlessly.\nSearch and sort accept the legacy fields: id, name, description, is_enabled.\nPagination uses the shared page / itemsPerPage parameters; the response is the\nstandard Hydra collection (member / totalItems)."
+    },
+    {
+      "name": "Timeline",
+      "description": "One status band of a Business Activity timeline. The GetCollection is\nserved on the bare /api prefix only and reads from the reporting history\n(mod_bam_reporting_ba_events, subject to the configured reporting retention)\ninstead of the RRD graph status. It\ncohabits with the legacy /api/latest/.../timeline endpoint, kept until the\nfront is migrated off it. The window defaults to the last 24 h and is capped\nat 30 days; the series is not paginated."
+    },
+    {
+      "name": "Tree",
+      "description": "Resource 'Tree' operations."
+    },
+    {
+      "name": "Kpi",
+      "description": "State of one first-level KPI of a Business Activity, now or at a past instant.\nComplements the Business Activity timeline, which gives the status of the BA:\nthis resource gives the status of its KPIs. Read from the BAM reporting\nhistory and the check logs."
+    }
+  ]
+}

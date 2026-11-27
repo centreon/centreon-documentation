@@ -1,0 +1,113 @@
+# =============================================================================
+#  Sync of the OpenAPI specs of the API reference (openapi/), see
+#  tools/api-reference/README.md.
+#
+#  - Weekly: the documentations whose spec moves (the next version, on the
+#    develop branches; Log Management, published on each push of
+#    centreon-pulse). Released versions are pinned to a tag in
+#    openapi/sources.yaml: they only change when the tag is changed there.
+#  - By hand (workflow_dispatch): the documentations to sync, or all.
+#
+#  When a spec changes, a pull request is opened (or updated) on the branch
+#  api-sync/specs, with the report of the sync: endpoints added and removed,
+#  and what the product specs need fixed.
+#
+#  Secret API_SYNC_TOKEN: a token that can read centreon/centreon-modules
+#  (private), and push and open pull requests in this repository. Pull
+#  requests opened with the default GITHUB_TOKEN do not start the other
+#  workflows (no preview), hence this token.
+# =============================================================================
+name: api-sync
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      versions:
+        description: Documentations to sync, separated by spaces (keys of openapi/sources.yaml), empty for all
+        type: string
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: api-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          token: ${{ secrets.API_SYNC_TOKEN }}
+
+      - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+        with:
+          version: 10
+          run_install: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: |
+          pnpm install \
+            --frozen-lockfile \
+            --config.trustPolicy=no-downgrade \
+            --config.minimumReleaseAge=2880 \
+            --config.blockExoticSubdeps=true
+
+      - name: Sync the specs
+        id: sync
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.API_SYNC_TOKEN }}
+          # Weekly: the documentations whose spec moves.
+          VERSIONS: ${{ github.event_name == 'schedule' && '27.10 saas' || inputs.versions }}
+        run: |
+          # shellcheck disable=SC2086 # VERSIONS is a list
+          pnpm --silent api:sync $VERSIONS 2>&1 | tee sync-report.txt
+          if git diff --quiet -- openapi/; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open or update the pull request
+        if: steps.sync.outputs.changed == 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.API_SYNC_TOKEN }}
+          BRANCH: api-sync/specs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$BRANCH"
+          git add openapi/
+          git commit -m "API reference: sync the OpenAPI specs"
+          git push --force origin "$BRANCH"
+
+          {
+            echo "Specs synced from the product repositories by \`pnpm api:sync\` (workflow api-sync)."
+            echo
+            echo "Check the preview of the API reference, then merge."
+            echo
+            echo '```text'
+            # A pull request body is limited to 65536 characters.
+            head -c 60000 sync-report.txt
+            echo '```'
+          } > pr-body.md
+
+          if [ -n "$(gh pr list --head "$BRANCH" --state open --json number --jq '.[].number')" ]; then
+            gh pr edit "$BRANCH" --body-file pr-body.md
+          else
+            gh pr create --base staging --head "$BRANCH" \
+              --title "API reference: sync the OpenAPI specs" --body-file pr-body.md
+          fi

@@ -1,0 +1,1480 @@
+/*
+ * API reference: method badges of the sidebar, and the endpoint pages
+ * (generated in <docs>/api/reference/, see tools/api-reference/), on top of
+ * the styles of docusaurus-theme-openapi-docs.
+ */
+
+/* HTTP method badges in front of the endpoints of the sidebar */
+.menu__list-item.api-method > .menu__link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.menu__list-item.api-method > .menu__link::before {
+  flex: none;
+  width: 3.1rem;
+  padding: 0.12rem 0;
+  border-radius: 4px;
+  color: #fff;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.menu__list-item.api-method.get > .menu__link::before {
+  content: 'get';
+  background-color: #0e8a5f;
+}
+
+.menu__list-item.api-method.post > .menu__link::before {
+  content: 'post';
+  background-color: #2f5cf0;
+}
+
+.menu__list-item.api-method.put > .menu__link::before {
+  content: 'put';
+  background-color: #b26a00;
+}
+
+.menu__list-item.api-method.patch > .menu__link::before {
+  content: 'patch';
+  background-color: #7c4dce;
+}
+
+.menu__list-item.api-method.delete > .menu__link::before {
+  content: 'del';
+  background-color: #d0312d;
+}
+
+.menu__list-item.api-method.head > .menu__link::before {
+  content: 'head';
+  background-color: #5f6b7a;
+}
+
+/* The "Edit" button of the base URL is always visible (the theme shows it on
+   hover only): readers set the address of their platform there. */
+.openapi-explorer__floating-btn:has(.openapi-explorer__server-url) button {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Request that did not reach the server: the error replaces the
+   placeholder of the response panel (see theme/ApiExplorer/Response). */
+.api-response--failed .openapi-explorer__response-placeholder-message {
+  display: none;
+}
+
+.api-response-error {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.api-response-error code {
+  overflow-wrap: anywhere;
+}
+
+.api-response-error ul {
+  margin-bottom: 0.5rem;
+}
+
+/* Base URL being edited: the resulting URL */
+.api-server-preview {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+/* ======================================================================
+   ENDPOINT PAGES
+   Every rule is scoped to .api-page (the html element of a page that holds
+   the content of an endpoint, see the :has() below), so that the other
+   pages of the docs are not affected.
+   ====================================================================== */
+
+html:has(.theme-api-markdown),
+html:has(.api-badges) {
+  --api-border: var(--ifm-color-emphasis-300);
+  --api-surface: #f6f6fb;
+  --api-muted: var(--ifm-color-emphasis-700);
+  --api-label: var(--ifm-color-emphasis-600);
+  --api-radius: 8px;
+  --api-code-bg: #0b0b3f;
+  --api-code-fg: #e9e9ff;
+  --api-code-muted: #8f8fc2;
+  --api-get: #0e8a5f;
+  --api-post: #2f5cf0;
+  --api-put: #b26a00;
+  --api-patch: #7c4dce;
+  --api-delete: #d0312d;
+  --api-required: #c0392b;
+  --api-success: #1f7a3d;
+  /* Status codes, by class */
+  --api-status-2xx: #1f7a3d;
+  --api-status-3xx: #2f5cf0;
+  --api-status-4xx: #b25e00;
+  --api-status-5xx: #c62b27;
+}
+
+html[data-theme='dark']:has(.theme-api-markdown),
+html[data-theme='dark']:has(.api-badges) {
+  --api-surface: rgba(255, 255, 255, 0.04);
+  --api-code-bg: #05052a;
+  --api-required: #ff6b5e;
+  --api-success: #2e9e55;
+  --api-status-2xx: #3fb56a;
+  --api-status-3xx: #7d9bff;
+  --api-status-4xx: #f0a040;
+  --api-status-5xx: #ff6b5e;
+}
+
+/* The content spans the width of the column: the description and the right
+   column side by side (no table of contents on these pages). The text column
+   of the other pages (48rem, see custom.css) would squeeze the right column
+   and cut the URL and the code samples. */
+html:has(.theme-api-markdown) .theme-doc-markdown.markdown,
+html:has(.theme-api-markdown) .theme-doc-footer,
+html:has(.theme-api-markdown) .pagination-nav {
+  max-width: 96rem;
+}
+
+/* Small uppercase labels, as in the design */
+.api-access__label,
+.api-on-this-page__title,
+.theme-api-markdown .openapi-markdown__details-summary-header-params,
+.theme-api-markdown .openapi-markdown__details > summary h3,
+.theme-api-markdown .openapi-markdown__details > summary strong:not(.openapi-schema__property) {
+  color: var(--api-label);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- Header: badges, title, description ---------- */
+/* "API reference" on the left, the API and its version on the right */
+.api-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.api-badge {
+  padding: 0.1rem 0.55rem;
+  border: 1px solid var(--api-border);
+  border-radius: 999px;
+  background: var(--api-surface);
+  color: var(--api-muted);
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.theme-api-markdown h1.openapi__heading {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.api-lead {
+  margin-bottom: 1.25rem;
+  color: var(--api-muted);
+  font-size: 1.05rem;
+}
+
+.api-lead > :last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Method and path ---------- */
+.api-method-badge {
+  flex: none;
+  min-width: 3.6rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background: var(--ifm-color-emphasis-600);
+  color: #fff;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.api-method-badge--get { background: var(--api-get); }
+.api-method-badge--post { background: var(--api-post); }
+.api-method-badge--put { background: var(--api-put); }
+.api-method-badge--patch { background: var(--api-patch); }
+.api-method-badge--delete { background: var(--api-delete); }
+
+.api-endpoint {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--api-border);
+  border-radius: var(--api-radius);
+  background: var(--ifm-background-color);
+  box-shadow: 0 1px 2px rgba(0, 0, 61, 0.06);
+}
+
+.theme-api-markdown code.api-endpoint__path {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ifm-font-color-base);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.api-endpoint__param {
+  color: var(--ifm-color-primary);
+  font-weight: 700;
+}
+
+html[data-theme='dark'] .api-endpoint__param {
+  color: var(--ifm-color-green);
+}
+
+.api-copy {
+  flex: none;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--api-border);
+  border-radius: 6px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.api-copy:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+/* ---------- Cloud notice ---------- */
+.api-notice {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--ifm-color-green);
+  border-radius: 0 var(--api-radius) var(--api-radius) 0;
+  background: var(--api-surface);
+  font-size: 0.85rem;
+}
+
+.api-notice__icon {
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+}
+
+.api-notice__text {
+  flex: 1;
+  margin: 0;
+}
+
+.api-notice__link {
+  flex: none;
+  font-weight: 600;
+}
+
+/* ---------- Authentication and base URL ---------- */
+/* One row per item, the label on the left and the value on the right, so
+   that a long value (the URL) fits on one line */
+.api-access {
+  margin-bottom: 2rem;
+  border: 1px solid var(--api-border);
+  border-radius: var(--api-radius);
+  background: var(--api-surface);
+  box-shadow: 0 1px 3px rgba(0, 0, 61, 0.08);
+}
+
+.api-access__item {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  column-gap: 1rem;
+  align-items: baseline;
+  min-width: 0;
+  padding: 0.6rem 1rem;
+}
+
+.api-access__item + .api-access__item {
+  border-top: 1px solid var(--api-border);
+}
+
+.api-access__label {
+  margin: 0;
+}
+
+.api-access__value {
+  min-width: 0;
+  color: var(--api-muted);
+  font-size: 0.85rem;
+}
+
+.theme-api-markdown .api-access code {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 0.8rem;
+}
+
+.theme-api-markdown code.api-access__url {
+  display: block;
+  color: var(--api-muted);
+  overflow-wrap: anywhere;
+}
+
+/* Phones: the label above the value */
+@media (max-width: 576px) {
+  .api-access__item {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.3rem;
+  }
+}
+
+/* ---------- Request and responses ---------- */
+.theme-api-markdown h2.openapi-tabs__heading,
+.theme-api-markdown .openapi-tabs__response-header {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.4rem;
+}
+
+/* No tree lines: the parameters and the properties are tables */
+.theme-api-markdown .openapi-left-panel__container .openapi-markdown__details,
+.theme-api-markdown .openapi-left-panel__container .openapi-schema__list-item,
+.theme-api-markdown .openapi-left-panel__container .openapi-params__list-item {
+  border-left: 0;
+}
+
+.theme-api-markdown .openapi-left-panel__container .openapi-markdown__details > div > div {
+  border-left: 0;
+}
+
+.theme-api-markdown .openapi-left-panel__container ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.theme-api-markdown .openapi-left-panel__container .openapi-schema__list-item::before,
+.theme-api-markdown .openapi-left-panel__container .openapi-params__list-item::before,
+.theme-api-markdown .openapi-left-panel__container .openapi-schema__container::before {
+  display: none;
+}
+
+/* Rows: a line with the name, the type and the badges, then the
+   description, values and example under it, over the full width */
+.theme-api-markdown .openapi-params__list-item,
+.theme-api-markdown .openapi-schema__list-item > div:not([class]) {
+  margin: 0;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  font-size: 0.85rem;
+}
+
+.theme-api-markdown .openapi-schema__list-item {
+  margin: 0;
+  padding: 0;
+}
+
+.theme-api-markdown .openapi-params__list-item > *,
+.theme-api-markdown .openapi-schema__list-item > div:not([class]) > * {
+  min-width: 0;
+  margin: 0 0 0.2rem;
+}
+
+.theme-api-markdown .openapi-params__list-item > .openapi-schema__container,
+.theme-api-markdown .openapi-schema__list-item > div:not([class]) > .openapi-schema__container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.6rem;
+  margin: 0 0 0.4rem;
+}
+
+.theme-api-markdown .openapi-schema__container > .openapi-schema__type,
+.theme-api-markdown .openapi-schema__container > .openapi-schema__name {
+  color: var(--api-muted);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 1;
+}
+
+.theme-api-markdown .openapi-schema__container > .openapi-schema__divider {
+  display: none;
+}
+
+.theme-api-markdown .openapi-schema__property {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.82rem;
+  overflow-wrap: anywhere;
+}
+
+/* Required and nullable: small framed badges */
+.theme-api-markdown .openapi-schema__required,
+.theme-api-markdown .openapi-schema__nullable,
+.theme-api-markdown .openapi-schema__deprecated {
+  padding: 0 0.35rem;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.theme-api-markdown .openapi-schema__required {
+  color: var(--api-required);
+}
+
+.theme-api-markdown .openapi-schema__nullable {
+  color: var(--api-label);
+}
+
+/* Values and examples, in small monospace */
+.theme-api-markdown .openapi-example,
+.theme-api-markdown .openapi-params__list-item > p:has(> strong),
+.theme-api-markdown .openapi-schema__list-item > div:not([class]) > p:has(> strong) {
+  color: var(--api-muted);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.72rem;
+}
+
+.theme-api-markdown .openapi-example strong,
+.theme-api-markdown .openapi-params__list-item > p > strong {
+  font-weight: 500;
+}
+
+.theme-api-markdown .openapi-left-panel__container code {
+  font-size: 0.72rem;
+}
+
+/* Collapsible objects (a property with properties): a row like the other
+   properties (name, type and badges at the same place), with the chevron at
+   its right end instead of before the name */
+.theme-api-markdown .openapi-schema__list-item > details,
+.theme-api-markdown .openapi-schema__list-item > div > details {
+  margin: 0;
+  padding: 0.8rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 0;
+  background: none;
+}
+
+.theme-api-markdown .openapi-left-panel__container details details {
+  padding-left: 1rem;
+}
+
+.theme-api-markdown .openapi-left-panel__container .openapi-schema__list-item > details,
+.theme-api-markdown .openapi-left-panel__container .openapi-schema__list-item > div > details {
+  padding-left: 0;
+}
+
+.theme-api-markdown .openapi-schema__list-item > details > summary,
+.theme-api-markdown .openapi-schema__list-item > div > details > summary {
+  position: relative;
+  padding: 0 1.75rem 0 0;
+  font-size: 0.85rem;
+  list-style: none;
+  cursor: pointer;
+}
+
+.theme-api-markdown .openapi-schema__list-item > details > summary::before,
+.theme-api-markdown .openapi-schema__list-item > div > details > summary::before {
+  top: 0.3rem;
+  right: 0.25rem;
+  left: auto;
+}
+
+/* Its content: a little space under the row */
+.theme-api-markdown .openapi-schema__list-item > details > div,
+.theme-api-markdown .openapi-schema__list-item > div > details > div {
+  margin-top: 0.4rem;
+}
+
+/* Sections (path parameters, body, schema): label and no frame */
+.theme-api-markdown .openapi-markdown__details {
+  margin: 0 0 1.25rem;
+}
+
+.theme-api-markdown .openapi-markdown__details > summary {
+  margin-bottom: 0.5rem;
+}
+
+/* Content type and schema / example tabs: small framed pills */
+.theme-api-markdown .openapi-left-panel__container .tabs-container .tabs {
+  gap: 0.4rem;
+  width: fit-content;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.theme-api-markdown .openapi-left-panel__container .tabs-container .tabs__item {
+  padding: 0.2rem 0.65rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: none;
+  color: var(--api-muted);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: none;
+}
+
+.theme-api-markdown .openapi-left-panel__container .tabs-container .tabs__item--active,
+.theme-api-markdown .openapi-left-panel__container .tabs-container .tabs__item.active {
+  border-color: var(--ifm-color-primary);
+  background: none;
+  color: var(--ifm-color-primary);
+}
+
+/* Bodies (request and responses): a card. A header bar with the content type
+   on the left and the schema / example switch on the right, then the
+   properties or the example. The switch is in the panel of the content type:
+   it is placed in the header bar, over its right end. */
+.theme-api-markdown .openapi-left-panel__container .tabs-container:has(> .tabs__container > .openapi-tabs__mime-container) {
+  --api-card-head: 2.75rem;
+  position: relative;
+  margin: 0 0 1.5rem;
+  border: 1px solid var(--api-border);
+  border-radius: var(--api-radius);
+  background: var(--ifm-background-color);
+  overflow: hidden;
+}
+
+.theme-api-markdown .openapi-left-panel__container .tabs-container > .tabs__container:has(> .openapi-tabs__mime-container) {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: var(--api-card-head);
+  margin: 0;
+  padding: 0 1rem;
+  border-bottom: 1px solid var(--api-border);
+  background: var(--api-surface);
+}
+
+.theme-api-markdown .openapi-left-panel__container .openapi-tabs__mime-container {
+  margin: 0;
+}
+
+.theme-api-markdown .openapi-left-panel__container .tabs-container:has(> .tabs__container > .openapi-tabs__mime-container) .margin-top--md {
+  /* Infima's margin-top--md is !important in a cascade layer, which wins over
+     any !important rule outside a layer: the wrapper is left out of the
+     layout instead, and the panel inside gets the padding */
+  display: contents;
+}
+
+/* The content type: a label, framed when there are several to choose from */
+.theme-api-markdown .openapi-left-panel__container .openapi-tabs__mime-item {
+  color: var(--ifm-font-color-base);
+}
+
+.theme-api-markdown .openapi-left-panel__container .openapi-tabs__mime-item:only-child {
+  padding-left: 0;
+  border-color: transparent !important;
+  color: var(--ifm-font-color-base) !important;
+  cursor: default;
+}
+
+/* Schema / example: a segmented switch, in the header bar */
+.theme-api-markdown .openapi-left-panel__container .openapi-tabs__schema-tabs-container {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: var(--api-card-head);
+  margin: 0 !important;
+  overflow: visible;
+}
+
+.theme-api-markdown .openapi-left-panel__container .tabs-container .openapi-tabs__schema-list-container {
+  gap: 0;
+  padding: 2px;
+  border: 1px solid var(--api-border);
+  border-radius: 6px;
+  background: var(--ifm-background-color);
+  overflow: visible;
+}
+
+.theme-api-markdown .openapi-left-panel__container .tabs-container .openapi-tabs__schema-item {
+  margin: 0 !important;
+  padding: 0.12rem 0.6rem;
+  border: 0;
+  border-radius: 4px;
+}
+
+.theme-api-markdown .openapi-left-panel__container .tabs-container .openapi-tabs__schema-item.active {
+  background: var(--ifm-color-primary);
+  color: #fff;
+}
+
+html[data-theme='dark'] .theme-api-markdown .openapi-left-panel__container .tabs-container .openapi-tabs__schema-item.active {
+  color: #05052a;
+}
+
+/* The content: properties or example */
+.theme-api-markdown .openapi-left-panel__container .openapi-tabs__schema-container > .margin-top--md > [role='tabpanel'] {
+  padding: 0.25rem 1rem;
+}
+
+.theme-api-markdown .openapi-left-panel__container .openapi-tabs__schema-container .openapi-markdown__details:is(.mime, .response) {
+  margin: 0;
+  padding: 0; /* of the "alert" class of Docusaurus details */
+  border: 0;
+  background: none;
+}
+
+/* "Schema": the tab already says it. "Body" stays when it is required. */
+.theme-api-markdown .openapi-left-panel__container .openapi-markdown__details:is(.mime, .response) > summary:not(:has(.openapi-schema__required)) {
+  display: none !important; /* the theme forces display: flex !important */
+}
+
+/* No space of the collapsible content above the first property */
+.theme-api-markdown .openapi-left-panel__container .openapi-markdown__details:is(.mime, .response) [class*='collapsibleContent'] {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+/* No line under the last property: the card closes the list (the
+   properties are in the list, or in a wrapper in the list) */
+.theme-api-markdown .openapi-left-panel__container .openapi-markdown__details:is(.mime, .response) > div > div > ul > .openapi-schema__list-item:last-child > :is(div, details),
+.theme-api-markdown .openapi-left-panel__container .openapi-markdown__details:is(.mime, .response) > div > div > ul > div:last-child > .openapi-schema__list-item:last-child > :is(div, details) {
+  padding-bottom: 0.3rem;
+  border-bottom: 0;
+}
+
+/* The example: its code block in the card, with the same space above and
+   below it (the theme puts 2rem above the container of the block) */
+.theme-api-markdown .openapi-left-panel__container .openapi-tabs__schema-container [class*='openapi-code__code-samples'] {
+  margin-top: 0;
+}
+
+.theme-api-markdown .openapi-left-panel__container .openapi-tabs__schema-container [class*='codeBlockContainer'] {
+  margin: 0.6rem 0;
+  box-shadow: none;
+}
+
+/* Responses: the title, then the status codes on one row of pills, of the
+   same size and evenly spaced (the theme caps the row at 390px, which wraps
+   it, and adds a margin to the right of each pill) */
+.theme-api-markdown .openapi-tabs__response-header-section {
+  display: block;
+}
+
+.theme-api-markdown .openapi-tabs__response-container {
+  max-width: none;
+  margin-bottom: 1rem;
+  overflow: visible;
+}
+
+.theme-api-markdown .openapi-tabs__response-container .openapi-tabs__response-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  overflow: visible;
+}
+
+.theme-api-markdown .openapi-tabs__response-code-item {
+  --api-status: var(--api-status-2xx);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 !important;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--api-border);
+  border-radius: 6px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+  opacity: 1;
+}
+
+/* The class of the code: a dot, and the color of the selected pill */
+.theme-api-markdown .openapi-tabs__response-code-item::before {
+  content: '';
+  width: 0.45rem;
+  height: 0.45rem;
+  flex: none;
+  border-radius: 50%;
+  background: var(--api-status);
+}
+
+.theme-api-markdown .openapi-tabs__response-code-item.api-status--3xx {
+  --api-status: var(--api-status-3xx);
+}
+
+.theme-api-markdown .openapi-tabs__response-code-item.api-status--4xx {
+  --api-status: var(--api-status-4xx);
+}
+
+.theme-api-markdown .openapi-tabs__response-code-item.api-status--5xx {
+  --api-status: var(--api-status-5xx);
+}
+
+.theme-api-markdown .openapi-tabs__response-code-item:hover:not(.active) {
+  border-color: var(--api-status);
+  background: var(--ifm-background-color);
+}
+
+.theme-api-markdown .openapi-tabs__response-code-item.active,
+.theme-api-markdown .openapi-tabs__response-code-item.active.danger,
+.theme-api-markdown .openapi-tabs__response-code-item.active.success,
+.theme-api-markdown .openapi-tabs__response-code-item.active.info {
+  border-color: var(--api-status);
+  background: var(--api-status);
+  color: #fff;
+}
+
+.theme-api-markdown .openapi-tabs__response-code-item.active::before {
+  background: currentColor;
+}
+
+/* Dark mode: light status colors, so dark text on the selected pill */
+html[data-theme='dark'] .theme-api-markdown .openapi-tabs__response-code-item.active {
+  color: #05052a;
+}
+
+.theme-api-markdown .openapi-tabs__response-container .tabs__nav-item,
+.theme-api-markdown .openapi-tabs__response-container button.tabs__arrow,
+.theme-api-markdown .openapi-tabs__response-container .openapi-tabs__arrow {
+  display: none;
+}
+
+/* What the selected response means: a title, and an explanation */
+.api-response-summary {
+  --api-status: var(--api-status-2xx);
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--api-border);
+  border-left: 3px solid var(--api-status);
+  border-radius: var(--api-radius);
+  background: var(--api-surface);
+  font-size: 0.85rem;
+}
+
+.api-response-summary--3xx {
+  --api-status: var(--api-status-3xx);
+}
+
+.api-response-summary--4xx {
+  --api-status: var(--api-status-4xx);
+}
+
+.api-response-summary--5xx {
+  --api-status: var(--api-status-5xx);
+}
+
+.api-response-summary__title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.api-response-summary__code {
+  color: var(--api-status);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8rem;
+}
+
+.api-response-summary__text {
+  margin: 0;
+}
+
+.api-response-summary__text + .api-response-summary__text {
+  margin-top: 0.3rem;
+}
+
+.api-response-summary__text p {
+  margin: 0;
+}
+
+.api-response-summary__hint {
+  color: var(--api-muted);
+}
+
+/* Previous and next endpoints: compact buttons */
+html:has(.theme-api-markdown) .pagination-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+html:has(.theme-api-markdown) .pagination-nav__link {
+  flex: 0 1 auto;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--api-border);
+  border-radius: 6px;
+}
+
+html:has(.theme-api-markdown) .pagination-nav__link--next {
+  margin-left: auto;
+}
+
+html:has(.theme-api-markdown) .pagination-nav__sublabel {
+  display: none;
+}
+
+html:has(.theme-api-markdown) .pagination-nav__label {
+  font-size: 0.85rem;
+  text-decoration: underline;
+}
+
+/* ---------- Right column ---------- */
+/* All of it shown, in the scroll of the page: the theme makes it sticky,
+   with a scroll of its own once it is taller than the window */
+.theme-api-markdown .openapi-right-panel__container {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: none;
+  overflow: visible;
+}
+
+.theme-api-markdown .openapi-right-panel__container > * {
+  margin: 0;
+}
+
+/* Order: on this page, authorization, code samples, response example, then
+   the request and response panels. */
+.theme-api-markdown .openapi-right-panel__container > .api-response-example {
+  order: 1;
+}
+
+.theme-api-markdown .openapi-right-panel__container > form,
+.theme-api-markdown .openapi-right-panel__container > form ~ * {
+  order: 2;
+}
+
+/* On this page */
+.api-on-this-page ul {
+  margin: 0.5rem 0 0;
+  padding: 0;
+  border-left: 1px solid var(--api-border);
+  list-style: none;
+}
+
+.api-on-this-page li a {
+  display: block;
+  padding: 0.2rem 0.85rem;
+  color: var(--api-muted);
+  font-size: 0.85rem;
+}
+
+.api-on-this-page li:first-child a {
+  margin-left: -1px;
+  border-left: 2px solid var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+/* Panels of the right column: frame, header in small uppercase */
+.theme-api-markdown .openapi-right-panel__container > details,
+.theme-api-markdown .openapi-explorer__request-form,
+.theme-api-markdown .openapi-explorer__response-container {
+  border: 1px solid var(--api-border);
+  border-radius: var(--api-radius);
+  background: var(--ifm-background-color);
+}
+
+.theme-api-markdown .openapi-security__summary-header,
+.theme-api-markdown .openapi-explorer__request-title,
+.theme-api-markdown .openapi-explorer__response-title,
+.theme-api-markdown .openapi-explorer__request-header-container button,
+.theme-api-markdown .openapi-explorer__response-header-container button {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Send the request: a full-width dark button */
+.theme-api-markdown .openapi-explorer__request-btn {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: 0;
+  border-radius: 6px;
+  background: var(--ifm-color-dark);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: none;
+}
+
+html[data-theme='dark'] .theme-api-markdown .openapi-explorer__request-btn {
+  background: var(--ifm-color-primary);
+}
+
+/* Code samples and response example: dark panels */
+.theme-api-markdown .openapi-right-panel__container > .openapi-tabs__code-container,
+.api-response-example {
+  padding: 0.75rem;
+  border-radius: 10px;
+  background: var(--api-code-bg);
+  color: var(--api-code-fg);
+}
+
+.theme-api-markdown .openapi-tabs__code-container .openapi-tabs__code-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem;
+  margin: 0 0 0.6rem;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.theme-api-markdown .openapi-tabs__code-container .openapi-tabs__code-item {
+  min-width: 0;
+  margin: 0;
+  padding: 0.3rem 0.55rem;
+  border: 0;
+  border-radius: 5px;
+  background: none;
+  box-shadow: none;
+  color: var(--api-code-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: none;
+}
+
+.theme-api-markdown .openapi-tabs__code-container .openapi-tabs__code-item::after {
+  display: none;
+}
+
+.theme-api-markdown .openapi-tabs__code-container .openapi-tabs__code-item > span {
+  display: inline;
+}
+
+.theme-api-markdown .openapi-tabs__code-container .openapi-tabs__code-item.active {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.theme-api-markdown .openapi-tabs__code-container-inner .openapi-tabs__code-item {
+  padding: 0.2rem 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.theme-api-markdown .openapi-tabs__code-container .margin-top--md {
+  margin-top: 0 !important;
+}
+
+/* Code blocks of the dark panels: dark background and light tokens (the
+   highlighting theme of the site is a light one) */
+.theme-api-markdown .openapi-tabs__code-container .theme-code-block,
+.api-response-example .theme-code-block {
+  margin: 0;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03) !important;
+  box-shadow: none;
+  --prism-background-color: transparent;
+}
+
+.theme-api-markdown .openapi-tabs__code-container pre,
+.theme-api-markdown .openapi-tabs__code-container code,
+.api-response-example pre,
+.api-response-example code {
+  background: transparent !important;
+  color: var(--api-code-fg) !important;
+  font-size: 0.75rem;
+}
+
+.theme-api-markdown .openapi-tabs__code-container .token-line,
+.theme-api-markdown .openapi-tabs__code-container .token,
+.api-response-example .token-line,
+.api-response-example .token {
+  color: var(--api-code-fg) !important;
+}
+
+.theme-api-markdown .openapi-tabs__code-container .token.string,
+.api-response-example .token.string,
+.api-response-example .token.property {
+  color: #ff9bd2 !important;
+}
+
+.theme-api-markdown .openapi-tabs__code-container .token.function,
+.theme-api-markdown .openapi-tabs__code-container .token.keyword,
+.api-response-example .token.number,
+.api-response-example .token.boolean {
+  color: #7fe3c5 !important;
+}
+
+.theme-api-markdown .openapi-tabs__code-container .token.punctuation,
+.theme-api-markdown .openapi-tabs__code-container .token.operator,
+.api-response-example .token.punctuation {
+  color: var(--api-code-muted) !important;
+}
+
+.theme-api-markdown .openapi-tabs__code-container .codeLineNumber,
+.api-response-example [class*='codeLineNumber'],
+.theme-api-markdown .openapi-tabs__code-container [class*='codeLineNumber'] {
+  color: var(--api-code-muted) !important;
+}
+
+.api-response-example [class*='codeBlockTitle'] {
+  padding: 0.25rem 0.25rem 0.6rem;
+  border: 0;
+  background: none;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* The whole example, without a scroll of its own (except sideways, for
+   long lines) */
+.api-response-example [class*='codeBlockContent'] {
+  max-height: none;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+/* Copy buttons of the dark panels */
+.theme-api-markdown .openapi-tabs__code-container button,
+.api-response-example button {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+/* ---------- Overrides of the theme (it sets them with !important) ---------- */
+/* No tree lines nor indent in the tables */
+.theme-api-markdown .openapi-left-panel__container .openapi-params__list-item,
+.theme-api-markdown .openapi-left-panel__container .openapi-schema__list-item {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  border-left: 0 !important;
+}
+
+/* Nested properties (objects): a small indent and a light guide */
+.theme-api-markdown .openapi-left-panel__container .openapi-schema__list-item details .openapi-schema__list-item {
+  padding-left: 0.75rem !important;
+  border-left: 1px solid var(--ifm-color-emphasis-200) !important;
+}
+
+/* No line between the request and the responses */
+.theme-api-markdown .openapi-tabs__response-header-section {
+  border-top: 0;
+}
+
+/* Line numbers of the code samples: no background of their own */
+.theme-api-markdown .openapi-explorer__code-block-code-line-number {
+  background: transparent;
+  color: var(--api-code-muted);
+}
+
+/* Line numbers of the dark panels (code samples, response example): a narrow
+   gutter, the numbers aligned on the right (the theme and Docusaurus put
+   1rem on each side, on top of the padding of the panel) */
+.theme-api-markdown .openapi-explorer__code-block-code-line-number,
+.api-response-example [class*='codeLineNumber'] {
+  padding-right: 0.75rem !important;
+  padding-left: 0.25rem !important;
+  text-align: right;
+}
+
+/* Reading time and last update: not relevant for an endpoint, nor for the
+   "Get started" pages (their date is the one of the generator) */
+html:has(.theme-api-markdown) article > div[class^='meta_'],
+html:has(.api-badges) article > div[class^='meta_'] {
+  display: none;
+}
+
+/* Code samples: readable tabs on the dark panel */
+.theme-api-markdown .openapi-tabs__code-container .openapi-tabs__code-item,
+.theme-api-markdown .openapi-tabs__code-container .openapi-tabs__code-item > span {
+  color: #c4c4ec;
+  opacity: 1;
+}
+
+.theme-api-markdown .openapi-tabs__code-container .openapi-tabs__code-item.active,
+.theme-api-markdown .openapi-tabs__code-container .openapi-tabs__code-item.active > span {
+  color: #fff;
+}
+
+/* Authorization: a framed header, as the other panels */
+.theme-api-markdown .openapi-security__details {
+  overflow: hidden;
+}
+
+.theme-api-markdown .openapi-security__summary-container {
+  background: var(--ifm-background-color);
+}
+
+/* The right column is sticky and scrolls on its own (theme): its blocks keep
+   their height instead of shrinking to fit it */
+.theme-api-markdown .openapi-right-panel__container > * {
+  flex-shrink: 0;
+}
+
+/* Code samples: compact tabs on one or two lines, labels as written */
+.theme-api-markdown .openapi-tabs__code-container .openapi-tabs__code-item {
+  flex: 0 0 auto !important;
+  min-width: 0 !important;
+}
+
+.theme-api-markdown .openapi-tabs__code-container .openapi-tabs__code-item > span {
+  padding: 0;
+  text-transform: none;
+}
+
+/* Between the request and the responses: the usual space of a section */
+.theme-api-markdown .openapi-left-panel__container .openapi-tabs__response-header {
+  margin-top: 1rem;
+}
+
+/* Responses: no extra space above the section (the theme adds a margin and a
+   padding to separate it with a line, removed above) */
+.theme-api-markdown .openapi-tabs__response-header-section {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Code samples: the name of each language as written (the theme shows its
+   key, in capitals) */
+.theme-api-markdown .openapi-tabs__code-list-container:not(.openapi-tabs__code-container-inner) .openapi-tabs__code-item {
+  padding: 0.3rem 0.55rem !important;
+}
+
+.theme-api-markdown .openapi-tabs__code-list-container:not(.openapi-tabs__code-container-inner) .openapi-tabs__code-item > span {
+  font-size: 0;
+}
+
+.theme-api-markdown .openapi-tabs__code-list-container:not(.openapi-tabs__code-container-inner) .openapi-tabs__code-item > span::before {
+  font-size: 0.72rem;
+}
+
+.openapi-tabs__code-item--curl > span::before { content: 'cURL'; }
+.openapi-tabs__code-item--http > span::before { content: 'HTTP'; }
+.openapi-tabs__code-item--python > span::before { content: 'Python'; }
+.openapi-tabs__code-item--nodejs > span::before { content: 'Node.js'; }
+.openapi-tabs__code-item--php > span::before { content: 'PHP'; }
+.openapi-tabs__code-item--go > span::before { content: 'Go'; }
+.openapi-tabs__code-item--java > span::before { content: 'Java'; }
+.openapi-tabs__code-item--powershell > span::before { content: 'PowerShell'; }
+.openapi-tabs__code-item--rust > span::before { content: 'Rust'; }
+
+/* Body: its "required" badge next to the title */
+.theme-api-markdown .openapi-markdown__details-summary-header-body {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.theme-api-markdown .openapi-markdown__details-summary-header-body > .openapi-schema__required {
+  display: inline-block;
+  margin: 0;
+}
+
+/* Response panel, before a request: the hint in French on French pages (the
+   theme does not translate it) */
+html[lang='fr'] .theme-api-markdown .openapi-explorer__response-placeholder-message {
+  font-size: 0;
+}
+
+html[lang='fr'] .theme-api-markdown .openapi-explorer__response-placeholder-message::after {
+  content: 'Cliquez sur « Envoyer la requête » pour voir la réponse ici.';
+  font-size: 0.8rem;
+}
+
+/* The theme indents the status codes and the properties of the bodies and
+   schemas by 1rem: aligned with the rest of the content */
+.theme-api-markdown .openapi-tabs__response-container {
+  padding-left: 0;
+}
+
+.theme-api-markdown .openapi-left-panel__container .openapi-markdown__details ul {
+  margin-left: 0 !important;
+}
+
+.theme-api-markdown .openapi-left-panel__container .openapi-schema__list-item details ul {
+  margin-left: 0.25rem !important;
+}
+
+html[lang='fr'] .theme-api-markdown .openapi-explorer__response-placeholder-message > * {
+  display: none;
+}
+
+/* Phones */
+@media (max-width: 576px) {
+  .api-endpoint {
+    flex-wrap: wrap;
+  }
+}
+
+/* Dark panels: no frame of the theme, and no background behind the line
+   numbers (dark mode of the site) */
+.theme-api-markdown .openapi-right-panel__container > .openapi-tabs__code-container {
+  border: 0;
+}
+
+.api-response-example [class*='codeLineNumber'] {
+  background: transparent !important;
+}
+
+/* Tabs: the same border in every state, so that hovering one does not
+   change its size and move the others (the theme adds a border on hover) */
+.theme-api-markdown .openapi-tabs__code-container .openapi-tabs__code-item,
+.theme-api-markdown .openapi-tabs__code-container .openapi-tabs__code-item:hover {
+  border: 1px solid transparent !important;
+}
+
+.theme-api-markdown .openapi-tabs__code-container .openapi-tabs__code-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.theme-api-markdown .openapi-tabs__code-container-inner .openapi-tabs__code-item,
+.theme-api-markdown .openapi-tabs__code-container-inner .openapi-tabs__code-item:hover {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.theme-api-markdown .openapi-tabs__code-container .openapi-tabs__code-item:focus-visible {
+  outline: 2px solid var(--ifm-color-green);
+  outline-offset: 1px;
+}
+
+/* Copy button: the same width before and after the copy ("Copy" /
+   "Copied"), so that the path next to it does not move */
+.api-copy {
+  min-width: 4.75rem;
+  text-align: center;
+}
+
+/* ---------- The "search" parameter (SearchHelp) ---------- */
+.api-search__lead {
+  margin: 0 0 0.4rem;
+}
+
+.theme-api-markdown code.api-search__simple {
+  display: inline-block;
+  font-size: 0.75rem;
+}
+
+.api-search__toggle {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.6rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ifm-color-primary);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Chevron: right when closed, down when open */
+.api-search__toggle::before {
+  content: '';
+  width: 0.4rem;
+  height: 0.4rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 150ms;
+}
+
+.api-search__toggle[aria-expanded='true']::before {
+  transform: rotate(45deg);
+}
+
+.api-search__toggle:hover {
+  text-decoration: underline;
+}
+
+.api-search__body {
+  margin-top: 0.6rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--api-border);
+  border-radius: var(--api-radius);
+  background: var(--api-surface);
+}
+
+.theme-api-markdown .api-search__title {
+  margin: 0.9rem 0 0.4rem;
+  color: var(--api-label);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.theme-api-markdown .api-search__title:first-child {
+  margin-top: 0;
+}
+
+/* Operators: code and meaning, in columns that fill the width */
+.api-search__ops {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 0.3rem 1.25rem;
+  margin: 0;
+}
+
+.api-search__ops > div {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.api-search__ops dt {
+  flex: none;
+  width: 3rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+.api-search__ops dd {
+  margin: 0;
+  color: var(--api-muted);
+}
+
+.api-search__note,
+.api-search__caption {
+  margin: 0.5rem 0 0;
+  color: var(--api-muted);
+  font-size: 0.8rem;
+}
+
+.api-search__caption {
+  margin-bottom: 0.4rem;
+}
+
+.api-search [class*='codeBlockContainer'] {
+  margin: 0 0 0.5rem;
+  border: 1px solid var(--api-border);
+  box-shadow: none;
+}
+
+.api-search [class*='codeBlockContainer'],
+.api-search [class*='codeBlockContainer'] pre {
+  background: var(--ifm-background-color) !important;
+}
+
+.api-search [class*='codeBlockContainer'] code {
+  font-size: 0.72rem;
+}
+
+/* ---------- Properties for search and sort_by (ApiSearchFields) ---------- */
+.api-fields {
+  margin: -1rem 0 2rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--api-border);
+  border-radius: var(--api-radius);
+  background: var(--api-surface);
+}
+
+.api-fields__label {
+  margin-bottom: 0.5rem;
+  color: var(--api-label);
+  font-size: 0.8rem;
+}
+
+.theme-api-markdown .api-fields__label code {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ifm-font-color-base);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+/* The properties: chips that fill the lines */
+.theme-api-markdown ul.api-fields__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.theme-api-markdown .api-fields__list li {
+  margin: 0;
+}
+
+.theme-api-markdown .api-fields__list code {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--api-border);
+  border-radius: 4px;
+  background: var(--ifm-background-color);
+  font-size: 0.72rem;
+}
+
+/* ---------- "Get started" pages: status list and search syntax ---------- */
+ul.api-status-list {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+ul.api-status-list > li.api-response-summary {
+  margin: 0;
+}
+
+.api-search.api-search__body {
+  margin: 0 0 1.5rem;
+}
+
+/* Outside the endpoint pages too (the "Get started" pages are plain docs) */
+.api-search .api-search__title {
+  margin: 0.9rem 0 0.4rem;
+  color: var(--api-label, var(--ifm-color-emphasis-600));
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.api-search .api-search__title:first-child {
+  margin-top: 0;
+}

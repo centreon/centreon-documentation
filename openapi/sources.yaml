@@ -1,0 +1,57 @@
+# Where the OpenAPI specs of the API reference come from.
+#
+# `pnpm api:sync` reads this file, takes each spec from its product repository
+# at the reference of its documentation (a release tag, or develop for the
+# next version), bundles it into one file, applies the fixes of
+# tools/api-reference/fixes.mjs, and writes openapi/centreon-<api>-<version>.json.
+# Which documentation publishes which spec: TARGETS in tools/api-reference/apis.mjs.
+#
+# To publish a release: change the ref of its version, run `pnpm api:sync`
+# and commit the specs. Never use a branch for a released version: only a tag
+# gives the API of what was shipped.
+
+# Spec of each API: in a repository (repo, path; cloudPath for the Cloud
+# documentation when it differs), or a published file (url) when the spec is
+# built from the code and not committed.
+apis:
+  web:
+    repo: centreon/centreon
+    path: centreon/doc/API/centreon-api.yaml
+    cloudPath: centreon/doc/API/centreon-cloud-api.yaml
+  autodiscovery:
+    repo: centreon/centreon-modules
+    path: centreon-autodiscovery/doc/API/centreon-autodiscovery-api.yaml
+  map:
+    repo: centreon/centreon-modules
+    path: centreon-map/doc/API/centreon-map-api.yaml
+  bam:
+    repo: centreon/centreon-modules
+    path: centreon-bam/doc/API/centreon-bam-api.yaml
+  # Built from the Rust code of centreon-pulse (private), and published by its
+  # CI on each push to develop: no file nor product tag to take it from.
+  log-management:
+    url: https://docs-api.centreon.com/api/centreon-log-management/openapi.json
+
+# Reference of each documentation, and the APIs it publishes. centreon and
+# centreon-modules share their release tags: release-onprem-<date>-<version>,
+# release-cloud-<date>-<yy.mm>.
+versions:
+  "24.10":
+    ref: release-onprem-20261100-24.10
+    apis: [web]
+  "25.10":
+    ref: release-onprem-20261100-25.10
+    apis: [web]
+  "26.10":
+    ref: release-onprem-20261001-26.10
+    apis: [web, autodiscovery, map, bam]
+  # Next version: not released yet.
+  "27.10":
+    ref: develop
+    apis: [web, autodiscovery, map, bam]
+  cloud:
+    ref: release-cloud-20261100-26.11
+    apis: [web, autodiscovery, bam]
+  # Log Management (SaaS): the published spec, no reference.
+  saas:
+    apis: [log-management]

@@ -1,0 +1,53 @@
+import { ApiConfiguration, ApiDownload } from '@site/src/components/ApiSetup';
+import { ApiStatusList } from '@site/src/components/ApiPage';
+
+The Centreon BAM REST API lets your scripts and tools work with Business Activity Monitoring: list business views, business activities and their indicators, read their real-time status and their tree, and follow the impact of each indicator.
+
+<ApiDownload spec="{{spec}}" name="Centreon BAM REST API" />
+
+## Get started in 3 steps
+
+### 1. Find your API URL
+
+The BAM API is served by your Centreon platform, with the rest of the Centreon REST API. Endpoints are relative to:
+
+```text
+{{baseUrl}}
+```
+
+:::tip Use your platform in this reference
+
+Enter its address in [Set up this reference](#configure), below: the request panel and the code samples of every endpoint page then use it.
+
+:::
+
+### 2. Get a token
+
+Create an **API token** in **Administration > Authentication tokens** (see [Authentication tokens]({{tokensDoc}})). It belongs to a user and stays valid until it expires or is revoked. The same token works with the Centreon Web REST API.
+
+### 3. Call the API
+
+Send the token in the `X-AUTH-TOKEN` header of every request. For example, to list your business activities with their real-time status:
+
+```bash
+curl -s "{{baseUrl}}/api/latest/bam/monitoring/business-activities" \
+  -H "X-AUTH-TOKEN: <token>"
+```
+
+Each call runs with the rights of the user the token belongs to.
+
+## Set up this reference {#configure}
+
+Enter the address of your platform, and your token to send requests from this reference with **Send API Request**. The request panel and the code samples of every endpoint page use them until you close this browser tab. You can also change them on any endpoint page, with **Edit** next to the base URL.
+
+<ApiConfiguration server={{{server}}} auth="{{auth}}" tokenLabel="API token" />
+
+## Errors
+
+An error returns an HTTP status code and a JSON body with a `code` and a `message` that explain it. The most common:
+
+<ApiStatusList codes={[400, 401, 403, 404, 500]} />
+
+## Tools
+
+- **OpenAPI definition**: download it with the button at the top of this page, to import the API into Postman, Bruno or Insomnia, or to generate a client.

@@ -1,0 +1,72 @@
+import { ApiConfiguration, ApiDownload } from '@site/src/components/ApiSetup';
+import { ApiStatusList } from '@site/src/components/ApiPage';
+
+L'API REST Centreon Cloud permet à vos scripts et à vos outils de configurer votre plateforme Centreon Cloud : hôtes, services et leurs modèles, groupes d'hôtes, notifications et règles d'accès aux ressources.
+
+<ApiDownload spec="{{spec}}" name="Centreon Cloud REST API" />
+
+## Démarrer en 3 étapes
+
+### 1. Trouvez l'URL de l'API
+
+Tous les endpoints de cette référence partent de l'URL de votre instance Centreon Cloud :
+
+```text
+https://<organization>.<region>.centreon.cloud/<instance-name>
+```
+
+:::tip Utilisez votre instance Centreon Cloud dans cette référence
+
+Saisissez son adresse dans [Configurer cette référence](#configure), plus bas : le panneau de requête et les exemples de code de chaque page d'endpoint l'utilisent alors.
+
+:::
+
+### 2. Obtenez un jeton
+
+Créez un **jeton d'API** dans **Administration > Jetons d'authentification** (voir [Utiliser les API Centreon Cloud]({{tokensDoc}})). Il appartient à un utilisateur et reste valide jusqu'à son expiration ou sa révocation.
+
+### 3. Appelez l'API
+
+Envoyez le jeton dans l'en-tête `X-AUTH-TOKEN` de chaque requête. Par exemple, pour lister 20 hôtes :
+
+```bash
+curl -s "https://<organization>.<region>.centreon.cloud/<instance-name>/api/latest/configuration/hosts?limit=20" \
+  -H "X-AUTH-TOKEN: <token>"
+```
+
+Chaque appel s'exécute avec les droits de l'utilisateur à qui appartient le jeton.
+
+## Configurer cette référence {#configure}
+
+Saisissez l'adresse de votre instance Centreon Cloud, et votre jeton pour envoyer des requêtes depuis cette référence avec **Envoyer la requête**. Le panneau de requête et les exemples de code de chaque page d'endpoint les utilisent jusqu'à la fermeture de cet onglet du navigateur. Vous pouvez aussi les modifier sur n'importe quelle page d'endpoint, avec **Modifier** à côté de l'URL de base.
+
+<ApiConfiguration server={{{server}}} auth="{{auth}}" tokenLabel="Jeton d'API" />
+
+## Filtrer, trier et paginer
+
+Les endpoints de liste partagent les mêmes paramètres de requête :
+
+| Paramètre | Rôle | Exemple |
+|:----------|:-----|:--------|
+| `limit` | Nombre d'éléments par page (10 par défaut) | `limit=50` |
+| `page` | Page à renvoyer, à partir de 1 | `page=2` |
+| `search` | Filtre, en JSON | `search={"name":{"$lk":"srv-%"}}` |
+| `sort_by` | Tri, en JSON | `sort_by={"name":"ASC"}` |
+
+Les listes renvoient les éléments dans `result` et la pagination dans `meta` (`page`, `limit`, `total`). Les dates sont au format ISO 8601.
+
+:::info
+
+Cette référence couvre les principaux endpoints de configuration. De nombreux endpoints de l'[API REST Centreon Web](/docs/api/reference/web/centreon-web-restapi) fonctionnent aussi sur Centreon Cloud, sauf ceux qui administrent la plateforme elle-même.
+
+:::
+
+## Erreurs
+
+Une erreur renvoie un code de statut HTTP et un corps JSON avec un `code` et un `message` qui l'expliquent. Les plus fréquentes :
+
+<ApiStatusList codes={[400, 401, 403, 404, 500]} />
+
+## Outils
+
+- **Définition OpenAPI** : téléchargez-la avec le bouton en haut de cette page, pour importer l'API dans Postman, Bruno ou Insomnia, ou pour générer un client.

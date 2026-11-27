@@ -10,9 +10,13 @@
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
-    "test": "node --test tests/plugins/*/*.test.mjs",
+    "test": "node --test tests/plugins/*/*.test.mjs tests/tools/*/*.test.mjs",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "gen-api": "node tools/api-reference/generate.mjs",
+    "api:sync": "node tools/api-reference/sync.mjs",
+    "prestart": "pnpm gen-api",
+    "prebuild": "pnpm gen-api"
   },
   "dependencies": {
     "@docusaurus/core": "^3.10.1",
@@ -26,6 +30,9 @@
     "@mdx-js/react": "^3.1.1",
     "clsx": "^2.1.1",
     "docusaurus-plugin-image-zoom": "^3.0.1",
+    "docusaurus-plugin-openapi-docs": "5.2.0",
+    "docusaurus-plugin-sass": "0.2.6",
+    "docusaurus-theme-openapi-docs": "5.2.0",
     "prism-react-renderer": "^2.4.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
@@ -33,6 +40,7 @@
     "rehype-remark": "^10.0.1",
     "remark-gfm": "^4.0.1",
     "remark-stringify": "^11.0.0",
+    "sass": "^1.107.1",
     "typeface-roboto": "^1.1.13",
     "unified": "^11.0.5"
   },
@@ -47,5 +55,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@redocly/openapi-core": "2.79.0",
+    "js-yaml": "4.1.1"
   }
 }
