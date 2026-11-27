@@ -1,12 +1,56 @@
 ---
 id: cloud-aws-ec2
-title: Amazon EC2
-description: "Monitor Amazon EC2 instances, Auto Scaling Groups, and Spot Fleet requests via the AWS API, tracking CPU, network, disk I/O, and status."
+title: Amazon EC2 monitoring
+sidebar_label: Amazon EC2
+description: "Monitor Amazon EC2 with Centreon: status checks, CPU and CPU credits, network, disk I/O, Auto Scaling groups and Spot Fleets, from the AWS API."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers. Amazon EC2’s simple web service interface allows you to obtain and configure capacity with minimal friction. It provides you with complete control of your computing resources and lets you run on Amazon’s proven computing environment.
+Monitor your Amazon EC2 instances, Auto Scaling groups and Spot Fleets with Centreon: status checks, CPU and CPU credits, network, disk I/O and inventory, collected from the AWS API, with alerts before your users notice a problem.
+
+## What is Amazon EC2?
+
+Amazon Elastic Compute Cloud (Amazon EC2) is the AWS service that runs virtual servers, called **instances**, in the cloud. You choose an instance type (CPU, memory, network), an operating system and storage (Amazon EBS volumes), and you pay for what runs. EC2 hosts a large share of the workloads deployed on AWS: websites, application back ends, databases, batch jobs, CI runners.
+
+Three ways of running instances change how you monitor them:
+
+- **Auto Scaling groups** add and remove instances to follow the load: instances come and go, the group stays.
+- **Spot Instances** use spare AWS capacity at a large discount, but AWS can reclaim them with a two-minute notice. A **Spot Fleet** keeps a target number of them running.
+- **Burstable instances** (T family: T3, T4g…) run at a baseline CPU level and spend **CPU credits** to go above it.
+
+## Why monitor Amazon EC2?
+
+AWS runs the hardware. Your instances, their size and their bill are your responsibility. Monitoring EC2 answers the questions that operations teams ask every day:
+
+- **Is the instance healthy?** Has AWS detected a problem on the underlying host, or is the instance itself unreachable?
+- **Is it the right size?** Is the CPU saturated, or are you paying for capacity you never use?
+- **Is a burstable instance about to slow down?** When its CPU credits run out, a T instance is throttled to its baseline, without any error message.
+- **Is the Auto Scaling group keeping up?** Does it run the expected number of healthy instances?
+- **What is running, and what will it cost?** How many instances, of which types and in which state, in each region?
+
+The **Amazon EC2** Monitoring Connector collects these indicators from the AWS API (EC2 and CloudWatch). Centreon displays them next to the rest of your infrastructure (on-premises servers, network, other cloud services), with the same alerts, notifications and dashboards.
+
+## What to monitor on Amazon EC2
+
+| Indicator | Why it matters | Service |
+|:----------|:---------------|:--------|
+| Status checks | The *system* check fails when AWS detects a problem on the host (hardware, power, network). The *instance* check fails when the instance itself no longer responds (operating system failure, exhausted memory, network configuration). In both cases, the application is usually down. | Ec2-Status |
+| CPU utilization | High CPU over time slows down applications. CPU that always stays low means the instance is oversized and costs more than needed. | Ec2-Cpu-Usage |
+| CPU credits (T instances) | With no credit left, a burstable instance is throttled to its baseline. In unlimited mode, it keeps bursting and AWS charges the surplus credits. | Ec2-Cpu-Credit |
+| Network traffic and packets | Shows traffic peaks, unexpected flows and instances that reach the bandwidth of their type. | Ec2-Network |
+| Disk and EBS I/O | Shows storage bottlenecks: EBS volumes have throughput and IOPS limits, and a saturated disk slows down the whole instance. | Ec2-Diskio |
+| Auto Scaling group capacity | Checks that the group runs the expected number of instances, and that they are healthy and in service. | Ec2-Asg-Status-Global |
+| Instance states and types | Counts the instances of a region by state (running, stopped, terminated…) and by type: forgotten instances and unexpected types show up before the bill does. | Ec2-Instances-Status-Global, Ec2-Instances-Types-Global |
+| Spot Fleet instances | Counts the active, healthy and unhealthy instances of a Spot Fleet request, so that you see interruptions when they happen. | EC2Spot-Active-Instances |
+
+## What to avoid
+
+- **Relying on CloudWatch alone for memory and disk space.** EC2 metrics come from the hypervisor: without the CloudWatch agent, AWS knows nothing about the memory usage or the free disk space of an instance. To see inside the operating system, also monitor the instance with the [Linux CMA](./operatingsystems-linux-centreon-monitoring-agent.md) or [Windows CMA](./operatingsystems-windows-centreon-monitoring-agent.md) connector.
+- **Polling faster than the data.** By default, EC2 sends its metrics to CloudWatch every 5 minutes (basic monitoring). One-minute data requires detailed monitoring, which AWS charges. Polling every minute with basic monitoring returns the same values and multiplies the CloudWatch API calls, which are billed beyond the free tier. Match the check interval and the `--timeframe` and `--period` options to the actual granularity.
+- **Alerting on every instance of an Auto Scaling group.** Instances are replaced all the time: alerts on each of them create noise and hosts that disappear. Monitor the group with the **Cloud-Aws-Ec2-Asg-custom** host template, keep per-instance checks for long-lived instances, and use host discovery to keep the list of instances up to date.
+- **Ignoring CPU credits.** A T instance can look quiet, with low CPU, while it is throttled at its baseline, or cost more than planned in unlimited mode. Watch the credit balance and the surplus credits charged.
+- **Using broad AWS credentials.** The connector only reads data and needs three permissions (see [Prerequisites](#prerequisites)). Give them to a dedicated user or role, never to the keys of the root account.
 
 ## Pack assets
 
