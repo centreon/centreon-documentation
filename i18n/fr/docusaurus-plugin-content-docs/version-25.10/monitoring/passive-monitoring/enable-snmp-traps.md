@@ -4,6 +4,9 @@ title: Activer les Traps SNMP
 description: "Activez les traps SNMP dans Centreon : traitement par le serveur central ou un collecteur, et configuration de snmptrapd et de centreontrapd."
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## Description
 
 Les traps SNMP sont des informations envoyées en utilisant le protocole SNMP depuis un équipement supervisé vers un
@@ -78,10 +81,45 @@ Voici l’ordre des actions réalisé par le processus centreontrapd :
 Afin d’appeler le script ‘centreontrapdfoward’, le fichier **/etc/snmp/snmptrapd.conf** doit contenir les lignes
 suivantes :
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```shell
 disableAuthorization yes
 traphandle default su -l centreon -c "/usr/share/centreon/bin/centreontrapdforward"
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+disableAuthorization yes
+traphandle default su -l centreon -c "/usr/share/centreon/bin/centreontrapdforward"
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+snmptrapd s’exécute avec l’utilisateur **Debian-snmp**, qui ne peut pas utiliser `su` : les traps sont donc transmises via `sudo` :
+
+```shell
+disableAuthorization yes
+traphandle default /usr/bin/sudo -n -u centreon /usr/share/centreon/bin/centreontrapdforward
+```
+
+Le paquet **centreon-trap** écrit cette ligne et l’autorise dans **/etc/sudoers.d/centreon-trap** :
+
+```shell
+Defaults!/usr/share/centreon/bin/centreontrapdforward env_reset
+Debian-snmp ALL = (centreon) NOPASSWD: /usr/share/centreon/bin/centreontrapdforward ""
+```
+
+> Les `""` à la fin de la règle interdisent tout argument. Conservez-les si vous écrivez la règle vous-même.
+
+Si vous avez modifié la ligne `traphandle` vous-même (le paquet affiche alors un avertissement lors de son installation ou de sa mise à jour), remplacez-la par la ligne ci-dessus, puis redémarrez snmptrapd : `systemctl restart snmptrapd`.
+
+</TabItem>
+</Tabs>
 
 Vous pouvez optimiser les performances de snmptrapd en utilisant les options suivantes :
 

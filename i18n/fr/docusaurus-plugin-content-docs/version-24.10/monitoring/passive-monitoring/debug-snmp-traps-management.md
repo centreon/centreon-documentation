@@ -4,6 +4,9 @@ title: Déboguer la gestion des traps SNMP
 description: "Déboguez le traitement des traps SNMP dans Centreon en vérifiant chaque maillon de la chaîne : émetteur, pare-feu, snmptrapd, centreontrapd et Engine."
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## Déboguer les interruptions SNMP
 
 Plusieurs éléments sont impliqués dans la gestion des traps SNMP. En cas de problème, il faut vérifier le bon
@@ -66,9 +69,31 @@ consiste à vérifier l’appel de ce processus par snmptrapd dans le fichier **
 Vérifier que le service snmptrapd appelle bien centreontrapdforward. Pour cela, éditez le fichier **/etc/snmp/snmptrapd.conf**
 et vérifiez que le fichier contient :
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```shell
 traphandle default su -l centreon -c "/usr/share/centreon/bin/centreontrapdforward"
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+traphandle default su -l centreon -c "/usr/share/centreon/bin/centreontrapdforward"
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+traphandle default /usr/bin/sudo -n -u centreon /usr/share/centreon/bin/centreontrapdforward
+```
+
+Si les logs de snmptrapd (`journalctl -u snmptrapd`) affichent `FAILED SU (to centreon) Debian-snmp`, la ligne utilise encore `su` : voir [Snmptrapd](enable-snmp-traps.md#snmptrapd). Pour vérifier la règle sudo, exécutez `sudo -l -U Debian-snmp`.
+
+</TabItem>
+</Tabs>
 
 Si l’accès au fichier est incorrect, modifiez le et redémarrez le processus snmptrapd. Vous pouvez contrôler le bon
 fonctionnement du binaire centreontrapdforward en vous rendant au chapitre de configuration de
