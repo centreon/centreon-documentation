@@ -13,9 +13,42 @@ Here are the bricks that make Centreon work. To find out on which port each bric
 <Tabs groupId="sync">
 <TabItem value="Central server with poller" label="Central server with poller">
 
-In this example, we have a central server (without any Business modules installed), and a poller that is directly attached to it.
+In this example, we have a central server (without any Business modules installed), and a poller that is directly attached to it. The poller components are in green, the others are on the central server.
 
-![image](../assets/installation/inside_central_poller.png)
+```mermaid
+flowchart TB
+  accTitle: Schema of a central server with a poller
+  accDescr: Users access the web server of the central server (TCP 80/443). The web server writes to the MariaDB/MySQL databases and sends orders to Gorgone. Gorgone drives the central Engine and sends the configuration to the Gorgone of the poller (TCP 5556, ZMQ), which drives the Engine of the poller. The cbmod of each Engine sends the data to the master Broker (TCP 5669, BBDO). The master Broker writes to the MariaDB/MySQL databases (TCP 3306, SQL) and sends a copy to the RRD Broker (TCP 5670, BBDO). Both Engines check the monitored resources.
+
+  users(["Users"]):::muted
+
+  %% Central server
+  web["Web server"]:::component
+  centralGorgone["Gorgone"]:::component
+  centralEngine["Engine + cbmod"]:::component
+  master["Master Broker"]:::component
+  rrd["RRD Broker"]:::component
+  db[("MariaDB/MySQL databases")]:::database
+
+  %% Poller
+  pollerGorgone["Poller Gorgone"]:::poller
+  pollerEngine["Poller Engine + cbmod"]:::poller
+
+  resources(["Monitored resources"]):::muted
+
+  users -- "TCP 80/443" --> web
+  web --> db
+  web --> centralGorgone
+  centralGorgone --> centralEngine
+  centralEngine -- "TCP 5669 · BBDO" --> master
+  master -- "TCP 5670 · BBDO" --> rrd
+  master -- "TCP 3306 · SQL" --> db
+  centralGorgone -- "TCP 5556 · ZMQ" --> pollerGorgone
+  pollerGorgone --> pollerEngine
+  pollerEngine -- "TCP 5669 · BBDO" --> master
+  centralEngine -. checks .-> resources
+  pollerEngine -. checks .-> resources
+```
 
 </TabItem>
 </Tabs>

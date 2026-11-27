@@ -13,9 +13,42 @@ Voici une présentation des briques qui font marcher Centreon. Pour savoir sur q
 <Tabs groupId="sync">
 <TabItem value="Serveur central avec collecteur" label="Serveur central avec collecteur">
 
-Dans cet exemple, nous avons un serveur central (sans modules Business installés), et un collecteur qui lui est directement rattaché.
+Dans cet exemple, nous avons un serveur central (sans modules Business installés), et un collecteur qui lui est directement rattaché. Les briques du collecteur sont en vert, les autres sont sur le serveur central.
 
-![image](../assets/installation/inside_central_poller.png)
+```mermaid
+flowchart TB
+  accTitle: Schéma d'un serveur central avec un collecteur
+  accDescr: Les utilisateurs accèdent au serveur web du serveur central (TCP 80/443). Le serveur web écrit dans les bases MariaDB/MySQL et envoie les ordres à Gorgone. Gorgone pilote l'Engine central et envoie la configuration au Gorgone du collecteur (TCP 5556, ZMQ), qui pilote l'Engine du collecteur. Le cbmod de chaque Engine envoie les données au Broker master (TCP 5669, BBDO). Le Broker master écrit dans les bases MariaDB/MySQL (TCP 3306, SQL) et envoie une copie au Broker RRD (TCP 5670, BBDO). Les deux Engines contrôlent les ressources supervisées.
+
+  users(["Utilisateurs"]):::muted
+
+  %% Serveur central
+  web["Serveur web"]:::component
+  centralGorgone["Gorgone"]:::component
+  centralEngine["Engine + cbmod"]:::component
+  master["Broker master"]:::component
+  rrd["Broker RRD"]:::component
+  db[("Bases MariaDB/MySQL")]:::database
+
+  %% Collecteur
+  pollerGorgone["Gorgone du collecteur"]:::poller
+  pollerEngine["Engine + cbmod du collecteur"]:::poller
+
+  resources(["Ressources supervisées"]):::muted
+
+  users -- "TCP 80/443" --> web
+  web --> db
+  web --> centralGorgone
+  centralGorgone --> centralEngine
+  centralEngine -- "TCP 5669 · BBDO" --> master
+  master -- "TCP 5670 · BBDO" --> rrd
+  master -- "TCP 3306 · SQL" --> db
+  centralGorgone -- "TCP 5556 · ZMQ" --> pollerGorgone
+  pollerGorgone --> pollerEngine
+  pollerEngine -- "TCP 5669 · BBDO" --> master
+  centralEngine -. contrôles .-> resources
+  pollerEngine -. contrôles .-> resources
+```
 
 </TabItem>
 </Tabs>

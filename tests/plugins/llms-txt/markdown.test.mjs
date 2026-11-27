@@ -91,6 +91,29 @@ describe('code blocks', () => {
   });
 });
 
+describe('Mermaid diagrams', () => {
+  // src/theme/Mermaid: the build has the source only, the browser adds the SVG.
+  const diagram = (rendered = '') =>
+    `<figure class=theme-mermaid>${rendered}<pre class="theme-mermaid-source language-mermaid" hidden>` +
+    '<code class=language-mermaid>flowchart LR\n  accTitle: Pollers\n  central["Central server"]:::central\n' +
+    '  central --&gt; poller1(["Poller 1"]):::poller</code></pre></figure>';
+  const fence =
+    '```mermaid\nflowchart LR\n  accTitle: Pollers\n  central["Central server"]:::central\n' +
+    '  central --> poller1(["Poller 1"]):::poller\n```\n';
+
+  it('outputs the Mermaid source as a mermaid code block', async () => {
+    assert.equal(await convert(diagram()), fence);
+  });
+
+  it('ignores the drawn diagram', async () => {
+    const rendered =
+      '<div class="docusaurus-mermaid-container container_x"><svg aria-roledescription=flowchart-v2>' +
+      '<g class="node central"><foreignObject><div><span class=nodeLabel><p>Central server</p></span></div></foreignObject></g>' +
+      '</svg></div>';
+    assert.equal(await convert(diagram(rendered)), fence);
+  });
+});
+
 describe('admonitions and details', () => {
   const admonition = (inner) =>
     '<div class="theme-admonition theme-admonition-warning admonition_x alert alert--warning">' +

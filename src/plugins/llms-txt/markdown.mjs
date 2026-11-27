@@ -28,6 +28,10 @@ import remarkStringify from 'remark-stringify';
 const DOC_BODY_CLASS = 'theme-doc-markdown';
 const TABS_CLASS = 'theme-tabs-container';
 const CODE_BLOCK_CLASS = 'theme-code-block';
+// Set by src/theme/Mermaid: the diagram is drawn in the browser only, its
+// source is kept in a hidden code block.
+const MERMAID_CLASS = 'theme-mermaid';
+const MERMAID_SOURCE_CLASS = 'theme-mermaid-source';
 const ADMONITION_CLASS = 'theme-admonition';
 const ADMONITION_TYPE_PREFIX = 'theme-admonition-';
 const DOC_CARD_CLASS = 'theme-doc-card-container';
@@ -259,6 +263,11 @@ function rewriteNode(node, context) {
   }
   if (hasClass(node, CODE_BLOCK_CLASS)) {
     return [rewriteCodeBlock(node)];
+  }
+  if (hasClass(node, MERMAID_CLASS)) {
+    // A diagram comes out as its Mermaid source, readable as is.
+    const source = findFirst(node, (child) => isElement(child) && hasClass(child, MERMAID_SOURCE_CLASS));
+    return source ? [rewriteCodeBlock(source)] : [];
   }
   if (hasClass(node, ADMONITION_CLASS)) {
     return [rewriteAdmonition(node, context)];

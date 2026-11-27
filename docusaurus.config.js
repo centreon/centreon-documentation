@@ -95,6 +95,8 @@ const config = {
   baseUrl,
   onBrokenLinks: archivedVersion || !cloud || !pp || !experienceMonitoring || !logmanagement ? 'log' : 'throw',
   markdown: {
+    // ```mermaid code blocks are drawn as diagrams (see src/theme/Mermaid).
+    mermaid: true,
     hooks: {
       onBrokenMarkdownLinks: archivedVersion || !cloud || !pp || !experienceMonitoring || !logmanagement ? 'log' : 'throw',
     }
@@ -185,13 +187,14 @@ const config = {
           priority: null,
         },
         theme: {
-          customCss: ['./src/css/custom.css'],
+          customCss: ['./src/css/custom.css', './src/css/mermaid.css'],
         },
       }),
     ],
   ],
 
   themes: [
+    '@docusaurus/theme-mermaid',
     [
       require.resolve('@easyops-cn/docusaurus-search-local'),
       /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
@@ -362,6 +365,16 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      // Node colors come from classes styled in src/css/mermaid.css, so that
+      // diagrams follow the light and dark themes without per-diagram styles.
+      mermaid: {
+        theme: { light: 'base', dark: 'dark' },
+        options: {
+          // Same font as the text (custom.css): Mermaid measures labels with it.
+          fontFamily: "'Red Hat Display', sans-serif",
+          flowchart: { curve: 'basis', htmlLabels: true, padding: 12, wrappingWidth: 220 },
+        },
+      },
       zoom: {
         selector: '.markdown img',
         background: {

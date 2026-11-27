@@ -29,9 +29,32 @@ et/ou
 
 Tous les serveurs de votre architecture (serveur central, serveurs distants et collecteurs) doivent avoir la même version majeure de Centreon. Il est également recommandé d'avoir la même version mineure.
 
-Exemple d'architecture distribuée avec 3 serveurs distants et 6 collecteurs. Notez qu'un collecteur peut aussi être rattaché directement à un serveur central.
+Exemple d'architecture distribuée avec 3 serveurs distants et 7 collecteurs. Un collecteur peut être rattaché à un serveur distant ou directement au serveur central.
 
-![image](../assets/getting-started/archi.png)
+```mermaid
+flowchart LR
+  accTitle: Exemple d'architecture distribuée
+  accDescr: Un serveur central, auquel sont rattachés 3 serveurs distants et un collecteur. Chaque serveur distant a 2 collecteurs.
+
+  central["Serveur central"]:::central
+
+  remote1["Serveur distant 1"]:::remote
+  remote2["Serveur distant 2"]:::remote
+  remote3["Serveur distant 3"]:::remote
+
+  poller1(["Collecteur 1"]):::poller
+  poller2(["Collecteur 2"]):::poller
+  poller3(["Collecteur 3"]):::poller
+  poller4(["Collecteur 4"]):::poller
+  poller5(["Collecteur 5"]):::poller
+  poller6(["Collecteur 6"]):::poller
+  poller7(["Collecteur 7"]):::poller
+
+  central --- remote1 & remote2 & remote3 & poller7
+  remote1 --- poller1 & poller2
+  remote2 --- poller3 & poller4
+  remote3 --- poller5 & poller6
+```
 
 ### SGBD déporté
 
@@ -43,7 +66,38 @@ Votre serveur central peut avoir une base de données déportée. Une architectu
 
 ## De quel type d'architecture avez-vous besoin ?
 
-![image](../assets/installation/architecture_decision.png)
+**Faut-il des collecteurs ?**
+
+```mermaid
+flowchart LR
+  accTitle: Faut-il des collecteurs ?
+  accDescr: Si vous supervisez des réseaux cloisonnés ou des sites distants, ou 500 hôtes ou plus, ajoutez des collecteurs au serveur central. Sinon, un serveur central seul suffit.
+
+  sites("Réseaux cloisonnés ou sites distants à superviser ?"):::question
+  hosts("Combien d'hôtes à superviser ?"):::question
+  withPollers["Serveur central + collecteurs"]:::answer
+  standalone["Serveur central seul"]:::answer
+
+  sites -- Oui --> withPollers
+  sites -- Non --> hosts
+  hosts -- "500 ou plus" --> withPollers
+  hosts -- "Moins de 500" --> standalone
+```
+
+**Où installer la base de données ?**
+
+```mermaid
+flowchart LR
+  accTitle: Où installer la base de données ?
+  accDescr: Au-delà de 5 000 hôtes, la base de données doit être sur un serveur séparé. Sinon, elle peut être sur le serveur central.
+
+  volume("Plus de 5 000 hôtes à superviser ?"):::question
+  remoteDb[("Serveur de base de données séparé")]:::database
+  localDb[("Base de données sur le serveur central")]:::answer
+
+  volume -- Oui --> remoteDb
+  volume -- Non --> localDb
+```
 
 Lorsque vous construirez votre plateforme Centreon, gardez les points suivants à l'esprit :
 
