@@ -29,15 +29,20 @@ and runs an installer script on the target container host. The script generates 
 ## Prerequisites
 
 * On the central server, [Gorgone's **pullwss** module must be configured to accept connections](./pollers-containers-prerequisites.md). This only needs to be done once, before you install your first poller in a container.
-* A Linux host with **Docker Engine** and the **Docker Compose v2** plugin
-  installed (`docker compose version` must succeed).
+* A Linux host with one of the following container engines installed:
+  * **Docker Engine** and the **Docker Compose v2** plugin
+    (`docker compose version` must succeed).
+  * **Podman** and `podman compose` or `podman-compose`. See
+    [Using Podman](./using-containers-advanced-configuration.md#using-podman)
+    for the additional requirements.
 * You must have created a poller-type authentication token.
 * Outbound network access from this host to your Centreon central server: web port (443 for HTTPS, 80 for HTTP) and TCP port 5669 (Centreon Broker).
 * If you plan to receive SNMP traps on this poller, UDP port 162 must be
   reachable on this host.
-* If you plan to monitor VMware infrastructure from this poller, the
-  `centreon-vmware` Docker image must be built beforehand (see
-  [Centreon-vmware container](./using-containers-advanced-configuration.md#allow-the-poller-to-monitor-vmware-resources)).
+* If you plan to monitor VMware infrastructure from this poller, a
+  `centreon-plugins` checkout and the VMware SDK archives must be available
+  on this host (see
+  [Allow the poller to monitor VMware resources](./using-containers-advanced-configuration.md#allow-the-poller-to-monitor-vmware-resources)).
 
 ## Step 1: Generate the install command
 
@@ -79,12 +84,17 @@ host.
 
    The script:
 
-   1. Checks that Docker and the Docker Compose v2 plugin are available.
+   1. Detects the compose command to use: `docker compose` if the Docker
+      daemon is reachable, otherwise `podman compose`, otherwise
+      `podman-compose`. With Podman, it also checks the
+      [Podman requirements](./using-containers-advanced-configuration.md#using-podman).
    2. Generates a `.env` file and a `docker-compose.yaml` file in the current
-      directory.
-   3. Starts the stack with `docker compose up -d`, unless `--no-start` was
-      added to the command (in that case, start it yourself later with
-      `docker compose up -d`).
+      directory, and an empty `.env.smtp` file if it does not exist yet. If
+      `.env` or `docker-compose.yaml` already exist, see
+      [Running the install command again](#running-the-install-command-again).
+   3. Starts the stack with the detected compose command (e.g.
+      `docker compose up -d`), unless `--no-start` was added to the command
+      (in that case, start it yourself later with the same command).
 
    By default, the generated stack always includes two services:
 
@@ -98,13 +108,17 @@ host.
    together using named Docker volumes, so you don't need to configure this
    yourself:
 
-   | Volume | Shared between | Purpose |
+   | Volume | Used by | Purpose |
    |--------|-----------------|---------|
+   | `poller-etc` | gorgone, centreon-vmware | Centreon configuration (`/etc/centreon`) |
    | `poller-engine` | centengine, gorgone | Centreon Engine configuration (`/etc/centreon-engine`) |
    | `poller-broker` | centengine, gorgone | Centreon Broker configuration (`/etc/centreon-broker`) |
    | `poller-centcmd` | centengine, gorgone, centreontrapd | Centreon Engine's external command pipe (`/var/lib/centreon-engine/rw`) |
+   | `poller-centlog` | centengine | Centreon Engine logs (`/var/log/centreon-engine`) |
+   | `poller-gorgone-data` | gorgone | Gorgone data (`/var/lib/centreon-gorgone`) |
    | `poller-snmp-spool` | snmptrapd, centreontrapd | Spool directory where received traps are written and then processed |
    | `poller-snmp-traps` | gorgone, centreontrapd | SNMP trap definitions pushed by the central server |
+   | `poller-cma-pki` | centengine | CA used for Centreon Monitoring Agent connections (`/etc/pki/centreon-engine`), with `--with-cma` only |
 
    Each service also has a Docker healthcheck, so `docker compose ps` reports
    `healthy` once a service is fully up.
@@ -116,6 +130,9 @@ host.
    ```shell
    docker compose ps
    ```
+
+   > If you use Podman, replace `docker compose` with `podman compose` or
+   > `podman-compose` in the commands on this page.
 
    Once `gorgone` reports `healthy`, the connection to the central server is established.
    
@@ -159,15 +176,36 @@ Add the following flags to the install command to include additional features:
 | Flag | Effect |
 |------|--------|
 | `--with-snmptrap` | Adds the `snmptrapd` and `centreontrapd` services, for passive monitoring via [SNMP traps](../../monitoring/passive-monitoring/enable-snmp-traps.md). |
-| `--with-vmware` | [Allow the poller to monitor VMware resources](using-containers-advanced-configuration.md#allow-the-poller-to-monitor-vmware-resources) (adds the `centreon-vmware` service to the docker-compose). |
-| `--with-cma` | [Allows the poller to receive data from Centreon Monitoring Agents (CMA)](./using-containers-advanced-configuration.md#allow-the-poller-to-receive-data-from-centreon-monitoring-agents-cma). Mounts TLS certificates and exposes port 4317, for pollers that accept connections from the Centreon Monitoring Agent (CMA) over OpenTelemetry gRPC. |
+| `--with-vmware` | [Allow the poller to monitor VMware resources](using-containers-advanced-configuration.md#allow-the-poller-to-monitor-vmware-resources) (adds the `centreon-vmware` service to the docker-compose, built locally from a `centreon-plugins` checkout). |
+| `--vmware-path <path>` | Path to the `centreon-plugins` checkout used to build the `centreon-vmware` image (default: `./centreon-plugins`). Only used with `--with-vmware`. |
+| `--with-cma` | [Allows the poller to receive data from Centreon Monitoring Agents (CMA)](./using-containers-advanced-configuration.md#allow-the-poller-to-receive-data-from-centreon-monitoring-agents-cma). Stores the poller's CMA certificate authority in a persistent volume and exposes port 4317, for pollers that accept connections from the Centreon Monitoring Agent (CMA) over OpenTelemetry gRPC. |
+| `--cma-hostname <hostname>` | Host name of the `centengine` container, also used as the name in the poller's CMA certificate authority (default: `centengine`). Set it to the host name the agents use to reach the poller. Only used with `--with-cma`. |
 | `--tz <timezone>` | Sets the container timezone (default: `UTC`). |
 | `--debug true` | Enables debug logging on the services. |
 | `--gorgone-ssl <true\|false>` | Overrides the SSL setting used for the Gorgone connection to the central server (by default, HTTPS if the central server already uses HTTPS). |
 | `--no-start` | Only generates `.env` and `docker-compose.yaml`; does not start the stack. |
+| `--overwrite` | Overwrites existing `.env` and `docker-compose.yaml` files without asking. Use it for non-interactive runs (scripts, automation). |
 
 If you already ran the install command without these flags, you can also add
 the corresponding service(s) by hand to the generated `docker-compose.yaml`
 and `.env` files, then run `docker compose up -d` again.
 
-> Running the installation command again regenerates `.env` and `docker-compose.yaml` without warning: any manual change (SMTP settings, custom plugins, CMA, etc.) is lost. Back up these files before running the command again.
+## Running the install command again
+
+If `.env` or `docker-compose.yaml` already exist in the current directory,
+the install command does not overwrite them silently:
+
+* In an interactive terminal, it asks you whether to overwrite them.
+* If you answer no, or if the command runs without a terminal (e.g. from a
+  script), it writes the new content to `.env.new` and
+  `docker-compose.yaml.new` instead, and does not start the stack. Compare
+  them with your current files (`diff .env .env.new`), then replace both
+  files together.
+* With `--overwrite`, it overwrites both files without asking.
+
+Any manual change made to `.env` or `docker-compose.yaml` (custom plugins,
+extra volumes, etc.) is lost when they are overwritten: back them up first.
+The `.env.smtp` file is never overwritten.
+
+> In Centreon 26.10.0, the install command overwrites `.env` and
+> `docker-compose.yaml` without warning.
