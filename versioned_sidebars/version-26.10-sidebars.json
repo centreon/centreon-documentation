@@ -1513,6 +1513,10 @@
           ]
         },
         {
+          "type": "doc",
+          "id": "integrations/otlp-broker-output"
+        },
+        {
           "type": "category",
           "label": "ITSM",
           "link": {
