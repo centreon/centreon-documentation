@@ -1,10 +1,61 @@
 ---
 id: cloud-kubernetes-api
-title: Kubernetes API
-description: "Monitor Kubernetes clusters via the REST API or kubectl: node health and usage, pods, deployments, DaemonSets, CronJobs, volumes, and cluster events."
+title: Kubernetes monitoring (API)
+sidebar_label: Kubernetes API
+description: "Monitor Kubernetes with Centreon through its API: node health and capacity, pods, deployments, StatefulSets, CronJobs, volumes and cluster events."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+Monitor your Kubernetes clusters with Centreon through the Kubernetes API: node health and capacity, pods and containers, deployments, DaemonSets, StatefulSets, CronJobs, volumes, quotas and cluster events, next to the rest of your infrastructure.
+
+## What is Kubernetes?
+
+Kubernetes is the open source platform that runs containerized applications on a cluster of machines, called **nodes**. You describe the desired state (which application, how many copies, with which resources), and Kubernetes keeps the cluster in that state: it places **pods** (one or more containers) on the nodes, restarts them when they fail and moves them when a node goes down. Kubernetes runs on premises and in every major cloud (Amazon EKS, Azure AKS, Google GKE…), and Red Hat OpenShift is built on it.
+
+Applications are run by controllers:
+
+- **Deployments** (through ReplicaSets) keep a number of identical pods running: web front ends, APIs, microservices.
+- **StatefulSets** run pods with a stable identity and their own storage: databases, message queues.
+- **DaemonSets** run one pod on each node: log collectors, monitoring agents, network plugins.
+- **CronJobs** start jobs on a schedule: backups, reports, purges.
+
+All of them are described and observed through the **Kubernetes API**, the API that the connector queries.
+
+## Why monitor Kubernetes?
+
+Kubernetes repairs a lot by itself, so problems can go unnoticed: a pod that restarts in a loop, a deployment stuck at 2 replicas out of 3, a node that no longer accepts pods. Monitoring Kubernetes answers the questions that platform and operations teams ask every day:
+
+- **Do my applications run as declared?** Does each deployment, StatefulSet and DaemonSet have all its replicas ready?
+- **Are the pods stable?** Which containers restart again and again, or never become ready?
+- **Are the nodes healthy, and is there room left?** Is a node NotReady, or short of memory or disk? How much CPU and memory do the pods already reserve?
+- **Did the scheduled jobs run?** Did last night's backup run?
+- **What is going wrong right now?** Which warnings does the cluster report: failed health probes, images that cannot be pulled, pods that cannot be scheduled?
+
+The **Kubernetes API** Monitoring Connector reads these states from the API, with read-only access. Centreon monitors the cluster from the outside: a cluster whose API stops responding raises an alert instead of going silent, and Kubernetes appears next to the servers, network and cloud services it depends on.
+
+## What to monitor on Kubernetes
+
+| Indicator | Why it matters | Service |
+|:----------|:---------------|:--------|
+| Node status | A node that is NotReady, or under memory, disk or process pressure, no longer receives pods, and Kubernetes may evict the ones it runs. | Node-Status |
+| Node allocation | Share of the node's CPU and memory reserved by the requests and limits of its pods, and number of pods compared to the maximum. Requests close to 100%: new pods can no longer be scheduled. Limits above 100%: the node is overcommitted and can run out of memory under load. | Node-Usage |
+| Pod and container status | Ready containers compared to the expected number, pod phase and restarts. A restart count that keeps growing reveals a crash loop (CrashLoopBackOff) or containers killed for lack of memory (OOMKilled). | Pod-Status |
+| Pod CPU and memory usage | Actual consumption of each pod compared to what it requested: undersized pods, and pods that reserve far more than they use. Requires metrics-server in the cluster. | Pod-Usage |
+| Deployments, StatefulSets, DaemonSets, ReplicaSets | Ready and up-to-date replicas compared to the desired number: a rollout stuck halfway, an application running with fewer copies than planned, a DaemonSet missing on some nodes. | Deployment-Status, StatefulSet-Status, Daemonset-Status, ReplicaSet-Status |
+| CronJobs | Active jobs and time of the last run: a job that no longer starts, or that never ends. | CronJob-Status |
+| PersistentVolumes | Phase of each volume (Available, Bound, Released, Failed): a Released or Failed volume needs an action from an administrator. | PersistentVolume-Status |
+| Resource quotas | Use of each namespace quota: a team that reaches its quota can no longer deploy. | ResourceQuota-Status |
+| Cluster events | Warning events of the cluster: failed probes, image pull errors, pods that cannot be scheduled. | Cluster-Events |
+
+## What to avoid
+
+- **Mistaking reservations for consumption.** **Node-Usage** measures what pods *reserve* (requests and limits), not what they consume: a node can be 90% reserved and almost idle, or the reverse. For actual consumption, use **Pod-Usage** and monitor the nodes themselves, for example with the [Linux CMA](./operatingsystems-linux-centreon-monitoring-agent.md) connector.
+- **Alerting on every pod.** Pods are short-lived: Kubernetes replaces them at each deployment, scale-out or node failure, and their names change. One service per pod creates noise and services that disappear. Alert on the controllers (Deployments, StatefulSets, DaemonSets) and on restarts, and keep service discovery per pod for the workloads where this level of detail is worth it.
+- **Leaving CronJobs without thresholds.** By default, **CronJob-Status** raises no alert. Define a condition on the time of the last run, otherwise a backup that stopped running goes unnoticed.
+- **Treating every warning as an incident.** By default, every Warning event sets **Cluster-Events** to WARNING, and a busy cluster produces them all the time. Filter on the namespaces and event types that matter to you.
+- **Giving the connector too many rights.** The connector only reads (`get` and `list`). Use the dedicated service account and cluster role described in the [prerequisites](#prerequisites), never a cluster-admin token.
+- **Using kubectl on a large cluster.** Each check then runs a kubectl command. The RestAPI is faster and is the recommended method.
 
 ## Pack assets
 

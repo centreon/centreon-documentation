@@ -1,10 +1,61 @@
 ---
 id: cloud-kubernetes-api
-title: Kubernetes API
-description: "Supervisez les clusters Kubernetes via l'API REST ou kubectl : état des noeuds, des pods, des déploiements et des événements du cluster."
+title: Supervision de Kubernetes (API)
+sidebar_label: Kubernetes API
+description: "Supervisez Kubernetes avec Centreon via son API : santé et capacité des nœuds, pods, Deployments, StatefulSets, CronJobs, volumes et événements."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+Supervisez vos clusters Kubernetes avec Centreon via l'API Kubernetes : santé et capacité des nœuds, pods et conteneurs, Deployments, DaemonSets, StatefulSets, CronJobs, volumes, quotas et événements du cluster, à côté du reste de votre infrastructure.
+
+## Qu'est-ce que Kubernetes ?
+
+Kubernetes est la plateforme open source qui fait tourner des applications conteneurisées sur un ensemble de machines, appelées **nœuds**. Vous décrivez l'état souhaité (quelle application, combien de copies, avec quelles ressources), et Kubernetes maintient le cluster dans cet état : il place les **pods** (un ou plusieurs conteneurs) sur les nœuds, les redémarre quand ils échouent et les déplace quand un nœud tombe. Kubernetes tourne sur site comme dans tous les grands clouds (Amazon EKS, Azure AKS, Google GKE…), et Red Hat OpenShift repose sur lui.
+
+Les applications sont gérées par des contrôleurs :
+
+- Les **Deployments** (via des ReplicaSets) maintiennent un nombre de pods identiques : front-ends web, API, microservices.
+- Les **StatefulSets** font tourner des pods avec une identité stable et leur propre stockage : bases de données, files de messages.
+- Les **DaemonSets** font tourner un pod sur chaque nœud : collecteurs de logs, agents de supervision, plugins réseau.
+- Les **CronJobs** lancent des tâches selon un planning : sauvegardes, rapports, purges.
+
+Tous sont décrits et observés via l'**API Kubernetes**, celle qu'interroge le connecteur.
+
+## Pourquoi superviser Kubernetes ?
+
+Kubernetes répare beaucoup de choses tout seul, si bien que les problèmes peuvent passer inaperçus : un pod qui redémarre en boucle, un Deployment bloqué à 2 réplicas sur 3, un nœud qui n'accepte plus de pods. Superviser Kubernetes répond aux questions que les équipes plateforme et d'exploitation se posent tous les jours :
+
+- **Mes applications tournent-elles comme prévu ?** Chaque Deployment, StatefulSet et DaemonSet a-t-il tous ses réplicas prêts ?
+- **Les pods sont-ils stables ?** Quels conteneurs redémarrent sans cesse, ou ne sont jamais prêts ?
+- **Les nœuds sont-ils sains, et reste-t-il de la place ?** Un nœud est-il NotReady, ou à court de mémoire ou de disque ? Quelle part du CPU et de la mémoire les pods réservent-ils déjà ?
+- **Les tâches planifiées ont-elles tourné ?** La sauvegarde de cette nuit a-t-elle eu lieu ?
+- **Qu'est-ce qui ne va pas en ce moment ?** Quels avertissements le cluster remonte-t-il : sondes de santé en échec, images impossibles à télécharger, pods impossibles à placer ?
+
+Le connecteur de supervision **Kubernetes API** lit ces états via l'API, en lecture seule. Centreon supervise le cluster depuis l'extérieur : un cluster dont l'API ne répond plus déclenche une alerte au lieu de devenir silencieux, et Kubernetes apparaît à côté des serveurs, du réseau et des services cloud dont il dépend.
+
+## Que superviser sur Kubernetes ?
+
+| Indicateur | Pourquoi c'est important | Service |
+|:-----------|:-------------------------|:--------|
+| Statut des nœuds | Un nœud NotReady, ou sous pression mémoire, disque ou processus, ne reçoit plus de pods, et Kubernetes peut évincer ceux qu'il fait tourner. | Node-Status |
+| Allocation des nœuds | Part du CPU et de la mémoire du nœud réservée par les requests et limits de ses pods, et nombre de pods par rapport au maximum. Requests proches de 100 % : les nouveaux pods ne peuvent plus être placés. Limits au-delà de 100 % : le nœud est en surallocation et peut manquer de mémoire sous charge. | Node-Usage |
+| Statut des pods et des conteneurs | Conteneurs prêts par rapport au nombre attendu, phase du pod et redémarrages. Un nombre de redémarrages qui ne cesse d'augmenter révèle une boucle de plantage (CrashLoopBackOff) ou des conteneurs tués faute de mémoire (OOMKilled). | Pod-Status |
+| Consommation CPU et mémoire des pods | Consommation réelle de chaque pod par rapport à ce qu'il a demandé : pods sous-dimensionnés, et pods qui réservent bien plus qu'ils n'utilisent. Nécessite metrics-server dans le cluster. | Pod-Usage |
+| Deployments, StatefulSets, DaemonSets, ReplicaSets | Réplicas prêts et à jour par rapport au nombre souhaité : un déploiement bloqué à mi-chemin, une application qui tourne avec moins de copies que prévu, un DaemonSet absent de certains nœuds. | Deployment-Status, StatefulSet-Status, Daemonset-Status, ReplicaSet-Status |
+| CronJobs | Tâches actives et heure de la dernière exécution : une tâche qui ne se lance plus, ou qui ne se termine jamais. | CronJob-Status |
+| PersistentVolumes | Phase de chaque volume (Available, Bound, Released, Failed) : un volume Released ou Failed demande une action d'un administrateur. | PersistentVolume-Status |
+| Quotas de ressources | Utilisation de chaque quota de namespace : une équipe qui atteint son quota ne peut plus déployer. | ResourceQuota-Status |
+| Événements du cluster | Événements de type Warning : sondes en échec, erreurs de téléchargement d'image, pods impossibles à placer. | Cluster-Events |
+
+## Ce qu'il faut éviter
+
+- **Confondre réservation et consommation.** **Node-Usage** mesure ce que les pods *réservent* (requests et limits), pas ce qu'ils consomment : un nœud peut être réservé à 90 % et presque inactif, ou l'inverse. Pour la consommation réelle, utilisez **Pod-Usage** et supervisez les nœuds eux-mêmes, par exemple avec le connecteur [Linux CMA](./operatingsystems-linux-centreon-monitoring-agent.md).
+- **Alerter sur chaque pod.** Les pods sont éphémères : Kubernetes les remplace à chaque déploiement, montée en charge ou panne de nœud, et leur nom change. Un service par pod crée du bruit et des services qui disparaissent. Alertez sur les contrôleurs (Deployments, StatefulSets, DaemonSets) et sur les redémarrages, et réservez la découverte de services par pod aux charges de travail où ce niveau de détail en vaut la peine.
+- **Laisser les CronJobs sans seuil.** Par défaut, **CronJob-Status** ne déclenche aucune alerte. Définissez une condition sur l'heure de la dernière exécution, sinon une sauvegarde qui ne tourne plus passe inaperçue.
+- **Traiter chaque avertissement comme un incident.** Par défaut, chaque événement Warning passe **Cluster-Events** en ALERTE, et un cluster chargé en produit en permanence. Filtrez sur les namespaces et les types d'événements qui comptent pour vous.
+- **Donner trop de droits au connecteur.** Le connecteur ne fait que lire (`get` et `list`). Utilisez le compte de service et le rôle de cluster dédiés décrits dans les [prérequis](#prérequis), jamais un jeton cluster-admin.
+- **Utiliser kubectl sur un gros cluster.** Chaque contrôle lance alors une commande kubectl. L'API REST est plus rapide et c'est la méthode recommandée.
 
 ## Contenu du pack
 
