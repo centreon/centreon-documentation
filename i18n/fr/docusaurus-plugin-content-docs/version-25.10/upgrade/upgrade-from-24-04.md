@@ -267,6 +267,8 @@ Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php/8.2/fpm/con
 </TabItem>
 </Tabs>
 
+Notez que ceci peut supprimer des connecteurs et des extensions. Ils devront être reinstallés par la suite.
+
 Puis, terminez la montée de version de la solution Centreon.
 
 1. Videz le cache :
