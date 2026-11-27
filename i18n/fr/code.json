@@ -586,26 +586,6 @@
     "message": "Mis à jour en {date}",
     "description": "Content page redesign (Programme Bijou)"
   },
-  "doc.feedback.question": {
-    "message": "Cette page vous a-t-elle aidé ?",
-    "description": "Content page redesign (Programme Bijou)"
-  },
-  "doc.feedback.yes": {
-    "message": "Oui",
-    "description": "Content page redesign (Programme Bijou)"
-  },
-  "doc.feedback.no": {
-    "message": "Non",
-    "description": "Content page redesign (Programme Bijou)"
-  },
-  "doc.feedback.thanks": {
-    "message": "Merci pour votre retour !",
-    "description": "Content page redesign (Programme Bijou)"
-  },
-  "doc.feedback.thanksNo": {
-    "message": "Merci ! Dites-nous ce qui manquait dans le formulaire qui vient de s'ouvrir.",
-    "description": "Content page redesign (Programme Bijou)"
-  },
   "reader.settings": {
     "message": "Options de lecture",
     "description": "Reader preferences (Programme Bijou)"
