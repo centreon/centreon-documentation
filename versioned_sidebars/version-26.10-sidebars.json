@@ -1353,6 +1353,10 @@
               "id": "migrate/migrate-from-debian-to-debian"
             }
           ]
+        },
+        {
+          "type": "doc",
+          "id": "upgrade/archived-repos"
         }
       ]
     },

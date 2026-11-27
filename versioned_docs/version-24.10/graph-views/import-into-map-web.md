@@ -6,7 +6,7 @@ description: "Switch from MAP Legacy to Centreon MAP: install MAP, update MAP Le
 
 This topic describes how to move from Centreon MAP (Legacy) to Centreon MAP by importing your legacy maps into your MAP module.
 
-> **From Centreon 24.10, MAP Legacy is longer available.** If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+> **From Centreon 24.10, MAP Legacy is longer available.** If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](map-legacy-eol.md).
 
 ## Requirements
 

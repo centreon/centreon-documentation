@@ -12,7 +12,7 @@ This chapter describes how to upgrade your Centreon platform from version 23.10 
 
 > If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md). If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
 
-> Business edition users: MAP Legacy is no longer available in Centreon 24.10. If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+> Business edition users: MAP Legacy is no longer available in Centreon 24.10. If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](../graph-views/map-legacy-eol.md).
 
 > Version 24.10 means the end of support for Debian 11. If you were using Debian 11, you must first migrate to Debian 12 before you can upgrade Centreon. See [Migrate from Debian 11 to Debian 12](../migrate/migrate-from-debian-to-debian.md). If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
 
@@ -75,6 +75,8 @@ Before upgrading your Centreon platform, make sure the following package reposit
 > When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
 
 ### Install the new repositories
+
+> Centreon 23.10 has reached its end of life: its packages are now in the archived repositories. If the commands below do not work for your OS, see [Repositories for archived versions](archived-repos.md) to find the repository for your version and OS.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">

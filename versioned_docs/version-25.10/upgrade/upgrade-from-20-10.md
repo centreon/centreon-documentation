@@ -15,7 +15,7 @@ You cannot simply upgrade Centreon from a version earlier than 20.10 to version 
 
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo-switch-versions.md).
 
-> Business edition users: MAP Legacy is no longer available in Centreon 25.10. If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+> Business edition users: MAP Legacy is no longer available in Centreon 25.10. If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/24.10/graph-views/map-legacy-eol/).
 
 > If you want to migrate your Centreon server to Oracle Linux / RHEL 8 or 9
 > you need to follow the [migration procedure](../migrate/migrate-from-el-to-el.md). If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.

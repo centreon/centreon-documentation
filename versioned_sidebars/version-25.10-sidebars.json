@@ -1330,6 +1330,10 @@
               "id": "developer/developer-gorgone-migrate-from-centcore"
             }
           ]
+        },
+        {
+          "type": "doc",
+          "id": "upgrade/archived-repos"
         }
       ]
     },

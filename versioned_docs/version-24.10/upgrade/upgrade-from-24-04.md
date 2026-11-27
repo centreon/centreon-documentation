@@ -80,6 +80,8 @@ Before upgrading your Centreon platform, make sure the following package reposit
 
 ### Install the new repositories
 
+> Centreon 24.04 has reached its end of life: its packages are now in the archived repositories. If the commands below do not work for your OS, see [Repositories for archived versions](archived-repos.md) to find the repository for your version and OS.
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 

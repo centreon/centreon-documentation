@@ -14,7 +14,7 @@ to version 24.10.
 > If you want to migrate your Centreon server to Oracle Linux / RHEL 8
 > you need to follow the [migration procedure](../migrate/migrate-from-el-to-el.md). If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
 
-> Business edition users: MAP Legacy is no longer available in Centreon 24.10. If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+> Business edition users: MAP Legacy is no longer available in Centreon 24.10. If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](../graph-views/map-legacy-eol.md).
 
 > Warning: If you were using the following monitoring connectors, from version 24.10 you must declare all of their configurations using [the **Configuration \> Additional connector configurations** page](/pp/integrations/plugin-packs/getting-started/how-to-guides/additional-connector-configuration) before deploying the configuration of the corresponding poller:
 > * [VMware ESX](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/)
