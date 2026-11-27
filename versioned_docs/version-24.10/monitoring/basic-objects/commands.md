@@ -70,6 +70,31 @@ $CENTREONPLUGINS$/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode
 
 > Good practice requires replacing the arguments by *[custom macros](macros.md#custom-macros)*.
 
+## Special characters in command lines
+
+When a command line contains backslashes (for example, to escape parentheses, quotes or slashes in a regular expression), the number of backslashes you need depends on where you enter the command:
+
+* **In a shell on the poller** (for example, when you test the command as user **centreon-engine**): use one backslash per special character, as you would in any shell.
+* **In the Command Line field of the web interface**: use two backslashes per special character.
+
+This is because a command configured in the web interface is processed by Centreon components (Gorgone, then Centreon Engine) before the plugin receives it, and one level of backslashes is removed along the way. As a result, a command that works when you run it on the poller may fail if you copy it as is into the web interface.
+
+Example: the following command monitors the Windows service named `SQL Server (MSSQLSERVER)`. The parentheses in the service name must be escaped in the regular expression.
+
+* Command run in a shell on the poller:
+
+  ```shell
+  /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin --mode=service --hostname=10.0.0.1 --snmp-version='2c' --snmp-community='public' --filter-name='^(SQL Server \(MSSQLSERVER\)$)'
+  ```
+
+* Same command entered in the web interface:
+
+  ```shell
+  /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin --mode=service --hostname=10.0.0.1 --snmp-version='2c' --snmp-community='public' --filter-name='^(SQL Server \(MSSQLSERVER\)$)'
+  ```
+
+> Only escape the characters that must be interpreted literally. In this example, the first and last parentheses delimit a group in the regular expression, so they are not escaped.
+
 ## Connectors
 
 ### SSH connector

@@ -62,6 +62,31 @@ Once you have created your custom check command:
 3. [Deploy the configuration](../monitoring-servers/deploying-a-configuration.md). The host or service appears in the **Resources Status** page. You can see your custom command in the details panel of the host or service, with the correct values for the macros. Once the check has been executed, you can see the output of the command here too.
 4. Add the command to the [command whitelist](#command-whitelist) of the poller that will run the check.
 
+## Special characters in command lines
+
+When a command line contains backslashes (for example, to escape parentheses, quotes or slashes in a regular expression), the number of backslashes you need depends on where you enter the command:
+
+* **In a shell on the poller** (for example, when you test the command as user **centreon-engine**): use one backslash per special character, as you would in any shell.
+* **In the Command Line field of the web interface**: use two backslashes per special character.
+
+This is because a command configured in the web interface is processed by Centreon components (Gorgone, then Centreon Engine) before the plugin receives it, and one level of backslashes is removed along the way. As a result, a command that works when you run it on the poller may fail if you copy it as is into the web interface.
+
+Example: the following command monitors the Windows service named `SQL Server (MSSQLSERVER)`. The parentheses in the service name must be escaped in the regular expression.
+
+* Command run in a shell on the poller:
+
+  ```shell
+  /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin --mode=service --hostname=10.0.0.1 --snmp-version='2c' --snmp-community='public' --filter-name='^(SQL Server \(MSSQLSERVER\)$)'
+  ```
+
+* Same command entered in the web interface:
+
+  ```shell
+  /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin --mode=service --hostname=10.0.0.1 --snmp-version='2c' --snmp-community='public' --filter-name='^(SQL Server \(MSSQLSERVER\)$)'
+  ```
+
+> Only escape the characters that must be interpreted literally. In this example, the first and last parentheses delimit a group in the regular expression, so they are not escaped.
+
 ## Command whitelist
 
 For security reasons, you can restrict which commands the monitoring engine of a poller (and the Centreon Monitoring Agent) is allowed to execute by defining a command whitelist. By default, Centreon does not apply any whitelist: all commands are allowed.

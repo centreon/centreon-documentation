@@ -84,6 +84,31 @@ Pour vous assurer qu'une commande fonctionne, vous pouvez la tester en ligne de 
 
 La commande renvoie les mêmes informations que la colonne **Informations** de la page **Statut des ressources** (c'est-à-dire la sortie, les métriques et la sortie étendue fournies par stdout), ainsi que les messages d'erreur (stderr). La solution à tout problème est susceptible d'y être indiquée.
 
+## Caractères spéciaux dans les lignes de commande
+
+Lorsqu'une ligne de commande contient des antislashs (par exemple pour échapper des parenthèses, des guillemets ou des slashs dans une expression régulière), le nombre d'antislashs nécessaires dépend de l'endroit où vous saisissez la commande :
+
+* **Dans un shell sur le collecteur** (par exemple, lorsque vous testez la commande en tant qu'utilisateur **centreon-engine**) : utilisez un antislash par caractère spécial, comme dans n'importe quel shell.
+* **Dans le champ Ligne de commande de l'interface web** : utilisez deux antislashs par caractère spécial.
+
+En effet, une commande configurée dans l'interface web est traitée par des composants de Centreon (Gorgone, puis Centreon Engine) avant d'être transmise au plugin, et un niveau d'antislashs est supprimé au passage. Une commande qui fonctionne lorsque vous l'exécutez sur le collecteur peut donc échouer si vous la copiez telle quelle dans l'interface web.
+
+Exemple : la commande suivante supervise le service Windows nommé `SQL Server (MSSQLSERVER)`. Les parenthèses du nom du service doivent être échappées dans l'expression régulière.
+
+* Commande exécutée dans un shell sur le collecteur :
+
+  ```shell
+  /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin --mode=service --hostname=10.0.0.1 --snmp-version='2c' --snmp-community='public' --filter-name='^(SQL Server \(MSSQLSERVER\)$)'
+  ```
+
+* Même commande saisie dans l'interface web :
+
+  ```shell
+  /usr/lib/centreon/plugins/centreon_windows_snmp.pl --plugin=os::windows::snmp::plugin --mode=service --hostname=10.0.0.1 --snmp-version='2c' --snmp-community='public' --filter-name='^(SQL Server \(MSSQLSERVER\)$)'
+  ```
+
+> N'échappez que les caractères qui doivent être interprétés littéralement. Dans cet exemple, la première et la dernière parenthèses délimitent un groupe dans l'expression régulière : elles ne sont donc pas échappées.
+
 ## Listes blanches de commandes
 
 Centreon vous permet de créer des listes blanches, qui définissent quelles commandes sont autorisées à être exécutées par le moteur de supervision de chaque collecteur. Par défaut, aucune liste blanche n'est définie et toutes les commandes sont autorisées. Cependant, à partir du moment où vous insérez une commande dans un fichier de liste blanche, toutes les autres commandes seront bloquées. Dans ce cas, assurez-vous d'autoriser toutes les commandes des plugins Centreon (voir ci-dessous). Aussi, si vous créez des plugins personnalisés avec vos propres commandes personnalisées, ou bien si vous utilisez un plugin de la communauté, vous devrez ajouter les commandes utilisées par ceux-ci à la liste blanche de commandes du collecteur qui exécutera le plugin.
