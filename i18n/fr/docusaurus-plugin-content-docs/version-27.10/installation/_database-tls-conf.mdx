@@ -66,17 +66,12 @@ Le résultat attendu est le suivant :
 have_ssl YES  and  ssl_ca /etc/pki/centreon-tls/rootCA.pem
 ```
 
-7. Définissez les variables d'environnement que PHP utilisera pour communiquer avec la base de données en mode TLS.
+7. Configurez PHP pour qu'il communique avec la base de données en mode TLS : dans le fichier **/usr/share/centreon/.env.local.php**, ajoutez les lignes suivantes dans la liste des paramètres, juste avant la ligne de fermeture `];` :
 
-```shell
-for f in /etc/centreon/.env /usr/share/centreon/.env; do
-  mkdir -p "$(dirname "$f")"
-  cat >> "$f" <<'EOF'
-DATABASE_SSL_ENABLED=1
-DATABASE_VERIFY_SERVER_CERT=1
-DATABASE_CA_PATH=/etc/pki/centreon-tls/rootCA.pem
-EOF
-done
+```php
+    'DATABASE_SSL_ENABLED' => '1',
+    'DATABASE_VERIFY_SERVER_CERT' => '1',
+    'DATABASE_CA_PATH' => '/etc/pki/centreon-tls/rootCA.pem',
 ```
 
 </TabItem>
@@ -132,17 +127,12 @@ Le résultat attendu est le suivant :
 have_ssl YES and ssl_ca /etc/pki/centreon-tls/rootCA.pem
 ```
 
-6. Définissez les variables d'environnement que PHP utilisera pour communiquer avec la base de données en mode TLS.
+6. Configurez PHP pour qu'il communique avec la base de données en mode TLS : dans le fichier **/usr/share/centreon/.env.local.php**, ajoutez les lignes suivantes dans la liste des paramètres, juste avant la ligne de fermeture `];` :
 
-```shell
-for f in /etc/centreon/.env /usr/share/centreon/.env; do
-  mkdir -p "$(dirname "$f")"
-  cat >> "$f" <<'EOF'
-DATABASE_SSL_ENABLED=1
-DATABASE_VERIFY_SERVER_CERT=1
-DATABASE_CA_PATH=/etc/pki/centreon-tls/rootCA.pem
-EOF
-done
+```php
+    'DATABASE_SSL_ENABLED' => '1',
+    'DATABASE_VERIFY_SERVER_CERT' => '1',
+    'DATABASE_CA_PATH' => '/etc/pki/centreon-tls/rootCA.pem',
 ```
 
 </TabItem>
@@ -209,17 +199,12 @@ Les résultats doivent être les suivants :
 have_ssl YES  and  ssl_ca /etc/mysql/centreon-tls/rootCA.pem
 ```
 
-6. Définissez les variables d'environnement que PHP utilisera pour communiquer avec la base de données en mode TLS.
+6. Configurez PHP pour qu'il communique avec la base de données en mode TLS : dans le fichier **/usr/share/centreon/.env.local.php**, ajoutez les lignes suivantes dans la liste des paramètres, juste avant la ligne de fermeture `];` :
 
-```shell
-for f in /etc/centreon/.env /usr/share/centreon/.env; do
-  mkdir -p "$(dirname "$f")"
-  cat >> "$f" <<'EOF'
-DATABASE_SSL_ENABLED=1
-DATABASE_VERIFY_SERVER_CERT=1
-DATABASE_CA_PATH=/etc/pki/centreon-tls/rootCA.pem
-EOF
-done
+```php
+    'DATABASE_SSL_ENABLED' => '1',
+    'DATABASE_VERIFY_SERVER_CERT' => '1',
+    'DATABASE_CA_PATH' => '/etc/ssl/certs/centreon-tls/rootCA.pem',
 ```
 
 </TabItem>
@@ -341,17 +326,12 @@ SSL: Cipher in use is TLS_AES_128_GCM_SHA256
 ```
 
 
-9. Définissez les variables d'environnement que PHP utilisera pour communiquer avec la base de données en mode TLS.
+9. Configurez PHP pour qu'il communique avec la base de données en mode TLS : dans le fichier **/usr/share/centreon/.env.local.php**, ajoutez les lignes suivantes dans la liste des paramètres, juste avant la ligne de fermeture `];` :
 
-```shell
-for f in /etc/centreon/.env /usr/share/centreon/.env; do
-  mkdir -p "$(dirname "$f")"
-  cat >> "$f" <<'EOF'
-DATABASE_SSL_ENABLED=1
-DATABASE_VERIFY_SERVER_CERT=1
-DATABASE_CA_PATH=/etc/pki/centreon-tls/rootCA.pem
-EOF
-done
+```php
+    'DATABASE_SSL_ENABLED' => '1',
+    'DATABASE_VERIFY_SERVER_CERT' => '1',
+    'DATABASE_CA_PATH' => '/etc/pki/centreon-tls/rootCA.pem',
 ```
 
 </TabItem>
@@ -466,17 +446,12 @@ SSL: Cipher in use is TLS_AES_128_GCM_SHA256
 ```
 
 
-9. Définissez les variables d'environnement que PHP utilisera pour communiquer avec la base de données en mode TLS.
+9. Configurez PHP pour qu'il communique avec la base de données en mode TLS : dans le fichier **/usr/share/centreon/.env.local.php**, ajoutez les lignes suivantes dans la liste des paramètres, juste avant la ligne de fermeture `];` :
 
-```shell
-for f in /etc/centreon/.env /usr/share/centreon/.env; do
-  mkdir -p "$(dirname "$f")"
-  cat >> "$f" <<'EOF'
-DATABASE_SSL_ENABLED=1
-DATABASE_VERIFY_SERVER_CERT=1
-DATABASE_CA_PATH=/etc/pki/centreon-tls/rootCA.pem
-EOF
-done
+```php
+    'DATABASE_SSL_ENABLED' => '1',
+    'DATABASE_VERIFY_SERVER_CERT' => '1',
+    'DATABASE_CA_PATH' => '/etc/pki/centreon-tls/rootCA.pem',
 ```
 
 </TabItem>
@@ -593,17 +568,12 @@ La sortie attendue est la suivante :
 SSL: Cipher in use is TLS_AES_128_GCM_SHA256
 ```
 
-8. Définissez les variables d'environnement que PHP utilisera pour communiquer avec la base de données en mode TLS.
+8. Configurez PHP pour qu'il communique avec la base de données en mode TLS : dans le fichier **/usr/share/centreon/.env.local.php**, ajoutez les lignes suivantes dans la liste des paramètres, juste avant la ligne de fermeture `];` :
 
-```shell
-for f in /etc/centreon/.env /usr/share/centreon/.env; do
-  mkdir -p "$(dirname "$f")"
-  cat >> "$f" <<'EOF'
-DATABASE_SSL_ENABLED=1
-DATABASE_VERIFY_SERVER_CERT=1
-DATABASE_CA_PATH=/etc/pki/centreon-tls/rootCA.pem
-EOF
-done
+```php
+    'DATABASE_SSL_ENABLED' => '1',
+    'DATABASE_VERIFY_SERVER_CERT' => '1',
+    'DATABASE_CA_PATH' => '/etc/ssl/certs/centreon-tls/rootCA.pem',
 ```
 
 </TabItem>
